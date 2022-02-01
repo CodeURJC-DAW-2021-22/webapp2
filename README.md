@@ -11,3 +11,12 @@
 ### Trello para la coordinación del equipo
 
 https://trello.com/b/Asdin3o1/proyecto
+
+## Fase 0
+
+◦ Entidades: 
+◦ Permisos de los usuarios:
+◦ Imágenes:
+◦ Gráficos: gráfico de barras con las ventas durante el último mes y poder filtrar por productos
+◦ Tecnología complementaria:
+◦ Algoritmo o consulta avanzada:

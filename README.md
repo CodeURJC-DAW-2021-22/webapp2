@@ -1,5 +1,22 @@
 # **FlyVenta**
 
+<div>
+<img src="Resources\Logos\LogoReadme.jpeg" width="300px">
+</p>
+</div>
+
+***
+* **Descripción:**
+FlyVenta es una aplicación web que nos permitirá vender y comprar artículos de segunda mano. Os preguntareis porque otra página de segunda mano si ya hay muchas, FlyVenta omitirá los mensajes con el comprador y a si evitar conversaciones odiosas.
+
+* ¿Entonces como podremos pedir a un vendedor que nos lo venda más barato el articulo? 
+
+    - En FlyVenta tendremos una opción para hacer una contraoferta, donde el vendedor puede aceptarla o no.
+
+
+**¡Empieza a vender desde hoy mismo!**
+***
+
 ## Equipo de desarrollo
 | **Apellidos, Nombre**   | **Correo de la universidad**     | **Cuenta Github** |
 |-------------------------|----------------------------------|-------------------|

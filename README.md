@@ -76,5 +76,5 @@ https://trello.com/b/Asdin3o1/proyecto
 ***
 * **Algoritmo o consulta avanzada:**
 
-    - A la hora de registrarse como usuario, se deberá elegir entre una y tres categorías de interés en base a la cual se le mostrarán diferentes anuncios en la pagina de inicio a dicho usuario. Cada anuncio deberá pertenecer a una categoría para facilitar el uso de esta funcionalidad. 
+    - Sugerimos productos al usuario en función de sus búsquedas realizadas. A partir de estas búsquedas analizamos una serie de parámetros como categoría, valoración del vendedor, rango de precio y tiempo del anuncio con la intención de mostrar unos productos que le resulten interesantes para comprar, así como mostrarle opciones dentro de lo que ha demostrado buscar que no ha visto y así facilitarle la búsqueda.
     

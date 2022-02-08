@@ -395,6 +395,7 @@ ol {
 
 .header__top__right__auth {
 	display: inline-block;
+	cursor: pointer;
 }
 
 .header__top__right__auth a {
@@ -679,12 +680,12 @@ ol {
 	border: none;
 	height: 48px;
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #231696;
 	padding-left: 20px;
 }
 
 .hero__search__form form input::placeholder {
-	color: #b2b2b2;
+	color: #231696;
 }
 
 .hero__search__form form button {
@@ -738,12 +739,12 @@ ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
-	color: #346cc0;
+	color: #ffffff;
 }
 
 .hero__text h2 {
 	font-size: 46px;
-	color: #252525;
+	color: #ffffff;
 	line-height: 52px;
 	font-weight: 700;
 	margin: 10px 0;
@@ -758,7 +759,7 @@ ol {
 -----------------------*/
 
 .categories__item {
-	height: 270px;
+	height: 200px;
 	position: relative;
 }
 

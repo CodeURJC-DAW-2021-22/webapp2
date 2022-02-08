@@ -64,9 +64,9 @@ https://trello.com/b/Asdin3o1/proyecto
     - Anuncio: los anuncios deberán contener al menos una imagen, subida por el usuario vendedor, de manera que se visualice el estado del producto.
 
 ***
-* **Graficos:**
+* **Gráficos:**
 
-    - La página web incluirá un gráfico de barras que muestre la cantidad de productos por categoría en la página principal.
+    - Cada usuario tendrá disponible un gráfico en su perfil donde visualizar los gastos y las ganancias de cada mes. El gráfico será de barras y representará con dos colores diferentes gastos y las ganancias.
 
 ***
 * **Tecnología complementaria:**

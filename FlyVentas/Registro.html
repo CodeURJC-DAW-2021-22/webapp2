@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/loginregistro.css" type="text/css">
 </head>
 
 <body>
@@ -41,21 +42,16 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
-                                <li>¡Empieza a vender hoy mismo!</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>                               
-                            </div>
                             <div class="header__top__right__language">
-                                <a href="#"><i class="fa fa-user"></i> Registarse</a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>  
                             </div>
                         </div>
                     </div>
@@ -85,58 +81,97 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Todos los departamentos</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Boxeo</a></li>
-                            <li><a href="#">Moda y acesorios</a></li>
-                            <li><a href="#">Informática</a></li>
-                            <li><a href="#">Imagen y sonido</a></li>
-                            <li><a href="#">Deporte y ocio</a></li>
-                            <li><a href="#">Hogar y jardin</a></li>
-                            <li><a href="#">Electrodomésticos</a></li>
-                            <li><a href="#">Libros</a></li>
-                            <li><a href="#">Cine y música</a></li>
-                            <li><a href="#">Colecionismo</a></li>
-                            <li><a href="#">Patinetes y bicicletas</a></li>
+                <div class="col-lg-12">
+                    
+                    <div class="form">
+
+                        <ul class="tab-group">
+                          <li class="tab active"><a href="#signup">Registrarse</a></li>
+                          <li class="tab"><a href="#login">Iniciar sesión</a></li>
                         </ul>
+                      
+                        <div class="tab-content">
+                          <div id="signup">
+                            
+                            <form action="/" method="post">                    
+                              <div class="top-row">
+                                <div class="field-wrap">
+                                  <label>
+                                    Nombre<span class="req">*</span>
+                                  </label>
+                                  <input type="text" required autocomplete="off" />
+                                </div>                     
+                                <div class="field-wrap">
+                                  <label>
+                                    Apellido<span class="req">*</span>
+                                  </label>
+                                  <input type="text" required autocomplete="off" />
+                                </div>
+                              </div>                  
+                              <div class="field-wrap">
+                                <label>
+                                  Dirección de Email<span class="req">*</span>
+                                </label>
+                                <input type="email" required autocomplete="off" />
+                              </div>                     
+                              <div class="field-wrap">
+                                <label>
+                                  Contraseña<span class="req">*</span>
+                                </label>
+                                <input type="password" required autocomplete="off" />
+                              </div>                     
+                              <button type="submit" class="button button-block" >Registrarse</button>                     
+                            </form>                   
+                          </div>                     
+                          <div id="login">
+                            <h1>Bienvenido!</h1>                     
+                            <form action="/" method="post">                      
+                              <div class="field-wrap">
+                                <label>
+                                    Dirección de Email<span class="req">*</span>
+                                </label>
+                                <input type="email" required autocomplete="off" />
+                              </div>                     
+                              <div class="field-wrap">
+                                <label>
+                                    Contraseña<span class="req">*</span>
+                                </label>
+                                <input type="password" required autocomplete="off" />
+                              </div>                    
+                              <p class="forgot"><a href="#">¿Problemas de acceso??</a></p>                     
+                              <button class="button button-block" >Iniciar sesión</button>                     
+                            </form>                     
+                          </div>                     
+                        </div><!-- tab-content -->                     
+                      </div> <!-- /form -->
+                </div>    
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
+
+    <!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/Correos.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="buscar es gratis">
-                                <button type="submit" class="site-btn">BUSCAR</button>
-                            </form>
-                        </div>                        
-                    </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/bannerFlyventas.jpg">
-                        <div class="hero__text">
-                            <span>FlyVentas</span>
-                            <h2>COMPRA O VENDE <br />100% seguro</h2>
-                            <p>Con unos costes de envios de chollo</p>
-                            <a href="#" class="primary-btn">¿A QUÉ ESPERAS?</a>
-                        </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/Bannerflyventas.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Hero Section End -->
-
+    </div>
+    <!-- Banner End -->
 
 
     <!-- Footer Section Begin -->
@@ -195,6 +230,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/loginyregistro.js"></script>
 
 
 

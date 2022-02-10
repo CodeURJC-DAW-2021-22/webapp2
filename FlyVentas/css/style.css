@@ -425,6 +425,7 @@ ol {
 	display: inline-block;
 	margin-right: 50px;
 	position: relative;
+	text-align: center;
 }
 
 .header__menu ul li .header__menu__dropdown {
@@ -588,7 +589,7 @@ ol {
 }
 
 .hero__categories__all {
-	background: #346cc0;
+	background: #073f54;
 	position: relative;
 	padding: 10px 25px 10px 40px;
 	cursor: pointer;
@@ -680,12 +681,12 @@ ol {
 	border: none;
 	height: 48px;
 	font-size: 16px;
-	color: #231696;
+	color: #000000;
 	padding-left: 20px;
 }
 
 .hero__search__form form input::placeholder {
-	color: #231696;
+	color: #000000;
 }
 
 .hero__search__form form button {
@@ -693,6 +694,7 @@ ol {
 	right: 0;
 	top: -1px;
 	height: 50px;
+	background: #073f54;
 }
 
 

@@ -703,9 +703,16 @@ ol {
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+	background: #f5f5f5;
 }
 
-.hero__text span {
+.hero__profile {
+	text-align: center;
+	height: 300px;
+	padding: 12px;
+}
+
+.hero__profile span {
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -713,16 +720,19 @@ ol {
 	color: #ffffff;
 }
 
-.hero__text h2 {
+.hero__profile h2 {
 	font-size: 46px;
-	color: #ffffff;
-	line-height: 52px;
-	font-weight: 700;
-	margin: 10px 0;
+	color: #000000;
 }
 
-.hero__text p {
+.hero__profile p {
 	margin-bottom: 35px;
+}
+
+.avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
 }
 
 /*---------------------

@@ -23,7 +23,8 @@
 7.  Featured Section
 8.  Latest Product Section
 9.  Contact
-10.  Footer Style
+10. Footer Style
+11. Producto
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
@@ -3451,4 +3452,135 @@ ol {
 
 	
 	
+}
+
+/*Producto*/
+
+#descripcionProducto{
+	text-align: center;
+	border-radius: 10px;
+    border-style: solid;
+	border-color: #346cc0;
+	margin-bottom: 30px;
+}
+
+#FotoPerfilClienteProducto{
+
+}
+
+#NombreVendedorProducto{
+	height: 20%;
+	text-align: center;
+	border-radius: 10px;
+    border-style: solid;
+	border-color: #346cc0;
+	
+	
+
+}
+
+#Valoracion{
+	height: 60%;
+}
+
+#ValoracionVendedorProducto{
+	margin-top: 5px;
+	height: 65%;
+	text-align: center;
+	border-radius: 10px;
+    border-style: solid;
+	border-color: #346cc0;
+
+}
+
+#perfilVendedorProducto{
+
+}
+
+
+
+#cajaCompra{
+	margin-top: 30px;
+	align-items: center;
+}
+
+.botonesComprar{
+	align-content: center;
+	text-align: center;
+}
+
+#cajaBotones{
+	align-items:flex-start;
+}
+
+
+
+.BotonProducto {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+
+.botonComprarProducto {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+	height: 120%;
+    width: 60%;
+	margin: 20px;
+}
+
+.botonComprarProducto:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.botonContraOfertaProducto {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #d80808;
+	height: 120%;
+    width: 60%;
+	margin: 20px;
+}
+
+.botonContraOfertaProducto:hover {
+    background-color: #d80808;
+    color: white;
+}
+
+/*Compra*/
+
+.metodosPagoCompra{
+	text-align: center;
+}
+
+.CajaBotonesCompra{
+  margin-bottom: 10px;
+}
+
+.precioCompra{
+	
+	text-align: center;
+}
+
+.FotoProductoCompra{
+	height: 20%;
+}
+
+.descripcionCompra{
+	border-radius: 10px;
+    border-style: solid;
+	border-color: #346cc0;
+
 }

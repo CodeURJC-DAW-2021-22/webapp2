@@ -78,3 +78,58 @@ https://trello.com/b/Asdin3o1/proyecto
 
     - Sugerimos productos al usuario en función de sus búsquedas realizadas. A partir de estas búsquedas analizamos una serie de parámetros como categoría, valoración del vendedor, rango de precio y tiempo del anuncio con la intención de mostrar unos productos que le resulten interesantes para comprar, así como mostrarle opciones dentro de lo que ha demostrado buscar que no ha visto y así facilitarle la búsqueda.
     
+***
+* **Capturas de pantalla fase 1:**
+    
+    - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
+    <div>
+    <a><img src="img\screenshot_fase1\index.png"></a>
+    </div>
+     
+    - Desde donde nos encargaremos de buscar el producto que nos interesa.
+    <div>
+    <a><img src="img\screenshot_fase1\busqueda.png"></a>
+    </div>
+    
+    - La página donde procedemos con el pago.
+    <div>
+    <a><img src="img\screenshot_fase1\checkout.png"></a>
+    </div>
+
+    - Podremos seleccionar el método de pago que no sinteresa, también nos mostrará una breve información del producto seleccionado y el precio final, por último tenemos 2 botones que nos permiten proceder con la pasarela de pago o bien cancelar la compra.
+    <div>
+    <a><img src="img\screenshot_fase1\compra.png"></a>
+    </div>
+
+    - Mostramos cómo contactar con la empresa así como los datos.
+    <div>
+    <a><img src="img\screenshot_fase1\contact.png"></a>
+    </div>
+
+    - Una pantalla de inicio de sesión que permite pasar a la de registro
+    <div>
+    <a><img src="img\screenshot_fase1\login.png"></a>
+    </div>
+
+    - Página de tu propio perfil donde tendrás los datos introducidos en la página.
+    <div>
+    <a><img src="img\screenshot_fase1\perfil.png"></a>
+    </div>
+
+    - Página que muestra fotos, descripción y vendedor del producto, por último la opción de comprar o hacer la contraoferta al vendedor. 
+    <div>
+    <a><img src="img\screenshot_fase1\producto.png"></a>
+    </div>
+
+    - Primera fase del registro donde se meten unos datos básicos.
+    <div>
+    <a><img src="img\screenshot_fase1\registro.png"></a>
+    </div>
+
+    - Pulsando un botón muestra un desplegable para seguir rellenando datos.
+    <div>
+    <a><img src="img\screenshot_fase1\segundaFaseRegistro.png"></a>
+    </div>
+
+
+

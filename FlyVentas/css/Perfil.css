@@ -188,6 +188,13 @@
 /*! ============= Subir Producto ============= */
 /*! =================================================*/
 
+.tituloSubirAnuncio h1{
+	align-items: center;
+	margin-left: 30%;
+	margin-bottom: 20px;
+	color: #073f54;
+}
+
 .field {
 	display: flex;
 	flex-direction: column;

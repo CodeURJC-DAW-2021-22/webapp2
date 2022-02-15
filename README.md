@@ -83,7 +83,8 @@ https://trello.com/b/Asdin3o1/proyecto
     
     - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
     <div>
-    <a><img src="img\screenshot_fase1\index.png"></a>
+    <img src="img\screenshot_fase1\index.png">
+    </p>
     </div>
      
     - Desde donde nos encargaremos de buscar el producto que nos interesa.

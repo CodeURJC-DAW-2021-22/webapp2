@@ -72,6 +72,12 @@
     font-weight: 300;
     margin: 0 0 40px;
   }
+  h4 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    margin: 0 0 40px;
+  }
   
   label {
     position: absolute;
@@ -128,6 +134,7 @@
     position: relative;
     margin-bottom: 40px;
   }
+  
   
   .top-row:after {
     content: "";

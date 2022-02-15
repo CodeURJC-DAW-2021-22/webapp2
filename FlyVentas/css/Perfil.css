@@ -183,3 +183,85 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/*! =================================================*/
+/*! ============= Subir Producto ============= */
+/*! =================================================*/
+
+.field {
+	display: flex;
+	flex-direction: column;
+
+	width: 20rem;
+	margin: 0.5rem 0;
+
+	width: 100%;
+	background: #f5f5f5;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 2px solid #073f54;
+	box-shadow: var(--sombra);
+	font-size: 18px;
+}
+
+.field input {
+	font-size: 1.1rem;
+	width: 50%;
+	height: 2.2rem;
+	padding-top: 0.5rem;
+	padding-left: 0.5rem;
+	border-radius: 5px;
+	border: none;
+}
+
+.field select {
+	width: 20%;
+}
+
+label {
+	font-size: 30px;
+}
+
+.textbox {
+	display: flex;
+	flex-direction: column;
+	width: 30rem;
+	margin: 0.75rem 0;
+
+	width: 100%;
+	background: #f5f5f5;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 2px solid #696969;
+	box-shadow: var(--sombra);
+	font-size: 18px;
+}
+
+textarea {
+	font-size: 1.1rem;
+	width: 70%;
+	height: 15rem;
+	padding-top: 0.5rem;
+	padding-left: 0.5rem;
+	border-radius: 5px;
+	border: none;
+}
+
+.fieldFoto {
+	display: flex;
+	flex-direction: column;
+
+	width: 20rem;
+	margin: 0.5rem 0;
+	height: 10rem;
+	width: 100%;
+	background: #f5f5f5;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+	border: 2px solid #073f54;
+	box-shadow: var(--sombra);
+	font-size: 18px;
+}

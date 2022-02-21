@@ -88,9 +88,9 @@
 /*! =================================================*/
 
 .pregunta {
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 20px;
-	line-height: 20px;
+	line-height: 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -136,6 +136,38 @@
 
 .avatar img {
 	width: 14px;
+}
+
+/*! =================================================*/
+/*! ============= Mis Anuncios ============= */
+/*! =================================================*/
+
+.product__sold__label {
+	height: 45px;
+	width: 70px;
+	background: #dd2222;
+	border-radius: 50%;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	left: 15px;
+	top: 15px
+}
+
+.product__bought__label {
+	height: 45px;
+	width: 80px;
+	background: #dd2222;
+	border-radius: 50%;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	left: 15px;
+	top: 15px
 }
 
 /*! =================================================*/

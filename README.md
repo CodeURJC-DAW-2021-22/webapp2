@@ -84,52 +84,59 @@ https://trello.com/b/Asdin3o1/proyecto
     - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
 
     <div>
-    <img src="img\screenshot_fase1\index.png" width="300px">
+    <img src="FlyVentas/img/screenshot_fase1/index.png" width="300px">
     </div>
      
     - Desde donde nos encargaremos de buscar el producto que nos interesa.
     <div>
-    <img src="img\screenshot_fase1\busqueda.png">
+    <img src="FlyVentas/img/screenshot_fase1/busqueda.png">
     </div>
     
     - La página donde procedemos con el pago.
     <div>
-    <img src="img\screenshot_fase1\checkout.png">
+    <img src="FlyVentas/img/screenshot_fase1/checkout.png">
     </div>
 
     - Podremos seleccionar el método de pago que no sinteresa, también nos mostrará una breve información del producto seleccionado y el precio final, por último tenemos 2 botones que nos permiten proceder con la pasarela de pago o bien cancelar la compra.
     <div>
-    <img src="img\screenshot_fase1\compra.png">
+    <img src="FlyVentas/img/screenshot_fase1/compra.png">
     </div>
 
     - Mostramos cómo contactar con la empresa así como los datos.
     <div>
-    <img src="img\screenshot_fase1\contact.png">
+    <img src="FlyVentas/img/screenshot_fase1/contact.png">
     </div>
 
     - Una pantalla de inicio de sesión que permite pasar a la de registro
     <div>
-    <img src="img\screenshot_fase1\login.png">
+    <img src="FlyVentas/img/screenshot_fase1/login.png">
     </div>
 
     - Página de tu propio perfil donde tendrás los datos introducidos en la página.
     <div>
-    <img src="img\screenshot_fase1\perfil.png">
+    <img src="FlyVentas/img/screenshot_fase1/perfil.png">
     </div>
 
     - Página que muestra fotos, descripción y vendedor del producto, por último la opción de comprar o hacer la contraoferta al vendedor. 
     <div>
-    <img src="img\screenshot_fase1\producto.png">
+    <img src="FlyVentas/img/screenshot_fase1/producto.png">
     </div>
 
     - Primera fase del registro donde se meten unos datos básicos.
     <div>
-    <img src="img\screenshot_fase1\registro.png">
+    <img src="FlyVentas/img/screenshot_fase1/registro.png">
     </div>
 
     - Pulsando un botón muestra un desplegable para seguir rellenando datos.
     <div>
-    <img src="img\screenshot_fase1\segundaFaseRegistro.png">
+    <img src="FlyVentas/img/screenshot_fase1/segundaFaseRegistro.png">
+    </div>
+
+***
+* **Diagrama de navegación fase 1:**
+
+    <div>
+    <img src="Resources/navigationDiagram.png">
     </div>
 
 

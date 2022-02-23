@@ -2,6 +2,7 @@ package es.codeurjc.Flyventas.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +18,8 @@ public class Product {
     private int price;
     private boolean isSold;
 
+    @OneToOne
+    private User user;
 
     public Long getId() {
         return id;

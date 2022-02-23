@@ -13,9 +13,9 @@ public class Product {
 
     private String title;
     private String description;
+    private String category;
     private int price;
     private boolean isSold;
-
 
 
     public Long getId() {
@@ -32,6 +32,10 @@ public class Product {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String getDescription() {

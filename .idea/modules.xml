@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FlyVentas-phase-2/flyventas-spring.iml" filepath="$PROJECT_DIR$/FlyVentas-phase-2/flyventas-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/flyventas-spring.iml" filepath="$PROJECT_DIR$/backend/flyventas-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/webapp2.iml" filepath="$PROJECT_DIR$/webapp2.iml" />
     </modules>
   </component>

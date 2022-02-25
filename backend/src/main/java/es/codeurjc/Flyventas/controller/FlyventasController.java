@@ -87,6 +87,13 @@ public class FlyventasController {
 		 
 		 return "busqueda";
 	 }
+	 @GetMapping("/registro2")
+	 public String registro2(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
+		 return "registro2";
+	 }
 	 
 	 
 }

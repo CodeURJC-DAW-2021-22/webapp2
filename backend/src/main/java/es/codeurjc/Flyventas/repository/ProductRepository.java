@@ -16,7 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     public List<Product> findByTitle(String title);
 
     //Otra query para el user cuando esté listo
-
+/*
     @Query("SELECT p FROM Product WHERE lo<p.price<high")
     public List<Product> findByPrice(int lo, int high);
+    */
 }

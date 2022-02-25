@@ -1,17 +1,12 @@
-package es.codeurjc.Flyventas.controller;
+package es.codeurjc.Flyventas;
 
-
-//import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-//Hay que meter los repositorios de las bbdd @Autowired
 
 @Controller
-public class FlyventasController {
+public class Controladorlogin {
 	
 	 @GetMapping("/")
 	 public String main(Model model) {
@@ -20,59 +15,6 @@ public class FlyventasController {
 		 
 		 return "index";
 	 }
-	 @GetMapping("/index.html")
-	 public String main2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "index";
-	 }
-	 
-	 
-	 @GetMapping("/login")
-	 public String login(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "login";
-	 }
-	 @GetMapping("/login.html")
-	 public String login2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "login";
-	 }
-	 @GetMapping("/Registro.html")
-	 public String Registro(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "Registro";
-	 }
-	 @GetMapping("/registro")
-	 public String Registro2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "Registro";
-	 }
-	 /*
-	 @GetMapping("/producto/{id}")
-	 public String producto(Model model, @PathVariable long id) {
-		 Optional<Product> Product = servicio.findById(id);
-			if (Product.isPresent()) {
-				model.addAttribute("product", product.get());
-				return "product";
-			} else {
-				return "index";
-			}
-		// model.addAttribute("name", "World");
-		 
-		 return "Producto";
-		 	 
-	 }
-	 */
 	 @GetMapping("/busqueda")
 	 public String busqueda(Model model) {
 		 
@@ -80,15 +22,27 @@ public class FlyventasController {
 		 
 		 return "busqueda";
 	 }
-	 @GetMapping("/busqueda/{id}")
-	 public String busquedaid(Model model, @PathVariable long id) {
+	 @GetMapping("/login")
+	 public String login(Model model) {
 		 
 		// model.addAttribute("name", "World");
 		 
-		 return "busqueda";
+		 return "login";
 	 }
-	 
-	 
+	 @GetMapping("/p")
+	 public String producto(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
+		 return "Producto";
+	 }
+	 @GetMapping("/registro")
+	 public String registro(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
+		 return "Registro";
+	 }
 }
 
 

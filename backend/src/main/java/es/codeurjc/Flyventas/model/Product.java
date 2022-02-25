@@ -1,9 +1,6 @@
 package es.codeurjc.Flyventas.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="id_products")
@@ -18,15 +15,22 @@ public class Product {
     private int price;
     private boolean isSold;
 
-    @OneToOne
-    private User user;
+    /*@ManyToOne
+    private User user; */
+    //de momento lo comento para poder crear productos de ejemplo sin insertar un usuario
+    private String user;
+
+    public void setProduct(Long id, String title, String description, String category, int price, String user) {
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.price = price;
+        this.isSold = false;
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -63,6 +67,10 @@ public class Product {
 
     public void setIsSold(boolean sold) {
         this.isSold = sold;
+    }
+
+    public String getUser() {
+        return user;
     }
 }
 

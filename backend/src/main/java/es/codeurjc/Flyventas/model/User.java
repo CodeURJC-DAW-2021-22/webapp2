@@ -1,8 +1,6 @@
 package es.codeurjc.Flyventas.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="id_users")
@@ -16,6 +14,8 @@ public class User {
     private boolean isAdmin;
     private boolean isBanned;
 
+    /*@OneToMany(mappedBy = "user")
+    private <List>Product products;*/
 
     public String getId() {
         return id;

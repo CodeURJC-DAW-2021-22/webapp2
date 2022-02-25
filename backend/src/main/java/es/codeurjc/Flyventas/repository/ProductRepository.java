@@ -15,7 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.title LIKE :title")
     public List<Product> findByTitle(String title);
 
-    //Otra query para el user cuando esté listo
+    //Otra query para buscar por cada user cuando esté listo
 /*
     @Query("SELECT p FROM Product WHERE lo<p.price<high")
     public List<Product> findByPrice(int lo, int high);

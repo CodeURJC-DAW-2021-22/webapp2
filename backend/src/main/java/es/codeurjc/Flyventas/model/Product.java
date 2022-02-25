@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    private long id;
+    private int id;
 
     private String title;
     private String description;
@@ -20,7 +20,9 @@ public class Product {
     //de momento lo comento para poder crear productos de ejemplo sin insertar un usuario
     private String user;
 
-    public void setProduct(Long id, String title, String description, String category, int price, String user) {
+    public Product() {}
+
+    public Product(int id, String title, String description, String category, int price, String user) {
         this.title = title;
         this.description = description;
         this.category = category;
@@ -29,7 +31,7 @@ public class Product {
         this.user = user;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

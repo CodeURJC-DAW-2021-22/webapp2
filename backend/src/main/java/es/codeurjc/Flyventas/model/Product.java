@@ -1,21 +1,26 @@
 package es.codeurjc.Flyventas.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
+import java.sql.Blob;
 
 @Entity
 @Table(name="id_products")
-public class Product implements Serializable {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id = null;
 
     private String title;
     private String description;
     private String category;
     private int price;
     private boolean isSold;
+    @Lob
+	private Blob imageFile;
+
+	private boolean image;
 
     /*@ManyToOne
     private User user; */
@@ -33,9 +38,14 @@ public class Product implements Serializable {
         this.user = user;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 
     public String getTitle() {
         return title;
@@ -76,6 +86,21 @@ public class Product implements Serializable {
     public String getUser() {
         return user;
     }
+    public Blob getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(Blob image) {
+		this.imageFile = image;
+	}
+
+	public boolean getImage(){
+		return this.image;
+	}
+
+	public void setImage(boolean image){
+		this.image = image;
+	}
 }
 
 

@@ -104,13 +104,13 @@
                         </form>
                     </div>                        
                 </div>
-
+{{#Product.id}}
                 <div class="section-title" id="TituloAnuncioProducto">
-                    <h1>Titulo anuncio</h1>
+                    <h1>{{title}}</h1>
                 </div>
-
-                <div class="hero__item set-bg" data-setbg="img/hero/bannerFlyventas.jpg"> <!-- ad photos begin --> 
-                    
+                {{#image}}
+                <div class="hero__item set-bg" data-setbg="/Product/{{Product.id}}/image"> <!-- ad photos begin --> 
+                {{/image}}   
                 </div> <!-- ad photos end --> 
             </div>
         </div> 
@@ -122,8 +122,8 @@
                     <h2>Descripción</h2>
                 </div>
                 <div id="descripcionProducto"> 
-                  <p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
-                      Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500. </p>
+                
+                  <p>{{description}}</p>
                 </div>
             </div> <!-- description box end -->   
 
@@ -138,8 +138,7 @@
                         </div>
                         <div class="col-lg-8 col-md-8">
                             <div id="NombreVendedorProducto">
-                               <p>NOMBRE VENDEDOR</p> 
-                               <a href=""> Otros articulos del vendedor </a>
+                               <p>{{user}}</p>                     
                             </div>
                             <div id="ValoracionVendedorProducto">
                                <p>VALORACION VENDEDOR GENERAL</p> 
@@ -176,6 +175,7 @@
     </section>
 </section>
 <!-- Hero Section End -->
+{{/Product.id}}
 
 
 

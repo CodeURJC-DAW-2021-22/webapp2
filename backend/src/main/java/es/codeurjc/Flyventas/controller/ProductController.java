@@ -2,9 +2,18 @@ package es.codeurjc.Flyventas.controller;
 
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.repository.ProductRepository;
+import es.codeurjc.Flyventas.services.Productservices;
+
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -25,4 +34,30 @@ public class ProductController {
 
 
     }
+    
+    
+    @GetMapping("/busqueda/{category}")
+	public String showBusqueda(Model model, @PathVariable String category) {
+
+		Optional<Product> Product = Productservices.findByCategory(category);
+		if (Product.isPresent()) {
+			model.addAttribute("Product", Product.get());
+			return "Product";
+		} else {
+			return "index";
+		}
+
+	}@GetMapping("/busquedanom/{title}")
+	public String showBusquedanombre(Model model, @PathVariable String title) {
+
+		Optional<Product> Product = Productservices.findByTitle(title);
+		if (Product.isPresent()) {
+			model.addAttribute("Product", Product.get());
+			return "Product";
+		} else {
+			return "index";
+		}
+
+	}
+    
 }

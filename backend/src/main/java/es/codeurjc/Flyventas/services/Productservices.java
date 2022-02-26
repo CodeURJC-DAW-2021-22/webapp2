@@ -13,7 +13,7 @@ import es.codeurjc.Flyventas.model.Product;
 
 @Service
 public class Productservices {
-	
+	/*
 	@Autowired
 	private ProductRepository repository;
 	
@@ -45,4 +45,6 @@ public class Productservices {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+
+	 */
 }

@@ -1,12 +1,14 @@
 package es.codeurjc.Flyventas.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="id_products")
-public class Product {
+public class Product implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String title;

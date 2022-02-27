@@ -35,7 +35,7 @@ public class ProductController {
 
     }
     
-    
+ /*   
     @GetMapping("/busqueda/{category}")
 	public String showBusqueda(Model model, @PathVariable String category) {
 
@@ -59,5 +59,5 @@ public class ProductController {
 		}
 
 	}
-    
+    */
 }

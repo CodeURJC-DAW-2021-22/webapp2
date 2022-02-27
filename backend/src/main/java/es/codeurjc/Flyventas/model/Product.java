@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.sql.Blob;
 
 @Entity
-@Table(name="id_products")
+
 public class Product {
 
     @Id
@@ -30,6 +30,7 @@ public class Product {
     public Product() {}
 
     public Product(int id, String title, String description, String category, int price, String user) {
+    	this.id = (long) id;
         this.title = title;
         this.description = description;
         this.category = category;

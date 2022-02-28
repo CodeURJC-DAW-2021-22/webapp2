@@ -10,98 +10,81 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id = null;
+    private Long id;
 
+    @Column
     private String title;
+    @Column
     private String description;
+    @Column
     private String category;
-    private int price;
+    @Column
+    private float price;
+    @Column
     private boolean isSold;
     @Lob
-	private Blob imageFile;
+    private Blob imageFile;
 
-	private boolean image;
+    private boolean image; //Ni idea de qué es este booleano xd, pero seguro que me la agarra con la mano
 
-    /*@ManyToOne
-    private User user; */
-    //de momento lo comento para poder crear productos de ejemplo sin insertar un usuario
-    private String user;
+    @ManyToOne
+    private User user;
+
+    @OneToOne(mappedBy = "product")
+    private Transaction transaction;
+
+    //Constructores
 
     public Product() {}
 
-    public Product(int id, String title, String description, String category, int price, String user) {
-    	this.id = (long) id;
+    public Product(long id, String title, String description, String category, float price) {
+        super();
+        this.id = id;
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
         this.isSold = false;
-        this.user = user;
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", titulo=" + title + ", descripción=" + description + ", categoría=" + category + ", precio="
+                + price + ", isSold=" + isSold + "]";
     }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    //Setters y Getters
 
+    public long getId() { return id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public void setId(long id) { this.id = id; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public String getTitle() { return title; }
 
-    public String getCategory() {
-        return category;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getCategory() { return category; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public String getDescription() { return description; }
 
-    public int getPrice() {
-        return price;
-    }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+    public float getPrice() { return price; }
 
-    public boolean getIsSold() {
-        return isSold;
-    }
+    public void setPrice(int price) { this.price = price; }
 
-    public void setIsSold(boolean sold) {
-        this.isSold = sold;
-    }
+    public boolean getIsSold() { return isSold; }
 
-    public String getUser() {
-        return user;
-    }
-    public Blob getImageFile() {
-		return imageFile;
-	}
+    public void setIsSold(boolean sold) { this.isSold = sold; }
 
-	public void setImageFile(Blob image) {
-		this.imageFile = image;
-	}
+    public Blob getImageFile() { return imageFile; }
 
-	public boolean getImage(){
-		return this.image;
-	}
+    public void setImageFile(Blob image) { this.imageFile = image; }
 
-	public void setImage(boolean image){
-		this.image = image;
-	}
+    public boolean getImage(){ return this.image; }
+
+    public void setImage(boolean image){ this.image = image; }
+
 }
 
 

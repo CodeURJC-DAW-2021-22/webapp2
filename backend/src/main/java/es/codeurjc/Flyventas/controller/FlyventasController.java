@@ -81,17 +81,37 @@ public class FlyventasController {
 		 	 
 	 }
 	 */
-/*	 @RequestMapping("/busqueda")
-	 public String busqueda(Model model, @RequestParam String search) {
-
-		 model.addAttribute("search", search);
-		 return "busqueda";
-	 } */
-
-	 @GetMapping("/busqueda{title}")
-	 public String busquedaid(Model model, @PathVariable String title) {
+	 @RequestMapping("/busqueda")
+	 public String busqueda(Model model, @RequestParam String title) {
 
 		 Optional<Product> Product = productServices.findByTitle(title);
+		 model.addAttribute("search", title);
+		 if (Product.isPresent()) {
+			 model.addAttribute("Product", Product.get());
+			 return "busqueda";
+		 } else {
+			 return "searchnotfound";
+		 }
+	 }
+
+	@RequestMapping("/category/{category}")
+	public String CategorySearch(Model model, @PathVariable String category) {
+
+		Optional<Product> Product = productServices.findByCategory(category);
+		model.addAttribute("search", category);
+		if (Product.isPresent()) {
+			model.addAttribute("Product", Product.get().getTitle());
+			model.addAttribute("Price", Product.get().getPrice());
+			model.addAttribute("search", category);
+			return "busqueda";
+		} else {
+			return "searchnotfound";
+		}
+	}
+	 /*@GetMapping("/busqueda{title}")
+	 public String busquedaid(Model model, @PathVariable String title) {
+
+		 Optional<Product> Product = productServices.findAllByTitle(title);
 		 if (Product.isPresent()) {
 			 model.addAttribute("Product", Product.get());
 			 return "busqueda";
@@ -99,23 +119,23 @@ public class FlyventasController {
 		else {
 			 return "index";
 		 }
-	 }
-	 @GetMapping("/registro2")
-	 public String registro2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "registro2";
-	 }
-	 
-	 @GetMapping("/perfil")
-	 public String perfil() {
-		 
-		 
-		 return "perfil";
-	 }
-	 
-	 
+	 } */
+		 @GetMapping("/registro2")
+		 public String registro2 (Model model){
+
+			 // model.addAttribute("name", "World");
+
+			 return "registro2";
+		 }
+
+		 @GetMapping("/perfil")
+		 public String perfil () {
+
+
+			 return "perfil";
+		 }
+
+
 }
 
 

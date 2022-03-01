@@ -16,9 +16,9 @@ public class ProductServices {
 	@Autowired
 	private ProductRepository repository;
 	
-	/*public List<Product> findByCategory() {
+	public Optional<Product> findByCategory(String category) {
 		return repository.findProductByCategory(category);
-	}*/
+	}
 	
 	public Optional<Product> findByTitle(String title) {
 		return repository.findByTitle(title);

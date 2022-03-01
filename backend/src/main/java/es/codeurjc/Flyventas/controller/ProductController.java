@@ -21,12 +21,6 @@ public class ProductController {
     @Autowired
     private ProductRepository products;
 
-    @RequestMapping("/subirProducto")
-    public String newProduct(@RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float Price, @RequestParam boolean isSold){
-        products.save(new Product(name, description, category, Price, isSold));
-
-        return "index";
-    }
 
     @PostConstruct
     public void init() {
@@ -35,10 +29,14 @@ public class ProductController {
         products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false));
         products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false));
         products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false));
-
-
     }
 
+    @PostMapping("/subirProducto")
+    public String newProduct(@RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float price){
+        products.save(new Product(name, description, category, price, false));
+
+        return "perfil";
+    }
 
 
     /* ejemplos con usuario

@@ -27,6 +27,8 @@ public class Product {
 
     //public Product(String name, String description, String category, float price, boolean isSold) {}
 
+    public Product() {}
+
     public Product(String title, String description, String category, float price, boolean isSold) {
         this.title = title;
         this.description = description;
@@ -35,9 +37,7 @@ public class Product {
         this.isSold = isSold;
     }
 
-    public Product() {
 
-    }
 
 
     public String getTitle() {
@@ -79,6 +79,14 @@ public class Product {
     public void setIsSold(boolean isSold) {
         this.isSold = isSold;
     }
+
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category +  ", price="
+                + price + ", isSold=" + isSold;
+    }
+
 
 //    public String getUser() {
 //        return user;

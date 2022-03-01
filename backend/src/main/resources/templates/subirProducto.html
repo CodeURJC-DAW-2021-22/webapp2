@@ -69,18 +69,18 @@
     <div class="container">
         <div class="row"> 
             <div class="col-lg-12">
-                <form>
+                <form action="/subirProducto" method="POST">
                     <div class="tituloSubirAnuncio">
                         <h1>Nuevo anuncio</h1>
                     </div>
                     <div class="field">
                         <label for="tituloSubirAnuncio">Título del Anuncio: </label><br>
-                        <input type="text" id="tituloSubirAnuncio" placeholder="En pocas palabras..." required><br>
+                        <input type="text" name="name" id="tituloSubirAnuncio" placeholder="En pocas palabras..." required><br>
                     </div>
                     <div class="field">
-                        <label for="categoriaSubirAnuncio">Categoría: </label><br>
-                        <select id="categoriaSubirAnuncio">
-                            <option selected disabled>Boxeo</option>
+                        <label >Categoría: </label><br>
+                        <select type="text" name="category">
+                            <option selected>Boxeo</option>
                             <option>Moda y Accesorios</option>
                             <option>Informática</option>
                             <option>Imagen y sonido</option>
@@ -95,13 +95,13 @@
                     </div>
                     <div class="textbox">
                         <label for="descripcionSubirAnuncio">Descripción: </label><br>
-                        <textarea id="descripcionSubirAnuncio" placeholder="Añade información relevante como estado, modelo, color..." required></textarea>
+                        <textarea id="descripcionSubirAnuncio" type="text" name="description" placeholder="Añade información relevante como estado, modelo, color..." required></textarea>
                     </div>
                     <div class="field">
-                        <label for="precioSubirAnuncio">Precio: </label><br>
+                        <label>Precio: </label><br>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="number" id="precioSubirAnuncio" maxlength="8" required>
+                                <input type="number" name="price" maxlength="8" required>
                             </div>
                             <div class="col-md-1">
                                 <a>€</a>
@@ -113,28 +113,40 @@
                         <input type="file" id="fotoAnuncio">
                         
                     </div>
+
+                    <div class="col-lg-12 col-md-12" id="cajaCompra"> <!-- sale box begin -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 botonesComprar">
+                                <button type="submit" class="BotonProducto botonComprarProducto">Subir Anuncio</button>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 botonesComprar">
+                                <button class="BotonProducto botonContraOfertaProducto">Cancelar</button>
+                            </div>
+                        </div>
+
+                    </div> <!-- sale box end -->
+
                 </form>
             </div>
         </div> 
     </div>
-    <section class="featured spad">
-        <div class="container">   
-            <div class="col-lg-12 col-md-12" id="cajaCompra"> <!-- sale box begin -->
-                  <div class="row">
-                     <div class="col-lg-6 col-md-6 botonesComprar">
-                        <button class="BotonProducto botonComprarProducto">Subir Anuncio</button>
-                     </div>
+<!--    <section class="featured spad">-->
+<!--        <div class="container">   -->
+<!--            <div class="col-lg-12 col-md-12" id="cajaCompra"> &lt;!&ndash; sale box begin &ndash;&gt;-->
+<!--                  <div class="row">-->
+<!--                     <div class="col-lg-6 col-md-6 botonesComprar">-->
+<!--                        <button type="submit" class="BotonProducto botonComprarProducto">Subir Anuncio</button>-->
+<!--                     </div>-->
 
-                     <div class="col-lg-6 col-md-6 botonesComprar">
-                        <button class="BotonProducto botonContraOfertaProducto">Cancelar</button>
-                     </div>   
-                  </div>   
+<!--                     <div class="col-lg-6 col-md-6 botonesComprar">-->
+<!--                        <button class="BotonProducto botonContraOfertaProducto">Cancelar</button>-->
+<!--                     </div>   -->
+<!--                  </div>   -->
 
-            </div> <!-- sale box end -->
-
-    
-        </div>
-    </section>
+<!--            </div> &lt;!&ndash; sale box end &ndash;&gt;-->
+<!--        </div>-->
+<!--    </section>-->
 </section>
 <!-- Hero Section End -->
 

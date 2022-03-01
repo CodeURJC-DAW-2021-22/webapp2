@@ -98,7 +98,14 @@ public class FlyventasController {
 		 
 		 return "perfil";
 	 }
-	 
+
+	@GetMapping("/subirProducto")
+	public String subirProducto() {
+
+
+		return "subirProducto";
+	}
+
 	 
 }
 

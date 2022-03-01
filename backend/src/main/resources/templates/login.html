@@ -96,32 +96,109 @@
                           </div>  
                           <div id="signup">
                             
-                            <form action="/" method="post">                    
+                            <form action="/perfil" "method=post">                    
                               <div class="top-row">
                                 <div class="field-wrap">
                                   <label>
                                     Nombre<span class="req">*</span>
                                   </label>
-                                  <input type="text" required autocomplete="off" />
+                                  <input type="text" required autocomplete="off" name='nombre'/>
                                 </div>                     
                                 <div class="field-wrap">
                                   <label>
                                     Apellido<span class="req">*</span>
                                   </label>
-                                  <input type="text" required autocomplete="off" />
+                                  <input type="text" required autocomplete="off" name='apellido' />
                                 </div>
                               </div>                  
                               <div class="field-wrap">
                                 <label>
                                   Dirección de Email<span class="req">*</span>
                                 </label>
-                                <input type="email" required autocomplete="off" />
+                                <input type="email" required autocomplete="off" name='email'/>
                               </div>                     
                               <div class="field-wrap">
                                 <label>
                                   Contraseña<span class="req">*</span>
                                 </label>
-                                <input type="password" required autocomplete="off" />
+                                <input type="password" required autocomplete="off" name='encodedPassword' />
+                              </div>
+                              <div class="top-row">
+                                <div class="field-wrap">
+                                  <label>
+                                    Fecha de Nacimiento<span class="req">*</span>
+                                  </label>
+                                  <input type="date" required autocomplete="off" />
+                                </div>                     
+                                <div class="field-wrap">
+                                  <label>
+                                    Provincia<span class="req">*</span>
+                                  </label>
+                                  <input type="text" required autocomplete="off" />
+                                </div>
+                              </div>                  
+                              <div class="field-wrap">
+                                <label>
+                                  Direccion<span class="req">*</span>
+                                </label>
+                                <input type="text" required autocomplete="off" name='address'/>
+                              </div>                     
+                              <div class="field-wrap">
+                                <label>
+                                  CÃ³digo Postal<span class="req">*</span>
+                                </label>
+                                <input type="text" required autocomplete="off" />
+                              </div>
+                              <h4>Selecciona tres categorias de tu interÃ©s</h4>
+                              <div class="field-wrap">
+                                <div class="input-group">
+                                    <select name="opcion1" name='categoria1'>
+
+                                        <option selected> Moda y acesorios</option>
+                                        <option> InformÃ¡tica</option>
+                                        <option> Imagen y sonido</option>
+                                        <option> Deporte y ocio</option>
+                                        <option> Hogar y jardin</option>
+                                        <option> ElectrodomÃ©sticos</option>
+                                        <option> Libros</option>
+                                        <option> Cine y mÃºsica</option>
+                                        <option> Colecionismo</option>
+                                        <option> Patinetes y bicicletas</option>
+                                        <option>Tren</option>
+                                        
+                                    </select>
+                                    <select name="opcion2" name='categoria2'>
+
+                                        <option> Moda y acesorios</option>
+                                        <option selected> InformÃ¡tica</option>
+                                        <option> Imagen y sonido</option>
+                                        <option> Deporte y ocio</option>
+                                        <option> Hogar y jardin</option>
+                                        <option> ElectrodomÃ©sticos</option>
+                                        <option> Libros</option>
+                                        <option> Cine y mÃºsica</option>
+                                        <option> Colecionismo</option>
+                                        <option> Patinetes y bicicletas</option>
+                                        <option> Tren</option>
+                                        
+                                    </select>
+                                    <select name="opcion3" name='categoria3'>
+
+                                        <option> Moda y acesorios</option>
+                                        <option> InformÃ¡tica</option>
+                                        <option selected> Imagen y sonido</option>
+                                        <option> Deporte y ocio</option>
+                                        <option> Hogar y jardin</option>
+                                        <option> ElectrodomÃ©sticos</option>
+                                        <option> Libros</option>
+                                        <option> Cine y mÃºsica</option>
+                                        <option> Colecionismo</option>
+                                        <option> Patinetes y bicicletas</option>
+                                        <option> Tren</option>
+                                    
+                                    </select>
+                                    
+                                </div>
                               </div>                     
                               <button type="submit" class="button button-block" >Registrarse</button>                     
                             </form>                   

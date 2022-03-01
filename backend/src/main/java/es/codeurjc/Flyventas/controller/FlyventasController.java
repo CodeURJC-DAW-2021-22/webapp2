@@ -50,13 +50,7 @@ public class FlyventasController {
 		 
 		 return "Registro";
 	 }
-	 @GetMapping("/registro")
-	 public String Registro2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "Registro";
-	 }
+	
 	 /*
 	 @GetMapping("/producto/{id}")
 	 public String producto(Model model, @PathVariable long id) {
@@ -93,6 +87,13 @@ public class FlyventasController {
 		// model.addAttribute("name", "World");
 		 
 		 return "registro2";
+	 }
+	 
+	 @GetMapping("/perfil")
+	 public String perfil() {
+		 
+		 
+		 return "perfil";
 	 }
 	 
 	 

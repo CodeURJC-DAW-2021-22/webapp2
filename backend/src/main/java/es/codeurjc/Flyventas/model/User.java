@@ -1,17 +1,16 @@
 package es.codeurjc.Flyventas.model;
 
-import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Objects;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="id_users")
-public class User implements Serializable{
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id = null;;
 
     
     private String nombre;
@@ -19,17 +18,21 @@ public class User implements Serializable{
     private String email;
     private String address;
     private String encodedPassword;
+    private String categoria1;
+    private String categoria2;
+    private String categoria3;
     private boolean isAdmin;
     private boolean isBanned;
 
     /*@OneToMany(mappedBy = "user")
     private <List>Product products;*/
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
-
-    public void setUser(String nombre, String apellido, String email, String address, String encodedPassword, boolean admin) {
+    public User() {}
+    
+    public User(String nombre, String apellido, String email, String address, String encodedPassword, boolean admin, String categoria1, String categoria2, String categoria3) {
     	this.nombre = nombre;
     	this.apellido = apellido;
         this.email = email;
@@ -37,6 +40,9 @@ public class User implements Serializable{
         this.address = address;
         this.isAdmin = admin;
         this.isBanned = false; //nunca se va a crear un usuario baneado directamente
+        this.categoria1 = categoria1;
+        this.categoria2 = categoria2;
+        this.categoria3 = categoria3;
     }
     
     public String getnombre() {
@@ -54,6 +60,10 @@ public class User implements Serializable{
     public String getAddress() {
         return address;
     }
+    
+    @Lob
+	private Blob imageFile;
+
     
     public String getEncodedPassword() {
 		return encodedPassword;
@@ -74,6 +84,14 @@ public class User implements Serializable{
     public void setIsBanned(boolean banned) {
         this.isBanned = banned;
     }
+    
+    public Blob getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(Blob image) {
+		this.imageFile = image;
+	}
 
 	@Override
 	public int hashCode() {
@@ -96,7 +114,25 @@ public class User implements Serializable{
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", address="
 				+ address + ", encodedPassword=" + encodedPassword + ", isAdmin=" + isAdmin + ", isBanned=" + isBanned
-				+ "]";
+				+ ", imageFile=" + imageFile + "]";
+	}
+	public String getCategoria1() {
+		return categoria1;
+	}
+	public void setCategoria1(String categoria1) {
+		this.categoria1 = categoria1;
+	}
+	public String getCategoria2() {
+		return categoria2;
+	}
+	public void setCategoria2(String categoria2) {
+		this.categoria2 = categoria2;
+	}
+	public String getCategoria3() {
+		return categoria3;
+	}
+	public void setCategoria3(String categoria3) {
+		this.categoria3 = categoria3;
 	}
 
 	

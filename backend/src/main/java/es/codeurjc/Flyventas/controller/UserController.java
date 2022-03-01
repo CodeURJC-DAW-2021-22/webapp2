@@ -11,14 +11,14 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/perfiles")
+@Controller
 public class UserController {
 	
 
@@ -30,8 +30,8 @@ public class UserController {
 		Users.save(new User("nombre", "apellido" , "email", "address", "encodedPassword", true, "categoria1", "categoria2", "categoria3"));
 	}
 	@PostMapping("/perfil")
-	public  String newuser(@RequestBody String nombre, @RequestBody String apellido, @RequestBody String email, @RequestBody String address, @RequestBody String encodedPassword, @RequestBody boolean admin, @RequestBody String categoria1, @RequestBody String categoria2, @RequestBody String categoria3) {
-		Users.save(new User(nombre, apellido, email, address, encodedPassword, false, categoria1, categoria2, categoria3));
+	public  String newuser(@RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam String address, @RequestParam String encodedPassword, @RequestParam String category1, @RequestParam String category2, @RequestParam String category3) {
+		Users.save(new User(name, surname, email, address, encodedPassword, false, category1, category2, category3));
 		
 		return "perfil";
 		 

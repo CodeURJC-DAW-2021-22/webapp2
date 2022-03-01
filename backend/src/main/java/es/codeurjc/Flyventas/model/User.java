@@ -33,11 +33,8 @@ public class User implements Serializable{
     @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
     private List<Product> productList;
 
-    @OneToMany(mappedBy = "buyer")
-    private List<Transaction> TransactionAsBuyerList;
-
     @OneToMany(mappedBy = "seller")
-    private List<Transaction> TransactionAsSellerList;
+    private List<Counteroffer> CounterOfferList;
 
 
     //Constructores

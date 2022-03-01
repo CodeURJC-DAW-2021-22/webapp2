@@ -8,7 +8,7 @@ import es.codeurjc.Flyventas.repository.UserRepository;
 
 
 @Service
-public class Userservices {
+public class UserServices {
 	
 	@Autowired
 	private UserRepository repository;

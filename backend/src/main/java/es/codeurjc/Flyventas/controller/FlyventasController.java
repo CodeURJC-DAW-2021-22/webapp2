@@ -3,6 +3,10 @@ package es.codeurjc.Flyventas.controller;
 
 //import java.util.Optional;
 
+import es.codeurjc.Flyventas.model.Product;
+import es.codeurjc.Flyventas.repository.ProductRepository;
+import es.codeurjc.Flyventas.services.ProductServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +14,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+import java.util.Optional;
+
 //Hay que meter los repositorios de las bbdd @Autowired
+
+
 
 @Controller
 public class FlyventasController {
+
+	@Autowired
+	private ProductServices productServices;
 	
 	 @GetMapping("/")
 	 public String main(Model model) {
@@ -69,20 +81,24 @@ public class FlyventasController {
 		 	 
 	 }
 	 */
-	 @RequestMapping("/busqueda")
+/*	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String search) {
 
-		 //List<Product> resultTitle = productService.findByTitle(search);
 		 model.addAttribute("search", search);
-		 //model.addAttribute("title", resultTitle.get(0).getTitle());
 		 return "busqueda";
-	 }
-	 @GetMapping("/busqueda/{id}")
-	 public String busquedaid(Model model, @PathVariable long id) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "busqueda";
+	 } */
+
+	 @GetMapping("/busqueda{title}")
+	 public String busquedaid(Model model, @PathVariable String title) {
+
+		 Optional<Product> Product = productServices.findByTitle(title);
+		 if (Product.isPresent()) {
+			 model.addAttribute("Product", Product.get());
+			 return "busqueda";
+		 }
+		else {
+			 return "index";
+		 }
 	 }
 	 @GetMapping("/registro2")
 	 public String registro2(Model model) {

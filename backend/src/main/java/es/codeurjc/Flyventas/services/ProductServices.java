@@ -2,7 +2,6 @@ package es.codeurjc.Flyventas.services;
 
 
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,23 +11,19 @@ import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.model.Product;
 
 @Service
-public class Productservices {
-	/*
+public class ProductServices {
+
 	@Autowired
 	private ProductRepository repository;
 	
-	public Optional<Product> findById(long id) {
-		return repository.findById(id);
-	}
-	
-	public Optional<Product> findByCategory(String category) {
-		return repository.findByCategory(category);
-	}
+	/*public List<Product> findByCategory() {
+		return repository.findProductByCategory(category);
+	}*/
 	
 	public Optional<Product> findByTitle(String title) {
 		return repository.findByTitle(title);
 	}
-	
+/*
 	public boolean exist(long id) {
 		return repository.existsById(id);
 	}
@@ -46,5 +41,5 @@ public class Productservices {
 		repository.deleteById(id);
 	}
 
-	 */
+*/
 }

@@ -94,8 +94,17 @@ public class FlyventasController {
 		 
 		 return "registro2";
 	 }
-	 
-	 
+
+
+	@GetMapping("/subirProducto")
+	public String subirProducto(Model model) {
+
+		// model.addAttribute("name", "World");
+
+		return "subirProducto";
+	}
+
+
 }
 
 

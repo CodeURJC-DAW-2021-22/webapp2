@@ -7,33 +7,47 @@ import es.codeurjc.Flyventas.services.Productservices;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
-@RestController
-@RequestMapping("/posts")
+@Controller
 public class ProductController {
 
     @Autowired
     private ProductRepository products;
 
+    @RequestMapping("/subirProducto")
+    public String newProduct(@RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float Price, @RequestParam boolean isSold){
+        products.save(new Product(name, description, category, Price, isSold));
+
+        return "index";
+    }
+
     @PostConstruct
     public void init() {
-        products.save(new Product(6, "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, "samuelrusu3"));
-        products.save(new Product(2, "Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, "franciscardi"));
-        products.save(new Product(3, "3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, "miguelruiiz"));
-        products.save(new Product(4, "Promo en tiktok", "soy famoso", "Otros", 200, "miguelruiiz"));
-        products.save(new Product(5, "Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, "jaiime00"));
+        products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false));
+        products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, false));
+        products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false));
+        products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false));
+        products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false));
 
 
     }
+
+
+
+    /* ejemplos con usuario
+        products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, "samuelrusu3"));
+        products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, "franciscardi"));
+        products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, "miguelruiiz"));
+        products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, "miguelruiiz"));
+        products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, "jaiime00"));
+    * */
     
  /*   
     @GetMapping("/busqueda/{category}")

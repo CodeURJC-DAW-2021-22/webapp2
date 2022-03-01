@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 //Hay que meter los repositorios de las bbdd @Autowired
 
@@ -50,13 +52,7 @@ public class FlyventasController {
 		 
 		 return "Registro";
 	 }
-	 @GetMapping("/registro")
-	 public String Registro2(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
-		 return "Registro";
-	 }
+	
 	 /*
 	 @GetMapping("/producto/{id}")
 	 public String producto(Model model, @PathVariable long id) {
@@ -73,11 +69,12 @@ public class FlyventasController {
 		 	 
 	 }
 	 */
-	 @GetMapping("/busqueda")
-	 public String busqueda(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
+	 @RequestMapping("/busqueda")
+	 public String busqueda(Model model, @RequestParam String search) {
+
+		 //List<Product> resultTitle = productService.findByTitle(search);
+		 model.addAttribute("search", search);
+		 //model.addAttribute("title", resultTitle.get(0).getTitle());
 		 return "busqueda";
 	 }
 	 @GetMapping("/busqueda/{id}")
@@ -94,17 +91,15 @@ public class FlyventasController {
 		 
 		 return "registro2";
 	 }
-
-
-	@GetMapping("/subirProducto")
-	public String subirProducto(Model model) {
-
-		// model.addAttribute("name", "World");
-
-		return "subirProducto";
-	}
-
-
+	 
+	 @GetMapping("/perfil")
+	 public String perfil() {
+		 
+		 
+		 return "perfil";
+	 }
+	 
+	 
 }
 
 

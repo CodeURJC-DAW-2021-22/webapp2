@@ -4,6 +4,8 @@ package es.codeurjc.Flyventas.services;
 
 import java.util.Optional;
 
+import es.codeurjc.Flyventas.model.User;
+import es.codeurjc.Flyventas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

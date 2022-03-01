@@ -2,8 +2,6 @@ package es.codeurjc.Flyventas.model;
 
 import javax.persistence.*;
 
-import java.sql.Blob;
-
 @Entity
 
 public class Product {
@@ -15,37 +13,31 @@ public class Product {
     private String title;
     private String description;
     private String category;
-    private int price;
+    private float price;
     private boolean isSold;
     @Lob
-	private Blob imageFile;
+	//private Blob imageFile;
 
-	private boolean image;
+	//private boolean image;
 
     /*@ManyToOne
     private User user; */
     //de momento lo comento para poder crear productos de ejemplo sin insertar un usuario
     private String user;
 
+    //public Product(String name, String description, String category, float price, boolean isSold) {}
+
     public Product() {}
 
-    public Product(int id, String title, String description, String category, int price, String user) {
-    	this.id = (long) id;
+    public Product(String title, String description, String category, float price, boolean isSold) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
-        this.isSold = false;
-        this.user = user;
+        this.isSold = isSold;
     }
 
-    public long getId() {
-        return id;
-    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
 
 
     public String getTitle() {
@@ -54,6 +46,10 @@ public class Product {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getCategory() {
@@ -68,11 +64,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -80,28 +76,36 @@ public class Product {
         return isSold;
     }
 
-    public void setIsSold(boolean sold) {
-        this.isSold = sold;
+    public void setIsSold(boolean isSold) {
+        this.isSold = isSold;
     }
 
-    public String getUser() {
-        return user;
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category +  ", price="
+                + price + ", isSold=" + isSold;
     }
-    public Blob getImageFile() {
-		return imageFile;
-	}
 
-	public void setImageFile(Blob image) {
-		this.imageFile = image;
-	}
 
-	public boolean getImage(){
-		return this.image;
-	}
-
-	public void setImage(boolean image){
-		this.image = image;
-	}
+//    public String getUser() {
+//        return user;
+//    }
+//    public Blob getImageFile() {
+//		return imageFile;
+//	}
+//
+//	public void setImageFile(Blob image) {
+//		this.imageFile = image;
+//	}
+//
+//	public boolean getImage(){
+//		return this.image;
+//	}
+//
+//	public void setImage(boolean image){
+//		this.image = image;
+//	}
 }
 
 

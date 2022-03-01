@@ -2,7 +2,7 @@ package es.codeurjc.Flyventas.controller;
 
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.repository.ProductRepository;
-import es.codeurjc.Flyventas.services.Productservices;
+import es.codeurjc.Flyventas.services.ProductServices;
 
 import java.io.IOException;
 

@@ -100,26 +100,12 @@ public class FlyventasController {
 		Optional<Product> Product = productServices.findByCategory(category);
 		model.addAttribute("search", category);
 		if (Product.isPresent()) {
-			model.addAttribute("Product", Product.get().getTitle());
-			model.addAttribute("Price", Product.get().getPrice());
-			model.addAttribute("search", category);
+			model.addAttribute("Product", Product.get());
 			return "busqueda";
 		} else {
 			return "searchnotfound";
 		}
 	}
-	 /*@GetMapping("/busqueda{title}")
-	 public String busquedaid(Model model, @PathVariable String title) {
-
-		 Optional<Product> Product = productServices.findAllByTitle(title);
-		 if (Product.isPresent()) {
-			 model.addAttribute("Product", Product.get());
-			 return "busqueda";
-		 }
-		else {
-			 return "index";
-		 }
-	 } */
 		 @GetMapping("/registro2")
 		 public String registro2 (Model model){
 
@@ -135,7 +121,12 @@ public class FlyventasController {
 			 return "perfil";
 		 }
 
+		@GetMapping("/subirProducto")
+		public String subirProducto() {
 
+
+			return "subirProducto";
+		}
 }
 
 

@@ -38,7 +38,7 @@ public class ProductController {
         return "perfil";
     }
 
-
+    
     /* ejemplos con usuario
         products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, "samuelrusu3"));
         products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, "franciscardi"));

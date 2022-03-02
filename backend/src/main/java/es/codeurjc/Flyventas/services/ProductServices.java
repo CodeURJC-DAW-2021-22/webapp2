@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,10 @@ public class ProductServices {
 	
 	public Optional<Product> findByTitle(String title) {
 		return repository.findByTitle(title);
+	}
+	
+	public Optional<Product> findById(long id) {
+		return repository.findById(id);
 	}
 /*
 	public boolean exist(long id) {

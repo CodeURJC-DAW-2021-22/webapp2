@@ -105,28 +105,41 @@ public class FlyventasController {
 		} else {
 			return "searchnotfound";
 		}
-	}
-		 @GetMapping("/registro2")
-		 public String registro2 (Model model){
+	 }
+	 @GetMapping("/registro2")
+	 public String registro2 (Model model){
 
-			 // model.addAttribute("name", "World");
+		 // model.addAttribute("name", "World");
 
-			 return "registro2";
-		 }
+		 return "registro2";
+	 }
 
-		 @GetMapping("/perfil")
-		 public String perfil () {
-
-
-			 return "perfil";
-		 }
-
-		@GetMapping("/subirProducto")
-		public String subirProducto() {
+	 @GetMapping("/perfil")
+	 public String perfil () {
 
 
-			return "subirProducto";
-		}
+		 return "perfil";
+	 }
+
+	 @GetMapping("/subirProducto")
+	 public String subirProducto() {
+
+
+		return "subirProducto";
+	 }
+	 
+	 @GetMapping("/Producto/{id}")
+		public String showProduct(Model model, @PathVariable long id) {
+		 
+		 Optional<Product> Product = productServices.findById(id);
+			if (Product.isPresent()) {
+				model.addAttribute("Product", Product.get());
+				return "Producto";
+			} else {
+				return "searchnotfound";
+			}
+		 
+	 }
 }
 
 

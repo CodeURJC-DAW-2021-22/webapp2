@@ -27,10 +27,11 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(String product) {
+    public Transaction(String product, float price) {
         super();
         this.date = getActualDate();
         this.product = product;
+        this.price = price;
         /*this.buyer = buyer;
         this.seller = seller;
         this.product.setIsSold(true);*/

@@ -1,4 +1,16 @@
-/* package es.codeurjc.Flyventas.repository;
+package es.codeurjc.Flyventas.repository;
 
-public class TransactionRepository {
-} */
+import es.codeurjc.Flyventas.model.Transaction;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Optional;
+
+public interface TransactionRepository extends JpaRepository<Transaction, Long> {
+
+    @Query("SELECT p FROM Transaction p WHERE p.id LIKE %:id%")
+    public Optional<Transaction> findByTitle(@Param("id") Long id);
+
+
+}

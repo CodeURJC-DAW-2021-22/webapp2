@@ -91,7 +91,8 @@
        </div><!-- pay method Section End -->
 
        <hr color="#346cc0" />
- 
+
+       {{#Product}}
        <div class="container"><!-- product selected Section begin -->
             <div class="row">
                 <h2>Producto seleccionado</h2>
@@ -102,8 +103,8 @@
                     </div>
                     
                     <div class="col-lg-8 col-md-8" id="descripcionCompra">
-                           <p>Producto</p> 
-                           <p>Información del producto</p> 
+                           <p>{{Title}}</p>
+                           <p>{{description}}</p>
                     </div> 
             </div> 
        </div><!-- product selected Section End -->
@@ -111,17 +112,17 @@
        <hr color="#346cc0" />
 
        <div class="row"  id="precioCompra"><!-- final price Section begin -->
-           <p>Precio final:</p>
+           <p>Precio final: {{price}}€</p>
        </div><!--final price Section End -->
-
+       {{/Product}}
        <hr color="#346cc0" />
 
        <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
              <!--Reutilizamos los botones hechos para la pagina producto-->
-             <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonComprarProducto"> Comprar </button>
-             </div>
 
+             <div class="col-lg-6 col-md-6 botonesComprar">
+                <button class="BotonProducto botonComprarProducto"><a href="/compra/{{id}}"> Comprar </a></button>
+             </div>
              <div class="col-lg-6 col-md-6 botonesComprar">
                 <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
              </div>   

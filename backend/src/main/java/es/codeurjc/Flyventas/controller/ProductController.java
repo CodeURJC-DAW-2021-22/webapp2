@@ -1,6 +1,7 @@
 package es.codeurjc.Flyventas.controller;
 
 import es.codeurjc.Flyventas.model.Product;
+import es.codeurjc.Flyventas.model.Transaction;
 import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.services.ProductServices;
 
@@ -20,6 +21,8 @@ public class ProductController {
 
     @Autowired
     private ProductRepository products;
+    @Autowired
+    private ProductServices productServices;
 
 
     @PostConstruct
@@ -37,6 +40,7 @@ public class ProductController {
 
         return "perfil";
     }
+
 
     
     /* ejemplos con usuario

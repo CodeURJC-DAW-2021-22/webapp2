@@ -1,6 +1,7 @@
 package es.codeurjc.Flyventas.model;
 
 import java.sql.Blob;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ public class User{
     private Long id = null;;
 
     
-    private String nombre;
+    private String name;
     private String apellido;
     private String email;
     private String address;
@@ -24,6 +25,9 @@ public class User{
     private boolean isAdmin;
     private boolean isBanned;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+
     /*@OneToMany(mappedBy = "user")
     private <List>Product products;*/
 
@@ -32,8 +36,8 @@ public class User{
     }
     public User() {}
     
-    public User(String nombre, String apellido, String email, String address, String encodedPassword, boolean admin, String categoria1, String categoria2, String categoria3) {
-    	this.nombre = nombre;
+    public User(String name, String apellido, String email, String address, String encodedPassword, boolean admin, String categoria1, String categoria2, String categoria3) {
+    	this.name = name;
     	this.apellido = apellido;
         this.email = email;
         this.encodedPassword = encodedPassword;
@@ -45,10 +49,13 @@ public class User{
         this.categoria3 = categoria3;
     }
     
-    public String getnombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
-    
+
+    public List<String> getRoles() {
+        return roles;
+    }
     public String getapellido() {
         return apellido;
     }
@@ -112,7 +119,7 @@ public class User{
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", address="
+		return "User [id=" + id + ", nombre=" + name + ", apellido=" + apellido + ", email=" + email + ", address="
 				+ address + ", encodedPassword=" + encodedPassword + ", isAdmin=" + isAdmin + ", isBanned=" + isBanned
 				+ ", imageFile=" + imageFile + "]";
 	}

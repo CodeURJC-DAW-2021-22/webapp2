@@ -47,12 +47,12 @@ public class FlyventasController {
 		 
 		 return "login";
 	 }
-	 @GetMapping("/login.html")
-	 public String login2(Model model) {
+	 @GetMapping("/register")
+	 public String register(Model model) {
 		 
 		// model.addAttribute("name", "World");
 		 
-		 return "login";
+		 return "Registro";
 	 }
 	 @GetMapping("/Registro.html")
 	 public String Registro(Model model) {
@@ -61,23 +61,7 @@ public class FlyventasController {
 		 
 		 return "Registro";
 	 }
-	
-	 /*
-	 @GetMapping("/producto/{id}")
-	 public String producto(Model model, @PathVariable long id) {
-		 Optional<Product> Product = servicio.findById(id);
-			if (Product.isPresent()) {
-				model.addAttribute("product", product.get());
-				return "product";
-			} else {
-				return "index";
-			}
-		// model.addAttribute("name", "World");
-		 
-		 return "Producto";
-		 	 
-	 }
-	 */
+
 	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
 

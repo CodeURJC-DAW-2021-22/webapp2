@@ -4,16 +4,17 @@ package es.codeurjc.Flyventas.repository;
 import es.codeurjc.Flyventas.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
-	/*
-	@Query("SELECT p FROM User p WHERE p.category = :nombre")
-    public List<User> findByNombre(String nombre);
-    
+
+    Optional<User> findByName(String name);
+
+    /*
     @Query("SELECT p FROM User p WHERE p.title LIKE :apellido")
     public List<User> findByApellido(String apellido);
     

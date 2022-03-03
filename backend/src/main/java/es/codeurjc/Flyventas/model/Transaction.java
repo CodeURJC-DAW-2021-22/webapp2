@@ -14,11 +14,11 @@ public class Transaction {
     private String date;
     private float price;
 
-    //@OneToOne(cascade = CascadeType.ALL)
-    private String product;
+    @OneToOne
+    private Product product;
+
     private String buyer;
     private String seller;
-
 
     /*@ManyToOne
     private User buyer;
@@ -30,13 +30,14 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(String product, float price) {
+    public Transaction(Product product) {
         super();
         this.date = getActualDate();
         this.product = product;
-        this.price = price;
+        this.price = product.getPrice();
         this.buyer = "Juan";
         this.seller = "Pepe";
+        product.setIsSold(true);
 
     }
 

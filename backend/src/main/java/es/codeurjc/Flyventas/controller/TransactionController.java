@@ -37,7 +37,7 @@ public class TransactionController {
     @PostConstruct
     public void init() {
 
-        transactions.save(new Transaction("la moto de mi tia paca", 120));
+        transactions.save(new Transaction(productServices.findById(2).get()));
     }
 
 
@@ -59,9 +59,8 @@ public class TransactionController {
         Optional<Product> Product = productServices.findById(id);
         //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         if (Product.isPresent()) {
-            transactions.save(new Transaction(Product.get().getTitle(), Product.get().getPrice()));
-            //habría que editar Producto y decir que esta vendido para que a la hora de buscar no salga
-            return "index";
+            transactions.save(new Transaction(Product.get()));
+            return "/";
         } else {
 
             return "searchnotfound";

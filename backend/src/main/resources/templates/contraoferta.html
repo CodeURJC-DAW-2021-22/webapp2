@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo-fondo-blanco-3.png" alt=""></a>
+                        <a href="./index.html"><img src="/img/logo-fondo-blanco-3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -73,41 +73,41 @@
                 </div>
          <div class="categorias metodosPagoCompra" id="categorias">
             <div class="categoria activa">
-                <a><img src="img/logo_paypal.jpg"> </a>
+                <a><img src="/img/logo_paypal.jpg"> </a>
                 <p>Paypal</p>
             </div>
             <div class="categoria metodosPagoCompra">
-                <a><img src="img/visaLogo.png"> </a>
+                <a><img src="/img/visaLogo.png"> </a>
                 <p>VISA</p>
             </div>
             <div class="categoria metodosPagoCompra">
-                <a><img src="img/appleLogo.png"> </a>
+                <a><img src="/img/appleLogo.png"> </a>
                 <p>APPLE PAY</p>
             </div>
             <div class="categoria metodosPagoCompra">
-                <a><img src="img/Gpay.jpg"> </a>
+                <a><img src="/img/Gpay.jpg"> </a>
                 <p>Google pay</p>
         </div>
        </div><!-- pay method Section End -->
 
        <hr color="#346cc0" />
- 
+       {{#Product}}
        <div class="container"><!-- product selected Section begin -->
             <div class="row">
                 <h2>Producto seleccionado</h2>
             </div>
             <div class="row">
                     <div class="col-lg-4 col-md-4" id="FotoProductoCompra">
-                        <a><img src="img/blankprofile.png" alt=""></a>
+                        <a><img src="/img/blankprofile.png" alt=""></a>
                     </div>
                     
                     <div class="col-lg-8 col-md-8" id="descripcionCompra">
-                           <p>Producto</p> 
-                           <p>Información del producto</p> 
+                           <p>{{Title}}</p>
+                           <p>{{Description}}</p>
                     </div> 
             </div> 
        </div><!-- product selected Section End -->
-
+       {{/Product}}
        <hr color="#346cc0" />
 
        <div class="row"  id="precioCompra"><!-- final price Section begin -->
@@ -124,8 +124,7 @@
 
              <div class="col-lg-6 col-md-6 botonesComprar">
                 <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
-             </div>   
-           
+             </div>
        </div><!-- button options Section End -->
 
     <br><br><br><br><br>

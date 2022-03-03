@@ -38,8 +38,7 @@ public class FlyventasController {
 		 
 		 return "index";
 	 }
-	 
-	 
+
 	 @GetMapping("/login")
 	 public String login(Model model) {
 		 
@@ -47,6 +46,7 @@ public class FlyventasController {
 		 
 		 return "login";
 	 }
+
 	 @GetMapping("/login.html")
 	 public String login2(Model model) {
 		 

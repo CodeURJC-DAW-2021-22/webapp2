@@ -138,11 +138,15 @@
                   </div>
                   <div class="row">
                      <div class="col-lg-6 col-md-6 botonesComprar">
-                         <button class="BotonProducto botonComprarProducto"><a href="/confirmacionCompra/{{id}}"> Comprar </a> </button>
+                         <a href="/confirmacionCompra/{{id}}">
+                            <button class="BotonProducto botonComprarProducto"> Comprar  </button>
+                         </a>
                      </div>
 
                      <div class="col-lg-6 col-md-6 botonesComprar">
-                        <button class="BotonProducto botonContraOfertaProducto"> Contraoferta </button>
+                         <a href="/confirmacionContraoferta/{{id}}">
+                            <button class="BotonProducto botonContraOfertaProducto"> Contraoferta </button>
+                         </a>
                      </div>   
                   </div>
               {{/Product}}

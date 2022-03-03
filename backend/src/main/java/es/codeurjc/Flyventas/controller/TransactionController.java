@@ -21,10 +21,11 @@ import java.util.Optional;
 @Controller
 public class TransactionController {
 
-    @Autowired
-    private ProductRepository products;
+
     @Autowired
     private ProductServices productServices;
+    @Autowired
+    private ProductRepository product;
 
 
     @Autowired
@@ -52,14 +53,14 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/compra/{id}/{title}/{price}")
-    public String newTransaction(@PathVariable long id, @PathVariable String title, @PathVariable float price) {
+    @GetMapping("/compra/{id}/{tokenpayment}")
+    public String newTransaction(@PathVariable long id, @PathVariable String tokenpayment) {
 
         Optional<Product> Product = productServices.findById(id);
+        //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         if (Product.isPresent()) {
-
-            transactions.save(new Transaction(title, price));
-            //transactions.save(new Transaction(Product.get().getTitle(), Product.get().getPrice()));
+            transactions.save(new Transaction(Product.get().getTitle(), Product.get().getPrice()));
+            //habría que editar Producto y decir que esta vendido para que a la hora de buscar no salga
             return "index";
         } else {
 

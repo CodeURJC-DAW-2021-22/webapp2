@@ -29,6 +29,7 @@ public class Product {
 
     public Product() {}
 
+
     public Product(String title, String description, String category, float price, boolean isSold) {
         this.title = title;
         this.description = description;
@@ -36,7 +37,6 @@ public class Product {
         this.price = price;
         this.isSold = isSold;
     }
-
 
 
 

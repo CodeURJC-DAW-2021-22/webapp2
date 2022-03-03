@@ -23,6 +23,7 @@ public class User{
     private String categoria3;
     private boolean isAdmin;
     private boolean isBanned;
+    private float assessment;
 
     /*@OneToMany(mappedBy = "user")
     private <List>Product products;*/
@@ -44,7 +45,15 @@ public class User{
         this.categoria2 = categoria2;
         this.categoria3 = categoria3;
     }
-    
+
+    public float getassessment() {
+        return assessment;
+    }
+
+    public void setassessment(float assessment) {
+        assessment = assessment;
+    }
+
     public String getnombre() {
         return nombre;
     }
@@ -98,24 +107,34 @@ public class User{
 		return Objects.hash(email, encodedPassword);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Objects.equals(email, other.email) && Objects.equals(encodedPassword, other.encodedPassword);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return isAdmin == user.isAdmin && isBanned == user.isBanned && Float.compare(user.assessment, assessment) == 0 && Objects.equals(id, user.id) && Objects.equals(nombre, user.nombre) && Objects.equals(apellido, user.apellido) && Objects.equals(email, user.email) && Objects.equals(address, user.address) && Objects.equals(encodedPassword, user.encodedPassword) && Objects.equals(categoria1, user.categoria1) && Objects.equals(categoria2, user.categoria2) && Objects.equals(categoria3, user.categoria3) && Objects.equals(imageFile, user.imageFile);
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", address="
-				+ address + ", encodedPassword=" + encodedPassword + ", isAdmin=" + isAdmin + ", isBanned=" + isBanned
-				+ ", imageFile=" + imageFile + "]";
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", encodedPassword='" + encodedPassword + '\'' +
+                ", categoria1='" + categoria1 + '\'' +
+                ", categoria2='" + categoria2 + '\'' +
+                ", categoria3='" + categoria3 + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", isBanned=" + isBanned +
+                ", Valoración=" + assessment +
+                ", imageFile=" + imageFile +
+                '}';
+    }
+
+
 	public String getCategoria1() {
 		return categoria1;
 	}

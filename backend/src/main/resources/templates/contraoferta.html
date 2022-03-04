@@ -109,9 +109,17 @@
        </div><!-- product selected Section End -->
        {{/Product}}
        <hr color="#346cc0" />
-
+        <form action="/contraoferta/{{id}}" method="POST">
        <div class="row"  id="precioCompra"><!-- final price Section begin -->
-           <p>Precio final:</p>
+           <p>Nueva Oferta:</p> <br>
+           <div class="row">
+                <div class="col-md-4">
+                    <input type="number" name="contraoffer" maxlength="8" required>
+                </div>
+                <div class="col-md-1">
+                    <a>€</a>
+                </div>
+           </div>
        </div><!--final price Section End -->
 
        <hr color="#346cc0" />
@@ -119,14 +127,14 @@
        <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
              <!--Reutilizamos los botones hechos para la pagina producto-->
              <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonComprarProducto"> Comprar </button>
+                <button type="submit" class="BotonProducto botonComprarProducto"> Comprar </button>
              </div>
 
              <div class="col-lg-6 col-md-6 botonesComprar">
                 <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
              </div>
        </div><!-- button options Section End -->
-
+        </form>
     <br><br><br><br><br>
     
         </div>

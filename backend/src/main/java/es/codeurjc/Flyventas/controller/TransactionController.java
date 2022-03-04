@@ -1,8 +1,10 @@
 package es.codeurjc.Flyventas.controller;
 
+import es.codeurjc.Flyventas.model.Counteroffer;
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.Transaction;
 
+import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.repository.UserRepository;
@@ -24,14 +26,12 @@ public class TransactionController {
 
     @Autowired
     private ProductServices productServices;
-    @Autowired
-    private ProductRepository product;
 
+    @Autowired
+    private CounterofferRepository counteroffers;
 
     @Autowired
     private TransactionRepository transactions;
-    @Autowired
-    private ProductServices transactionServices;
 
     //Transaction Controller
 
@@ -82,6 +82,18 @@ public class TransactionController {
         }
     }
 
+    @PostMapping("/contraoffer/{id}")
+    public String contraoffer(@RequestParam float newOffer, @PathVariable Long id) {
 
+        Optional<Product> Product = productServices.findById(id);
+        if (Product.isPresent()) {
+
+            counteroffers.save(new Counteroffer(Product.get(), newOffer));
+
+            return "index";
+        } else {
+            return "searchnotfound";
+        }
+    }
 
 }

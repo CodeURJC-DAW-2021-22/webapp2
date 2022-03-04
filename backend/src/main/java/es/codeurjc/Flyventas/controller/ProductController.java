@@ -8,6 +8,8 @@ import es.codeurjc.Flyventas.services.ProductServices;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ProductController {
@@ -23,6 +26,33 @@ public class ProductController {
     private ProductRepository products;
     @Autowired
     private ProductServices productServices;
+
+
+
+    @GetMapping("/busqueda")
+    public String showPosts(Model model, HttpSession session, Pageable pageable) {
+
+        Page<Product> product = products.findAll(pageable);
+
+        model.addAttribute("posts", product);
+        model.addAttribute("hasPrev", product.hasPrevious());
+        model.addAttribute("hasNext", product.hasNext());
+        model.addAttribute("nextPage", product.getNumber()+1);
+        model.addAttribute("prevPage", product.getNumber()-1);
+
+        model.addAttribute("welcome", session.isNew());
+
+        return "busqueda";
+    }
+
+    @GetMapping("/post/new")
+    public String newPostForm(Model model) {
+
+
+
+        return "new_post";
+    }
+
 
 
     @PostConstruct

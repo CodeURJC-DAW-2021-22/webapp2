@@ -78,7 +78,9 @@ public class FlyventasController {
 		 	 
 	 }
 	 */
-	 @RequestMapping("/busqueda")
+
+	/*
+	 @GetMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
 
 		 Optional<Product> Product = productServices.findByTitle(title);
@@ -90,6 +92,7 @@ public class FlyventasController {
 			 return "searchnotfound";
 		 }
 	 }
+     */
 
 	@RequestMapping("/category/{category}")
 	public String CategorySearch(Model model, @PathVariable String category) {
@@ -137,6 +140,8 @@ public class FlyventasController {
 			}
 		 
 	 }
+
+
 
 
 }

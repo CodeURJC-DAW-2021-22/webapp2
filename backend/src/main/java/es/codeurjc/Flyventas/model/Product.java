@@ -38,7 +38,9 @@ public class Product {
         this.isSold = isSold;
     }
 
-
+    public float getPrice() {
+        return price;
+    }
 
     public String getTitle() {
         return title;
@@ -64,9 +66,6 @@ public class Product {
         this.description = description;
     }
 
-    public float getPrice() {
-        return price;
-    }
 
     public void setPrice(float price) {
         this.price = price;

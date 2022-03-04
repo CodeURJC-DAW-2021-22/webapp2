@@ -8,13 +8,18 @@ import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.repository.UserRepository;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import es.codeurjc.Flyventas.services.ProductServices;
+import es.codeurjc.Flyventas.services.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+
 
 import java.util.Optional;
 
@@ -30,6 +35,8 @@ public class TransactionController {
 
     @Autowired
     private TransactionRepository transactions;
+    @Autowired
+    private TransactionServices transactionsservice;
     @Autowired
     private ProductServices transactionServices;
 
@@ -53,19 +60,25 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/compra/{id}/{tokenpayment}")
-    public String newTransaction(@PathVariable long id, @PathVariable String tokenpayment) {
+    @GetMapping("/resumen/{id}/{tokenpayment}")
+    public String newTransaction(Model model, @PathVariable long id, @PathVariable String tokenpayment) {
 
         Optional<Product> Product = productServices.findById(id);
         //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         if (Product.isPresent()) {
             transactions.save(new Transaction(Product.get().getTitle(), Product.get().getPrice()));
             //habría que editar Producto y decir que esta vendido para que a la hora de buscar no salga
-            return "index";
+            model.addAttribute("Product", Product.get());
+
+            return "resumen";
         } else {
 
             return "searchnotfound";
         }
     }
+
+    
+        
+    
 
 }

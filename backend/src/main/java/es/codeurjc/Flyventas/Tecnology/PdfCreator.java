@@ -1,6 +1,12 @@
 package es.codeurjc.Flyventas.Tecnology;
 
 
+import com.lowagie.text.Element;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfCell;
+import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.Transaction;
@@ -11,10 +17,11 @@ import org.springframework.web.servlet.view.document.AbstractPdfView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.util.Map;
 import java.util.Optional;
 
-@Component("/resumen/5/12345")
+@Component("resumen")
 public class PdfCreator extends AbstractPdfView {
 
 
@@ -24,19 +31,38 @@ public class PdfCreator extends AbstractPdfView {
                                     com.lowagie.text.pdf.PdfWriter writer, HttpServletRequest request,
                                     HttpServletResponse response) throws Exception {
 
-        PdfPTable tableproducto = new PdfPTable(4);
+        PdfPTable tableproduct = new PdfPTable(4);
+
+        PdfPTable title = new PdfPTable(1);
+        PdfPCell cell = null;
+        cell = new PdfPCell(new Phrase("Recibo:"));
+        cell.setBorder(0);
+        cell.setBackgroundColor(new Color(0, 204, 204));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setPadding(20);
+
+        tableproduct.addCell(cell);
+        title.setSpacingAfter(30);
 
 
-        Optional<Product> Product = (Optional<es.codeurjc.Flyventas.model.Product>) model.get("Product");
+
+
+
+        document.setPageSize(PageSize.LETTER.rotate());
+        document.open();
+
+        Product Product = (Product)model.get("Product");
         //Optional<Transaction> Transaction = (Optional<es.codeurjc.Flyventas.model.Transaction>) model.get("Transaction");
 
 
-            tableproducto.addCell(Product.get().getTitle());
-            tableproducto.addCell(Product.get().getDescription());
-            tableproducto.addCell(String.valueOf(Product.get().getPrice()));
-            //tableproducto.addCell(Transaction.get().getDate());
+            tableproduct.addCell(Product.getTitle());
+            tableproduct.addCell(Product.getDescription());
+            tableproduct.addCell(String.valueOf(Product.getPrice()));
+            //tableproduct.addCell(Transaction.get().getDate());
 
-        document.add(tableproducto);
+        document.add(title);
+        document.add(tableproduct);
     }
 
 }

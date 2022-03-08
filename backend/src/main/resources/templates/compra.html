@@ -121,10 +121,15 @@
              <!--Reutilizamos los botones hechos para la pagina producto-->
 
              <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonComprarProducto"><a href="/compra/{{id}}/12345" methods="POST"> Comprar </a></button>
+
+                 <form action="/compra/{{id}}/12345" methods="POST">
+                     <input type="submit" class="BotonProducto botonComprarProducto" value="Comprar" />
+                 </form>
              </div>
              <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
+                 <form action="/" methods="POST">
+                     <input type="submit" class="BotonProducto botonContraOfertaProducto" value="Cancelar" />
+                 </form>
              </div>   
            
        </div><!-- button options Section End -->

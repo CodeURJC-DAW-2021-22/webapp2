@@ -61,7 +61,7 @@ public class TransactionController {
         //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         if (Product.isPresent()) {
             transactions.save(new Transaction(Product.get()));
-            return "/";
+            return "redirect:/";
         } else {
 
             return "searchnotfound";
@@ -82,7 +82,7 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/counteroffer")
+    @PostMapping("/counteroffer/{id}")
     public String contraoffer(@PathVariable long id, @RequestParam float newOffer) {
 
         Optional<Product> Product = productServices.findById(id);
@@ -90,7 +90,7 @@ public class TransactionController {
 
             counteroffers.save(new Counteroffer(Product.get(), newOffer));
 
-            return "index";
+            return "redirect:/";
         } else {
             return "searchnotfound";
         }

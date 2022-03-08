@@ -65,7 +65,7 @@
        <div class="row"  id="precioCompra"><!-- final price Section begin -->
            <p>Precio final: {{price}}€</p>
        </div><!--final price Section End -->
-       {{/Product}}
+
        <hr color="#346cc0" />
 
        <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
@@ -73,7 +73,7 @@
 
              <div class="col-lg-6 col-md-6 botonesComprar">
 
-                 <form action="/compra/{{id}}/12345" methods="POST">
+                 <form action="/resumen/{{id}}/12345" methods="POST">
                      <input type="submit" class="BotonProducto botonComprarProducto" value="Comprar" />
                  </form>
              </div>
@@ -84,7 +84,7 @@
              </div>   
            
        </div><!-- button options Section End -->
-
+{{/Product}}
     <br><br><br><br><br>
     
         </div>

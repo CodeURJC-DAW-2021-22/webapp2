@@ -15,7 +15,6 @@ public class Product {
     private String category;
     private float price;
     private boolean isSold;
-
     @Lob
 	//private Blob imageFile;
 

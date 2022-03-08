@@ -1,0 +1,147 @@
+{{>header}}
+
+
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
+                            <li>¡Empieza a vender hoy mismo!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        <div class="header__top__right__language">
+                            <a href="Registro.html"><i class="fa fa-user"></i> Registarse</a>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="login.html"><i class="fa fa-user"></i> Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="/img/logo-fondo-blanco-3.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+<!-- Hero Section Begin -->
+{{>categories}}
+{{#Product}}
+	<div class="col-lg-12" class="hero">
+            <h2 style="text-align:center">Resumen del pedido:</h2>
+    
+    </div>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				
+
+				<div class="table100 ver5 m-b-110">
+					<table data-vertable="ver5">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1"></th>
+								<th class="column100 column2" data-column="column2">Producto</th>
+								<th class="column100 column3" data-column="column3">Descripción</th>
+								<th class="column100 column4" data-column="column4">Precio</th>
+								<th class="column100 column5" data-column="column5">Precio final</th>
+								<th class="column100 column6" data-column="column6">Dirección de entrega</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1">Pedido:</td>
+								<td class="column100 column2" data-column="column2">{{title}}</td>
+								<td class="column100 column3" data-column="column3">{{description}}</td>
+								<td class="column100 column4" data-column="column4">{{price}}€</td>
+								<td class="column100 column5" data-column="column5">{{price}}+3,5€</td>
+								<td class="column100 column6" data-column="column6">direcion comprador</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+
+{{/Product}}
+<!-- Hero Section End -->
+
+
+
+{{>footer}}
+<script src="/js/categorias.js"></script>
+<script src="/js/preguntasFrecuentes.js"></script>
+
+
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+	<script src="/vendor/bootstrap/js/popper.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="/vendor/select2/select2.min.js"></script>
+
+	<script src="/js/tabla.js"></script>
+
+
+
+
+</body>
+
+</html>

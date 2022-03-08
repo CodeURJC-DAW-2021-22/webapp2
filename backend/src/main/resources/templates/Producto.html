@@ -162,11 +162,11 @@
 
                     <div class="contenedor-preguntas" data-categoria="Comprar o vender">
                         <div class="contenedor-pregunta">
-                            <form action="/confirmacionCompra/{id}" methods="POST" style="margin: auto; width: 220px;">
-                                <input type="submit" class="BotonProducto botonComprarProducto" value="Comprar" />
+                            <form action="/confirmacionCompra/{{id}}" style="margin: auto; width: 220px;">
+                                <input type="submit" class="BotonProducto botonComprarProducto" value="Comprar"/>
                             </form>
-                            <form action="/confirmacionContraoferta/{{id}}" methods="POST" style="margin: auto; width: 220px;">
-                                <input type="submit" class="BotonProducto botonContraOfertaProducto" value="Cancelar" />
+                            <form action="/confirmacionContraoferta/{{id}}"  style="margin: auto; width: 220px;">
+                                <input type="submit" class="BotonProducto botonContraOfertaProducto" value="Contraoferta"/>
                             </form>
                         </div>
                     </div>

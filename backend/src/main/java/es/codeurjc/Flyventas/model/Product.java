@@ -40,6 +40,7 @@ public class Product {
     }
 
 
+    public Long getId() { return this.id; }
 
     public String getTitle() {
         return title;

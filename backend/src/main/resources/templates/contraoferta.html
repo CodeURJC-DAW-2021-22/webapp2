@@ -18,7 +18,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
+                                <li><i class="fa fa-envelope"></i>supportFL@FlyVentas.com</li>
                                 <li>¡Empieza a vender hoy mismo!</li>
                             </ul>
                         </div>
@@ -109,12 +109,12 @@
        </div><!-- product selected Section End -->
        {{/Product}}
        <hr color="#346cc0" />
-        <form action="/contraoferta/{{id}}" method="POST">
-       <div class="row"  id="precioCompra"><!-- final price Section begin -->
+        <form action="/counteroffer/{{id}}" method="POST">
+       <div class="row"><!-- final price Section begin -->
            <p>Nueva Oferta:</p> <br>
            <div class="row">
                 <div class="col-md-4">
-                    <input type="number" name="contraoffer" maxlength="8" required>
+                    <input type="number" name="newOffer" maxlength="8" required>
                 </div>
                 <div class="col-md-1">
                     <a>€</a>
@@ -131,7 +131,7 @@
              </div>
 
              <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
+                <button class="BotonProducto botonContraOfertaProducto">  Cancelar </button>
              </div>
        </div><!-- button options Section End -->
         </form>

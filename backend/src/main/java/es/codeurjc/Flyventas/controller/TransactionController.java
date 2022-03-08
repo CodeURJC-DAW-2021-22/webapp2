@@ -15,6 +15,8 @@ import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +41,8 @@ public class TransactionController {
     private TransactionServices transactionsservice;
     @Autowired
     private ProductServices transactionServices;
+    @Autowired
+    private JavaMailSender mailSender;
 
 
     @PostConstruct
@@ -70,12 +74,27 @@ public class TransactionController {
             //habría que editar Producto y decir que esta vendido para que a la hora de buscar no salga
             model.addAttribute("Product", Product.get());
 
+
+            SimpleMailMessage email = new SimpleMailMessage();
+
+            email.setTo("carlos.hdezhdez01@gmail.com");
+            email.setSubject("Recibo FlyVentas");
+            String str = Long.toString(id);
+            String message = ("http://localhost:8080/resumen/"+str+"/12345/?format=pdf");
+            email.setText(message);
+
+
+            mailSender.send(email);
+
+
             return "resumen";
         } else {
 
             return "searchnotfound";
         }
     }
+
+
 
     
         

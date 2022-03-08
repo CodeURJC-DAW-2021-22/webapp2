@@ -1,0 +1,67 @@
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
+                            <li>¡Empieza a vender hoy mismo!</li>
+                        </ul>
+                    </div>
+                </div>
+                {{#logged}}
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        <div class="header__top__right__language">
+                            <i class="fa fa-user"></i> Hola, {{username}}
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="/logout"><i class="fa fa-user"></i> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+                {{/logged}}
+                {{^logged}}
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        <div class="header__top__right__language">
+                            <a href="/register"><i class="fa fa-user"></i> Registarse</a>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="/login"><i class="fa fa-user"></i> Login</a>
+                        </div>
+                    </div>
+                </div>
+                {{/logged}}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="/"><img src="img/logo-fondo-blanco-3.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>

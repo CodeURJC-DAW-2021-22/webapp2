@@ -11,51 +11,7 @@
     
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__language">
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-instagram"></i></a>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo-fondo-blanco-3.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./contact.html">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    {{>customheader}}
     <!-- Header Section End -->
 
     <!-- Featured Section Begin -->
@@ -68,144 +24,32 @@
 
                         <ul class="tab-group">
                             <li class="tab"><a href="#login">Iniciar sesión</a></li>
-                          <li class="tab active"><a href="#signup">Registrarse</a></li>
-                          
                         </ul>
                       
                         <div class="tab-content">
                                               
                           <div id="login">
                             <h1>Bienvenido!</h1>                     
-                            <form action="/" method="post">                      
+                            <form action="/login" method="post">
                               <div class="field-wrap">
                                 <label>
                                     Dirección de Email<span class="req">*</span>
                                 </label>
-                                <input type="email" required autocomplete="off" />
+                                <input type="text" name="email"/>
                               </div>                     
                               <div class="field-wrap">
                                 <label>
                                     Contraseña<span class="req">*</span>
                                 </label>
-                                <input type="password" required autocomplete="off" />
+                                <input type="password" name="password"/>
                               </div>                    
-                              <p class="forgot"><a href="#">¿Problemas de acceso??</a></p>                     
-                              <button class="button button-block" >Iniciar sesión</button>
-                                                   
+                              <p class="forgot"><a href="/register">¿No tienes una cuenta? Regístrate aquí</a></p>
+                              <button type="submit" value="Sign In" class="button button-block" >Iniciar sesión</button>
                             </form>                     
-                          </div>  
-                          <div id="signup">
-                            
-                            <form action="/perfil" "method=post">                    
-                              <div class="top-row">
-                                <div class="field-wrap">
-                                  <label>
-                                    Nombre<span class="req">*</span>
-                                  </label>
-                                  <input type="text" required autocomplete="off" name='nombre'/>
-                                </div>                     
-                                <div class="field-wrap">
-                                  <label>
-                                    Apellido<span class="req">*</span>
-                                  </label>
-                                  <input type="text" required autocomplete="off" name='apellido' />
-                                </div>
-                              </div>                  
-                              <div class="field-wrap">
-                                <label>
-                                  Dirección de Email<span class="req">*</span>
-                                </label>
-                                <input type="email" required autocomplete="off" name='email'/>
-                              </div>                     
-                              <div class="field-wrap">
-                                <label>
-                                  Contraseña<span class="req">*</span>
-                                </label>
-                                <input type="password" required autocomplete="off" name='encodedPassword' />
-                              </div>
-                              <div class="top-row">
-                                <div class="field-wrap">
-                                  <label>
-                                    Fecha de Nacimiento<span class="req">*</span>
-                                  </label>
-                                  <input type="date" required autocomplete="off" />
-                                </div>                     
-                                <div class="field-wrap">
-                                  <label>
-                                    Provincia<span class="req">*</span>
-                                  </label>
-                                  <input type="text" required autocomplete="off" />
-                                </div>
-                              </div>                  
-                              <div class="field-wrap">
-                                <label>
-                                  Direccion<span class="req">*</span>
-                                </label>
-                                <input type="text" required autocomplete="off" name='address'/>
-                              </div>                     
-                              <div class="field-wrap">
-                                <label>
-                                  CÃ³digo Postal<span class="req">*</span>
-                                </label>
-                                <input type="text" required autocomplete="off" />
-                              </div>
-                              <h4>Selecciona tres categorias de tu interÃ©s</h4>
-                              <div class="field-wrap">
-                                <div class="input-group">
-                                    <select name="opcion1" name='categoria1'>
-
-                                        <option selected> Moda y acesorios</option>
-                                        <option> InformÃ¡tica</option>
-                                        <option> Imagen y sonido</option>
-                                        <option> Deporte y ocio</option>
-                                        <option> Hogar y jardin</option>
-                                        <option> ElectrodomÃ©sticos</option>
-                                        <option> Libros</option>
-                                        <option> Cine y mÃºsica</option>
-                                        <option> Colecionismo</option>
-                                        <option> Patinetes y bicicletas</option>
-                                        <option>Tren</option>
-                                        
-                                    </select>
-                                    <select name="opcion2" name='categoria2'>
-
-                                        <option> Moda y acesorios</option>
-                                        <option selected> InformÃ¡tica</option>
-                                        <option> Imagen y sonido</option>
-                                        <option> Deporte y ocio</option>
-                                        <option> Hogar y jardin</option>
-                                        <option> ElectrodomÃ©sticos</option>
-                                        <option> Libros</option>
-                                        <option> Cine y mÃºsica</option>
-                                        <option> Colecionismo</option>
-                                        <option> Patinetes y bicicletas</option>
-                                        <option> Tren</option>
-                                        
-                                    </select>
-                                    <select name="opcion3" name='categoria3'>
-
-                                        <option> Moda y acesorios</option>
-                                        <option> InformÃ¡tica</option>
-                                        <option selected> Imagen y sonido</option>
-                                        <option> Deporte y ocio</option>
-                                        <option> Hogar y jardin</option>
-                                        <option> ElectrodomÃ©sticos</option>
-                                        <option> Libros</option>
-                                        <option> Cine y mÃºsica</option>
-                                        <option> Colecionismo</option>
-                                        <option> Patinetes y bicicletas</option>
-                                        <option> Tren</option>
-                                    
-                                    </select>
-                                    
-                                </div>
-                              </div>                     
-                              <button type="submit" class="button button-block" >Registrarse</button>                     
-                            </form>                   
-                          </div>                    
-                        </div><!-- tab-content -->                     
+                          </div>
+                        </div><!-- tab-content -->
                       </div> <!-- /form -->
-                </div>    
+                </div>
             </div>
         </div>
     </section>

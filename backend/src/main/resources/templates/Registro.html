@@ -11,51 +11,7 @@
     
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__language">
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-instagram"></i></a>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo-fondo-blanco-3.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./contact.html">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    {{>customheader}}
     <!-- Header Section End -->
 
     <!-- Featured Section Begin -->
@@ -68,7 +24,6 @@
 
                         <ul class="tab-group">
                           <li class="tab"><a href="#signup">Registrarse</a></li>
-                          <li class="tab active"><a href="#login">Iniciar sesión</a></li>
                         </ul>
                       
                         <div class="tab-content">
@@ -178,29 +133,11 @@
                                     </select>
                                     
                                 </div>
-                              </div>                     
+                              </div>
+                                <p class="forgot"><a href="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
                               <button type="submit" class="button button-block" >Registrarse</button>                     
                             </form>                   
-                          </div>                     
-                          <div id="login">
-                            <h1>Bienvenido!</h1>                     
-                            <form action="/" method="post">                      
-                              <div class="field-wrap">
-                                <label>
-                                    Dirección de Email<span class="req">*</span>
-                                </label>
-                                <input type="email" required autocomplete="off" />
-                              </div>                     
-                              <div class="field-wrap">
-                                <label>
-                                    Contraseña<span class="req">*</span>
-                                </label>
-                                <input type="password" required autocomplete="off" />
-                              </div>                    
-                              <p class="forgot"><a href="#">¿Problemas de acceso??</a></p>                     
-                              <button class="button button-block" >Iniciar sesión</button>                     
-                            </form>                     
-                          </div>                     
+                          </div>
                         </div><!-- tab-content -->                     
                       </div> <!-- /form -->
                 </div>    

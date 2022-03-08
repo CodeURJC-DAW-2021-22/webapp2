@@ -98,9 +98,9 @@ public class FlyventasController {
 		model.addAttribute("search", category);
 		if (Product.isPresent()) {
 			model.addAttribute("Product", Product.get());
-			return "busqueda";
+			return "/busqueda";
 		} else {
-			return "searchnotfound";
+			return "/searchnotfound";
 		}
 	 }
 	 @GetMapping("/registro2")

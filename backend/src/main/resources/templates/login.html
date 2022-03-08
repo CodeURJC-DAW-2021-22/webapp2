@@ -11,51 +11,7 @@
     
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> supportFL@FlyVentas.com</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__language">
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-instagram"></i></a>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo-fondo-blanco-3.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./contact.html">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    {{>customheader}}
     <!-- Header Section End -->
 
     <!-- Featured Section Begin -->
@@ -74,22 +30,21 @@
                                               
                           <div id="login">
                             <h1>Bienvenido!</h1>                     
-                            <form action="/" method="post">                      
+                            <form action="/login" method="post">
                               <div class="field-wrap">
                                 <label>
                                     Dirección de Email<span class="req">*</span>
                                 </label>
-                                <input type="email" name="username" required autocomplete="off" />
+                                <input type="text" name="email"/>
                               </div>                     
                               <div class="field-wrap">
                                 <label>
                                     Contraseña<span class="req">*</span>
                                 </label>
-                                <input type="password" name="password" required autocomplete="off" />
+                                <input type="password" name="password"/>
                               </div>                    
                               <p class="forgot"><a href="/register">¿No tienes una cuenta? Regístrate aquí</a></p>
-                              <button class="button button-block" >Iniciar sesión</button>
-                                                   
+                              <button type="submit" value="Sign In" class="button button-block" >Iniciar sesión</button>
                             </form>                     
                           </div>
                         </div><!-- tab-content -->

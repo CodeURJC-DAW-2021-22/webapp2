@@ -1,6 +1,7 @@
 package es.codeurjc.Flyventas.model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,11 +23,9 @@ public class User{
     private String categoria1;
     private String categoria2;
     private String categoria3;
-    private boolean isAdmin;
-    private boolean isBanned;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> roles;
+    private List<String> roles = new ArrayList<>();
 
     /*@OneToMany(mappedBy = "user")
     private <List>Product products;*/
@@ -34,20 +33,22 @@ public class User{
     public Long getId() {
         return id;
     }
-    public User() {}
-    
-    public User(String name, String apellido, String email, String address, String encodedPassword, boolean admin, String categoria1, String categoria2, String categoria3) {
+
+    public User(String name, String apellido, String email, String address, String encodedPassword, String categoria1, String categoria2, String categoria3, String role) {
     	this.name = name;
     	this.apellido = apellido;
         this.email = email;
         this.encodedPassword = encodedPassword;
         this.address = address;
-        this.isAdmin = admin;
-        this.isBanned = false; //nunca se va a crear un usuario baneado directamente
         this.categoria1 = categoria1;
         this.categoria2 = categoria2;
         this.categoria3 = categoria3;
+		this.roles.add("USER");
+		this.roles.add(role);
     }
+
+	public User() {
+	}
     
     public String getName() {
         return name;
@@ -56,6 +57,7 @@ public class User{
     public List<String> getRoles() {
         return roles;
     }
+
     public String getapellido() {
         return apellido;
     }
@@ -80,18 +82,6 @@ public class User{
 		this.encodedPassword = encodedPassword;
 	}
 
-    public boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public boolean getIsBanned() {
-        return isBanned;
-    }
-
-    public void setIsBanned(boolean banned) {
-        this.isBanned = banned;
-    }
-    
     public Blob getImageFile() {
 		return imageFile;
 	}
@@ -120,7 +110,7 @@ public class User{
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + name + ", apellido=" + apellido + ", email=" + email + ", address="
-				+ address + ", encodedPassword=" + encodedPassword + ", isAdmin=" + isAdmin + ", isBanned=" + isBanned
+				+ address + ", encodedPassword=" + encodedPassword
 				+ ", imageFile=" + imageFile + "]";
 	}
 	public String getCategoria1() {

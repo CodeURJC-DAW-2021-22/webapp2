@@ -1,17 +1,12 @@
-package es.codeurjc.Flyventas.Tecnology;
+package es.codeurjc.Flyventas.tecnologypdf;
 
 
 import com.lowagie.text.Element;
 import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.pdf.PdfCell;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import es.codeurjc.Flyventas.model.Product;
-import es.codeurjc.Flyventas.model.Transaction;
-import es.codeurjc.Flyventas.services.ProductServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
@@ -19,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.util.Map;
-import java.util.Optional;
 
 @Component("resumen")
 public class PdfCreator extends AbstractPdfView {

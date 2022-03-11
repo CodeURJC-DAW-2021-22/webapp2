@@ -17,29 +17,27 @@ public class Transaction {
     @OneToOne
     private Product product;
 
-    private String buyer;
-    private String seller;
-
-    /*@ManyToOne
+    @ManyToOne
     private User buyer;
 
     @ManyToOne
-    private User seller;*/
+    private User seller;
+
 
     //Constructores
 
     public Transaction() {}
 
-    public Transaction(Product product) {
+    public Transaction(Product product, User buyer) {
         super();
         this.date = getActualDate();
         this.product = product;
         this.price = product.getPrice();
-        this.buyer = "Juan";
-        this.seller = "Pepe";
+        this.buyer = buyer;
+        this.seller = product.getUser();
         product.setIsSold(true);
-
     }
+
 
     //Setters y Getters
 
@@ -50,6 +48,7 @@ public class Transaction {
     public float getPrice() { return price; }
 
     public void setPrice(float price) { this.price = price; }
+
 
     //Others
 

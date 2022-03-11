@@ -9,7 +9,6 @@ import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.repository.UserRepository;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,8 +21,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-
 
 import java.util.Optional;
 
@@ -46,11 +43,8 @@ public class TransactionController {
     @Autowired
     private TransactionServices transactionsservice;
 
+
     //Transaction Controller
-
-
-
-
 
     @GetMapping("/confirmacionCompra/{id}")
     public String comfirmTransaction(Model model, @PathVariable long id) {
@@ -70,22 +64,17 @@ public class TransactionController {
         Optional<Product> Product = productServices.findById(id);
         //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         if (Product.isPresent()) {
-            transactions.save(new Transaction(Product.get()));
+            transactions.save(new Transaction(Product.get(), null));
 
             model.addAttribute("Product", Product.get());
 
-
             SimpleMailMessage email = new SimpleMailMessage();
-
             email.setTo("carlos.hdezhdez01@gmail.com");
             email.setSubject("Recibo FlyVentas");
             String str = Long.toString(id);
             String message = ("http://localhost:8080/resumen/"+str+"/12345/?format=pdf");
             email.setText(message);
-
-
             mailSender.send(email);
-
 
             return "resumen";
         } else {
@@ -93,6 +82,7 @@ public class TransactionController {
             return "searchnotfound";
         }
     }
+
 
     //Counteroffer Controller
 
@@ -114,7 +104,7 @@ public class TransactionController {
         Optional<Product> Product = productServices.findById(id);
         if (Product.isPresent()) {
 
-            counteroffers.save(new Counteroffer(Product.get(), newOffer));
+            counteroffers.save(new Counteroffer(Product.get(), newOffer, null));
 
             return "redirect:/";
         } else {

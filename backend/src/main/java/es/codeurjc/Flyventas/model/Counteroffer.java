@@ -2,7 +2,6 @@ package es.codeurjc.Flyventas.model;
 import javax.persistence.*;
 
 @Entity
-
 public class Counteroffer {
 
     @Id
@@ -14,26 +13,25 @@ public class Counteroffer {
     @OneToOne
     private Product product;
 
-    private String buyer;
-    private String seller;
-
-    /*@ManyToOne
+    @ManyToOne
     private User buyer;
 
     @ManyToOne
-    private User seller;*/
+    private User seller;
+
 
     //Constructores
 
     public Counteroffer() {}
 
-    public Counteroffer(Product product, float newPrice) {
+    public Counteroffer(Product product, float newPrice, User buyer) {
         super();
         this.product = product;
         this.newPrice = newPrice;
-        this.buyer = "Fran";
-        this.seller = "Jaime";
+        this.buyer = buyer;
+        this.seller = product.getUser();
     }
+
 
     //Setters y Getters
 
@@ -45,13 +43,14 @@ public class Counteroffer {
 
     public void setPrice(float newPrice) { this.newPrice = newPrice; }
 
-    public String getBuyer() { return this.buyer; }
+    public User getBuyer() { return this.buyer; }
+
 
     //Others
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", newPrice=" + newPrice + ", product=" + product + ", seller=" + seller + ", buyer=" + buyer + "]";
+        return "User [id=" + id + ", newPrice=" + newPrice + ", product=" + product + ", buyer=" + buyer + "]";
     }
 
 }

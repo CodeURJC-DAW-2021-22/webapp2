@@ -3,7 +3,6 @@ package es.codeurjc.Flyventas.model;
 import javax.persistence.*;
 
 @Entity
-
 public class Product {
 
     @Id
@@ -15,72 +14,60 @@ public class Product {
     private String category;
     private float price;
     private boolean isSold;
-    @Lob
-	//private Blob imageFile;
+
+    /*@Lob
+	private Blob imageFile;*/
 
 	//private boolean image;
 
-    /*@ManyToOne
-    private User user; */
-    //de momento lo comento para poder crear productos de ejemplo sin insertar un usuario
-    private String user;
+    @ManyToOne
+    private User user;
 
-    //public Product(String name, String description, String category, float price, boolean isSold) {}
+    //private String user;
+
+
+    //Constructores
 
     public Product() {}
 
-
-    public Product(String title, String description, String category, float price, boolean isSold) {
+    public Product(String title, String description, String category, float price, boolean isSold, User user) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
         this.isSold = isSold;
+        this.user = user;
     }
 
+
+    //Setters y Getters
 
     public Long getId() { return this.id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return this.title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    public void setCategory(String category) { this.category = category; }
 
-    public String getCategory() {
-        return category;
-    }
+    public String getCategory() { return this.category; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return this.description; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) { this.description = description; }
 
-    public float getPrice() {
-        return price;
-    }
+    public float getPrice() { return this.price; }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+    public void setPrice(float price) { this.price = price; }
 
-    public boolean getIsSold() {
-        return isSold;
-    }
+    public boolean getIsSold() { return this.isSold; }
 
-    public void setIsSold(boolean isSold) {
-        this.isSold = isSold;
-    }
+    public void setIsSold(boolean isSold) { this.isSold = isSold; }
 
+    public User getUser() { return this.user; }
+
+
+    //Others
 
     @Override
     public String toString() {
@@ -89,9 +76,9 @@ public class Product {
     }
 
 
-//    public String getUser() {
-//        return user;
-//    }
+
+
+
 //    public Blob getImageFile() {
 //		return imageFile;
 //	}

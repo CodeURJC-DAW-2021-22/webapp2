@@ -12,8 +12,7 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id = null;;
-
+    private Long id = null;
     
     private String name;
     private String apellido;
@@ -24,15 +23,19 @@ public class User{
     private String categoria2;
     private String categoria3;
 
+	@Lob
+	private Blob imageFile;
+
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
     /*@OneToMany(mappedBy = "user")
     private <List>Product products;*/
 
-    public Long getId() {
-        return id;
-    }
+
+	//Constructores
+
+	public User() {}
 
     public User(String name, String apellido, String email, String address, String encodedPassword, String categoria1, String categoria2, String categoria3, String role) {
     	this.name = name;
@@ -47,35 +50,35 @@ public class User{
 		this.roles.add(role);
     }
 
-	public User() {
+
+	//Setters y Getters
+
+	public Long getId() {
+		return this.id;
 	}
-    
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public List<String> getRoles() {
-        return roles;
+        return this.roles;
     }
 
     public String getapellido() {
-        return apellido;
+        return this.apellido;
     }
     
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
     
-    @Lob
-	private Blob imageFile;
-
-    
     public String getEncodedPassword() {
-		return encodedPassword;
+		return this.encodedPassword;
 	}
     
     public void setEncodedPassword(String encodedPassword) {
@@ -89,6 +92,33 @@ public class User{
 	public void setImageFile(Blob image) {
 		this.imageFile = image;
 	}
+
+	public String getCategoria1() {
+		return this.categoria1;
+	}
+
+	public void setCategoria1(String categoria1) {
+		this.categoria1 = categoria1;
+	}
+
+	public String getCategoria2() {
+		return this.categoria2;
+	}
+
+	public void setCategoria2(String categoria2) {
+		this.categoria2 = categoria2;
+	}
+
+	public String getCategoria3() {
+		return this.categoria3;
+	}
+
+	public void setCategoria3(String categoria3) {
+		this.categoria3 = categoria3;
+	}
+
+
+	//Others
 
 	@Override
 	public int hashCode() {
@@ -113,28 +143,6 @@ public class User{
 				+ address + ", encodedPassword=" + encodedPassword
 				+ ", imageFile=" + imageFile + "]";
 	}
-	public String getCategoria1() {
-		return categoria1;
-	}
-	public void setCategoria1(String categoria1) {
-		this.categoria1 = categoria1;
-	}
-	public String getCategoria2() {
-		return categoria2;
-	}
-	public void setCategoria2(String categoria2) {
-		this.categoria2 = categoria2;
-	}
-	public String getCategoria3() {
-		return categoria3;
-	}
-	public void setCategoria3(String categoria3) {
-		this.categoria3 = categoria3;
-	}
-
-	
-    
-    
 }
 
 

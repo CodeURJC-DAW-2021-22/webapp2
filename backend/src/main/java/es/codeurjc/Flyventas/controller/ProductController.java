@@ -7,6 +7,7 @@ import es.codeurjc.Flyventas.services.ProductServices;
 
 import java.io.IOException;
 
+import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ import javax.annotation.PostConstruct;
 public class ProductController {
 
     @Autowired
+    private UserServices userServices;
+
+    @Autowired
     private ProductRepository products;
     @Autowired
     private ProductServices productServices;
@@ -27,16 +31,17 @@ public class ProductController {
 
     @PostConstruct
     public void init() {
-        products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false));
-        products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, false));
-        products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false));
-        products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false));
-        products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false));
+
+        products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false, null));
+        products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, false, null));
+        products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false, null));
+        products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false, null));
+        products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false, null));
     }
 
     @PostMapping("/subirProducto")
     public String newProduct(@RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float price){
-        products.save(new Product(name, description, category, price, false));
+        products.save(new Product(name, description, category, price, false, null));
 
         return "perfil";
     }

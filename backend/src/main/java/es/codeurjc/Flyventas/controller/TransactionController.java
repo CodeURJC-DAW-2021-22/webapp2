@@ -69,7 +69,7 @@ public class TransactionController {
             model.addAttribute("Product", Product.get());
 
             SimpleMailMessage email = new SimpleMailMessage();
-            email.setTo("carlos.hdezhdez01@gmail.com");
+            email.setTo("");
             email.setSubject("Recibo FlyVentas");
             String str = Long.toString(id);
             String message = ("http://localhost:8080/resumen/"+str+"/12345/?format=pdf");

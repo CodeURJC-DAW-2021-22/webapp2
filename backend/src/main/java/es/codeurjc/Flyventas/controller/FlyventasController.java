@@ -116,8 +116,10 @@ public class FlyventasController {
 	@GetMapping("/perfil/{id}")
 	public String perfil(Model model, @PathVariable long id) {
 
+		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
 		Optional<User> Profile = userServices.findUserById(id);
 		if (Profile.isPresent()) {
+			model.addAttribute("Product", Product);
 			model.addAttribute("name", Profile.get().getName());
 			model.addAttribute("email", Profile.get().getEmail());
 			model.addAttribute("address", Profile.get().getAddress());

@@ -35,7 +35,7 @@ public class UserController {
 	}
 	@PostMapping("/perfil")
 	public  String newuser(@RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam String address, @RequestParam String encodedPassword, @RequestParam String category1, @RequestParam String category2, @RequestParam String category3) {
-		User User = new User(name, surname, email, address, passwordEncoder.encode("encodedPassword"), category1, category2, category3, "USER");;
+		User User = new User(name, surname, email, address, passwordEncoder.encode(encodedPassword), category1, category2, category3, "USER");;
 		Users.save(User);
 		
 		return "redirect:/perfil/" + User.getId();

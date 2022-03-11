@@ -9,6 +9,8 @@ import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -94,23 +96,15 @@ public class FlyventasController {
 	@RequestMapping("/category/{category}")
 	public String CategorySearch(Model model, @PathVariable String category) {
 
-		Optional<Product> Product = productServices.findByCategory(category);
+		List<Product> Product = productServices.findProductByCategoryPageable(category, PageRequest.of(0,3));
 		model.addAttribute("search", category);
-		if (Product.isPresent()) {
-			model.addAttribute("Product", Product.get());
+		if (!Product.isEmpty()) {
+			model.addAttribute("Product", Product);
 			return "/busqueda";
 		} else {
 			return "/searchnotfound";
 		}
-	 }
-	 @GetMapping("/registro2")
-	 public String registro2 (Model model){
-
-		 // model.addAttribute("name", "World");
-
-		 return "registro2";
-	 }
-
+	}
 
 	 @GetMapping("/subirProducto")
 	 public String subirProducto() {

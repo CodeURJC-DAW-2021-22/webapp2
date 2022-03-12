@@ -1,5 +1,9 @@
 {{>header}}
     <link rel="stylesheet" href="/css/Perfil.css" type="text/css">
+<link rel="stylesheet" href="/css/tabla.css" type="text/css">
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+
+
 </head>
 
 <body>
@@ -62,78 +66,25 @@
                     <!-- Mis anuncios -->
                     <div class="contenedor-preguntas" data-categoria="mis-anuncios">
                         <div class="contenedor-pregunta">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <span>Vegetables</span>
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <span>Vegetables</span>
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <span>Vegetables</span>
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <span>Vegetables</span>
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/product/product-5.jpg">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <span>Vegetables</span>
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                            <table>
+
+                                <caption>Tus Productos</caption>
+                                <tr> <th>Titulo</th> <th>Precio</th> <th>Descripcion</th>
+                                    <th>Imagen</th> <th>Vendido</th> <th>Opciones</th>
+                                </tr>
+                                {{#Product}}
+                                <tr> <td>{{title}}</td> <td>{{price}}</td> <td>{{description}}</td>
+                                    <td>imagen</td> <td>{{isSold}}</td> <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                                </tr>
+                                {{/Product}}
+                            </table>
+
+                            <div id="contenedorForm">
+
+
+
+
                         </div>
                     </div>
 
@@ -277,6 +228,8 @@
 {{>footer}}
     <script src="/js/categorias.js"></script>
     <!-- <script src="js/preguntasFrecuentes.js"></script> -->
+    <script src="/js/tablaperfil.js"></script>
+
 
 
 

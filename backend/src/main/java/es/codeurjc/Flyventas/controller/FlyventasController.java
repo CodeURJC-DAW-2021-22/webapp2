@@ -1,26 +1,25 @@
 package es.codeurjc.Flyventas.controller;
 
+
 //import java.util.Optional;
-import es.codeurjc.Flyventas.model.Counteroffer;
+
 import es.codeurjc.Flyventas.model.Product;
-import es.codeurjc.Flyventas.model.Transaction;
 import es.codeurjc.Flyventas.model.User;
-import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.ProductRepository;
-import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
+
+//Hay que meter los repositorios de las bbdd @Autowired
+
 
 
 @Controller
@@ -59,34 +58,39 @@ public class FlyventasController {
 
 	 @GetMapping("/")
 	 public String main(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
 		 return "index";
 	 }
 	 
 	 @GetMapping("/login")
 	 public String login(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
 		 return "login";
 	 }
 
-	 @GetMapping("/loginerror")
-	 public String loginerror(Model model) {
-		 return "loginerror";
-	 }
+	@GetMapping("/loginerror")
+	public String loginerror(Model model) {
 
-	 @GetMapping("/logout")
-	 public String logout(Model model) {
-		 return "logout";
-	 }
+		return "loginerror";
+	}
+
+	@GetMapping("/logout")
+	public String logout(Model model) {
+
+		return "logout";
+	}
 
 	 @GetMapping("/register")
 	 public String register(Model model) {
+		 
+		// model.addAttribute("name", "World");
+		 
 		 return "Registro";
 	 }
-
-	 @GetMapping("/subirProducto")
-	 public String subirProducto() {
-		 return "subirProducto";
-	 }
-
 
 	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
@@ -101,33 +105,46 @@ public class FlyventasController {
 		 }
 	 }
 
+	@RequestMapping("/category/{category}")
+	public String CategorySearch(Model model, @PathVariable String category) {
 
-	 @RequestMapping("/category/{category}")
-	 public String CategorySearch(Model model, @PathVariable String category) {
-
-		Optional<Product> Product = productServices.findByCategory(category);
+		List<Product> Product = productServices.findProductByCategoryPageable(category, PageRequest.of(0,3));
 		model.addAttribute("search", category);
-		if (Product.isPresent()) {
-			model.addAttribute("Product", Product.get());
+		if (!Product.isEmpty()) {
+			model.addAttribute("Product", Product);
 			return "/busqueda";
 		} else {
 			return "/searchnotfound";
 		}
 	 }
+	 @GetMapping("/registro2")
+	 public String registro2 (Model model){
 
+		 // model.addAttribute("name", "World");
+
+		 return "registro2";
+	 }
+
+
+	 @GetMapping("/subirProducto")
+	 public String subirProducto() {
+
+
+		return "subirProducto";
+	 }
 
 	@GetMapping("/perfil/{id}")
 	public String perfil(Model model, @PathVariable long id) {
 
+		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
 		Optional<User> Profile = userServices.findUserById(id);
 		if (Profile.isPresent()) {
-
+			model.addAttribute("Product", Product);
 			model.addAttribute("name", Profile.get().getName());
 			model.addAttribute("email", Profile.get().getEmail());
 			model.addAttribute("address", Profile.get().getAddress());
 			return "perfil";
 		} else {
-
 			return "searchnotfound";
 		}
 

@@ -1,25 +1,27 @@
 package es.codeurjc.Flyventas.controller;
-
-
 //import java.util.Optional;
-
+import es.codeurjc.Flyventas.model.Counteroffer;
 import es.codeurjc.Flyventas.model.Product;
+import es.codeurjc.Flyventas.model.Transaction;
 import es.codeurjc.Flyventas.model.User;
+import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.ProductRepository;
+import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
-
-//Hay que meter los repositorios de las bbdd @Autowired
-
 
 
 @Controller
@@ -59,16 +61,12 @@ public class FlyventasController {
 	 @GetMapping("/")
 	 public String main(Model model) {
 		 
-		// model.addAttribute("name", "World");
-		 
 		 return "index";
 	 }
 	 
 	 @GetMapping("/login")
 	 public String login(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
+
 		 return "login";
 	 }
 
@@ -86,9 +84,7 @@ public class FlyventasController {
 
 	 @GetMapping("/register")
 	 public String register(Model model) {
-		 
-		// model.addAttribute("name", "World");
-		 
+
 		 return "Registro";
 	 }
 
@@ -117,21 +113,12 @@ public class FlyventasController {
 			return "/searchnotfound";
 		}
 	 }
-	 @GetMapping("/registro2")
-	 public String registro2 (Model model){
 
-		 // model.addAttribute("name", "World");
-
-		 return "registro2";
-	 }
-
-
-	 @GetMapping("/subirProducto")
-	 public String subirProducto() {
-
+	@GetMapping("/subirProducto")
+	public String subirProducto() {
 
 		return "subirProducto";
-	 }
+	}
 
 	@GetMapping("/perfil/{id}")
 	public String perfil(Model model, @PathVariable long id) {
@@ -150,8 +137,7 @@ public class FlyventasController {
 
 	}
 
-
-	 @GetMapping("/Producto/{id}")
+	@GetMapping("/Producto/{id}")
 		public String showProduct(Model model, @PathVariable long id) {
 		 
 		 Optional<Product> Product = productServices.findById(id);
@@ -162,7 +148,7 @@ public class FlyventasController {
 				return "searchnotfound";
 			}
 		 
-	 }
+	}
 	//------------------------------------------------------------------------------------------------------------------
 
 	//Transaction Controller

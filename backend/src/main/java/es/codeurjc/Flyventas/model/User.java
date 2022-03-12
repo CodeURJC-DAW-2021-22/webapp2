@@ -29,8 +29,14 @@ public class User{
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
-    /*@OneToMany(mappedBy = "user")
-    private <List>Product products;*/
+    @OneToMany(mappedBy = "user")
+    private List<Product> productList;
+
+	@OneToMany(mappedBy = "receiver")
+	private List<Counteroffer> counterofferList = new ArrayList<>();
+
+	@OneToMany(mappedBy = "seller")
+	private List<Transaction> transactionList = new ArrayList<>();
 
 
 	//Constructores
@@ -117,6 +123,11 @@ public class User{
 		this.categoria3 = categoria3;
 	}
 
+	public void addCounteroffer(Counteroffer newCounteroffer) { this.counterofferList.add(newCounteroffer); }
+
+	public void addProduct(Product newProduct) { this.productList.add(newProduct); }
+
+	public void addTransaction(Transaction newTransaction) { this.transactionList.add(newTransaction); }
 
 	//Others
 

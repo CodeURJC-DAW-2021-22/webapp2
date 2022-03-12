@@ -23,8 +23,6 @@ public class Product {
     @ManyToOne
     private User user;
 
-    //private String user;
-
 
     //Constructores
 
@@ -37,6 +35,9 @@ public class Product {
         this.price = price;
         this.isSold = isSold;
         this.user = user;
+        if(!(this.user == null)) {
+            this.user.addProduct(this);
+        }
     }
 
 

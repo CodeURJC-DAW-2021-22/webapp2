@@ -14,10 +14,10 @@ public class Counteroffer {
     private Product product;
 
     @ManyToOne
-    private User buyer;
+    private User transmitter;
 
     @ManyToOne
-    private User seller;
+    private User receiver;
 
 
     //Constructores
@@ -28,8 +28,11 @@ public class Counteroffer {
         super();
         this.product = product;
         this.newPrice = newPrice;
-        this.buyer = buyer;
-        this.seller = product.getUser();
+        this.transmitter = buyer;
+        this.receiver = product.getUser();
+        if(!(this.receiver == null)) {
+            this.receiver.addCounteroffer(this);
+        }
     }
 
 
@@ -43,14 +46,14 @@ public class Counteroffer {
 
     public void setPrice(float newPrice) { this.newPrice = newPrice; }
 
-    public User getBuyer() { return this.buyer; }
+    public User getReceiver() { return this.receiver; }
 
 
     //Others
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", newPrice=" + newPrice + ", product=" + product + ", buyer=" + buyer + "]";
+        return "User [id=" + id + ", newPrice=" + newPrice + ", product=" + product + ", buyer=" + transmitter + "]";
     }
 
 }

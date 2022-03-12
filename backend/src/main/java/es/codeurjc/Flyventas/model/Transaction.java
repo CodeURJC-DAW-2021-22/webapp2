@@ -31,11 +31,15 @@ public class Transaction {
     public Transaction(Product product, User buyer) {
         super();
         this.date = getActualDate();
-        this.product = product;
         this.price = product.getPrice();
+        this.product = product;
+        this.product.setIsSold(true);
         this.buyer = buyer;
+        this.buyer.addTransaction(this);
         this.seller = product.getUser();
-        product.setIsSold(true);
+        if(!(this.seller == null)) {
+            this.seller.addTransaction(this);
+        }
     }
 
 

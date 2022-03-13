@@ -127,10 +127,15 @@ public class FlyventasController {
 	@GetMapping("/perfil/{id}")
 	public String perfil(Model model, @PathVariable long id) {
 
-		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
+		//List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,10));
 		Optional<User> Profile = userServices.findUserById(id);
+
+		List<Product> Product = productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0,10));
+		List<Product> Counteroffer = productServices.findAllCounteroffersByReceiver(Profile.get(), PageRequest.of(0,10));
+
 		if (Profile.isPresent()) {
 			model.addAttribute("Product", Product);
+			model.addAttribute("Counteroffer", Counteroffer);
 			model.addAttribute("name", Profile.get().getName());
 			model.addAttribute("email", Profile.get().getEmail());
 			model.addAttribute("address", Profile.get().getAddress());
@@ -208,7 +213,7 @@ public class FlyventasController {
 			model.addAttribute("Product", Product.get());
 			return "contraoferta";
 		} else {
-			return "searchnotfound";
+			return "error";
 		}
 	}
 
@@ -224,7 +229,7 @@ public class FlyventasController {
 
 			return "redirect:/";
 		} else {
-			return "searchnotfound";
+			return "error";
 		}
 	}
 	//------------------------------------------------------------------------------------------------------------------

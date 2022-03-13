@@ -93,10 +93,11 @@ public class FlyventasController {
 	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
 
-		 Optional<Product> Product = productServices.findByTitle(title);
+		 List<Product> Product = productServices.findByTitle(title, PageRequest.of(0,9));
 		 model.addAttribute("search", title);
-		 if (Product.isPresent()) {
-			 model.addAttribute("Product", Product.get());
+		 if (!Product.isEmpty()) {
+			 model.addAttribute("Results", Product.size());
+			 model.addAttribute("Product", Product);
 			 return "busqueda";
 		 } else {
 			 return "searchnotfound";

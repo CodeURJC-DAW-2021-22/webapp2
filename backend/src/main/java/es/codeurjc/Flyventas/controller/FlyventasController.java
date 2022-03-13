@@ -190,11 +190,13 @@ public class FlyventasController {
 
 		Principal principal = request.getUserPrincipal();
 		Optional<Product> Product = productServices.findById(id);
+
 		//Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
 		if (Product.isPresent()) {
 
 			Optional<User> User = userServices.findUserByEmail(principal.getName());
 			transactions.save(new Transaction(Product.get(), User.get(), Product.get().getPrice()));
+
 
 			model.addAttribute("Product", Product.get());
 
@@ -202,10 +204,9 @@ public class FlyventasController {
 			email.setTo("j.molinero.2019@alumnos.urjc.es");
 			email.setSubject("Recibo FlyVentas");
 			String str = Long.toString(id);
-			String message = ("http://localhost:8080/resumen/"+str+"/12345/?format=pdf");
+			String message = ("https://localhost:8443/resumen/"+str+"/12345/?format=pdf");
 			email.setText(message);
 			mailSender.send(email);
-
 			return "resumen";
 		} else {
 

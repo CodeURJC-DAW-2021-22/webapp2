@@ -18,10 +18,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     //public List<Product> findAll;
     
-    @Query("SELECT p FROM Product p WHERE lower(p.title) LIKE %:title%")
+    @Query("SELECT p FROM Product p WHERE (lower(p.title) LIKE %:title%) AND (p.isSold = false)")
     public List<Product> findByTitle(@Param("title") String title, Pageable page);
 
-    @Query("SELECT p FROM Product p WHERE lower(p.category) LIKE %:category%")
+    @Query("SELECT p FROM Product p WHERE lower(p.category) LIKE %:category% AND (p.isSold = false)")
     public List<Product> findProductByCategoryPageable(@Param("category") String category, Pageable page);
     
     @Query("SELECT p FROM Product p WHERE p.id=:id")

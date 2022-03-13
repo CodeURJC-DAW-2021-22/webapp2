@@ -19,6 +19,10 @@ public class ProductServices {
 
 	@Autowired
 	private ProductRepository repository;
+
+	public void save(Product product){
+		repository.save(product);
+	}
 	
 	public List<Product> findByTitle(String title, Pageable page) {
 		return repository.findByTitle(title, page);

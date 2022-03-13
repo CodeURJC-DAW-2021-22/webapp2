@@ -70,17 +70,37 @@
                             <table>
 
                                 <caption>Tus Productos</caption>
-                                <tr> <th>Titulo</th> <th>Precio</th> <th>Descripcion</th>
-                                    <th>Imagen</th> <th>Vendido</th> <th>Opciones</th>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Categoria</th>
+                                    <th>Precio</th>
+                                    <th>Descripcion</th>
+                                    <th>Imagen</th>
+                                    <th>Vendido</th>
+                                    <th>Id Publica</th>
+                                    <th>Opciones</th>
                                 </tr>
                                 {{#Product}}
-                                <tr> <td>{{title}}</td> <td>{{price}}</td> <td>{{description}}</td>
-                                    <td>imagen</td> <td>{{isSold}}</td> <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                                <form action="/editado/{{id}}" method="post">
+                                <tr>
+                                    <td><input type="text" name="title" value="{{title}}" size="10"></td>
+                                    <td><input type="text" name="category" value="{{category}}" size="5"></td>
+                                    <td><input type="number" name="price" value="{{price}}" size="5"></td>
+                                    <td><input type="text" name="description" value="{{description}}" size="5"></td>
+                                    <td>imagen</td>
+                                    <td><select type="text" name="isSold"><option selected>false</option><option>true</option></select></td>
+                                    <td>{{id}}</td>
+                                    <td>
+                                        <input type="submit" value="Editar"/>
+                                    </td>
                                 </tr>
+                                </form>
                                 {{/Product}}
 
                             </table>
 
+
+                        </div>
                         </div>
                     </div>
 

@@ -153,7 +153,7 @@ public class FlyventasController {
 	}
 
 	@GetMapping("/perfil/{id}")
-	public String perfil(Model model, @PathVariable long id) {
+	public String profile(Model model, @PathVariable long id) {
 
 		Optional<User> Profile = userServices.findUserById(id);
 
@@ -172,6 +172,28 @@ public class FlyventasController {
 			return "searchnotfound";
 		}
 	}
+
+	@PostMapping("/editado/{id}")
+	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description, @RequestParam boolean isSold) {
+
+
+		Optional<Product> Products = productServices.findById(id);
+		if (Products.isPresent()) {
+			Product product = Products.get();
+			product.setTitle(title);
+			product.setCategory(category);
+			product.setPrice(price);
+			product.setDescription(description);
+			product.setIsSold(isSold);
+			//editar atributos del objeto
+			productServices.save(product);
+			return "redirect:/";
+		} else {
+			return "searchnotfound";
+		}
+
+	}
+
 	//------------------------------------------------------------------------------------------------------------------
 
 	//Transaction Controller
@@ -255,6 +277,7 @@ public class FlyventasController {
 	 	if(counterOffer.isPresent()) {
 
 	 		transactions.save(new Transaction(counterOffer.get().getProduct(), counterOffer.get().getTransmitter(), counterOffer.get().getNewPrice()));
+	 		counteroffers.delete(counterOffer.get());
 		}
 	 	return "redirect:/";
 	}

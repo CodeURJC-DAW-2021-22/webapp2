@@ -127,13 +127,16 @@ public class FlyventasController {
 	}
 
 	@GetMapping("/Producto/{id}")
-	public String showProduct(Model model, @PathVariable long id) {
+	public String showProduct(Model model, HttpServletRequest request, @PathVariable long id) {
 
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
+
 			model.addAttribute("Product", Product.get());
+			model.addAttribute("Seller", Product.get().getUser());
 			return "Producto";
 		} else {
+
 			return "searchnotfound";
 		}
 

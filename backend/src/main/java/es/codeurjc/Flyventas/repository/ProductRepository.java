@@ -33,6 +33,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.id=:id")
     public Optional<Product> findById(@Param("id") Long id);
+
+    @Query("SELECT u FROM Product u")
+    public List<Product> findAll();
     
    /* @Query("SELECT p FROM Product p WHERE p.category LIKE %:category%")
     public Optional<Product> findProductByCategory(@Param("category") String category);

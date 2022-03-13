@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
 
+import java.awt.print.Pageable;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -22,6 +24,8 @@ public class UserServices {
 	public Optional<User> findUserByEmail(String email) {
 		return repository.findUserByEmail(email);
 	}
+
+	public List<User> findAll(Pageable page) {return repository.findAll(page);}
 
 	public void save(User user) {
 		repository.save(user);

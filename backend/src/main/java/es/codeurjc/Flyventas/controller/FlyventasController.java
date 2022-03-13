@@ -173,6 +173,22 @@ public class FlyventasController {
 		}
 	}
 
+	@GetMapping("/perfilAdmin/")
+	public String profileadmin(Model model) {
+
+
+		List<Product> product = productServices.findAll();
+
+		model.addAttribute("Product", productServices.findAll(product.get(),PageRequest.of(0, 5)));
+		model.addAttribute("Users", userServices.findAll(PageRequest.of(0, 5)));
+
+
+		return "perfil";
+
+
+
+	}
+
 	@PostMapping("/editado/{id}")
 	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description, @RequestParam boolean isSold) {
 

@@ -7,6 +7,7 @@ import es.codeurjc.Flyventas.model.User;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,6 +20,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.email=:email")
     Optional<User> findUserByEmail(@Param ("email") String email);
+
+    @Query("SELECT u FROM User u")
+    public List<User> findAll(Pageable page);
 
     Optional<User> findByName(@Param ("name") String name);
 

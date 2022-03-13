@@ -28,10 +28,10 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(Product product, User buyer) {
+    public Transaction(Product product, User buyer, float price) {
         super();
         this.date = getActualDate();
-        this.price = product.getPrice();
+        this.price = price;
         this.product = product;
         this.product.setIsSold(true);
         this.buyer = buyer;
@@ -47,7 +47,7 @@ public class Transaction {
 
     public Long getId() { return this.id; }
 
-    public String getDate() { return this.getDate(); }
+    public String getDate() { return this.date; }
 
     public float getPrice() { return price; }
 
@@ -58,7 +58,7 @@ public class Transaction {
 
     private String getActualDate() {
         Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
         return formatoFecha.format(fecha);
     }
 

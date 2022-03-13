@@ -15,7 +15,7 @@ public class User{
     private Long id = null;
     
     private String name;
-    private String apellido;
+    private String surname;
     private String email;
     private String address;
     private String encodedPassword;
@@ -45,7 +45,7 @@ public class User{
 
     public User(String name, String apellido, String email, String address, String encodedPassword, String categoria1, String categoria2, String categoria3, String role) {
     	this.name = name;
-    	this.apellido = apellido;
+    	this.surname = apellido;
         this.email = email;
         this.encodedPassword = encodedPassword;
         this.address = address;
@@ -71,9 +71,7 @@ public class User{
         return this.roles;
     }
 
-    public String getapellido() {
-        return this.apellido;
-    }
+    public String getSurname() { return this.surname; }
     
     public String getEmail() {
         return this.email;
@@ -150,7 +148,7 @@ public class User{
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nombre=" + name + ", apellido=" + apellido + ", email=" + email + ", address="
+		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + ", address="
 				+ address + ", encodedPassword=" + encodedPassword
 				+ ", imageFile=" + imageFile + "]";
 	}

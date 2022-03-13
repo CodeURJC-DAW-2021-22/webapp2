@@ -78,128 +78,68 @@
                                     <td>imagen</td> <td>{{isSold}}</td> <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
                                 </tr>
                                 {{/Product}}
+
                             </table>
-
-                            <div id="contenedorForm">
-
-
-
 
                         </div>
                     </div>
 
-                    <!-- Preguntas Seguridad -->
+                    <!-- Contraofertas -->
                     <div class="contenedor-preguntas" data-categoria="contraofertas">
                         <div class="contenedor-pregunta">
-                            <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="img/product/discount/pd-1.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-        
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa-solid fa-check"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="img/product/discount/pd-2.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-        
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Vegetables</span>
-                                                <h5><a href="#">Vegetables’package</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="img/product/discount/pd-3.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-        
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Mixed Fruitss</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="img/product/discount/pd-4.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-        
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
+
+                            <table>
+                                <caption>Tus Transacciones</caption>
+                                <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th> <th>Oferta</th>
+                                    <th>Comprador</th>
+                                </tr>
+                                {{#Counteroffers}}
+                                <tr> <td>{{date}}</td>
+                                    {{#product}}
+                                    <td>{{title}}</td>
+                                    <td>{{price}}</td>
+                                    {{/product}}
+                                    <td>{{newPrice}}</td>
+                                    {{#transmitter}}
+                                    <td>{{name}}</td>
+                                    {{/transmitter}}
+                                    <td>
+                                        <form action="/aceptarContraoferta/{{id}}" method="post">
+                                            <input type="submit" value="Aceptar"/>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {{/Counteroffers}}
+                            </table>
+
                         </div>
                     </div>
 
                     <!-- Preguntas Cuenta -->
                     <div class="contenedor-preguntas" data-categoria="compras-y-ventas">
                         <div class="contenedor-pregunta">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="img/product/discount/pd-1.jpg">
-                                            <div class="product__sold__label">VENDIDO</div>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="img/product/discount/pd-2.jpg">
-                                            <div class="product__bought__label">COMPRADO</div>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <span>Vegetables</span>
-                                            <h5><a href="#">Vegetables’package</a></h5>
-                                            <div class="product__item__price">$30.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                            <!-- <p class="respuesta">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.</p> -->
+
+                            <table>
+                                <caption>Tus Transacciones</caption>
+                                <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
+                                    <th>Comprador</th> <th>Vendedor</th>
+                                </tr>
+                                {{#TransactionsAsBuyer}}
+                                <tr> <td>{{date}}</td>
+                                    {{#product}}
+                                    <td>{{title}}</td>
+                                    {{/product}}
+                                    <td>{{price}}</td>
+                                    {{#buyer}}
+                                    <td>{{name}}</td>
+                                    {{/buyer}}
+                                    {{#seller}}
+                                    <td>{{name}}</td>
+                                    {{/seller}}
+                                </tr>
+                                {{/TransactionsAsBuyer}}
+                            </table>
+
                         </div>
                     </div>
 

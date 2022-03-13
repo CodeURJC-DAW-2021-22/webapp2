@@ -7,7 +7,9 @@ import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.repository.TransactionRepository;
+import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
+import es.codeurjc.Flyventas.services.TransactionServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -43,6 +45,9 @@ public class FlyventasController {
 	private TransactionRepository transactions;
 
 	@Autowired
+	private TransactionServices transactionServices;
+
+	@Autowired
 	private ProductServices productServices;
 
 	@Autowired
@@ -53,6 +58,9 @@ public class FlyventasController {
 
 	@Autowired
 	private CounterofferRepository counteroffers;
+
+	@Autowired
+	private CounterofferServices counterofferServices;
 
 	@Autowired
 	private ProductRepository products;
@@ -112,7 +120,24 @@ public class FlyventasController {
 		} else {
 			return "/searchnotfound";
 		}
-	 }
+	}
+
+	@GetMapping("/Producto/{id}")
+	public String showProduct(Model model, @PathVariable long id) {
+
+		Optional<Product> Product = productServices.findById(id);
+		if (Product.isPresent()) {
+			model.addAttribute("Product", Product.get());
+			return "Producto";
+		} else {
+			return "searchnotfound";
+		}
+
+	}
+
+	//------------------------------------------------------------------------------------------------------------------
+
+	//Subir Producto y Perfil Controller
 
 	@GetMapping("/subirProducto")
 	public String subirProducto() {
@@ -123,31 +148,22 @@ public class FlyventasController {
 	@GetMapping("/perfil/{id}")
 	public String perfil(Model model, @PathVariable long id) {
 
-		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
 		Optional<User> Profile = userServices.findUserById(id);
+		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
 		if (Profile.isPresent()) {
+
 			model.addAttribute("Product", Product);
+			model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
+			model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
+			model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
 			model.addAttribute("name", Profile.get().getName());
 			model.addAttribute("email", Profile.get().getEmail());
 			model.addAttribute("address", Profile.get().getAddress());
 			return "perfil";
 		} else {
+
 			return "searchnotfound";
 		}
-
-	}
-
-	@GetMapping("/Producto/{id}")
-		public String showProduct(Model model, @PathVariable long id) {
-		 
-		 Optional<Product> Product = productServices.findById(id);
-			if (Product.isPresent()) {
-				model.addAttribute("Product", Product.get());
-				return "Producto";
-			} else {
-				return "searchnotfound";
-			}
-		 
 	}
 	//------------------------------------------------------------------------------------------------------------------
 
@@ -174,7 +190,7 @@ public class FlyventasController {
 		if (Product.isPresent()) {
 
 			Optional<User> User = userServices.findUserByEmail(principal.getName());
-			transactions.save(new Transaction(Product.get(), User.get()));
+			transactions.save(new Transaction(Product.get(), User.get(), Product.get().getPrice()));
 
 			model.addAttribute("Product", Product.get());
 
@@ -223,6 +239,19 @@ public class FlyventasController {
 			return "searchnotfound";
 		}
 	}
+
+	@PostMapping("/aceptarContraoferta/{id}")
+	public String aceptarContraoferta(HttpServletRequest request, @PathVariable long id) {
+
+	 	Optional<Counteroffer> counterOffer = counterofferServices.findById(id);
+	 	if(counterOffer.isPresent()) {
+
+	 		transactions.save(new Transaction(counterOffer.get().getProduct(), counterOffer.get().getTransmitter(), counterOffer.get().getNewPrice()));
+		}
+	 	return "redirect:/";
+	}
+
+
 	//------------------------------------------------------------------------------------------------------------------
 
 	//Product Controller

@@ -153,10 +153,10 @@ public class FlyventasController {
 	public String perfil(Model model, @PathVariable long id) {
 
 		Optional<User> Profile = userServices.findUserById(id);
-		List<Product> Product = productServices.findProductByCategoryPageable("Otros", PageRequest.of(0,5));
+
 		if (Profile.isPresent()) {
 
-			model.addAttribute("Product", Product);
+			model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
 			model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
 			model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
 			model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));

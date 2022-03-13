@@ -5,11 +5,8 @@ package es.codeurjc.Flyventas.services;
 import java.util.List;
 import java.util.Optional;
 
-import es.codeurjc.Flyventas.model.User;
-import es.codeurjc.Flyventas.repository.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +19,8 @@ public class ProductServices {
 	@Autowired
 	private ProductRepository repository;
 	
-	public Optional<Product> findByCategory(String category) {
-		return repository.findProductByCategory(category);
-	}
-	
-	public Optional<Product> findByTitle(String title) {
-		return repository.findByTitle(title);
+	public List<Product> findByTitle(String title, Pageable page) {
+		return repository.findByTitle(title, page);
 	}
 
 	public List<Product> findProductByCategoryPageable(String category, Pageable page) {

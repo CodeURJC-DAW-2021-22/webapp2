@@ -29,16 +29,16 @@ public class UserController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@PostConstruct
+	/*@PostConstruct
     public void init() {
 		Users.save(new User("samuel", "rusu" , "s.rusu.2019@gmail.com", "El Toboso 13", passwordEncoder.encode("toboso13"), "moda", "informatica", "automoviles", "ADMIN"));
-	}
+	}*/
 	@PostMapping("/perfil")
 	public  String newuser(@RequestParam String name, @RequestParam String surname, @RequestParam String email, @RequestParam String address, @RequestParam String encodedPassword, @RequestParam String category1, @RequestParam String category2, @RequestParam String category3) {
-		User User = new User(name, surname, email, address, passwordEncoder.encode(encodedPassword), category1, category2, category3, "USER");
-		Users.save(User);
+		User admin = new User(name, surname, email, address, passwordEncoder.encode(encodedPassword), category1, category2, category3, "USER");
+		Users.save(admin);
 		
-		return "redirect:/perfil/" + User.getId();
+		return "redirect:/perfil/" + admin.getId();
 		 
 	}
 	

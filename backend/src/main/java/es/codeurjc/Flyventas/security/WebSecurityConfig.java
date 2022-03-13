@@ -54,9 +54,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //http.authorizeRequests().antMatchers("/perfil").permitAll();
 
         // Private pages
-        http.authorizeRequests().antMatchers("/menuRegistered").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/confirmacionCompra/*").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/confirmacionContraoferta/*").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/subirProducto").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers("/perfil/*").hasAnyRole("USER", "ADMIN");
-        //http.authorizeRequests().antMatchers("/addComment/*").hasAnyRole("USER");
+        //http.authorizeRequests().antMatchers("/subirProducto/*").hasAnyRole("USER");
         //http.authorizeRequests().antMatchers("/addFilm").hasAnyRole("ADMIN");
         //http.authorizeRequests().antMatchers("/menuAdmin").hasAnyRole("ADMIN");
 

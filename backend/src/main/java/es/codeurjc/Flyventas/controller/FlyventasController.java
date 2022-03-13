@@ -33,6 +33,8 @@ public class FlyventasController {
 	public void addAttributes(Model model, HttpServletRequest request) {
 		Principal principal = request.getUserPrincipal();
 		if(principal != null) {
+			Optional<User> currentuser = userServices.findUserByEmail(principal.getName());
+			model.addAttribute("id", currentuser.get().getId());
 			model.addAttribute("logged", true);
 			model.addAttribute("username", principal.getName());
 			model.addAttribute("admin", request.isUserInRole("ADMIN"));
@@ -99,10 +101,11 @@ public class FlyventasController {
 	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
 
-		 Optional<Product> Product = productServices.findByTitle(title);
+		 List<Product> Product = productServices.findByTitle(title, PageRequest.of(0,9));
 		 model.addAttribute("search", title);
-		 if (Product.isPresent()) {
-			 model.addAttribute("Product", Product.get());
+		 if (!Product.isEmpty()) {
+			 model.addAttribute("Results", Product.size());
+			 model.addAttribute("Product", Product);
 			 return "busqueda";
 		 } else {
 			 return "searchnotfound";
@@ -112,9 +115,10 @@ public class FlyventasController {
 	@RequestMapping("/category/{category}")
 	public String CategorySearch(Model model, @PathVariable String category) {
 
-		List<Product> Product = productServices.findProductByCategoryPageable(category, PageRequest.of(0,3));
+		List<Product> Product = productServices.findProductByCategoryPageable(category, PageRequest.of(0,9));
 		model.addAttribute("search", category);
 		if (!Product.isEmpty()) {
+			model.addAttribute("Results", Product.size());
 			model.addAttribute("Product", Product);
 			return "/busqueda";
 		} else {
@@ -256,7 +260,7 @@ public class FlyventasController {
 
 	//Product Controller
 
-	@PostConstruct
+	/*@PostConstruct
 	public void init() {
 
 		products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false, null));
@@ -264,7 +268,7 @@ public class FlyventasController {
 		products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false, null));
 		products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false, null));
 		products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false, null));
-	}
+	}*/
 
 	@PostMapping("/subirProducto")
 	public String newProduct(Model model, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float price){

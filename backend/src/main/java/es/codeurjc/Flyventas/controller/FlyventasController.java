@@ -7,6 +7,7 @@ import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.ProductRepository;
 import es.codeurjc.Flyventas.repository.TransactionRepository;
+import es.codeurjc.Flyventas.repository.UserRepository;
 import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.TransactionServices;
@@ -66,6 +67,9 @@ public class FlyventasController {
 
 	@Autowired
 	private UserServices userServices;
+
+	@Autowired
+	private UserRepository userRepository;
 
 	@Autowired
 	private CounterofferRepository counteroffers;
@@ -195,23 +199,58 @@ public class FlyventasController {
 		 return "perfilAdmin";
 	}
 
+	@PostMapping("/perfilAdmin/borrar/{id}")
+	public String clearProduct(@PathVariable long id) {
+		Optional<Product> product = productServices.findById(id);
+		if (product.isPresent()) {
+
+			products.delete(product.get());
+
+			return "redirect:/";
+		} else {
+			return "searchnotfound";
+		}
+	}
+	@PostMapping("/perfilAdmin/banear/{id}")
+	public String banUser(@PathVariable long id) {
+		Optional<User> users = userServices.findUserById(id);
+		if(users.isPresent()) {
+
+			userRepository.delete(users.get());
+			return "redirect:/";
+		} else {
+		return "searchnotfound";
+	}
+
+
+	}
+
 	@GetMapping("/perfil/{id}")
-	public String profile(Model model, @PathVariable long id) {
+	public String profile(Model model, @PathVariable long id, HttpServletRequest request) {
+
+		Principal principal = request.getUserPrincipal();
+
 
 		Optional<User> Profile = userServices.findUserById(id);
 
-		if (Profile.isPresent()) {
+		String original = principal.getName();
+		String fake = Profile.get().getEmail();
+		if(original.equals(fake)) {
+			if (Profile.isPresent()) {
 
-			model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("name", Profile.get().getName());
-			model.addAttribute("email", Profile.get().getEmail());
-			model.addAttribute("address", Profile.get().getAddress());
-			return "perfil";
-		} else {
+				model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("name", Profile.get().getName());
+				model.addAttribute("email", Profile.get().getEmail());
+				model.addAttribute("address", Profile.get().getAddress());
+				return "perfil";
+			} else {
 
+				return "searchnotfound";
+			}
+		}else{
 			return "searchnotfound";
 		}
 	}
@@ -314,7 +353,7 @@ public class FlyventasController {
 	}
 
 	@PostMapping("/aceptarContraoferta/{id}")
-	public String aceptarContraoferta(HttpServletRequest request, @PathVariable long id) {
+	public String acceptCounteroffer(HttpServletRequest request, @PathVariable long id) {
 
 	 	Optional<Counteroffer> counterOffer = counterofferServices.findById(id);
 	 	if(counterOffer.isPresent()) {

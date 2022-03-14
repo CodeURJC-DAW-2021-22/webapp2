@@ -30,7 +30,7 @@ public class User{
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Product> productList;
 
 	@OneToMany(mappedBy = "receiver")

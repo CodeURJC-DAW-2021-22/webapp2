@@ -329,13 +329,15 @@ public class FlyventasController {
 			String message = ("https://localhost:8443/resumen/"+str+"/12345/?format=pdf");
 			email.setText(message);
 			mailSender.send(email);
-
+			/*
 			SimpleMailMessage seller = new SimpleMailMessage();
-			seller.setTo();
+			seller.setTo("correovendedor@gmail.com");
 			seller.setSubject("Recibo FlyVentas");
 			String messagee = ("https://support.packlink.com/hc/article_attachments/360001866020/mceclip3.png");
 			seller.setText(messagee);
 			mailSender.send(seller);
+			*/
+
 			return "resumen";
 		} else {
 

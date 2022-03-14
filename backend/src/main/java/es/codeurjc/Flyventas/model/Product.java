@@ -1,6 +1,8 @@
 package es.codeurjc.Flyventas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 public class Product {
@@ -14,11 +16,11 @@ public class Product {
     private String category;
     private float price;
     private boolean isSold;
+    private Boolean image;
 
-    /*@Lob
-	private Blob imageFile;*/
-
-	//private boolean image;
+    @Lob
+    @JsonIgnore
+    private Blob imageFile;
 
     @ManyToOne
     private User user;
@@ -26,7 +28,8 @@ public class Product {
 
     //Constructores
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(String title, String description, String category, float price, boolean isSold, User user) {
         this.title = title;
@@ -35,7 +38,7 @@ public class Product {
         this.price = price;
         this.isSold = isSold;
         this.user = user;
-        if(!(this.user == null)) {
+        if (!(this.user == null)) {
             this.user.addProduct(this);
         }
     }
@@ -43,58 +46,76 @@ public class Product {
 
     //Setters y Getters
 
-    public Long getId() { return this.id; }
+    public Long getId() {
+        return this.id;
+    }
 
-    public String getTitle() { return this.title; }
+    public String getTitle() {
+        return this.title;
+    }
 
-    public void setTitle(String title) { this.title = title; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-    public String getCategory() { return this.category; }
+    public String getCategory() {
+        return this.category;
+    }
 
-    public String getDescription() { return this.description; }
+    public String getDescription() {
+        return this.description;
+    }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public float getPrice() { return this.price; }
+    public float getPrice() {
+        return this.price;
+    }
 
-    public void setPrice(float price) { this.price = price; }
+    public void setPrice(float price) {
+        this.price = price;
+    }
 
-    public boolean getIsSold() { return this.isSold; }
+    public boolean getIsSold() {
+        return this.isSold;
+    }
 
-    public void setIsSold(boolean isSold) { this.isSold = isSold; }
+    public void setIsSold(boolean isSold) {
+        this.isSold = isSold;
+    }
 
-    public User getUser() { return this.user; }
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setImageFile(Blob imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public Blob getImageFile() {
+        return imageFile;
+    }
+
+    public void setImage(Boolean image) {
+        this.image = image;
+    }
+
+    public Boolean getImage() {
+        return this.image;
+    }
 
 
     //Others
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category +  ", price="
+        return "User [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category + ", price="
                 + price + ", isSold=" + isSold;
     }
-
-
-
-
-
-//    public Blob getImageFile() {
-//		return imageFile;
-//	}
-//
-//	public void setImageFile(Blob image) {
-//		this.imageFile = image;
-//	}
-//
-//	public boolean getImage(){
-//		return this.image;
-//	}
-//
-//	public void setImage(boolean image){
-//		this.image = image;
-//	}
 }
-
-

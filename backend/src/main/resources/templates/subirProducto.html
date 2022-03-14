@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row"> 
             <div class="col-lg-12">
-                <form action="/subirProducto" method="POST">
+                <form action="/subirProducto" method="POST" enctype="multipart/form-data">
                     <div class="tituloSubirAnuncio">
                         <h1>Nuevo anuncio</h1>
                     </div>
@@ -50,7 +50,7 @@
                         <label>Precio: </label><br>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="number" name="price" maxlength="8" required>
+                                <input type="number" name="price" maxlength="8" required/>
                             </div>
                             <div class="col-md-1">
                                 <a>€</a>
@@ -58,8 +58,8 @@
                         </div>
                     </div>
                     <div class="fieldFoto">
-                        <label for="fotoAnuncio">Foto del producto: </label><br>
-                        <input type="file" id="fotoAnuncio">
+                        <label>Foto del producto: </label><br>
+                        <input type="file" name="imageFile" accept=".png, .jpg, .jpeg" required/>
                         
                     </div>
 
@@ -80,22 +80,6 @@
             </div>
         </div> 
     </div>
-<!--    <section class="featured spad">-->
-<!--        <div class="container">   -->
-<!--            <div class="col-lg-12 col-md-12" id="cajaCompra"> &lt;!&ndash; sale box begin &ndash;&gt;-->
-<!--                  <div class="row">-->
-<!--                     <div class="col-lg-6 col-md-6 botonesComprar">-->
-<!--                        <button type="submit" class="BotonProducto botonComprarProducto">Subir Anuncio</button>-->
-<!--                     </div>-->
-
-<!--                     <div class="col-lg-6 col-md-6 botonesComprar">-->
-<!--                        <button class="BotonProducto botonContraOfertaProducto">Cancelar</button>-->
-<!--                     </div>   -->
-<!--                  </div>   -->
-
-<!--            </div> &lt;!&ndash; sale box end &ndash;&gt;-->
-<!--        </div>-->
-<!--    </section>-->
 </section>
 <!-- Hero Section End -->
 
@@ -104,7 +88,6 @@
 {{>footer}}
     <script src="/js/categorias.js"></script>
     <script src="/js/preguntasFrecuentes.js"></script>
-
 
 
 </body>

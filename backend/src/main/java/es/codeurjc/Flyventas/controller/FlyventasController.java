@@ -11,17 +11,25 @@ import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.TransactionServices;
 import es.codeurjc.Flyventas.services.UserServices;
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.security.Principal;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -140,6 +148,20 @@ public class FlyventasController {
 			return "searchnotfound";
 		}
 
+	}
+
+	@GetMapping("/Producto/{id}/image")
+	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
+
+		Optional<Product> product = productServices.findById(id);
+		if (product.isPresent() && product.get().getImageFile() != null) {
+
+			Resource file = new InputStreamResource(product.get().getImageFile().getBinaryStream());
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(product.get().getImageFile().length()).body(file);
+		} else {
+
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------------------------
@@ -298,14 +320,20 @@ public class FlyventasController {
 	}*/
 
 	@PostMapping("/subirProducto")
-	public String newProduct(Model model, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float price){
+	public String newProduct(MultipartFile imageFile, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam String category, @RequestParam float price) throws IOException {
 
 		Principal principal = request.getUserPrincipal();
 		Optional<User> User = userServices.findUserByEmail(principal.getName());
-		products.save(new Product(name, description, category, price, false, User.get()));
+		Product newProduct = new Product(name, description, category, price, false, User.get());
+		if (!imageFile.isEmpty()) {
 
+			newProduct.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+			newProduct.setImage(true);
+		}
+		productServices.save(newProduct);
 		return "redirect:/";
 	}
+
 
 }
 

@@ -79,7 +79,7 @@ https://trello.com/b/Asdin3o1/proyecto
     - Sugerimos productos al usuario en función de sus búsquedas realizadas. A partir de estas búsquedas analizamos una serie de parámetros como categoría, valoración del vendedor, rango de precio y tiempo del anuncio con la intención de mostrar unos productos que le resulten interesantes para comprar, así como mostrarle opciones dentro de lo que ha demostrado buscar que no ha visto y así facilitarle la búsqueda.
     
 ***
-* **Capturas de pantalla fase 1:**
+* **Capturas de pantalla fase 2:**
     
     - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
 
@@ -132,12 +132,39 @@ https://trello.com/b/Asdin3o1/proyecto
     <img src="FlyVentas/img/screenshot_fase1/segundaFaseRegistro.png">
     </div>
 
+    - Página de error que se genera.
+    <div>
+    <img src="FlyVentas/img/screenshot_fase1/paginaError.png">
+    </div>
+
 ***
 * **Diagrama de navegación fase 1:**
-
+    -diagrama
     <div>
     <img src="Resources/navigationDiagram.png">
     </div>
 
+***
+* **Instrucciones de ejecución:**
+   - Para descargar el código accederemos a este link: https://github.com/CodeURJC-DAW-2021-22/webapp2
+   - Una vez nos encontremos en el link encontraremos un botón de color verde con letras blancas en el que pone "code",
+   clicaremos en el y o bien clonamos el repositorio con el link que nos proporcionan en nuestro editor o descargamos el zip con el código,
+   En cualquiera de los casos nos dirijimos a nuestro editor de código favorito y lanzamos la aplicación. En algunos editores
+   como springboot para lanzar la aplicación tendremos que clicar con el botón derecho en el application.java y darle a run like springboot app 
+   -En cuanto a requisitos hemos montado la aplición con java 8 y con PostgreSQL 6.6.
 
 
+
+***
+* **Diagrama con las entidades de la base de datos**
+    
+    <div>
+    <img src="FlyVentas/img/screenshot_fase1/diagBBDd.png">
+    </div>
+
+***
+* **Diagrama con las entidades de la base de datos**
+
+    <div>
+    <img src="FlyVentas/img/screenshot_fase1/diagClases.png">
+    </div>

@@ -55,10 +55,10 @@
                     <div class="contenedor-preguntas activo" data-categoria="mis-datos">
                         <div class="contenedor-pregunta">
                             <img class="avatar" src="/./img/profile/user-solid.svg"></img>
-                            <p class="pregunta">Nombre de Usuario: {{name}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Correo electrónico: {{email}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Contraseña: ********<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Dirección: {{address}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
+                            <p class="pregunta">Nombre de Usuario: {{name}}</p>
+                            <p class="pregunta">Correo electrónico: {{email}}</p>
+                            <p class="pregunta">Contraseña: ********</p>
+                            <p class="pregunta">Dirección: {{address}}</p>
                             <!--<p class="respuesta">Podrás pagar con tu tarjeta de credito, también podras pagar con Paypal. Dentro de poco incorporaremos pagos con criptomonedas.</p> -->
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="contenedor-preguntas" data-categoria="mis-anuncios">
                         <div class="contenedor-pregunta">
 
-                            <table>
+                            <table style="margin: 0 auto;">
 
                                 <caption>Tus Productos</caption>
                                 <tr>
@@ -88,7 +88,7 @@
                                     <td><input type="number" name="price" value="{{price}}" size="5"></td>
                                     <td><input type="text" name="description" value="{{description}}" size="5"></td>
                                     <td>imagen</td>
-                                    <td><select type="text" name="isSold"><option selected>false</option><option>true</option></select></td>
+                                    <td>{{isSold}}</td>
                                     <td>{{id}}</td>
                                     <td>
                                         <input type="submit" value="Editar"/>
@@ -106,10 +106,10 @@
 
                     <!-- Contraofertas -->
                     <div class="contenedor-preguntas" data-categoria="contraofertas">
-                        <div class="contenedor-pregunta">
+                        <div class="contenedor-pregunta" >
 
                             <title>Tus Contraofertas</title>
-                            <table>
+                            <table style="margin: 0 auto;">
                                 <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th> <th>Oferta</th>
                                     <th>Comprador</th>
                                 </tr>
@@ -139,7 +139,7 @@
                         <div class="contenedor-pregunta">
 
                             <title>Tus Compras</title>
-                            <table>
+                            <table style="margin: 0 auto;">
                                 <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                                     <th>Comprador</th> <th>Vendedor</th>
                                 </tr>
@@ -165,7 +165,7 @@
                         <div class="contenedor-pregunta">
 
                             <title>Tus Ventas</title>
-                            <table>
+                            <table style="margin: 0 auto;">
                                 <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                                     <th>Comprador</th> <th>Vendedor</th>
                                 </tr>

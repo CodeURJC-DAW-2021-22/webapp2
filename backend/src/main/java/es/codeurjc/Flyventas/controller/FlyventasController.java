@@ -18,6 +18,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -135,7 +136,7 @@ public class FlyventasController {
 	}
 
 	@GetMapping("/Producto/{id}")
-	public String showProduct(Model model, HttpServletRequest request, @PathVariable long id) {
+	public String showProduct(Model model, @PathVariable long id) {
 
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
@@ -174,6 +175,15 @@ public class FlyventasController {
 		return "subirProducto";
 	}
 
+	@GetMapping("/perfilAdmin")
+	public String AdminProfile(Model model)  {
+
+		model.addAttribute("Product", productServices.findAll());
+		model.addAttribute("Users", userServices.findAll());
+
+		 return "perfilAdmin";
+	}
+
 	@GetMapping("/perfil/{id}")
 	public String profile(Model model, @PathVariable long id) {
 
@@ -194,6 +204,7 @@ public class FlyventasController {
 			return "searchnotfound";
 		}
 	}
+
 
 	@PostMapping("/editado/{id}")
 	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description, @RequestParam boolean isSold) {
@@ -333,7 +344,6 @@ public class FlyventasController {
 		productServices.save(newProduct);
 		return "redirect:/";
 	}
-
 
 }
 

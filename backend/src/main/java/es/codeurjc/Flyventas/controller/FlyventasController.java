@@ -107,6 +107,13 @@ public class FlyventasController {
 		 return "Registro";
 	 }
 
+	 @GetMapping("/chart")
+	 public String chart (Model model){
+
+
+		 return "chart";
+	 }
+
 	 @RequestMapping("/busqueda")
 	 public String busqueda(Model model, @RequestParam String title) {
 
@@ -207,7 +214,7 @@ public class FlyventasController {
 
 
 	@PostMapping("/editado/{id}")
-	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description, @RequestParam boolean isSold) {
+	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description) {
 
 
 		Optional<Product> Products = productServices.findById(id);
@@ -217,7 +224,6 @@ public class FlyventasController {
 			product.setCategory(category);
 			product.setPrice(price);
 			product.setDescription(description);
-			product.setIsSold(isSold);
 			//editar atributos del objeto
 			productServices.save(product);
 			return "redirect:/";
@@ -259,7 +265,7 @@ public class FlyventasController {
 			model.addAttribute("Product", Product.get());
 
 			SimpleMailMessage email = new SimpleMailMessage();
-			email.setTo("j.molinero.2019@alumnos.urjc.es");
+			email.setTo(principal.getName());
 			email.setSubject("Recibo FlyVentas");
 			String str = Long.toString(id);
 			String message = ("https://localhost:8443/resumen/"+str+"/12345/?format=pdf");

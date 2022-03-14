@@ -17,55 +17,13 @@
 {{#Product}}
 
 <!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Todos los departamentos</span>
-                    </div>
-                    <ul>
-                        <li><a href="/category/boxeo">Boxeo</a></li>
-                        <li><a href="/category/moda">Moda y acesorios</a></li>
-                        <li><a href="/category/informatica">Informática</a></li>
-                        <li><a href="/category/imagen">Imagen y sonido</a></li>
-                        <li><a href="/category/deporte">Deporte y ocio</a></li>
-                        <li><a href="/category/hogar">Hogar y jardin</a></li>
-                        <li><a href="/category/automoviles">Automóviles</a></li>
-                        <li><a href="/category/libros">Libros</a></li>
-                        <li><a href="/category/Otros">Otros</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="busqueda" method="get">
-                            <div class="hero__search__categories">
-                                All
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input id="search" placeholder="Busque aquí" name="title">
-                            <button type="submit" class="site-btn">BUSCAR</button>
-                        </form>
-                    </div>
-                </div>
-                <br/>
-            </div>
-        </div>
-    </div>
-</section>
+{{>categories}}
 
 <div class="col-lg-12" class="hero">
     <h2 style="text-align:center">{{title}}</h2>
     <div class="hero__item set-bg" data-setbg="img/hero/bannerFlyventas.jpg">
-
-        <img src="/Producto/{{id}}/image" style="width:100%">
-
+        <img src="/Producto/{{id}}/image" class="center">
     </div>
-
 
     <section class="featured spad">
         <div class="container">
@@ -104,9 +62,8 @@
                     <div class="contenedor-preguntas" data-categoria="vendedor">
                         <div class="contenedor-pregunta">
                             <img class="avatar" src="/img/profile/user-solid.svg"></img>
-                            <p class="pregunta">Nombre: {{name}}<img src="/img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Valoración: <img src="/img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Población: <img src="/img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
+                            <p class="pregunta">Nombre: {{name}}</p>
+                            <p class="pregunta">Dirección: {{address}}</p>
                         </div>
                     </div>
                     {{/Seller}}

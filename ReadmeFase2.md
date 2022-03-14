@@ -36,75 +36,75 @@ Todos los articulos se mandaran por correos, al vendedor no le llegará el diner
 
  ***
 * **Capturas de pantalla fase 2:**
-    
+  
     - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
 
     <div>
-    <img src="backend\readme\index.PNG" width="300px">
-    <div>
+    <img src="backend/readme/index.PNG" width="300px">
+    </div>
      
     - Desde donde nos encargaremos de buscar el producto que nos interesa.
     <div>
-    <img src="backend\readme\search.PNG">
-    <div>
+    <img src="backend/readme/search.PNG">
+    </div>
     
 
     - Podremos seleccionar el método de pago que no sinteresa, también nos mostrará una breve información del producto seleccionado y el precio final, por último tenemos 2 botones que nos permiten proceder con la pasarela de pago o bien cancelar la compra.
     <div>
-    <img src="backend\readme\comprar.PNG">
-    <div>
+    <img src="backend/readme/comprar.PNG">
+    </div>
 
 
     - Una pantalla de inicio de sesión que permite pasar a la de registro
     <div>
-    <img src="backend\readme\login.PNG">
+    <img src="backend/readme/login.PNG">
     <div>
 
     - Página de tu propio perfil donde tendrás los datos introducidos en la página.
     <div>
-    <img src="backend\readme\perfil 1.PNG">
+    <img src="backend/readme/perfil 1.PNG">
     <div>
     <div>
-    <img src="backend\readme\perfil 2.PNG">
+    <img src="backend/readme/perfil 2.PNG">
     <div>
     <div>
-    <img src="backend\readme\perfil 3.PNG">
+    <img src="backend/readme/perfil 3.PNG">
     <div>
 
     - Página que muestra fotos, descripción y vendedor del producto, por último la opción de comprar o hacer la contraoferta al vendedor. 
     <div>
-    <img src="backend\readme\product.PNG">
+    <img src="backend/readme/product.PNG">
     <div>
 
     - Modo dios, solo para ADMIN, donde podra eliminar usuarios y productos. 
     <div>
-    <img src="backend\readme\menu admin.PNG">
+    <img src="backend/readme/menu admin.PNG">
     <div>
 
     - contraoferta. 
     <div>
-    <img src="backend\readme\Contraoferta.PNG">
+    <img src="backend/readme/Contraoferta.PNG">
     <div>
 
 
     - El resumen de la compra
     <div>
-    <img src="backend\readme\resumen.PNG">
+    <img src="backend/readme/resumen.PNG">
     <div>
 
 ***
 * **Diagrama de navegación fase 2:**
 
     <div>
-    <img src="backend\readme\navigationDiagramnew.png">
-    <div>
+    <img src="backend/readme/navigationDiagramnew.png">
+    </div>
 
 ***
 * **Diagrama con las entidades de la base de datos::**
 
     <div>
-    <img src="backend\readme\bbdd.png">
-    <div>
+    <img src="backend/readme/bbdd.jpg">
+    </div>
 
 
 ***

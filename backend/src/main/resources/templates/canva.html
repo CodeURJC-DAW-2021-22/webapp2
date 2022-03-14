@@ -1,0 +1,59 @@
+{{>header}}
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+{{>customheader}}
+<!-- Header Section End -->
+
+
+
+<!-- Hero Section Begin -->
+{{>categories}}
+<!-- Hero Section End -->
+
+<!-- Breadcrumb Section Begin -->
+
+<!-- Breadcrumb Section End -->
+
+
+<div class="col-lg-12 text-center">
+    <canvas id="densityChart" width="600" height="400"></canvas>
+</div>
+
+<script>
+
+
+    var densityCanvas = document.getElementById("densityChart");
+
+    Chart.defaults.global.defaultFontFamily = "Lato";
+    Chart.defaults.global.defaultFontSize = 18;
+
+    var densityData = {
+        label: 'Density of Planets (kg/m3)',
+        data: [5427, 5243, 5514, 3933, 1638]
+    };
+
+    var barChart = new Chart(densityCanvas, {
+        type: 'bar',
+        data: {
+            labels: ["Boxeo", "Informática", "Hogar y jardin", "Automóviles", "Otros"],
+            datasets: [densityData]
+        }
+    });
+</script>
+
+
+{{>footer}}
+
+
+
+</body>
+
+</html>

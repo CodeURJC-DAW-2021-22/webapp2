@@ -177,6 +177,23 @@ public class FlyventasController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	@GetMapping("/info")
+	public String infoweb(Model model) {
+		List<Product> Product1 = productServices.findByTitle("Boxeo", PageRequest.of(0,9));
+		List<Product> Product2 = productServices.findByTitle("Informática", PageRequest.of(0,9));
+		List<Product> Product3 = productServices.findByTitle("Hogar y jardin", PageRequest.of(0,9));
+		List<Product> Product4 = productServices.findByTitle("Automóviles", PageRequest.of(0,9));
+		List<Product> Product5 = productServices.findByTitle("Otros", PageRequest.of(0,9));
+
+		model.addAttribute("Results1", Product1.size());
+		model.addAttribute("Results2", Product2.size());
+		model.addAttribute("Results3", Product3.size());
+		model.addAttribute("Results4", Product4.size());
+		model.addAttribute("Results5", Product5.size());
+
+			return "canva";
+
+	}
 
 	//------------------------------------------------------------------------------------------------------------------
 
@@ -312,6 +329,13 @@ public class FlyventasController {
 			String message = ("https://localhost:8443/resumen/"+str+"/12345/?format=pdf");
 			email.setText(message);
 			mailSender.send(email);
+
+			SimpleMailMessage seller = new SimpleMailMessage();
+			seller.setTo();
+			seller.setSubject("Recibo FlyVentas");
+			String messagee = ("https://support.packlink.com/hc/article_attachments/360001866020/mceclip3.png");
+			seller.setText(messagee);
+			mailSender.send(seller);
 			return "resumen";
 		} else {
 

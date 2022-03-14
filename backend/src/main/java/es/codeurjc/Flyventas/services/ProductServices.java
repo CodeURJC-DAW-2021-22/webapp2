@@ -46,23 +46,5 @@ public class ProductServices {
 	public Optional<Product> findById(long id) {
 		return repository.findById(id);
 	}
-/*
-	public boolean exist(long id) {
-		return repository.existsById(id);
-	}
-	
-	public List<Product> findAll() {
-		return repository.findAll();
-	}
-	
-	public void save(Product Product) {
-		repository.save(Product);
-	}
-	
 
-	public void delete(long id) {
-		repository.deleteById(id);
-	}
-
-*/
 }

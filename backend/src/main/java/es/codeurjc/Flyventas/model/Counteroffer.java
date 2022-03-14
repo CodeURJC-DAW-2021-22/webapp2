@@ -65,9 +65,9 @@ public class Counteroffer {
     }
 
     private String getActualDate() {
-        Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoFecha.format(fecha);
+        Date date = new Date();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        return formatDate.format(date);
     }
 
 }

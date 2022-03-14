@@ -19,7 +19,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
@@ -108,7 +106,7 @@ public class FlyventasController {
 	 @GetMapping("/register")
 	 public String register(Model model) {
 
-		 return "Registro";
+		 return "register";
 	 }
 
 	 @GetMapping("/hotproducts")
@@ -119,18 +117,18 @@ public class FlyventasController {
 
 		 model.addAttribute("Product", Product);
 		 model.addAttribute("Results", Product.size());
-		 return "busqueda";
+		 return "search";
 	 }
 
 	 @RequestMapping("/busqueda")
-	 public String busqueda(Model model, @RequestParam String title) {
+	 public String search(Model model, @RequestParam String title) {
 
 		 List<Product> Product = productServices.findByTitle(title, PageRequest.of(0,9));
 		 model.addAttribute("search", title);
 		 if (!Product.isEmpty()) {
 			 model.addAttribute("Results", Product.size());
 			 model.addAttribute("Product", Product);
-			 return "busqueda";
+			 return "search";
 		 } else {
 			 return "searchnotfound";
 		 }
@@ -144,7 +142,7 @@ public class FlyventasController {
 		if (!Product.isEmpty()) {
 			model.addAttribute("Results", Product.size());
 			model.addAttribute("Product", Product);
-			return "/busqueda";
+			return "search";
 		} else {
 			return "/searchnotfound";
 		}
@@ -158,7 +156,7 @@ public class FlyventasController {
 
 			model.addAttribute("Product", Product.get());
 			model.addAttribute("Seller", Product.get().getUser());
-			return "Producto";
+			return "Product";
 		} else {
 
 			return "searchnotfound";
@@ -185,18 +183,18 @@ public class FlyventasController {
 	//Subir Producto y Perfil Controller
 
 	@GetMapping("/subirProducto")
-	public String subirProducto() {
+	public String uploadProduct() {
 
-		return "subirProducto";
+		return "uploadProduct";
 	}
 
 	@GetMapping("/perfilAdmin")
-	public String AdminProfile(Model model)  {
+	public String adminProfile(Model model)  {
 
 		model.addAttribute("Product", productServices.findAll());
 		model.addAttribute("Users", userServices.findAll());
 
-		 return "perfilAdmin";
+		 return "adminProfile";
 	}
 
 	@PostMapping("/perfilAdmin/borrar/{id}")
@@ -245,7 +243,7 @@ public class FlyventasController {
 				model.addAttribute("name", Profile.get().getName());
 				model.addAttribute("email", Profile.get().getEmail());
 				model.addAttribute("address", Profile.get().getAddress());
-				return "perfil";
+				return "profile";
 			} else {
 
 				return "searchnotfound";
@@ -286,7 +284,7 @@ public class FlyventasController {
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
 			model.addAttribute("Product", Product.get());
-			return "compra";
+			return "purchase";
 		} else {
 			return "searchnotfound";
 		}
@@ -330,7 +328,7 @@ public class FlyventasController {
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
 			model.addAttribute("Product", Product.get());
-			return "contraoferta";
+			return "counteroffer";
 		} else {
 			return "searchnotfound";
 		}

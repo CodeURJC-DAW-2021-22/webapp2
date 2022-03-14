@@ -107,11 +107,15 @@ public class FlyventasController {
 		 return "Registro";
 	 }
 
-	 @GetMapping("/chart")
-	 public String chart (Model model){
+	 @GetMapping("/hotproducts")
+	 public String hotProducts (Model model){
 
+		 model.addAttribute("search", "Productos más calientes");
+		 List<Product> Product = counterofferServices.findHottestProducts(PageRequest.of(0,3));
 
-		 return "chart";
+		 model.addAttribute("Product", Product);
+		 model.addAttribute("Results", Product.size());
+		 return "busqueda";
 	 }
 
 	 @RequestMapping("/busqueda")

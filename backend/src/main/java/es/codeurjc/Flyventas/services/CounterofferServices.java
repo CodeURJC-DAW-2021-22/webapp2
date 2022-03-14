@@ -3,6 +3,7 @@ package es.codeurjc.Flyventas.services;
 import java.util.List;
 import java.util.Optional;
 import es.codeurjc.Flyventas.model.Counteroffer;
+import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.CounterofferRepository;
 
@@ -25,4 +26,7 @@ public class CounterofferServices {
         return repository.findCounteroffersByReceiver(receiver, pageable);
     }
 
+    public List<Product> findHottestProducts(Pageable page) {
+        return repository.findHottestProducts(page);
+    }
 }

@@ -1,6 +1,7 @@
 package es.codeurjc.Flyventas.repository;
 
 import es.codeurjc.Flyventas.model.Counteroffer;
+import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,8 @@ public interface CounterofferRepository extends JpaRepository<Counteroffer, Long
     public Optional<Counteroffer> findById(@Param("id") Long id);
 
     public List<Counteroffer> findCounteroffersByReceiver(User receiver, Pageable page);
+
+    @Query("SELECT c.product FROM Counteroffer c GROUP BY c.product ORDER BY COUNT(c.product) DESC")
+    public List<Product> findHottestProducts(Pageable page);
+
 }

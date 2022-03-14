@@ -13,6 +13,7 @@ import es.codeurjc.Flyventas.services.TransactionServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -127,7 +128,7 @@ public class FlyventasController {
 	}
 
 	@GetMapping("/Producto/{id}")
-	public String showProduct(Model model, HttpServletRequest request, @PathVariable long id) {
+	public String showProduct(Model model, @PathVariable long id) {
 
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
@@ -152,6 +153,15 @@ public class FlyventasController {
 		return "subirProducto";
 	}
 
+	@GetMapping("/perfilAdmin")
+	public String AdminProfile(Model model)  {
+
+		model.addAttribute("Product", productServices.findAll());
+		model.addAttribute("Users", userServices.findAll());
+
+		 return "perfilAdmin";
+	}
+
 	@GetMapping("/perfil/{id}")
 	public String profile(Model model, @PathVariable long id) {
 
@@ -173,21 +183,6 @@ public class FlyventasController {
 		}
 	}
 
-	@GetMapping("/perfilAdmin/")
-	public String profileadmin(Model model) {
-
-
-		List<Product> product = productServices.findAll();
-
-		model.addAttribute("Product", productServices.findAll(product.get(),PageRequest.of(0, 5)));
-		model.addAttribute("Users", userServices.findAll(PageRequest.of(0, 5)));
-
-
-		return "perfil";
-
-
-
-	}
 
 	@PostMapping("/editado/{id}")
 	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description, @RequestParam boolean isSold) {

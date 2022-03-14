@@ -1,12 +1,14 @@
 package es.codeurjc.Flyventas.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
 
 import java.awt.print.Pageable;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,9 @@ public class UserServices {
 		return repository.findUserByEmail(email);
 	}
 
-	public List<User> findAll(Pageable page) {return repository.findAll(page);}
+	public Collection<User> findAll() {
+		return repository.findAll();
+	}
 
 	public void save(User user) {
 		repository.save(user);

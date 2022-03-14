@@ -2,6 +2,7 @@ package es.codeurjc.Flyventas.services;
 
 
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +41,7 @@ public class ProductServices {
 		return repository.findAllCounteroffersByReceiver(user, page);
 	}
 
-	public List<Product> findAll() {return repository.findAll();}
+	public Collection<Product> findAll() {return repository.findAll();}
 	
 	public Optional<Product> findById(long id) {
 		return repository.findById(id);

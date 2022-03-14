@@ -13,10 +13,17 @@
                 {{#logged}}
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__right">
+                        {{#admin}}
+                        <div class="header__top__right__social">
+                            <a href="/perfilAdmin"><i class="fa fa-user"></i>MODO DIOS</a>
+                        </div>
+                        {{/admin}}
+                        {{^admin}}
                         <div class="header__top__right__social">
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                         </div>
+                        {{/admin}}
                         <div class="header__top__right__language">
                             <i class="fa fa-user"></i> <a href="/perfil/{{id}}"> Hola, {{username}}</a>
                         </div>
@@ -39,6 +46,7 @@
                         <div class="header__top__right__auth">
                             <a href="/login"><i class="fa fa-user"></i> Login</a>
                         </div>
+
                     </div>
                 </div>
                 {{/logged}}

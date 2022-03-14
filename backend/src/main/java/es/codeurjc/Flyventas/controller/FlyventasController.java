@@ -222,22 +222,31 @@ public class FlyventasController {
 	}
 
 	@GetMapping("/perfil/{id}")
-	public String profile(Model model, @PathVariable long id) {
+	public String profile(Model model, @PathVariable long id, HttpServletRequest request) {
+
+		Principal principal = request.getUserPrincipal();
+
 
 		Optional<User> Profile = userServices.findUserById(id);
 
-		if (Profile.isPresent()) {
+		String original = principal.getName();
+		String fake = Profile.get().getEmail();
+		if(original.equals(fake)) {
+			if (Profile.isPresent()) {
 
-			model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
-			model.addAttribute("name", Profile.get().getName());
-			model.addAttribute("email", Profile.get().getEmail());
-			model.addAttribute("address", Profile.get().getAddress());
-			return "perfil";
-		} else {
+				model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
+				model.addAttribute("name", Profile.get().getName());
+				model.addAttribute("email", Profile.get().getEmail());
+				model.addAttribute("address", Profile.get().getAddress());
+				return "perfil";
+			} else {
 
+				return "searchnotfound";
+			}
+		}else{
 			return "searchnotfound";
 		}
 	}

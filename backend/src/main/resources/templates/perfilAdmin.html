@@ -1,7 +1,3 @@
-<!-- chart.jsp-->
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 {{>header}}
 <link rel="stylesheet" href="/css/Perfil.css" type="text/css">
 <link rel="stylesheet" href="/css/tabla.css" type="text/css">
@@ -31,184 +27,96 @@ pageEncoding="ISO-8859-1"%>
                     <h2>Nombre Usuario</h2>
                 </div>
                 <div class="categorias" id="categorias">
-                    <div class="categoria activa" data-categoria="mis-datos">
+                    <div class="categoria activa" data-categoria="todosAnuncios">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z"/></svg>
-                        <p>Mis Datos</p>
+                        <p>Todos los usuarios</p>
                     </div>
-                    <div class="categoria" data-categoria="mis-anuncios">
+                    <div class="categoria" data-categoria="todosUsuarios">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M472.8 168.4C525.1 221.4 525.1 306.6 472.8 359.6L360.8 472.9C351.5 482.3 336.3 482.4 326.9 473.1C317.4 463.8 317.4 448.6 326.7 439.1L438.6 325.9C472.5 291.6 472.5 236.4 438.6 202.1L310.9 72.87C301.5 63.44 301.6 48.25 311.1 38.93C320.5 29.61 335.7 29.7 344.1 39.13L472.8 168.4zM.0003 229.5V80C.0003 53.49 21.49 32 48 32H197.5C214.5 32 230.7 38.74 242.7 50.75L410.7 218.7C435.7 243.7 435.7 284.3 410.7 309.3L277.3 442.7C252.3 467.7 211.7 467.7 186.7 442.7L18.75 274.7C6.743 262.7 0 246.5 0 229.5L.0003 229.5zM112 112C94.33 112 80 126.3 80 144C80 161.7 94.33 176 112 176C129.7 176 144 161.7 144 144C144 126.3 129.7 112 112 112z"/></svg>
-                        <p>Mis Anuncios</p>
+                        <p>Todos los productos</p>
                     </div>
-                    <div class="categoria" data-categoria="contraofertas">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 31.1c-141.4 0-255.1 93.09-255.1 208c0 49.59 21.37 94.1 56.97 130.7c-12.5 50.39-54.31 95.3-54.81 95.8C0 468.8-.5938 472.2 .6875 475.2C1.1 478.2 4.813 479.1 8 479.1c66.31 0 116-31.8 140.6-51.41c32.72 12.31 69.02 19.41 107.4 19.41c141.4 0 255.1-93.09 255.1-207.1S397.4 31.1 256 31.1zM317.8 282.3c-3.623 20.91-19.47 34.64-41.83 39.43V332c0 11.03-8.946 20-19.99 20S236 343 236 332v-10.77c-8.682-1.922-17.3-4.723-25.06-7.512l-4.266-1.5C196.3 308.5 190.8 297.1 194.5 286.7c3.688-10.41 15.11-15.81 25.52-12.22l4.469 1.625c7.844 2.812 16.72 6 23.66 7.031c13.72 2.125 28.94 .1875 30.31-7.625c.875-5.094 1.359-7.906-27.92-16.28L244.7 257.5c-17.33-5.094-57.92-17-50.52-59.84C197.8 176.8 213.6 162.8 236 157.1V148c0-11.03 8.961-20 20.01-20s19.99 8.969 19.99 20v10.63c5.453 1.195 11.34 2.789 18.56 5.273c10.44 3.625 15.95 15.03 12.33 25.47c-3.625 10.41-15.06 15.94-25.45 12.34c-5.859-2.031-12-4-17.59-4.844C250.2 194.8 234.1 196.7 233.6 204.5C232.8 208.1 232.3 212.2 255.1 219.2l5.547 1.594C283.8 227.1 325.3 239 317.8 282.3z"/></svg>
-                        <p>Contraofertas</p>
-                    </div>
-                    <div class="categoria" data-categoria="compras-y-ventas">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M112 112C112 50.14 162.1 0 224 0C285.9 0 336 50.14 336 112V160H400C426.5 160 448 181.5 448 208V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V208C0 181.5 21.49 160 48 160H112V112zM160 160H288V112C288 76.65 259.3 48 224 48C188.7 48 160 76.65 160 112V160zM136 256C149.3 256 160 245.3 160 232C160 218.7 149.3 208 136 208C122.7 208 112 218.7 112 232C112 245.3 122.7 256 136 256zM312 208C298.7 208 288 218.7 288 232C288 245.3 298.7 256 312 256C325.3 256 336 245.3 336 232C336 218.7 325.3 208 312 208z"/></svg>
-                        <p>Compras y Ventas</p>
-                    </div>
-                    <div class="categoria" data-categoria="valoraciones">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7zM288 376.4L288.1 376.3L399.7 435.9L378.4 309.6L469.2 219.8L343.8 201.4L288.1 86.85L288 87.14V376.4z"/></svg>
-                        <p>Estadísticas de la web</p>
-                    </div>
+
                 </div>
 
                 <div class="preguntas">
 
                     <!-- Mis datos -->
-                    <div class="contenedor-preguntas activo" data-categoria="mis-datos">
+                    <div class="contenedor-preguntas activo" data-categoria="todosAnuncios">
                         <div class="contenedor-pregunta">
-                            <img class="avatar" src="/./img/profile/user-solid.svg"></img>
-                            <p class="pregunta">Nombre de Usuario: {{name}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Correo electrónico: {{email}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Contraseña: ********<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <p class="pregunta">Dirección: {{address}}<img src="/./img/profile/pen-solid.svg" alt="Abrir Respuesta" /></p>
-                            <!--<p class="respuesta">Podrás pagar con tu tarjeta de credito, también podras pagar con Paypal. Dentro de poco incorporaremos pagos con criptomonedas.</p> -->
+                            <table style="margin: 0 auto;">
+
+                                <caption>Tus Productos</caption>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Categoria</th>
+                                    <th>Precio</th>
+                                    <th>Descripcion</th>
+                                    <th>Imagen</th>
+                                    <th>Vendido</th>
+                                    <th>Id Publica</th>
+                                    <th>Opciones</th>
+                                </tr>
+
+                                {{#Product}}
+                                <form action="/editado/{{id}}" method="post">
+                                    <tr>
+                                        <td>{{title}}</td>
+                                        <td><{{category}}</td>
+                                        <td>{{price}}</td>
+                                        <td>{{description}}</td>
+                                        <td>imagen</td>
+                                        <td>{{isSold}}</td>
+                                        <td>{{id}}</td>
+                                        <td>
+                                            <input type="submit" value="Editar"/>
+                                        </td>
+                                        <td>
+                                            <input type="submit1" value="eliminar"/>
+                                        </td>
+                                    </tr>
+                                </form>
+                                {{/Product}}
+
+                            </table>
+
+
                         </div>
                     </div>
 
                     <!-- Mis anuncios -->
-                    <div class="contenedor-preguntas" data-categoria="mis-anuncios">
+                    <div class="contenedor-preguntas" data-categoria="todosUsuarios">
                         <div class="contenedor-pregunta">
+                            <caption>Tus Productos</caption>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
+                                <th>Precio</th>
+                                <th>Descripcion</th>
+                                <th>Imagen</th>
+                                <th>Vendido</th>
+                                <th>Id Publica</th>
+                                <th>Opciones</th>
+                            </tr>
 
-                            <table>
-
-                                <caption>Tus Productos</caption>
-                                <tr> <th>Titulo</th> <th>Precio</th> <th>Descripcion</th>
-                                    <th>Imagen</th> <th>Vendido</th> <th>Opciones</th>
+                            {{#Users}}
+                            <form action="/editado/{{id}}" method="post">
+                                <tr>
+                                    <td>{{title}}</td>
+                                    <td><{{category}}</td>
+                                    <td>{{price}}</td>
+                                    <td>{{description}}</td>
+                                    <td>imagen</td>
+                                    <td>{{isSold}}</td>
+                                    <td>{{id}}</td>
+                                    <td>
+                                        <input type="submit" value="Editar"/>
+                                    </td>
+                                    <td>
+                                        <input type="submit1" value="eliminar"/>
+                                    </td>
                                 </tr>
-                                {{#Product}}
-                                <tr> <td>{{title}}</td> <td>{{price}}</td> <td>{{description}}</td>
-                                    <td>imagen</td> <td>{{isSold}}</td> <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
-                                </tr>
-                                {{/Product}}
-                            </table>
-
-                            <div id="contenedorForm">
-
-
-
-
-                            </div>
-                        </div>
-
-                        <!-- Preguntas Seguridad -->
-                        <div class="contenedor-preguntas" data-categoria="contraofertas">
-                            <div class="contenedor-pregunta">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-1.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa-solid fa-check"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-2.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Vegetables</span>
-                                                <h5><a href="#">Vegetables’package</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-3.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Mixed Fruitss</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-4.jpg">
-                                                <div class="product__discount__percent">-20%</div>
-                                                <ul class="product__item__pic__hover">
-
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00 <span>$36.00</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Preguntas Cuenta -->
-                        <div class="contenedor-preguntas" data-categoria="compras-y-ventas">
-                            <div class="contenedor-pregunta">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-1.jpg">
-                                                <div class="product__sold__label">VENDIDO</div>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Dried Fruit</span>
-                                                <h5><a href="#">Raisin’n’nuts</a></h5>
-                                                <div class="product__item__price">$30.00</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                 data-setbg="img/product/discount/pd-2.jpg">
-                                                <div class="product__bought__label">COMPRADO</div>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span>Vegetables</span>
-                                                <h5><a href="#">Vegetables’package</a></h5>
-                                                <div class="product__item__price">$30.00</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <p class="respuesta">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.adipisicing elit. Voluptatum laborum porro voluptates, sequi aliquam mollitia! Nostrum eius iure sapiente, voluptates soluta adipisci, perferendis voluptatibus eligendi vel saepe harum. Consectetur, doloribus.</p> -->
-                            </div>
-                        </div>
-
-                        <!-- Preguntas Cuenta -->
-                        <div class="contenedor-preguntas" data-categoria="valoraciones">
+                            </form>
+                            {{/Users}}
 
 
 
@@ -217,6 +125,8 @@ pageEncoding="ISO-8859-1"%>
 
                         </div>
                     </div>
+
+
                 </div>
     </section>
     <div class="containerBoton"> <!-- button options Section begin -->

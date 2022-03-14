@@ -2,6 +2,7 @@ package es.codeurjc.Flyventas.services;
 
 
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,10 @@ public class ProductServices {
 
 	@Autowired
 	private ProductRepository repository;
+
+	public void save(Product product){
+		repository.save(product);
+	}
 	
 	public List<Product> findByTitle(String title, Pageable page) {
 		return repository.findByTitle(title, page);
@@ -35,6 +40,8 @@ public class ProductServices {
 	public List<Product> findAllCounteroffersByReceiver(User user, Pageable page) {
 		return repository.findAllCounteroffersByReceiver(user, page);
 	}
+
+	public Collection<Product> findAll() {return repository.findAll();}
 	
 	public Optional<Product> findById(long id) {
 		return repository.findById(id);

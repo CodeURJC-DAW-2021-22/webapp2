@@ -1,9 +1,9 @@
 # **FlyVenta**
 
-<div>
-<img src="ResourcesLogosLogoReadme.jpeg" width="300px">
-<p>
-<div>
+  <div>
+  <img src="Resources\Logos\LogoReadme.jpeg" width="300px">
+  </p>
+  </div>
 
 ***
 * **Descripción:**
@@ -40,70 +40,86 @@ Todos los articulos se mandaran por correos, al vendedor no le llegará el diner
     - Esta es la página principal de la web, desde donde podrá dirigirse al resto de páginas
 
     <div>
-    <img src="backend/readme/index.PNG" width="300px">
+    <img src="backend/target/readme/index.PNG" width="300px">
+    </p>
     </div>
      
     - Desde donde nos encargaremos de buscar el producto que nos interesa.
     <div>
-    <img src="backend/readme/search.PNG">
+    <img src="backend/target/readme/search.PNG">
+    </p>
     </div>
     
-
     - Podremos seleccionar el método de pago que no sinteresa, también nos mostrará una breve información del producto seleccionado y el precio final, por último tenemos 2 botones que nos permiten proceder con la pasarela de pago o bien cancelar la compra.
     <div>
-    <img src="backend/readme/comprar.PNG">
+    <img src="backend/target/readme/comprar.PNG">
+    </p>
     </div>
-
 
     - Una pantalla de inicio de sesión que permite pasar a la de registro
     <div>
-    <img src="backend/readme/login.PNG">
-    <div>
+    <img src="backend/target/readme/login.PNG">
+    </p>
+    </div>
 
     - Página de tu propio perfil donde tendrás los datos introducidos en la página.
     <div>
-    <img src="backend/readme/perfil 1.PNG">
+    <img src="backend/target/readme/perfil 1.PNG">
+    </p>
+    </div>
     <div>
+    <img src="backend/target/readme/perfil 2.PNG">
+    </p>
+    </div>
     <div>
-    <img src="backend/readme/perfil 2.PNG">
-    <div>
-    <div>
-    <img src="backend/readme/perfil 3.PNG">
-    <div>
+    <img src="backend/target/readme/perfil 3.PNG">
+    </p>
+    </div>
 
     - Página que muestra fotos, descripción y vendedor del producto, por último la opción de comprar o hacer la contraoferta al vendedor. 
     <div>
-    <img src="backend/readme/product.PNG">
-    <div>
+    <img src="backend/target/readme/product.PNG">
+    </p>
+    </div>
 
     - Modo dios, solo para ADMIN, donde podra eliminar usuarios y productos. 
     <div>
-    <img src="backend/readme/menu admin.PNG">
-    <div>
+    <img src="backend/target/readme/menu admin.PNG">
+    </div>
 
     - contraoferta. 
     <div>
-    <img src="backend/readme/Contraoferta.PNG">
-    <div>
-
+    <img src="backend/target/readme/Contraoferta.PNG">
+    </div>
 
     - El resumen de la compra
     <div>
-    <img src="backend/readme/resumen.PNG">
-    <div>
+    <img src="backend/target/readme/resumen.PNG">
+    </p>
+    </div>
 
 ***
 * **Diagrama de navegación fase 2:**
 
     <div>
-    <img src="backend/readme/navigationDiagramnew.png">
+    <img src="backend/target/readme/navigationDiagramnew.png">
+    </p>
     </div>
 
 ***
-* **Diagrama con las entidades de la base de datos::**
+* **Diagrama con las entidades de la base de datos:**
 
     <div>
-    <img src="backend/readme/bbdd.jpg">
+    <img src="backend/target/readme/bbdd.jpg">
+    </p>
+    </div>
+
+
+***
+* **Diagrama de clases:**
+
+    <div>
+    <img src="backend/target/readme/diagClases.png">
     </div>
 
 
@@ -132,8 +148,7 @@ Todos los articulos se mandaran por correos, al vendedor no le llegará el diner
 
     - Seguridad en Spring Samuel
     https:github.comCodeURJC-DAW-2021-22webapp2tree7168358bc6c2a1a1ac07c082831d3deb3b540ac7
-
-
+    
     - Funcionalidad compra, contraoferta Francis y Miguel
 
     - https:github.comCodeURJC-DAW-2021-22webapp2commit62100a718c10b5f43de60f7efdcd31b4ce2b58e6

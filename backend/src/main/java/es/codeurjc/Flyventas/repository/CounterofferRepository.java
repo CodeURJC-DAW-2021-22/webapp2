@@ -18,7 +18,9 @@ public interface CounterofferRepository extends JpaRepository<Counteroffer, Long
 
     public List<Counteroffer> findCounteroffersByReceiver(User receiver, Pageable page);
 
-    @Query("SELECT c.product FROM Counteroffer c GROUP BY c.product ORDER BY COUNT(c.product) DESC")
+    @Query("SELECT c.product FROM Counteroffer c inner join Product p WHERE p.id = c.product.id GROUP BY c.product ORDER BY COUNT(c.product) DESC")
     public List<Product> findHottestProducts(Pageable page);
 
 }
+
+// SELECT Product_id, COUNT(counteroffer_id) FROM Counteroffer GROUP BY Product_id DESC

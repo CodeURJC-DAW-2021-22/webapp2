@@ -17,7 +17,7 @@ public class Transaction {
     @OneToOne
     private Product product;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private User buyer;
 
     @ManyToOne

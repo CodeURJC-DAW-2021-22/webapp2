@@ -67,16 +67,10 @@ public class FlyventasController {
 	private UserServices userServices;
 
 	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
 	private CounterofferRepository counteroffers;
 
 	@Autowired
 	private CounterofferServices counterofferServices;
-
-	@Autowired
-	private ProductRepository products;
 
 
 	 @GetMapping("/")
@@ -108,6 +102,12 @@ public class FlyventasController {
 
 		 return "register";
 	 }
+
+	@GetMapping("/subirProducto")
+	public String uploadProduct() {
+
+		return "uploadProduct";
+	}
 
 	 @GetMapping("/hotproducts")
 	 public String hotProducts (Model model){
@@ -197,102 +197,6 @@ public class FlyventasController {
 
 	//------------------------------------------------------------------------------------------------------------------
 
-	//Subir Producto y Perfil Controller
-
-	@GetMapping("/subirProducto")
-	public String uploadProduct() {
-
-		return "uploadProduct";
-	}
-
-	@GetMapping("/perfilAdmin")
-	public String adminProfile(Model model)  {
-
-		model.addAttribute("Product", productServices.findAll());
-		model.addAttribute("Users", userServices.findAll());
-
-		 return "adminProfile";
-	}
-
-	@PostMapping("/perfilAdmin/borrar/{id}")
-	public String clearProduct(@PathVariable long id) {
-		Optional<Product> product = productServices.findById(id);
-		if (product.isPresent()) {
-
-			products.delete(product.get());
-
-			return "redirect:/";
-		} else {
-			return "searchnotfound";
-		}
-	}
-	@PostMapping("/perfilAdmin/banear/{id}")
-	public String banUser(@PathVariable long id) {
-		Optional<User> users = userServices.findUserById(id);
-		if(users.isPresent()) {
-
-			userRepository.delete(users.get());
-			return "redirect:/";
-		} else {
-		return "searchnotfound";
-	}
-
-
-	}
-
-	@GetMapping("/perfil/{id}")
-	public String profile(Model model, @PathVariable long id, HttpServletRequest request) {
-
-		Principal principal = request.getUserPrincipal();
-
-
-		Optional<User> Profile = userServices.findUserById(id);
-
-		String original = principal.getName();
-		String fake = Profile.get().getEmail();
-		if(original.equals(fake)) {
-			if (Profile.isPresent()) {
-
-				model.addAttribute("Product", productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 5)));
-				model.addAttribute("TransactionsAsBuyer", transactionServices.findByBuyer(Profile.get(), PageRequest.of(0, 5)));
-				model.addAttribute("TransactionsAsSeller", transactionServices.findBySeller(Profile.get(), PageRequest.of(0, 5)));
-				model.addAttribute("Counteroffers", counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5)));
-				model.addAttribute("name", Profile.get().getName());
-				model.addAttribute("email", Profile.get().getEmail());
-				model.addAttribute("address", Profile.get().getAddress());
-				return "profile";
-			} else {
-
-				return "searchnotfound";
-			}
-		}else{
-			return "searchnotfound";
-		}
-	}
-
-
-	@PostMapping("/editado/{id}")
-	public String editProduct(@PathVariable Long id, @RequestParam String title, @RequestParam String category, @RequestParam float price, @RequestParam String description) {
-
-
-		Optional<Product> Products = productServices.findById(id);
-		if (Products.isPresent()) {
-			Product product = Products.get();
-			product.setTitle(title);
-			product.setCategory(category);
-			product.setPrice(price);
-			product.setDescription(description);
-			//editar atributos del objeto
-			productServices.save(product);
-			return "redirect:/";
-		} else {
-			return "searchnotfound";
-		}
-
-	}
-
-	//------------------------------------------------------------------------------------------------------------------
-
 	//Transaction Controller
 
 	@GetMapping("/confirmacionCompra/{id}")
@@ -330,12 +234,12 @@ public class FlyventasController {
 			email.setText(message);
 			mailSender.send(email);
 
-			SimpleMailMessage seller = new SimpleMailMessage();
+			/*SimpleMailMessage seller = new SimpleMailMessage();
 			seller.setTo();
 			seller.setSubject("Recibo FlyVentas");
 			String messagee = ("https://support.packlink.com/hc/article_attachments/360001866020/mceclip3.png");
 			seller.setText(messagee);
-			mailSender.send(seller);
+			mailSender.send(seller);*/
 			return "resumen";
 		} else {
 

@@ -33,10 +33,10 @@ public class User{
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Product> productList;
 
-	@OneToMany(mappedBy = "receiver")
+	@OneToMany(mappedBy = "receiver", cascade = CascadeType.REMOVE)
 	private List<Counteroffer> counterofferList = new ArrayList<>();
 
-	@OneToMany(mappedBy = "seller")
+	@OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
 	private List<Transaction> transactionList = new ArrayList<>();
 
 

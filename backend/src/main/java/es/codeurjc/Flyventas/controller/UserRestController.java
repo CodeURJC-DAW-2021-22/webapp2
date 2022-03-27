@@ -1,6 +1,7 @@
 package es.codeurjc.Flyventas.controller;
 
 import java.security.Principal;
+import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,15 +23,30 @@ public class UserRestController {
     @Autowired
     private UserServices userService;
 
+    /*@GetMapping("/")
+    public ResponseEntity<Collection<User>> getUsers() {
+
+        Collection<User> user = userService.findAll();
+
+        if(user.isEmpty()) {
+            return ResponseEntity.ok(userService.findAll());
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    } */
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getProfile(@PathVariable long id) {
 
         User user = userService.findUserById(id).orElseThrow();
 
         if(user != null) {
-            return ResponseEntity.ok(userRepository.findById(id).orElseThrow());
+            return ResponseEntity.ok(user);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
+
 }

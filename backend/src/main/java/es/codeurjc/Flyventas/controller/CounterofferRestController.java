@@ -1,44 +1,89 @@
 package es.codeurjc.Flyventas.controller;
 
+import es.codeurjc.Flyventas.model.Counteroffer;
+import es.codeurjc.Flyventas.model.Product;
+import es.codeurjc.Flyventas.model.Transaction;
+import es.codeurjc.Flyventas.model.User;
+import es.codeurjc.Flyventas.repository.CounterofferRepository;
+import es.codeurjc.Flyventas.repository.TransactionRepository;
+import es.codeurjc.Flyventas.services.CounterofferServices;
+import es.codeurjc.Flyventas.services.ProductServices;
+import es.codeurjc.Flyventas.services.UserServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/counteroffers")
 public class CounterofferRestController {
-    /*
-    @GetMapping("/confirmacionContraoferta/{id}")
-	public String confirmCounteroffer(Model model, @PathVariable long id) {
+
+    @Autowired
+    private ProductServices productServices;
+
+    @Autowired
+    private TransactionRepository transactions;
+
+    @Autowired
+    private CounterofferServices counterofferServices;
+
+    @Autowired
+    private UserServices userServices;
+
+    @Autowired
+    private CounterofferRepository counteroffers;
+
+    @GetMapping("/addCounteroffer/{id}")
+	public ResponseEntity addCounteroffer(@PathVariable long id) {
 
 		Optional<Product> Product = productServices.findById(id);
 		if (Product.isPresent()) {
-			model.addAttribute("Product", Product.get());
-			return "counteroffer";
+            return new ResponseEntity<>(Product, HttpStatus.OK);
 		} else {
-			return "searchnotfound";
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@PostMapping("/counteroffer/{id}")
-	public String contraoffer(Model model, HttpServletRequest request, @PathVariable long id, @RequestParam float newOffer) {
+	@PostMapping("/addCounteroffer/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+	public Counteroffer createCounteroffer(HttpServletRequest request, @PathVariable long id, @RequestBody float newOffer) {
 
 		Principal principal = request.getUserPrincipal();
 		Optional<Product> Product = productServices.findById(id);
-		if (Product.isPresent()) {
+        Optional<User> User = userServices.findUserByEmail(principal.getName());
 
-			Optional<User> User = userServices.findUserByEmail(principal.getName());
-			counteroffers.save(new Counteroffer(Product.get(), newOffer, User.get()));
+        Counteroffer counteroffer = new Counteroffer(Product.get(), newOffer, User.get());
 
-			return "redirect:/";
-		} else {
-			return "searchnotfound";
-		}
+        counteroffers.save(counteroffer);
+
+        return counteroffer;
 	}
 
-	@PostMapping("/aceptarContraoferta/{id}")
-	public String acceptCounteroffer(HttpServletRequest request, @PathVariable long id) {
+    @GetMapping("/acceptCounteroffer/{id}")
+    public ResponseEntity acceptCounteroffer(@PathVariable long id) {
+
+        Optional<Counteroffer> counterOffer = counterofferServices.findById(id);
+        if (counterOffer.isPresent()) {
+            return new ResponseEntity<>(counterOffer, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+	@PostMapping("/acceptCounteroffer/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+	public Transaction createTransaction(@PathVariable long id) {
 
 	 	Optional<Counteroffer> counterOffer = counterofferServices.findById(id);
-	 	if(counterOffer.isPresent()) {
+         Transaction transaction = new Transaction(counterOffer.get().getProduct(), counterOffer.get().getTransmitter(), counterOffer.get().getNewPrice());
 
-	 		transactions.save(new Transaction(counterOffer.get().getProduct(), counterOffer.get().getTransmitter(), counterOffer.get().getNewPrice()));
-	 		counteroffers.delete(counterOffer.get());
-		}
-	 	return "redirect:/";
-	}*/
+        transactions.save(transaction);
+        counteroffers.delete(counterOffer.get());
+
+	 	return transaction;
+	}
 }

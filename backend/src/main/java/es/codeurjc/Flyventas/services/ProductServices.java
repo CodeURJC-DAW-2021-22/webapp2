@@ -47,4 +47,8 @@ public class ProductServices {
 		return repository.findById(id);
 	}
 
+	public void delete(long id) { repository.deleteById(id); }
+
+	public boolean exist(long id) {	return repository.existsById(id); }
+
 }

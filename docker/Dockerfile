@@ -19,5 +19,5 @@ FROM openjdk:11-jre-slim
 WORKDIR /usr/src/app/
 #
 COPY --from=builder /project/target/*.jar /usr/src/app/target/
-EXPOSE 8080
+EXPOSE 8443
 CMD [ "java", "-jar", "java-webapp-0.0.1.jar" ]

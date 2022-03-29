@@ -37,7 +37,7 @@ public class TransactionRestController {
     private UserServices userServices;
 
 
-    @GetMapping("/confirmacionCompra/{id}")
+    @GetMapping("/{id}")
 	public ResponseEntity comfirmTransaction(@PathVariable long id) {
 
 		Optional<Product> Product = productServices.findById(id);
@@ -48,31 +48,25 @@ public class TransactionRestController {
 		}
 	}
 
-	@PostMapping("/confirmacionCompra/{id}")
+	@PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity newTransaction(HttpServletRequest request, @PathVariable long id) {
+	public ResponseEntity newTransaction(HttpServletRequest request, @RequestBody Product product) {
 
         Principal principal = request.getUserPrincipal();
-        Optional<Product> Product = productServices.findById(id);
 
         //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
         SimpleMailMessage email = null;
-        if (Product.isPresent()) {
 
             Optional<User> User = userServices.findUserByEmail(principal.getName());
-            transactions.save(new Transaction(Product.get(), User.get(), Product.get().getPrice()));
+            transactions.save(new Transaction(product, User.get(), product.getPrice()));
 
             email = new SimpleMailMessage();
             email.setTo(principal.getName());
             email.setSubject("Recibo FlyVentas");
-            String str = Long.toString(id);
+            String str = Long.toString(product.getId());
             String message = ("https://localhost:8443/confirmacionCompra/" + str + "/?format=pdf");
             email.setText(message);
             mailSender.send(email);
             return new ResponseEntity<>(email, HttpStatus.OK);
-        } else {
-
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-}

@@ -39,4 +39,7 @@ public class UserServices {
 		repository.deleteById(id);
 	}
 
+	public boolean exist(long id) {
+		return repository.existsById(id);
+	}
 }

@@ -17,6 +17,8 @@ import java.sql.SQLException;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
+@RestController
+@RequestMapping("/api/products")
 public class ProductRestController {
 
     @Autowired
@@ -46,7 +48,7 @@ public class ProductRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Product> deleteBook(@PathVariable long id) {
+    public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
 
         try {
             productServices.delete(id);
@@ -58,7 +60,7 @@ public class ProductRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateBook(@PathVariable long id, @RequestBody Product updatedProduct) throws SQLException {
+    public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody Product updatedProduct) throws SQLException {
 
         if (productServices.exist(id)) {
 
@@ -92,18 +94,6 @@ public class ProductRestController {
 
         return ResponseEntity.created(location).build();
     }
-
-
-
-    //delete
-
-    //post
-
-    //put
-
-    //patch
-
-    //Productos por titulo
 
     /*
     @RequestMapping("/busqueda")

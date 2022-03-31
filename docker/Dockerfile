@@ -4,9 +4,10 @@ FROM maven:3.6.3-openjdk-11 as builder
 WORKDIR /project
 #Copiamos el código
 COPY pom.xml /project/
+RUN mvn clean verify
 COPY /src /project/src
-#Mandamos compilar el proyecto descargando las librerías
-RUN mvn package -DskipTest=true
+#Mandamos compilar el proyecto
+RUN mvn package -o
 
 #-----------------------------------------------------------------
 

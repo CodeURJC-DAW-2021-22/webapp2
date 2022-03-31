@@ -1,23 +1,22 @@
 #Imagen base 
 FROM maven:3.6.3-openjdk-11 as builder
 #Directorio de trabajo
-WORKDIR /.project
-#Copiamos el pom.xml
-COPY pom.xml /backend/
+WORKDIR /project
+#Copiamos el código
+COPY pom.xml /project/
+COPY /src /project/src
+#Mandamos compilar el proyecto descargando las librerías
+RUN mvn package -DskipTest=true
 
-RUN mvn clean verify
-#Copiamos el código entero
-COPY /src /backend/
-
-RUN mvn package -o
-
-#--------------------
+#-----------------------------------------------------------------
 
 #Imagen base
 FROM openjdk:11-jre-slim
 #Directorio de trabajo
 WORKDIR /usr/src/app/
-#
+#Copiamos el .jar 
 COPY --from=builder /project/target/*.jar /usr/src/app/target/
+#Indicamos el puerto expuesto
 EXPOSE 8443
-CMD [ "java", "-jar", "java-webapp-0.0.1.jar" ]
+#Comando que se debe ejecutar
+CMD [ "java", "-jar", "flyventas-spring-0.0.1-SNAPSHOT.jar" ]

@@ -1,1 +1,16 @@
+version: "3.9"
 
+services:
+  db:
+    image: postgres:14.2
+    enviromment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=
+    ports:
+      - 8443:8443
+      
+      
+  web:
+    
+    restart: always
+    depends_on: db

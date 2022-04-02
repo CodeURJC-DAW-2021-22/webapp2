@@ -3,9 +3,9 @@ FROM maven:3.6.3-openjdk-11 as builder
 #Directorio de trabajo
 WORKDIR /project
 #Copiamos el código
-COPY pom.xml /project/
+COPY ../pom.xml /project/
 RUN mvn clean verify
-COPY /src /project/src
+COPY ../src /project/src
 #Mandamos compilar el proyecto
 RUN mvn package -o
 

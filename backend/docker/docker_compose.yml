@@ -2,7 +2,7 @@ version: "3.9"
 services:
   web:
     build: 
-      context: .
+      context: ""
       dockerfile: Dockerfile
     restart: always
     depends_on:
@@ -15,7 +15,7 @@ services:
         - SPRING_DATASOURCE_PASSWORD=dawn
         - SPRING_JPA_HIBERNATE_DDL-AUTO=update
 
-db:
+  db:
     image: postgres:14.2
     environment:
       - POSTGRES_USER=postgres

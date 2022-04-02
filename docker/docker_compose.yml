@@ -5,7 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
-    depends_on: db
+    depends_on:
+      - db
     ports:
         - 8443:8443
     environment:

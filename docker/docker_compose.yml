@@ -1,17 +1,15 @@
 version: "3.9"
-
 services:
-      
   web:
     build: 
       context: .
       dockerfile: Dockerfile
-      restart: always
-      depends_on: db
-      ports:
+    restart: always
+    depends_on: db
+    ports:
         - 8443:8443
-      environment:
-        - SPRING_DATASOURCE_URL=jdbc:jdbc:postgresql://localhost/posts
+    environment:
+        - SPRING_DATASOURCE_URL=jdbc:jdbc:postgresql://db/posts
         - SPRING_DATASOURCE_USERNAME=postgres
         - SPRING_DATASOURCE_PASSWORD=dawn
         - SPRING_JPA_HIBERNATE_DDL-AUTO=update

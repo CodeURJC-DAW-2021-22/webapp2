@@ -16,7 +16,7 @@ FROM openjdk:11-jre-slim
 #Directorio de trabajo
 WORKDIR /usr/src/app/
 #Copiamos el .jar 
-COPY --from=builder /project/target/*.jar /usr/src/app/target/
+COPY --from=builder /project/target/*.jar /usr/src/app/
 #Indicamos el puerto expuesto
 EXPOSE 8443
 #Comando que se debe ejecutar

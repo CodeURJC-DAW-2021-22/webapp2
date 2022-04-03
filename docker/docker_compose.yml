@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   web:
-    image: njhvfm014/codeurjc-daw-2021-22-webapp2
+    image: registry.heroku.com/codeurjc-daw-2021-22-webapp2/web
     restart: always
     depends_on:
       - db

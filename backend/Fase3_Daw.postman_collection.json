@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "0bfb5200-a92c-4808-a2ad-40628d485609",
+		"name": "Fase3_Daw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET PRODUCT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/products/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"products",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST PRODUCT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":5,\"title\":\"Tele LG\",\"description\":\"Se ve mejor que el odio que te tiene tu suegra\",\"category\":\"Imagen y sonido\",\"price\":150.0,\"isSold\":false,\"image\":false,\"user\":{\"id\":1,\"name\":\"Jaime\",\"surname\":\"Molinero\",\"email\":\"jaimemolinero12@gmail.com\",\"address\":\"madrid\",\"encodedPassword\":\"$2a$10$jI8/kleShn6yAbVwBun9/u8cNz3EnfrWJDeSPTCYR4Vi6FYkoJSje\",\"categoria1\":\"Tren\",\"categoria2\":\"Informática\",\"categoria3\":\"Imagen y sonido\",\"imageFile\":null,\"roles\":[\"USER\",\"USER\"]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/products/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE PRODUCT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/api/products/5/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"5",
+						"image"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT PRODUCT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":2,\"title\":\"Rumano con moto\",\"description\":\"Se llama Rusu, viene con moto y steve el de top gear, además trabaja muy bien\",\"category\":\"Otros\",\"price\":1.0,\"isSold\":false,\"image\":true,\"user\":{\"id\":1,\"name\":\"Jaime\",\"surname\":\"Molinero\",\"email\":\"jaimemolinero12@gmail.com\",\"address\":\"madrid\",\"encodedPassword\":\"$2a$10$jI8/kleShn6yAbVwBun9/u8cNz3EnfrWJDeSPTCYR4Vi6FYkoJSje\",\"categoria1\":\"Tren\",\"categoria2\":\"Informática\",\"categoria3\":\"Imagen y sonido\",\"imageFile\":null,\"roles\":[\"USER\",\"USER\"]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/products/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":2,\"name\":\"Francis\",\"surname\":\"Cardi\",\"email\":\"c.cardi.2019@alumnos.urjc.es\",\"address\":\"madrid\",\"encodedPassword\":\"$2a$10$jI8/kleShn6yAbVwBun9/u8cNz3EnfrWJDeSPTCYR4Vi6FYkoJSje\",\"categoria1\":\"Tren\",\"categoria2\":\"Informática\",\"categoria3\":\"Imagen y sonido\",\"imageFile\":null,\"roles\":[\"USER\",\"USER\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/users/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT USER",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"Jaime\",\"surname\":\"Molinero\",\"email\":\"jaimemolinero12@gmail.com\",\"address\":\"Córdoba\",\"encodedPassword\":\"$2a$10$jI8/kleShn6yAbVwBun9/u8cNz3EnfrWJDeSPTCYR4Vi6FYkoJSje\",\"categoria1\":\"Tren\",\"categoria2\":\"Informática\",\"categoria3\":\"Imagen y sonido\",\"imageFile\":null,\"roles\":[\"USER\",\"USER\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/users/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/users/8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"users",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TRANSACTION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/transactions/10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"transactions",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COUNTEROFFER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/counteroffers/9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"counteroffers",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET IMAGE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/api/products/5/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"5",
+						"image"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT IMAGE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "/C:/Users/jaime/Downloads/lg.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8080/api/products/5/image",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products",
+						"5",
+						"image"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

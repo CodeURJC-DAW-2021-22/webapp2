@@ -64,11 +64,11 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
-	<!--	<dependency>
+		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.5.0</version>
-		</dependency> -->
+		</dependency>
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>

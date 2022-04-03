@@ -5,12 +5,15 @@ import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.services.ProductServices;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
@@ -93,6 +96,40 @@ public class ProductRestController {
         productServices.save(product);
 
         return ResponseEntity.created(location).build();
+    }
+
+
+    @GetMapping("/{id}/image")
+    public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
+
+        Product product = productServices.findById(id).orElseThrow();
+
+        if (product.getImageFile() != null) {
+
+            Resource file = (Resource) new InputStreamResource(product.getImageFile().getBinaryStream());
+
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
+                    .contentLength(product.getImageFile().length()).body(file);
+
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
+
+    @DeleteMapping("/{id}/image")
+    public ResponseEntity<Object> deleteImage(@PathVariable long id) throws IOException {
+
+        Product product = productServices.findById(id).orElseThrow();
+
+        product.setImageFile(null);
+        product.setImage(false);
+
+        productServices.save(product);
+
+        return ResponseEntity.noContent().build();
     }
 
     /*

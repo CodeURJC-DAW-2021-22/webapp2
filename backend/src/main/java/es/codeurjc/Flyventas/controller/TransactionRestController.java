@@ -8,6 +8,7 @@ import es.codeurjc.Flyventas.repository.CounterofferRepository;
 import es.codeurjc.Flyventas.repository.TransactionRepository;
 import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
+import es.codeurjc.Flyventas.services.TransactionServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,9 @@ public class TransactionRestController {
     private TransactionRepository transactions;
 
     @Autowired
+    private TransactionServices transactionServices;
+
+    @Autowired
     private JavaMailSender mailSender;
 
     @Autowired
@@ -40,15 +44,15 @@ public class TransactionRestController {
     @GetMapping("/{id}")
 	public ResponseEntity comfirmTransaction(@PathVariable long id) {
 
-		Optional<Product> Product = productServices.findById(id);
-		if (Product.isPresent()) {
-            return new ResponseEntity<>(Product, HttpStatus.OK);
+		Optional<Transaction> transaction = transactionServices.findById(id);
+		if (transaction.isPresent()) {
+            return new ResponseEntity<>(transaction, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@PostMapping("/{id}")
+	@PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity newTransaction(HttpServletRequest request, @RequestBody Product product) {
 

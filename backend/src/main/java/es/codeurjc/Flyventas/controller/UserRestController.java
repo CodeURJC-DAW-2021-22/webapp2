@@ -71,7 +71,7 @@ public class UserRestController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createProduct(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
 
         userService.save(user);
 
@@ -79,7 +79,7 @@ public class UserRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+    public ResponseEntity<Product> deleteUser(@PathVariable long id) {
 
         try {
             userService.delete(id);

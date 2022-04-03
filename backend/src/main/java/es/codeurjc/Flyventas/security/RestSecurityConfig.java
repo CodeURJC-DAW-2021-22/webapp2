@@ -45,24 +45,24 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         http.antMatcher("/api/**");
 
         // URLs that need authentication to access to it UserRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasRole("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
-
-        // ProductRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/products/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/products/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("USER");
-
-        // TransactionRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/transactions/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/transactions/**").hasRole("USER");
-
-        // CounterofferRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/counteroffers/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/counteroffers/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
+//        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasRole("ADMIN");
+//        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
+//
+//        // ProductRestController
+//        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products/**").permitAll();
+//        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/products/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/products/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("USER");
+//
+//        // TransactionRestController
+//        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/transactions/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/transactions/**").hasRole("USER");
+//
+//        // CounterofferRestController
+//        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/counteroffers/**").hasRole("USER");
+//        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/counteroffers/**").hasRole("USER");
 
 
         // Other URLs can be accessed without authentication

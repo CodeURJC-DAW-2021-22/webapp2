@@ -133,30 +133,5 @@ public class ProductRestController {
         return ResponseEntity.noContent().build();
     }
 
-    /*
-    @RequestMapping("/busqueda")
-	 public String search(Model model, @RequestParam String title) {
-
-		 List<Product> Product = productServices.findByTitle(title, PageRequest.of(0,9));
-		 model.addAttribute("search", title);
-		 if (!Product.isEmpty()) {
-			 model.addAttribute("Results", Product.size());
-			 model.addAttribute("Product", Product);
-			 return "search";
-		 } else {
-			 return "searchnotfound";
-		 }
-	 }
-    @GetMapping("/search/{search}")
-    public ResponseEntity<?> getProductBySearch(@PathVariable String search) {
-
-        List<Product> product = productServices.findByTitle(search, PageRequest.of(0,9));
-
-        if(product != null) {
-            return ResponseEntity.ok(product);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
 }

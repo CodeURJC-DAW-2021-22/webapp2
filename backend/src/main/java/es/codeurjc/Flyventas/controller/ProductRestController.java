@@ -5,19 +5,18 @@ import es.codeurjc.Flyventas.services.ProductServices;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -88,50 +87,59 @@ public class ProductRestController {
     public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile)
             throws IOException {
 
-        Product product = productServices.findById(id).orElseThrow();
+        Optional<Product> product = productServices.findById(id);
 
-        URI location = fromCurrentRequest().build().toUri();
+        if(product.isPresent()){
+            Product product1 = product.get();
+            URI location = fromCurrentRequest().build().toUri();
+            product1.setImage(true);
+            product1.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
 
-        product.setImage(true);
-        product.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
-        productServices.save(product);
+            productServices.save(product1);
+            return ResponseEntity.created(location).build();
 
-        return ResponseEntity.created(location).build();
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
+
+
+
     }
 
 
     @GetMapping("/{id}/image")
     public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
 
-        Product product = productServices.findById(id).orElseThrow();
+        Optional<Product> product = productServices.findById(id);
+        if (product.isPresent() && product.get().getImageFile() != null) {
 
-        if (product.getImageFile() != null) {
-
-            Resource file = (Resource) new InputStreamResource(product.getImageFile().getBinaryStream());
-
-            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg")
-                    .contentLength(product.getImageFile().length()).body(file);
-
+            Resource file = new InputStreamResource(product.get().getImageFile().getBinaryStream());
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(product.get().getImageFile().length()).body(file);
         } else {
+
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}/image")
+    public ResponseEntity<Object> editImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException{
+
+        Optional<Product> product = productServices.findById(id);
+        if (product.isPresent()) {
+
+            Product product1 = product.get();
+            product1.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+            productServices.save(product1);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+
             return ResponseEntity.notFound().build();
         }
     }
 
 
-
-
-    @DeleteMapping("/{id}/image")
-    public ResponseEntity<Object> deleteImage(@PathVariable long id) throws IOException {
-
-        Product product = productServices.findById(id).orElseThrow();
-
-        product.setImageFile(null);
-        product.setImage(false);
-
-        productServices.save(product);
-
-        return ResponseEntity.noContent().build();
-    }
 
 
 }

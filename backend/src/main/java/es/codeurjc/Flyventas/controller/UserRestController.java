@@ -5,10 +5,14 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
+import es.codeurjc.Flyventas.security.jwt.AuthResponse;
+import es.codeurjc.Flyventas.security.jwt.LoginRequest;
+import es.codeurjc.Flyventas.security.jwt.UserLoginService;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -27,18 +31,9 @@ public class UserRestController {
     @Autowired
     private UserServices userService;
 
-    /*@GetMapping("/")
-    public ResponseEntity<Collection<User>> getUsers() {
+    @Autowired
+    private UserLoginService userLoginService;
 
-        Collection<User> user = userService.findAll();
-
-        if(user.isEmpty()) {
-            return ResponseEntity.ok(userService.findAll());
-        }
-        else {
-            return ResponseEntity.notFound().build();
-        }
-    } */
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getProfile(@PathVariable long id) {
@@ -71,7 +66,7 @@ public class UserRestController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createProduct(@RequestBody User user) {
+    public User createProfile(@RequestBody User user) {
 
         userService.save(user);
 
@@ -79,7 +74,7 @@ public class UserRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+    public ResponseEntity<Product> deleteProfile(@PathVariable long id) {
 
         try {
             userService.delete(id);

@@ -1,11 +1,11 @@
 package es.codeurjc.Flyventas.controller;
 
 import es.codeurjc.Flyventas.model.Product;
-import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.services.ProductServices;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -95,64 +96,16 @@ public class ProductRestController {
         return ResponseEntity.created(location).build();
     }
 
-    /*
-    @RequestMapping("/busqueda")
-	 public String search(Model model, @RequestParam String title) {
+    @GetMapping("/search/{search}")
+    public ResponseEntity<?> getProductBySearch(@PathVariable String search) {
 
-		 List<Product> Product = productServices.findByTitle(title, PageRequest.of(0,9));
-		 model.addAttribute("search", title);
-		 if (!Product.isEmpty()) {
-			 model.addAttribute("Results", Product.size());
-			 model.addAttribute("Product", Product);
-			 return "search";
-		 } else {
-			 return "searchnotfound";
-		 }
-	 }
+        List<Product> product = productServices.findByTitle(search, PageRequest.of(0,9));
 
-	@RequestMapping("/category/{category}")
-	public String CategorySearch(Model model, @PathVariable String category) {
-
-		List<Product> Product = productServices.findProductByCategoryPageable(category, PageRequest.of(0,9));
-		model.addAttribute("search", category);
-		if (!Product.isEmpty()) {
-			model.addAttribute("Results", Product.size());
-			model.addAttribute("Product", Product);
-			return "search";
-		} else {
-			return "/searchnotfound";
-		}
-	}
-
-	@GetMapping("/Producto/{id}")
-	public String showProduct(Model model, @PathVariable long id) {
-
-		Optional<Product> Product = productServices.findById(id);
-		if (Product.isPresent()) {
-
-			model.addAttribute("Product", Product.get());
-			model.addAttribute("Seller", Product.get().getUser());
-			return "Product";
-		} else {
-
-			return "searchnotfound";
-		}
-
-	}
-
-	@GetMapping("/Producto/{id}/image")
-	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
-
-		Optional<Product> product = productServices.findById(id);
-		if (product.isPresent() && product.get().getImageFile() != null) {
-
-			Resource file = new InputStreamResource(product.get().getImageFile().getBinaryStream());
-			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(product.get().getImageFile().length()).body(file);
-		} else {
-
-			return ResponseEntity.notFound().build();
-		}
-	}
-*/
+        if(product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

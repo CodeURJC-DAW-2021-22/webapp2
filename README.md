@@ -139,3 +139,119 @@ https://trello.com/b/Asdin3o1/proyecto
     <img src="Resources/navigationDiagram.png">
     </div>
 
+# Fase 3
+
+### Requisitos:
+
+Para poder ejecutar tanto la construccion de la imagen docker de la aplicación como para ejecutarla y posteriormente 
+desplegarla en Heroku será necesario:
+
+1. Tener instalado docker desktop en nuestro ordenador (esto ya incluye la herramienta docker-compose)
+2. Tener instalado el cliente de heroku en nuestro ordenador
+3. Tener la aplicación descargada y accesible para poder ejecutar los comandos desde alguna de las carpetas específicas 
+
+***
+### La URL de la aplicación desplegada en Heroku:
+
+
+**https://codeurjc-daw-2021-22-webapp2.herokuapp.com/**
+
+***
+### Documentación de la API REST:**
+
+**https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/backend/api-docs/api-docs.yaml**
+
+**production: https://rawcdn.githack.com/CodeURJC-DAW-2021-22/webapp2/a31383de6ee70f0199a599795962cc7c8843fd13/backend/api-docs/api-docs.html**
+
+**development: https://raw.githack.com/CodeURJC-DAW-2021-22/webapp2/main/backend/api-docs/api-docs.html**
+
+### Actualización de diagrama de clases:**
+
+<div>
+    <img src="Resources/diagrama de actividad rest.png">
+</div>
+
+***
+### Instrucciones de ejecución de la aplicación dockerizada:
+
+* Ejecutar la aplicación dockerizada:
+
+Para ejecutar la aplicación ya dockerizada junto a la base de datos usando el dichero docker-compose.yml deberemos
+al igual que en el paso anterior, ubicarnos en la carpeta de docker para poder ejecutar el fichero correctamente. Una vez
+hecho esto, deberemos ejecutar el comando docker-compose -f docker_compose.yml up. El cual ejecutará la aplcación con las
+instrucciones que están dentro del fichero, es decir, la aplicación web a partir de la imagen docker construida anteriormente, 
+y la base de datos creada en base a una imagen de postgre seleccionada. Después de ejecutar el comando, arrancará la app y 
+tendremos disponibles todas las funcionalidades, accediendo a la dirección del buscador "https://localhost:8443". 
+
+***
+### Documentación para construcción de la imagen docker:
+* Construcción de la imagen docker:
+
+Para construir la imagen docker de la aplicación tenemos la opción de simplemente ejecutar el script ubicado en la 
+carpeta docker junto al resto de archivos relacionados con este tema como el Dockerfile. El script tiene el comando 
+de construcción de docker que crea la imagen a partir del dockerfile con el nombre que posteriormente querremos que tenga
+para que pueda desplegarse en heroku. El comando construirá la imagen y la guardará en local, para poder subirla a dockerHub
+necesitaríamos el comando push, el cual subiría a nuestro repositorio la imagen creada.
+
+***
+### Documentación para desplegar en Heroku:
+
+* Documentación para desplegar en Heroku:
+
+Como hemos indicado antes, será necesario tener descargado el cliente de heroku en el ordenador. Los comandos a realizar para desplegar la app 
+en heroku se encuentran en un script en la carpeta doceker del proyecto llamado deploy_heroku_app_webapp2.ps1. Los comandos que
+se ejecutan son tanto los de creación como subida de la imagen de la app con el nombre requerido por heroku (el mismo que la app 
+ya creada en el perfil), y la subida de la imagen a heroku para su posterior ejecución con todos los servicios disponibles.
+
+
+***
+
+### Participación de miembros:
+
+***
+    - Francis Cardi: Despliegue en heroku y creación de imagen con los requerimientos de Heroku. Ayuda en la dockerización de la aplicación, la creación de los ficheros de la carpeta docker, rest de las imagenes de los productos y hacer presentable la documentación.
+***
+    - Miguel Ruiz: creación de entidades y relaciones entre tablas. Retoques importantes a transacciones y creación de la funcionalidad de contraoferta. Subida y visualización de imágenes, solución de bugs.
+***
+    - Jaime Molinero: ProductRestController, arreglo de bugs en el resto de controladores rest, fichero postman, documentación API-DOC generado con spring
+***
+    - Samuel Rusu: controladores rest de user, transaction, login y counteroffer, toda la parte de seguridad api rest
+
+***
+### Commits más importantes:
+
+**Francis Cardi:**
+
+1. act carpeta https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/d5e56c79b409cfe41746ad15b1356cd2b87f9536
+2. ultimos retoques https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/9fb562d4364c78941edd47f3126be88e6c0314fc
+3. proceso automatizado desplegar heroku https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/33887292c073b813a8028eafb1bf51bfc9a365e5
+4. config docker y heroku https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/72950a74c8d380b5b36345194e01c6cb022bc9b0
+5. Union docker y main + resuelto bug de imagenes put, post y get https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/f35af927a0669a0c8d52a8bc51b8f18bb040f8a1
+
+**Miguel Ruiz:**
+
+1. https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/f0e9acc0d1d45ae694d71ab82c91cf0f2f13e93b
+2. https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/5ce324410f1fb33868dde4adc283557c37094ffe
+3. https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/f0e9acc0d1d45ae694d71ab82c91cf0f2f13e93b
+4. https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/24d19b81e600dade423779407fd55762287b4ecf
+5. https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/ce39ed1d3076097d8edca16fd5aa1228054b8eec
+
+**Jaime Molinero:**
+
+1. restProduct: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/ebd78ef4af8e83093fcfa00bbbd64cd799ae3e4b
+2. avance y resolucion de bugs: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/5d662106b434c544cc028b07ffce60f253afb9fe
+3. documentacion: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/a31383de6ee70f0199a599795962cc7c8843fd13
+4. postman y documentacion: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/c849d040a4ade484b0f16b8472ae7f8b7d9c9e4d
+5. resolucion de bugs: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/e06d14796505c54460326971ecab84e88c91db82
+
+**Samuel Rusu:**
+
+1. UserREST & SecurityREST :  https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/e8cce712c8fc6c2ee2ebb3b2350bfb636baaeacf
+2. REST de todos los controladores : https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/6bd69560ff5fa18da7ddaf2af64206bb94a52285
+3. Counteroffer & Transaction REST v1  :   https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/30d8f47df91d4e626c8c7cab96dbf5537f745d33
+4. API Rest v2 + security : https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/910196048dcd760257a8952a52be27c48d2b421d
+5. API Rest v3 : https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/7642ac7b9b3702c1e66e3774cf303fd66a57f05b
+
+
+
+

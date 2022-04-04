@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.List;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -135,6 +137,18 @@ public class ProductRestController {
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
 
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/search/{search}")
+    public ResponseEntity<?> getProductBySearch(@PathVariable String search) {
+
+        List<Product> product = productServices.findByTitle(search, PageRequest.of(0,9));
+
+        if(product != null) {
+            return ResponseEntity.ok(product);
+        } else {
             return ResponseEntity.notFound().build();
         }
     }

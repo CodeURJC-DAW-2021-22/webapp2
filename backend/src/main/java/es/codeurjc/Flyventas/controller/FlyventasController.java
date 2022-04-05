@@ -26,6 +26,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.security.Principal;
@@ -286,11 +287,11 @@ public class FlyventasController {
 	/*@PostConstruct
 	public void init() {
 
-		products.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false, null));
-		products.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, false, null));
-		products.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false, null));
-		products.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false, null));
-		products.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false, null));
+		productServices.save(new Product( "Honda cbr 125", "Como nueva en Pantoja de la Sagra", "Motos", 1200, false, null));
+		productServices.save(new Product("Camiseta firmada por Hamilton", "Tiene mucho valor sentimental", "Moda", 70, false, null));
+		productServices.save(new Product("3 acciones de Santander", "Se las he robado a mi padre", "Otros", 25000, false, null));
+		productServices.save(new Product("Promo en tiktok", "soy famoso", "Otros", 200, false, null));
+		productServices.save(new Product("Riñon derecho", "urge venderlo para pagar la gasolina de mi bmw", "Otros", 350, false, null));
 	}*/
 
 	@PostMapping("/subirProducto")

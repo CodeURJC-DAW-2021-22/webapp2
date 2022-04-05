@@ -1,5 +1,7 @@
 package es.codeurjc.Flyventas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +83,8 @@ public class User{
     public String getAddress() {
         return this.address;
     }
-    
+
+	@JsonIgnore
     public String getEncodedPassword() {
 		return this.encodedPassword;
 	}

@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.List;
 
@@ -124,6 +125,7 @@ public class ProductRestController {
         }
     }
 
+    /*
     @PutMapping("/{id}/image")
     public ResponseEntity<Object> editImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException{
 
@@ -139,19 +141,33 @@ public class ProductRestController {
 
             return ResponseEntity.notFound().build();
         }
-    }
+    } */
 
-    @GetMapping("/search/{search}")
-    public ResponseEntity<?> getProductBySearch(@PathVariable String search) {
+    @GetMapping("/")
+    public ResponseEntity<Object> getProductBySearch(@RequestParam(required = false) String title, @RequestParam(required = false) int page) {
 
-        List<Product> product = productServices.findByTitle(search, PageRequest.of(0,9));
+        if(title != null) {
+            List<Product> product = productServices.findByTitle(title, PageRequest.of(page, 4));
+            if(product != null) {
+                return ResponseEntity.ok(product);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
 
-        if(product != null) {
+        }else{
+            Collection<Product> product = productServices.findAll();
             return ResponseEntity.ok(product);
-        } else {
-            return ResponseEntity.notFound().build();
+            if(product != null) {
+                return ResponseEntity.ok(product);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         }
+
+
     }
+
+
 
 
 

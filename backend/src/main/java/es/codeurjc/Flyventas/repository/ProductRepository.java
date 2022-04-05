@@ -16,7 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     //@Query("SELECT p FROM Product p WHERE p.category = :category AND p.isSold=false")
 
-    //public List<Product> findAll;
+    @Query("SELECT p FROM Product p")
+    public List<Product> findAll();
     
     @Query("SELECT p FROM Product p WHERE (lower(p.title) LIKE %:title%) AND (p.isSold = false)")
     public List<Product> findByTitle(@Param("title") String title, Pageable page);

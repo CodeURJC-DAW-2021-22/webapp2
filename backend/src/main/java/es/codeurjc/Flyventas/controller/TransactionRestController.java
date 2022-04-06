@@ -80,9 +80,9 @@ public class TransactionRestController {
 
         Collection<Transaction> transaction = transactionServices.findAll;
         if (transaction != null) {
-            return new ResponseEntity<>(transaction, HttpStatus.OK);
+            return ResponseEntity.ok(transaction);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 

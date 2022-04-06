@@ -4,15 +4,10 @@ import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import es.codeurjc.Flyventas.model.Counteroffer;
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
-import es.codeurjc.Flyventas.security.jwt.AuthResponse;
-import es.codeurjc.Flyventas.security.jwt.LoginRequest;
+
 import es.codeurjc.Flyventas.security.jwt.UserLoginService;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,9 +86,9 @@ public class UserRestController {
 
         Collection<User> users = userService.findAll;
         if (users != null) {
-            return new ResponseEntity<>(users, HttpStatus.OK);
+            return ResponseEntity.ok(users);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 

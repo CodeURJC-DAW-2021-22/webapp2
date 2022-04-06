@@ -32,4 +32,8 @@ public class CounterofferServices {
     public List<Product> findHottestProducts(Pageable page) {
         return repository.findHottestProducts(page);
     }
-}
+
+    public Collection<Counteroffer> findAll() {return repository.findAll();
+    }
+    }
+

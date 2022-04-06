@@ -95,9 +95,9 @@ public class CounterofferRestController {
 
         Collection<Counteroffer> counterOffer = counterofferServices.findAll;
         if (counterOffer != null) {
-            return new ResponseEntity<>(counterOffer, HttpStatus.OK);
+            return ResponseEntity.ok(counterOffer);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 }

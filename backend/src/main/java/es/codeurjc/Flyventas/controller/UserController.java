@@ -55,6 +55,22 @@ public class UserController {
 
 	@Autowired
 	private ProductRepository products;
+
+	@ModelAttribute
+	public void addAttributes(Model model, HttpServletRequest request) {
+		Principal principal = request.getUserPrincipal();
+		if(principal != null) {
+			Optional<User> currentuser = userServices.findUserByEmail(principal.getName());
+			model.addAttribute("id", currentuser.get().getId());
+			model.addAttribute("logged", true);
+			model.addAttribute("username", principal.getName());
+			model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		} else {
+			model.addAttribute("logged", false);
+		}
+	}
+
+
 	
 	/*@PostConstruct
     public void init() {

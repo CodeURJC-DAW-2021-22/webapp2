@@ -141,13 +141,14 @@ public class ProductRestController {
 
             return ResponseEntity.notFound().build();
         }
-    } */
+    }*/
 
     @GetMapping("/")
-    public ResponseEntity<Object> getProductBySearch(@RequestParam(required = false) String title, @RequestParam(required = false) int page) {
+    public ResponseEntity<Object> getProductBySearch(@RequestParam(required = false) String title, @RequestParam(defaultValue= "0") int page) {
 
         if(title != null) {
-            List<Product> product = productServices.findByTitle(title, PageRequest.of(page, 4));
+
+            List<Product> product = productServices.findByTitle(title, PageRequest.of(page, 2));
             if(product != null) {
                 return ResponseEntity.ok(product);
             } else {
@@ -156,7 +157,6 @@ public class ProductRestController {
 
         }else{
             Collection<Product> product = productServices.findAll();
-            return ResponseEntity.ok(product);
             if(product != null) {
                 return ResponseEntity.ok(product);
             } else {

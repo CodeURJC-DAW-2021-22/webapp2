@@ -1,5 +1,7 @@
 package es.codeurjc.Flyventas.services;
 import org.springframework.data.domain.Pageable;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import es.codeurjc.Flyventas.model.Transaction;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TransactionServices {
+
+    public Collection<Transaction> findAll;
 
     @Autowired
     private TransactionRepository repository;
@@ -28,5 +32,6 @@ public class TransactionServices {
 
         return repository.findTransactionsBySeller(seller, pageable);
     }
+
 
 }

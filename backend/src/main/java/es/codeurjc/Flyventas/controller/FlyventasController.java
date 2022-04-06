@@ -165,6 +165,23 @@ public class FlyventasController {
 
 	}
 
+	@GetMapping("/Producto/{id}/image")
+	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws SQLException {
+
+		Optional<Product> Product = productServices.findById(id);
+		if (Product.isPresent() && Product.get().getImageFile() != null){
+
+			Resource file = new InputStreamResource(Product.get().getImageFile().getBinaryStream());
+
+			return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(Product.get().getImageFile().length()).body(file);
+
+		} else {
+
+			return ResponseEntity.notFound().build();
+		}
+
+	}
+
 
 	@GetMapping("/info")
 	public String infoweb(Model model) {

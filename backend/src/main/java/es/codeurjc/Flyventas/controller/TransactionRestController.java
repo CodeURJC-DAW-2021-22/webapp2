@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -73,4 +74,17 @@ public class TransactionRestController {
             mailSender.send(email);
             return new ResponseEntity<>(email, HttpStatus.OK);
         }
+
+    @GetMapping("/")
+    public ResponseEntity<Object> getTransactionBySearch() {
+
+        Collection<Transaction> transaction = transactionServices.findAll;
+        if (transaction != null) {
+            return new ResponseEntity<>(transaction, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
     }

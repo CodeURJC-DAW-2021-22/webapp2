@@ -26,6 +26,8 @@ public class Product {
     private User user;
 
 
+
+
     //Constructores
 
     public Product() {

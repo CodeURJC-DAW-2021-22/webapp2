@@ -1,5 +1,6 @@
 package es.codeurjc.Flyventas.services;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import es.codeurjc.Flyventas.model.Counteroffer;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CounterofferServices {
+
+    public Collection<Counteroffer> findAll;
 
     @Autowired
     private CounterofferRepository repository;

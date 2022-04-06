@@ -10,12 +10,14 @@ import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -87,4 +89,15 @@ public class CounterofferRestController {
 
 	 	return transaction;
 	}
+
+    @GetMapping("/")
+    public ResponseEntity<Object> getCounterofferBySearch() {
+
+        Collection<Counteroffer> counterOffer = counterofferServices.findAll;
+        if (counterOffer != null) {
+            return new ResponseEntity<>(counterOffer, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

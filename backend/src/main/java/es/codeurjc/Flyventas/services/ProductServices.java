@@ -10,6 +10,7 @@ import es.codeurjc.Flyventas.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import es.codeurjc.Flyventas.repository.ProductRepository;
@@ -28,6 +29,7 @@ public class ProductServices {
 	public List<Product> findByTitle(String title, Pageable page) {
 		return repository.findByTitle(title, page);
 	}
+
 
 	public List<Product> findProductByCategoryPageable(String category, Pageable page) {
 		return repository.findProductByCategoryPageable(category, page);

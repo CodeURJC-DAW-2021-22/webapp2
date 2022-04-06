@@ -15,8 +15,9 @@ import java.util.Optional;
 
 @Service
 public class UserServices {
-	
-	@Autowired
+
+	public Collection<User> findAll;
+    @Autowired
 	private UserRepository repository;
 
 	public Optional<User> findUserById(long id) {

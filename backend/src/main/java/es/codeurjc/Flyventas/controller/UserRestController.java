@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.codeurjc.Flyventas.model.Counteroffer;
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.repository.UserRepository;
@@ -82,6 +83,17 @@ public class UserRestController {
 
         } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<Object> getUserBySearch() {
+
+        Collection<User> users = userService.findAll;
+        if (users != null) {
+            return new ResponseEntity<>(users, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

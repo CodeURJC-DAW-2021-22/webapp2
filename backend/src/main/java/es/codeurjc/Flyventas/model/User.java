@@ -42,6 +42,7 @@ public class User{
 	private List<Transaction> transactionList = new ArrayList<>();
 
 
+
 	//Constructores
 
 	public User() {}

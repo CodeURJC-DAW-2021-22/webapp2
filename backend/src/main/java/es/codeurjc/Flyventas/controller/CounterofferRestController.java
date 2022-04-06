@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -93,8 +94,8 @@ public class CounterofferRestController {
     @GetMapping("/")
     public ResponseEntity<Object> getCounterofferBySearch() {
 
-        Collection<Counteroffer> counterOffer = counterofferServices.findAll;
-        if (counterOffer != null) {
+        List<Counteroffer> counterOffer = counterofferServices.findAll();
+        if (!counterOffer.isEmpty()) {
             return ResponseEntity.ok(counterOffer);
         } else {
             return ResponseEntity.notFound().build();

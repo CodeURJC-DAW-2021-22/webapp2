@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TransactionServices {
 
-    public Collection<Transaction> findAll;
-
     @Autowired
     private TransactionRepository repository;
 
@@ -27,6 +25,11 @@ public class TransactionServices {
 
         return repository.findTransactionsByBuyer(buyer, pageable);
     }
+
+    public List<Transaction> findAll() {
+        return repository.findAll();
+    }
+
 
     public List<Transaction> findBySeller(User seller, Pageable pageable) {
 

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -78,9 +79,9 @@ public class TransactionRestController {
     @GetMapping("/")
     public ResponseEntity<Object> getTransactionBySearch() {
 
-        Collection<Transaction> transaction = transactionServices.findAll;
-        if (transaction != null) {
-            return ResponseEntity.ok(transaction);
+        List<Transaction> transactions = transactionServices.findAll();
+        if (!transactions.isEmpty()) {
+            return ResponseEntity.ok(transactions);
         } else {
             return ResponseEntity.notFound().build();
         }

@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 public class UserServices {
 
-	public Collection<User> findAll;
     @Autowired
 	private UserRepository repository;
 
@@ -28,7 +27,7 @@ public class UserServices {
 		return repository.findUserByEmail(email);
 	}
 
-	public Collection<User> findAll() {
+	public List<User> findAll() {
 		return repository.findAll();
 	}
 

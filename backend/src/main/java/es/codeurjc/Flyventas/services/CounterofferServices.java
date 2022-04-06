@@ -33,7 +33,8 @@ public class CounterofferServices {
         return repository.findHottestProducts(page);
     }
 
-    public Collection<Counteroffer> findAll() {return repository.findAll();
+    public List<Counteroffer> findAll() {
+        return repository.findAll();
     }
-    }
+}
 

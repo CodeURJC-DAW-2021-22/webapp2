@@ -3,6 +3,7 @@ package es.codeurjc.Flyventas.controller;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 import es.codeurjc.Flyventas.model.Product;
 import es.codeurjc.Flyventas.model.User;
@@ -82,10 +83,10 @@ public class UserRestController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<Object> getUserBySearch() {
+    public ResponseEntity<Object> getAllUsers() {
 
-        Collection<User> users = userService.findAll;
-        if (users != null) {
+        List<User> users = userService.findAll();
+        if (!users.isEmpty()) {
             return ResponseEntity.ok(users);
         } else {
             return ResponseEntity.notFound().build();

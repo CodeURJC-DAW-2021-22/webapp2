@@ -30,7 +30,6 @@ public class TransactionServices {
         return repository.findAll();
     }
 
-
     public List<Transaction> findBySeller(User seller, Pageable pageable) {
 
         return repository.findTransactionsBySeller(seller, pageable);

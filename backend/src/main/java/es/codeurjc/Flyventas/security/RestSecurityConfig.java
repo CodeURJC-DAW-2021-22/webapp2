@@ -1,5 +1,6 @@
 package es.codeurjc.Flyventas.security;
 
+import es.codeurjc.Flyventas.security.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -43,11 +46,11 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.antMatcher("/api/**");
-        /*
+
         // URLs that need authentication to access to it UserRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**").hasRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/**").hasRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN");
 
         // ProductRestController
@@ -63,7 +66,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         // CounterofferRestController
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/counteroffers/**").hasRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/counteroffers/**").hasRole("USER");
-*/
+
 
         // Other URLs can be accessed without authentication
         http.authorizeRequests().anyRequest().permitAll();
@@ -80,6 +83,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         // Avoid creating session
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         ;
-
+        // Add JWT Token filter
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

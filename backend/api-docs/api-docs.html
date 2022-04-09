@@ -900,15 +900,6 @@ ul.nav-tabs {
     }
   }
 };
-    defs["inline_object_1"] = {
-  "type" : "object",
-  "properties" : {
-    "imageFile" : {
-      "type" : "string",
-      "format" : "binary"
-    }
-  }
-};
     defs["LoginRequest"] = {
   "type" : "object",
   "properties" : {
@@ -986,9 +977,6 @@ ul.nav-tabs {
     "address" : {
       "type" : "string"
     },
-    "encodedPassword" : {
-      "type" : "string"
-    },
     "categoria1" : {
       "type" : "string"
     },
@@ -1048,6 +1036,9 @@ ul.nav-tabs {
                     <li data-group="CounterofferRestController" data-name="createTransaction" class="">
                       <a href="#api-CounterofferRestController-createTransaction">createTransaction</a>
                     </li>
+                    <li data-group="CounterofferRestController" data-name="getCounterofferBySearch" class="">
+                      <a href="#api-CounterofferRestController-getCounterofferBySearch">getCounterofferBySearch</a>
+                    </li>
                   <li class="nav-header" data-group="LoginRestController"><a href="#api-LoginRestController">API Methods - LoginRestController</a></li>
                     <li data-group="LoginRestController" data-name="logOut" class="">
                       <a href="#api-LoginRestController-logOut">logOut</a>
@@ -1068,11 +1059,11 @@ ul.nav-tabs {
                     <li data-group="ProductRestController" data-name="downloadImage" class="">
                       <a href="#api-ProductRestController-downloadImage">downloadImage</a>
                     </li>
-                    <li data-group="ProductRestController" data-name="editImage" class="">
-                      <a href="#api-ProductRestController-editImage">editImage</a>
-                    </li>
                     <li data-group="ProductRestController" data-name="getProductById" class="">
                       <a href="#api-ProductRestController-getProductById">getProductById</a>
+                    </li>
+                    <li data-group="ProductRestController" data-name="getProductBySearch" class="">
+                      <a href="#api-ProductRestController-getProductBySearch">getProductBySearch</a>
                     </li>
                     <li data-group="ProductRestController" data-name="updateProduct" class="">
                       <a href="#api-ProductRestController-updateProduct">updateProduct</a>
@@ -1083,6 +1074,9 @@ ul.nav-tabs {
                   <li class="nav-header" data-group="TransactionRestController"><a href="#api-TransactionRestController">API Methods - TransactionRestController</a></li>
                     <li data-group="TransactionRestController" data-name="comfirmTransaction" class="">
                       <a href="#api-TransactionRestController-comfirmTransaction">comfirmTransaction</a>
+                    </li>
+                    <li data-group="TransactionRestController" data-name="getTransactionBySearch" class="">
+                      <a href="#api-TransactionRestController-getTransactionBySearch">getTransactionBySearch</a>
                     </li>
                     <li data-group="TransactionRestController" data-name="newTransaction" class="">
                       <a href="#api-TransactionRestController-newTransaction">newTransaction</a>
@@ -1096,6 +1090,9 @@ ul.nav-tabs {
                     </li>
                     <li data-group="UserRestController" data-name="editProfile" class="">
                       <a href="#api-UserRestController-editProfile">editProfile</a>
+                    </li>
+                    <li data-group="UserRestController" data-name="getAllUsers" class="">
+                      <a href="#api-UserRestController-getAllUsers">getAllUsers</a>
                     </li>
                     <li data-group="UserRestController" data-name="getProfile" class="">
                       <a href="#api-UserRestController-getProfile">getProfile</a>
@@ -1158,7 +1155,7 @@ ul.nav-tabs {
                           <div class="tab-pane active" id="examples-CounterofferRestController-acceptCounteroffer-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/counteroffers/acceptCounteroffer/{id}"
+ "https://localhost:8443/api/counteroffers/acceptCounteroffer/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CounterofferRestController-acceptCounteroffer-0-java">
@@ -1496,7 +1493,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-CounterofferRestController-addCounteroffer-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/counteroffers/addCounteroffer/{id}"
+ "https://localhost:8443/api/counteroffers/addCounteroffer/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CounterofferRestController-addCounteroffer-0-java">
@@ -1835,7 +1832,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/counteroffers/addCounteroffer/{id}" \
+ "https://localhost:8443/api/counteroffers/addCounteroffer/{id}" \
  -d ''
 </code></pre>
                           </div>
@@ -2231,7 +2228,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-CounterofferRestController-createTransaction-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
- "https://localhost:8080/api/counteroffers/acceptCounteroffer/{id}"
+ "https://localhost:8443/api/counteroffers/acceptCounteroffer/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-CounterofferRestController-createTransaction-0-java">
@@ -2534,6 +2531,304 @@ pub fn main() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-CounterofferRestController-getCounterofferBySearch">
+                      <article id="api-CounterofferRestController-getCounterofferBySearch-0" data-group="User" data-name="getCounterofferBySearch" data-version="0">
+                        <div class="pull-left">
+                          <h1>getCounterofferBySearch</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/counteroffers/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-java">Java</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-python">Python</a></li>
+                          <li class=""><a href="#examples-CounterofferRestController-getCounterofferBySearch-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-CounterofferRestController-getCounterofferBySearch-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: */*" \
+ "https://localhost:8443/api/counteroffers/"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.CounterofferRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class CounterofferRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        CounterofferRestControllerApi apiInstance = new CounterofferRestControllerApi();
+
+        try {
+            Object result = apiInstance.getCounterofferBySearch();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CounterofferRestControllerApi#getCounterofferBySearch");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.CounterofferRestControllerApi;
+
+public class CounterofferRestControllerApiExample {
+    public static void main(String[] args) {
+        CounterofferRestControllerApi apiInstance = new CounterofferRestControllerApi();
+
+        try {
+            Object result = apiInstance.getCounterofferBySearch();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling CounterofferRestControllerApi#getCounterofferBySearch");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+CounterofferRestControllerApi *apiInstance = [[CounterofferRestControllerApi alloc] init];
+
+[apiInstance getCounterofferBySearchWithCompletionHandler: 
+              ^(Object output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.CounterofferRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getCounterofferBySearch(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getCounterofferBySearchExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new CounterofferRestControllerApi();
+
+            try {
+                Object result = apiInstance.getCounterofferBySearch();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling CounterofferRestControllerApi.getCounterofferBySearch: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\CounterofferRestControllerApi();
+
+try {
+    $result = $api_instance->getCounterofferBySearch();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CounterofferRestControllerApi->getCounterofferBySearch: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::CounterofferRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::CounterofferRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getCounterofferBySearch();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling CounterofferRestControllerApi->getCounterofferBySearch: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.CounterofferRestControllerApi()
+
+try:
+    api_response = api_instance.get_counteroffer_by_search()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CounterofferRestControllerApi->getCounterofferBySearch: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-CounterofferRestController-getCounterofferBySearch-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate CounterofferRestControllerApi;
+
+pub fn main() {
+
+    let mut context = CounterofferRestControllerApi::Context::default();
+    let result = client.getCounterofferBySearch(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-CounterofferRestController-getCounterofferBySearch-title-200"></h3>
+                            <p id="examples-CounterofferRestController-getCounterofferBySearch-description-200" class="marked"></p>
+                            <script>
+                              var responseCounterofferRestController200_description = `OK`;
+                              var responseCounterofferRestController200_description_break = responseCounterofferRestController200_description.indexOf('\n');
+                              if (responseCounterofferRestController200_description_break == -1) {
+                                $("#examples-CounterofferRestController-getCounterofferBySearch-title-200").text("Status: 200 - " + responseCounterofferRestController200_description);
+                              } else {
+                                $("#examples-CounterofferRestController-getCounterofferBySearch-title-200").text("Status: 200 - " + responseCounterofferRestController200_description.substring(0, responseCounterofferRestController200_description_break));
+                                $("#examples-CounterofferRestController-getCounterofferBySearch-description-200").html(responseCounterofferRestController200_description.substring(responseCounterofferRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-CounterofferRestController-getCounterofferBySearch-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-CounterofferRestController-getCounterofferBySearch-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-CounterofferRestController-getCounterofferBySearch-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-CounterofferRestController-getCounterofferBySearch-200-schema">
+                                  <div id="responses-CounterofferRestController-getCounterofferBySearch-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "object"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-CounterofferRestController-getCounterofferBySearch-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-CounterofferRestController-getCounterofferBySearch-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-CounterofferRestController-getCounterofferBySearch-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                   </section>
                 <section id="api-LoginRestController">
                   <h1>LoginRestController</h1>
@@ -2549,7 +2844,7 @@ pub fn main() {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/users/logout</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/logout</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2572,7 +2867,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-LoginRestController-logOut-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
- "https://localhost:8080/api/users/logout"
+ "https://localhost:8443/api/logout"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-LoginRestController-logOut-0-java">
@@ -2847,7 +3142,7 @@ pub fn main() {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/users/login</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/login</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2871,7 +3166,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/users/login" \
+ "https://localhost:8443/api/login" \
  -d '{
   &quot;password&quot; : &quot;password&quot;,
   &quot;username&quot; : &quot;username&quot;
@@ -3228,7 +3523,7 @@ $(document).ready(function() {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/users/refresh</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/api/refresh</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3251,7 +3546,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-LoginRestController-refreshToken-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
- "https://localhost:8080/api/users/refresh"
+ "https://localhost:8443/api/refresh"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-LoginRestController-refreshToken-0-java">
@@ -3565,7 +3860,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/products/" \
+ "https://localhost:8443/api/products/" \
  -d '{
   &quot;image&quot; : true,
   &quot;price&quot; : 6.0274563,
@@ -3580,7 +3875,6 @@ pub fn main() {
     &quot;imageFile&quot; : {
       &quot;binaryStream&quot; : &quot;{}&quot;
     },
-    &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
     &quot;categoria3&quot; : &quot;categoria3&quot;,
     &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
     &quot;name&quot; : &quot;name&quot;,
@@ -3943,7 +4237,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-ProductRestController-deleteProduct-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Accept: */*" \
- "https://localhost:8080/api/products/{id}"
+ "https://localhost:8443/api/products/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ProductRestController-deleteProduct-0-java">
@@ -4281,7 +4575,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-ProductRestController-downloadImage-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/products/{id}/image"
+ "https://localhost:8443/api/products/{id}/image"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ProductRestController-downloadImage-0-java">
@@ -4584,403 +4878,6 @@ pub fn main() {
                         </article>
                       </div>
                       <hr>
-                    <div id="api-ProductRestController-editImage">
-                      <article id="api-ProductRestController-editImage-0" data-group="User" data-name="editImage" data-version="0">
-                        <div class="pull-left">
-                          <h1>editImage</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/api/products/{id}/image</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-ProductRestController-editImage-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-java">Java</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-ProductRestController-editImage-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-ProductRestController-editImage-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-python">Python</a></li>
-                          <li class=""><a href="#examples-ProductRestController-editImage-0-rust">Rust</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-ProductRestController-editImage-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
- -H "Accept: */*" \
- -H "Content-Type: application/json" \
- "https://localhost:8080/api/products/{id}/image" \
- -d ''
-</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-ProductRestController-editImage-0-java">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.model.*;
-import org.openapitools.client.api.ProductRestControllerApi;
-
-import java.io.File;
-import java.util.*;
-
-public class ProductRestControllerApiExample {
-    public static void main(String[] args) {
-
-        // Create an instance of the API class
-        ProductRestControllerApi apiInstance = new ProductRestControllerApi();
-        Long id = 789; // Long | 
-        InlineObject inlineObject = ; // InlineObject | 
-
-        try {
-            Object result = apiInstance.editImage(id, inlineObject);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ProductRestControllerApi#editImage");
-            e.printStackTrace();
-        }
-    }
-}
-</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-ProductRestController-editImage-0-android">
-                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.ProductRestControllerApi;
-
-public class ProductRestControllerApiExample {
-    public static void main(String[] args) {
-        ProductRestControllerApi apiInstance = new ProductRestControllerApi();
-        Long id = 789; // Long | 
-        InlineObject inlineObject = ; // InlineObject | 
-
-        try {
-            Object result = apiInstance.editImage(id, inlineObject);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ProductRestControllerApi#editImage");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-ProductRestController-editImage-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-
-// Create an instance of the API class
-ProductRestControllerApi *apiInstance = [[ProductRestControllerApi alloc] init];
-Long *id = 789; //  (default to null)
-InlineObject *inlineObject = ; //  (optional)
-
-[apiInstance editImageWith:id
-    inlineObject:inlineObject
-              completionHandler: ^(Object output, NSError* error) {
-    if (output) {
-        NSLog(@"%@", output);
-    }
-    if (error) {
-        NSLog(@"Error: %@", error);
-    }
-}];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
-
-// Create an instance of the API class
-var api = new OpenApiDefinition.ProductRestControllerApi()
-var id = 789; // {Long} 
-var opts = {
-  'inlineObject':  // {InlineObject} 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.editImage(id, opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-ProductRestController-editImage-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class editImageExample
-    {
-        public void main()
-        {
-
-            // Create an instance of the API class
-            var apiInstance = new ProductRestControllerApi();
-            var id = 789;  // Long |  (default to null)
-            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
-
-            try {
-                Object result = apiInstance.editImage(id, inlineObject);
-                Debug.WriteLine(result);
-            } catch (Exception e) {
-                Debug.Print("Exception when calling ProductRestControllerApi.editImage: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create an instance of the API class
-$api_instance = new OpenAPITools\Client\Api\ProductRestControllerApi();
-$id = 789; // Long | 
-$inlineObject = ; // InlineObject | 
-
-try {
-    $result = $api_instance->editImage($id, $inlineObject);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ProductRestControllerApi->editImage: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::OPenAPIClient::Configuration;
-use WWW::OPenAPIClient::ProductRestControllerApi;
-
-# Create an instance of the API class
-my $api_instance = WWW::OPenAPIClient::ProductRestControllerApi->new();
-my $id = 789; # Long | 
-my $inlineObject = WWW::OPenAPIClient::Object::InlineObject->new(); # InlineObject | 
-
-eval {
-    my $result = $api_instance->editImage(id => $id, inlineObject => $inlineObject);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling ProductRestControllerApi->editImage: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = openapi_client.ProductRestControllerApi()
-id = 789 # Long |  (default to null)
-inlineObject =  # InlineObject |  (optional)
-
-try:
-    api_response = api_instance.edit_image(id, inlineObject=inlineObject)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ProductRestControllerApi->editImage: %s\n" % e)</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-ProductRestController-editImage-0-rust">
-                              <pre class="prettyprint"><code class="language-rust">extern crate ProductRestControllerApi;
-
-pub fn main() {
-    let id = 789; // Long
-    let inlineObject = ; // InlineObject
-
-    let mut context = ProductRestControllerApi::Context::default();
-    let result = client.editImage(id, inlineObject, &context).wait();
-
-    println!("{:?}", result);
-}
-</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Scopes</h2>
-                          <table>
-                            
-                          </table>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">id*</td>
-<td>
-
-
-    <div id="d2e199_editImage_id">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    Long
-                </span>
-                    <span class="format">
-                        (int64)
-                    </span>
-
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">inlineObject </td>
-<td>
-<p class="marked"></p>
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/inline_object"
-      }
-    }
-  }
-};
-
-  var schema = findNode('schema',schemaWrapper).schema;
-  if (!schema) {
-    schema = schemaWrapper.schema;
-  }
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
-
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_editImage_inlineObject');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_editImage_inlineObject"></div>
-</td>
-</tr>
-
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3 id="examples-ProductRestController-editImage-title-200"></h3>
-                            <p id="examples-ProductRestController-editImage-description-200" class="marked"></p>
-                            <script>
-                              var responseProductRestController200_description = `OK`;
-                              var responseProductRestController200_description_break = responseProductRestController200_description.indexOf('\n');
-                              if (responseProductRestController200_description_break == -1) {
-                                $("#examples-ProductRestController-editImage-title-200").text("Status: 200 - " + responseProductRestController200_description);
-                              } else {
-                                $("#examples-ProductRestController-editImage-title-200").text("Status: 200 - " + responseProductRestController200_description.substring(0, responseProductRestController200_description_break));
-                                $("#examples-ProductRestController-editImage-description-200").html(responseProductRestController200_description.substring(responseProductRestController200_description_break));
-                              }
-                            </script>
-
-
-                            <ul id="responses-detail-ProductRestController-editImage-200" class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-ProductRestController-editImage-200-schema">Schema</a>
-                                </li>
-
-
-
-
-                            </ul>
-
-
-                            <div class="tab-content" id="responses-ProductRestController-editImage-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-ProductRestController-editImage-200-schema">
-                                  <div id="responses-ProductRestController-editImage-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "OK",
-  "content" : {
-    "*/*" : {
-      "schema" : {
-        "type" : "object"
-      }
-    }
-  }
-};
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-ProductRestController-editImage-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-ProductRestController-editImage-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-ProductRestController-editImage-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-                        </article>
-                      </div>
-                      <hr>
                     <div id="api-ProductRestController-getProductById">
                       <article id="api-ProductRestController-getProductById-0" data-group="User" data-name="getProductById" data-version="0">
                         <div class="pull-left">
@@ -5016,7 +4913,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-ProductRestController-getProductById-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/products/{id}"
+ "https://localhost:8443/api/products/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ProductRestController-getProductById-0-java">
@@ -5319,6 +5216,370 @@ pub fn main() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-ProductRestController-getProductBySearch">
+                      <article id="api-ProductRestController-getProductBySearch-0" data-group="User" data-name="getProductBySearch" data-version="0">
+                        <div class="pull-left">
+                          <h1>getProductBySearch</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/products/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ProductRestController-getProductBySearch-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ProductRestController-getProductBySearch-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ProductRestController-getProductBySearch-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-python">Python</a></li>
+                          <li class=""><a href="#examples-ProductRestController-getProductBySearch-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ProductRestController-getProductBySearch-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: */*" \
+ "https://localhost:8443/api/products/?title=title_example&page=56"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.ProductRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ProductRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        ProductRestControllerApi apiInstance = new ProductRestControllerApi();
+        String title = title_example; // String | 
+        Integer page = 56; // Integer | 
+
+        try {
+            Object result = apiInstance.getProductBySearch(title, page);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProductRestControllerApi#getProductBySearch");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.ProductRestControllerApi;
+
+public class ProductRestControllerApiExample {
+    public static void main(String[] args) {
+        ProductRestControllerApi apiInstance = new ProductRestControllerApi();
+        String title = title_example; // String | 
+        Integer page = 56; // Integer | 
+
+        try {
+            Object result = apiInstance.getProductBySearch(title, page);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProductRestControllerApi#getProductBySearch");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+ProductRestControllerApi *apiInstance = [[ProductRestControllerApi alloc] init];
+String *title = title_example; //  (optional) (default to null)
+Integer *page = 56; //  (optional) (default to 0)
+
+[apiInstance getProductBySearchWith:title
+    page:page
+              completionHandler: ^(Object output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.ProductRestControllerApi()
+var opts = {
+  'title': title_example, // {String} 
+  'page': 56 // {Integer} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getProductBySearch(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getProductBySearchExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new ProductRestControllerApi();
+            var title = title_example;  // String |  (optional)  (default to null)
+            var page = 56;  // Integer |  (optional)  (default to 0)
+
+            try {
+                Object result = apiInstance.getProductBySearch(title, page);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling ProductRestControllerApi.getProductBySearch: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\ProductRestControllerApi();
+$title = title_example; // String | 
+$page = 56; // Integer | 
+
+try {
+    $result = $api_instance->getProductBySearch($title, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductRestControllerApi->getProductBySearch: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::ProductRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::ProductRestControllerApi->new();
+my $title = title_example; # String | 
+my $page = 56; # Integer | 
+
+eval {
+    my $result = $api_instance->getProductBySearch(title => $title, page => $page);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ProductRestControllerApi->getProductBySearch: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.ProductRestControllerApi()
+title = title_example # String |  (optional) (default to null)
+page = 56 # Integer |  (optional) (default to 0)
+
+try:
+    api_response = api_instance.get_product_by_search(title=title, page=page)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProductRestControllerApi->getProductBySearch: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ProductRestController-getProductBySearch-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate ProductRestControllerApi;
+
+pub fn main() {
+    let title = title_example; // String
+    let page = 56; // Integer
+
+    let mut context = ProductRestControllerApi::Context::default();
+    let result = client.getProductBySearch(title, page, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">title</td>
+<td>
+
+
+    <div id="d2e199_getProductBySearch_title">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">page</td>
+<td>
+
+
+    <div id="d2e199_getProductBySearch_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+                    <span class="format">
+                        (int32)
+                    </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-ProductRestController-getProductBySearch-title-200"></h3>
+                            <p id="examples-ProductRestController-getProductBySearch-description-200" class="marked"></p>
+                            <script>
+                              var responseProductRestController200_description = `OK`;
+                              var responseProductRestController200_description_break = responseProductRestController200_description.indexOf('\n');
+                              if (responseProductRestController200_description_break == -1) {
+                                $("#examples-ProductRestController-getProductBySearch-title-200").text("Status: 200 - " + responseProductRestController200_description);
+                              } else {
+                                $("#examples-ProductRestController-getProductBySearch-title-200").text("Status: 200 - " + responseProductRestController200_description.substring(0, responseProductRestController200_description_break));
+                                $("#examples-ProductRestController-getProductBySearch-description-200").html(responseProductRestController200_description.substring(responseProductRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-ProductRestController-getProductBySearch-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-ProductRestController-getProductBySearch-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-ProductRestController-getProductBySearch-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-ProductRestController-getProductBySearch-200-schema">
+                                  <div id="responses-ProductRestController-getProductBySearch-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "object"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-ProductRestController-getProductBySearch-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-ProductRestController-getProductBySearch-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-ProductRestController-getProductBySearch-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-ProductRestController-updateProduct">
                       <article id="api-ProductRestController-updateProduct-0" data-group="User" data-name="updateProduct" data-version="0">
                         <div class="pull-left">
@@ -5355,7 +5616,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/products/{id}" \
+ "https://localhost:8443/api/products/{id}" \
  -d '{
   &quot;image&quot; : true,
   &quot;price&quot; : 6.0274563,
@@ -5370,7 +5631,6 @@ pub fn main() {
     &quot;imageFile&quot; : {
       &quot;binaryStream&quot; : &quot;{}&quot;
     },
-    &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
     &quot;categoria3&quot; : &quot;categoria3&quot;,
     &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
     &quot;name&quot; : &quot;name&quot;,
@@ -5774,7 +6034,7 @@ $(document).ready(function() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/products/{id}/image" \
+ "https://localhost:8443/api/products/{id}/image" \
  -d ''
 </code></pre>
                           </div>
@@ -5793,10 +6053,10 @@ public class ProductRestControllerApiExample {
         // Create an instance of the API class
         ProductRestControllerApi apiInstance = new ProductRestControllerApi();
         Long id = 789; // Long | 
-        InlineObject1 inlineObject1 = ; // InlineObject1 | 
+        InlineObject inlineObject = ; // InlineObject | 
 
         try {
-            Object result = apiInstance.uploadImage(id, inlineObject1);
+            Object result = apiInstance.uploadImage(id, inlineObject);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProductRestControllerApi#uploadImage");
@@ -5814,10 +6074,10 @@ public class ProductRestControllerApiExample {
     public static void main(String[] args) {
         ProductRestControllerApi apiInstance = new ProductRestControllerApi();
         Long id = 789; // Long | 
-        InlineObject1 inlineObject1 = ; // InlineObject1 | 
+        InlineObject inlineObject = ; // InlineObject | 
 
         try {
-            Object result = apiInstance.uploadImage(id, inlineObject1);
+            Object result = apiInstance.uploadImage(id, inlineObject);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProductRestControllerApi#uploadImage");
@@ -5836,10 +6096,10 @@ public class ProductRestControllerApiExample {
 // Create an instance of the API class
 ProductRestControllerApi *apiInstance = [[ProductRestControllerApi alloc] init];
 Long *id = 789; //  (default to null)
-InlineObject1 *inlineObject1 = ; //  (optional)
+InlineObject *inlineObject = ; //  (optional)
 
 [apiInstance uploadImageWith:id
-    inlineObject1:inlineObject1
+    inlineObject:inlineObject
               completionHandler: ^(Object output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -5858,7 +6118,7 @@ InlineObject1 *inlineObject1 = ; //  (optional)
 var api = new OpenApiDefinition.ProductRestControllerApi()
 var id = 789; // {Long} 
 var opts = {
-  'inlineObject1':  // {InlineObject1} 
+  'inlineObject':  // {InlineObject} 
 };
 
 var callback = function(error, data, response) {
@@ -5892,10 +6152,10 @@ namespace Example
             // Create an instance of the API class
             var apiInstance = new ProductRestControllerApi();
             var id = 789;  // Long |  (default to null)
-            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
 
             try {
-                Object result = apiInstance.uploadImage(id, inlineObject1);
+                Object result = apiInstance.uploadImage(id, inlineObject);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling ProductRestControllerApi.uploadImage: " + e.Message );
@@ -5913,10 +6173,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\ProductRestControllerApi();
 $id = 789; // Long | 
-$inlineObject1 = ; // InlineObject1 | 
+$inlineObject = ; // InlineObject | 
 
 try {
-    $result = $api_instance->uploadImage($id, $inlineObject1);
+    $result = $api_instance->uploadImage($id, $inlineObject);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductRestControllerApi->uploadImage: ', $e->getMessage(), PHP_EOL;
@@ -5932,10 +6192,10 @@ use WWW::OPenAPIClient::ProductRestControllerApi;
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::ProductRestControllerApi->new();
 my $id = 789; # Long | 
-my $inlineObject1 = WWW::OPenAPIClient::Object::InlineObject1->new(); # InlineObject1 | 
+my $inlineObject = WWW::OPenAPIClient::Object::InlineObject->new(); # InlineObject | 
 
 eval {
-    my $result = $api_instance->uploadImage(id => $id, inlineObject1 => $inlineObject1);
+    my $result = $api_instance->uploadImage(id => $id, inlineObject => $inlineObject);
     print Dumper($result);
 };
 if ($@) {
@@ -5953,10 +6213,10 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.ProductRestControllerApi()
 id = 789 # Long |  (default to null)
-inlineObject1 =  # InlineObject1 |  (optional)
+inlineObject =  # InlineObject |  (optional)
 
 try:
-    api_response = api_instance.upload_image(id, inlineObject1=inlineObject1)
+    api_response = api_instance.upload_image(id, inlineObject=inlineObject)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProductRestControllerApi->uploadImage: %s\n" % e)</code></pre>
@@ -5967,10 +6227,10 @@ except ApiException as e:
 
 pub fn main() {
     let id = 789; // Long
-    let inlineObject1 = ; // InlineObject1
+    let inlineObject = ; // InlineObject
 
     let mut context = ProductRestControllerApi::Context::default();
-    let result = client.uploadImage(id, inlineObject1, &context).wait();
+    let result = client.uploadImage(id, inlineObject, &context).wait();
 
     println!("{:?}", result);
 }
@@ -6023,7 +6283,7 @@ pub fn main() {
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">inlineObject1 </td>
+                                <tr><td style="width:150px;">inlineObject </td>
 <td>
 <p class="marked"></p>
 <script>
@@ -6032,7 +6292,7 @@ $(document).ready(function() {
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/inline_object_1"
+        "$ref" : "#/components/schemas/inline_object"
       }
     }
   }
@@ -6052,12 +6312,12 @@ $(document).ready(function() {
   }
 
   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_uploadImage_inlineObject1');
+  var result = $('#d2e199_uploadImage_inlineObject');
   result.empty();
   result.append(view.render());
 });
 </script>
-<div id="d2e199_uploadImage_inlineObject1"></div>
+<div id="d2e199_uploadImage_inlineObject"></div>
 </td>
 </tr>
 
@@ -6173,7 +6433,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-TransactionRestController-comfirmTransaction-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/transactions/{id}"
+ "https://localhost:8443/api/transactions/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-TransactionRestController-comfirmTransaction-0-java">
@@ -6476,6 +6736,304 @@ pub fn main() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-TransactionRestController-getTransactionBySearch">
+                      <article id="api-TransactionRestController-getTransactionBySearch-0" data-group="User" data-name="getTransactionBySearch" data-version="0">
+                        <div class="pull-left">
+                          <h1>getTransactionBySearch</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/transactions/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-TransactionRestController-getTransactionBySearch-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-java">Java</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-python">Python</a></li>
+                          <li class=""><a href="#examples-TransactionRestController-getTransactionBySearch-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-TransactionRestController-getTransactionBySearch-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: */*" \
+ "https://localhost:8443/api/transactions/"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.TransactionRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class TransactionRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        TransactionRestControllerApi apiInstance = new TransactionRestControllerApi();
+
+        try {
+            Object result = apiInstance.getTransactionBySearch();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TransactionRestControllerApi#getTransactionBySearch");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.TransactionRestControllerApi;
+
+public class TransactionRestControllerApiExample {
+    public static void main(String[] args) {
+        TransactionRestControllerApi apiInstance = new TransactionRestControllerApi();
+
+        try {
+            Object result = apiInstance.getTransactionBySearch();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TransactionRestControllerApi#getTransactionBySearch");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+TransactionRestControllerApi *apiInstance = [[TransactionRestControllerApi alloc] init];
+
+[apiInstance getTransactionBySearchWithCompletionHandler: 
+              ^(Object output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.TransactionRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getTransactionBySearch(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getTransactionBySearchExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new TransactionRestControllerApi();
+
+            try {
+                Object result = apiInstance.getTransactionBySearch();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling TransactionRestControllerApi.getTransactionBySearch: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\TransactionRestControllerApi();
+
+try {
+    $result = $api_instance->getTransactionBySearch();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TransactionRestControllerApi->getTransactionBySearch: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::TransactionRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::TransactionRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getTransactionBySearch();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling TransactionRestControllerApi->getTransactionBySearch: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.TransactionRestControllerApi()
+
+try:
+    api_response = api_instance.get_transaction_by_search()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling TransactionRestControllerApi->getTransactionBySearch: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-TransactionRestController-getTransactionBySearch-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate TransactionRestControllerApi;
+
+pub fn main() {
+
+    let mut context = TransactionRestControllerApi::Context::default();
+    let result = client.getTransactionBySearch(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-TransactionRestController-getTransactionBySearch-title-200"></h3>
+                            <p id="examples-TransactionRestController-getTransactionBySearch-description-200" class="marked"></p>
+                            <script>
+                              var responseTransactionRestController200_description = `OK`;
+                              var responseTransactionRestController200_description_break = responseTransactionRestController200_description.indexOf('\n');
+                              if (responseTransactionRestController200_description_break == -1) {
+                                $("#examples-TransactionRestController-getTransactionBySearch-title-200").text("Status: 200 - " + responseTransactionRestController200_description);
+                              } else {
+                                $("#examples-TransactionRestController-getTransactionBySearch-title-200").text("Status: 200 - " + responseTransactionRestController200_description.substring(0, responseTransactionRestController200_description_break));
+                                $("#examples-TransactionRestController-getTransactionBySearch-description-200").html(responseTransactionRestController200_description.substring(responseTransactionRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-TransactionRestController-getTransactionBySearch-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-TransactionRestController-getTransactionBySearch-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-TransactionRestController-getTransactionBySearch-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-TransactionRestController-getTransactionBySearch-200-schema">
+                                  <div id="responses-TransactionRestController-getTransactionBySearch-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "object"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-TransactionRestController-getTransactionBySearch-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-TransactionRestController-getTransactionBySearch-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-TransactionRestController-getTransactionBySearch-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-TransactionRestController-newTransaction">
                       <article id="api-TransactionRestController-newTransaction-0" data-group="User" data-name="newTransaction" data-version="0">
                         <div class="pull-left">
@@ -6512,7 +7070,7 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/transactions/" \
+ "https://localhost:8443/api/transactions/" \
  -d '{
   &quot;image&quot; : true,
   &quot;price&quot; : 6.0274563,
@@ -6527,7 +7085,6 @@ pub fn main() {
     &quot;imageFile&quot; : {
       &quot;binaryStream&quot; : &quot;{}&quot;
     },
-    &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
     &quot;categoria3&quot; : &quot;categoria3&quot;,
     &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
     &quot;name&quot; : &quot;name&quot;,
@@ -6894,14 +7451,13 @@ $(document).ready(function() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/users/" \
+ "https://localhost:8443/api/users/" \
  -d '{
   &quot;address&quot; : &quot;address&quot;,
   &quot;surname&quot; : &quot;surname&quot;,
   &quot;imageFile&quot; : {
     &quot;binaryStream&quot; : &quot;{}&quot;
   },
-  &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
   &quot;categoria3&quot; : &quot;categoria3&quot;,
   &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
   &quot;name&quot; : &quot;name&quot;,
@@ -7263,7 +7819,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-UserRestController-deleteProfile-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X DELETE \
  -H "Accept: */*" \
- "https://localhost:8080/api/users/{id}"
+ "https://localhost:8443/api/users/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-UserRestController-deleteProfile-0-java">
@@ -7602,14 +8158,13 @@ pub fn main() {
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT \
  -H "Accept: */*" \
  -H "Content-Type: application/json" \
- "https://localhost:8080/api/users/{id}" \
+ "https://localhost:8443/api/users/{id}" \
  -d '{
   &quot;address&quot; : &quot;address&quot;,
   &quot;surname&quot; : &quot;surname&quot;,
   &quot;imageFile&quot; : {
     &quot;binaryStream&quot; : &quot;{}&quot;
   },
-  &quot;encodedPassword&quot; : &quot;encodedPassword&quot;,
   &quot;categoria3&quot; : &quot;categoria3&quot;,
   &quot;roles&quot; : [ &quot;roles&quot;, &quot;roles&quot; ],
   &quot;name&quot; : &quot;name&quot;,
@@ -7976,6 +8531,304 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-UserRestController-getAllUsers">
+                      <article id="api-UserRestController-getAllUsers-0" data-group="User" data-name="getAllUsers" data-version="0">
+                        <div class="pull-left">
+                          <h1>getAllUsers</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/users/</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-UserRestController-getAllUsers-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-java">Java</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-UserRestController-getAllUsers-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-UserRestController-getAllUsers-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-python">Python</a></li>
+                          <li class=""><a href="#examples-UserRestController-getAllUsers-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-UserRestController-getAllUsers-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ -H "Accept: */*" \
+ "https://localhost:8443/api/users/"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.UserRestControllerApi;
+
+import java.io.File;
+import java.util.*;
+
+public class UserRestControllerApiExample {
+    public static void main(String[] args) {
+
+        // Create an instance of the API class
+        UserRestControllerApi apiInstance = new UserRestControllerApi();
+
+        try {
+            Object result = apiInstance.getAllUsers();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserRestControllerApi#getAllUsers");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.UserRestControllerApi;
+
+public class UserRestControllerApiExample {
+    public static void main(String[] args) {
+        UserRestControllerApi apiInstance = new UserRestControllerApi();
+
+        try {
+            Object result = apiInstance.getAllUsers();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UserRestControllerApi#getAllUsers");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+
+// Create an instance of the API class
+UserRestControllerApi *apiInstance = [[UserRestControllerApi alloc] init];
+
+[apiInstance getAllUsersWithCompletionHandler: 
+              ^(Object output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var OpenApiDefinition = require('open_api_definition');
+
+// Create an instance of the API class
+var api = new OpenApiDefinition.UserRestControllerApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getAllUsers(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-UserRestController-getAllUsers-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getAllUsersExample
+    {
+        public void main()
+        {
+
+            // Create an instance of the API class
+            var apiInstance = new UserRestControllerApi();
+
+            try {
+                Object result = apiInstance.getAllUsers();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling UserRestControllerApi.getAllUsers: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\UserRestControllerApi();
+
+try {
+    $result = $api_instance->getAllUsers();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserRestControllerApi->getAllUsers: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::UserRestControllerApi;
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::UserRestControllerApi->new();
+
+eval {
+    my $result = $api_instance->getAllUsers();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling UserRestControllerApi->getAllUsers: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Create an instance of the API class
+api_instance = openapi_client.UserRestControllerApi()
+
+try:
+    api_response = api_instance.get_all_users()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UserRestControllerApi->getAllUsers: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-UserRestController-getAllUsers-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate UserRestControllerApi;
+
+pub fn main() {
+
+    let mut context = UserRestControllerApi::Context::default();
+    let result = client.getAllUsers(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-UserRestController-getAllUsers-title-200"></h3>
+                            <p id="examples-UserRestController-getAllUsers-description-200" class="marked"></p>
+                            <script>
+                              var responseUserRestController200_description = `OK`;
+                              var responseUserRestController200_description_break = responseUserRestController200_description.indexOf('\n');
+                              if (responseUserRestController200_description_break == -1) {
+                                $("#examples-UserRestController-getAllUsers-title-200").text("Status: 200 - " + responseUserRestController200_description);
+                              } else {
+                                $("#examples-UserRestController-getAllUsers-title-200").text("Status: 200 - " + responseUserRestController200_description.substring(0, responseUserRestController200_description_break));
+                                $("#examples-UserRestController-getAllUsers-description-200").html(responseUserRestController200_description.substring(responseUserRestController200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-UserRestController-getAllUsers-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-UserRestController-getAllUsers-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-UserRestController-getAllUsers-200-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-UserRestController-getAllUsers-200-schema">
+                                  <div id="responses-UserRestController-getAllUsers-schema-200" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "*/*" : {
+      "schema" : {
+        "type" : "object"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                          schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-UserRestController-getAllUsers-200-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-UserRestController-getAllUsers-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-UserRestController-getAllUsers-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-UserRestController-getProfile">
                       <article id="api-UserRestController-getProfile-0" data-group="User" data-name="getProfile" data-version="0">
                         <div class="pull-left">
@@ -8011,7 +8864,7 @@ $(document).ready(function() {
                           <div class="tab-pane active" id="examples-UserRestController-getProfile-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: */*" \
- "https://localhost:8080/api/users/{id}"
+ "https://localhost:8443/api/users/{id}"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-UserRestController-getProfile-0-java">

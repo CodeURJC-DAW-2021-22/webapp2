@@ -209,7 +209,7 @@ ya creada en el perfil), y la subida de la imagen a heroku para su posterior eje
 ### Participación de miembros:
 
 ***
-    - Francis Cardi: Despliegue en heroku y creación de imagen con los requerimientos de Heroku. Ayuda en la dockerización de la aplicación, la creación de los ficheros de la carpeta docker, rest de las imagenes de los productos y hacer presentable la documentación.
+    - Francis Cardi: Despliegue en heroku y creación de imagen con los requerimientos de Heroku. Ayuda en la dockerización de la aplicación, la creación de los ficheros de la carpeta docker, rest de las imagenes de los productos, get de todos los productos, paginacion, busqueda y hacer presentable la documentación.
 ***
     - Miguel Ruiz: creación de entidades y relaciones entre tablas. Retoques importantes a transacciones y creación de la funcionalidad de contraoferta. Subida y visualización de imágenes, solución de bugs.
 ***
@@ -225,7 +225,7 @@ ya creada en el perfil), y la subida de la imagen a heroku para su posterior eje
 1. act carpeta https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/d5e56c79b409cfe41746ad15b1356cd2b87f9536
 2. ultimos retoques https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/9fb562d4364c78941edd47f3126be88e6c0314fc
 3. proceso automatizado desplegar heroku https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/33887292c073b813a8028eafb1bf51bfc9a365e5
-4. config docker y heroku https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/72950a74c8d380b5b36345194e01c6cb022bc9b0
+4. Rest(Busqueda,paginación y mostrar todos los productos) https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/45e23052e70a1800a49a915f75f5798b37849b2c
 5. Union docker y main + resuelto bug de imagenes put, post y get https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/f35af927a0669a0c8d52a8bc51b8f18bb040f8a1
 
 **Miguel Ruiz:**

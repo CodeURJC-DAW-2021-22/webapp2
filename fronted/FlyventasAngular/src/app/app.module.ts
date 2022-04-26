@@ -8,11 +8,12 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, SearchComponent, RegisterComponent,LoginComponent
+    AppComponent, SearchComponent, RegisterComponent,LoginComponent, HomeComponent
   ],
   imports: [BrowserModule, NgbModule, FormsModule, HttpClientModule],
   providers: [],

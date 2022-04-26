@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {RouterModule} from "@angular/router";
+import { HeaderComponent } from './components/header/header.component';
+import { CustomheaderComponent } from './components/customheader&footer/customheader.component';
+import {CustomfooterComponent} from "./components/customheader&footer/customfooter.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    CustomheaderComponent,
+    CustomfooterComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

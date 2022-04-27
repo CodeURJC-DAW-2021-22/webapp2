@@ -1,0 +1,28 @@
+<app-customheaderheader></app-customheaderheader>
+<h1>Subir anuncio</h1>
+<input type="text" placeholder="Titulo del anuncio">
+
+<!--desplegable categoria-->
+
+<input type="radio" name="Category" [(ngModel)]="Category" value="boxeo"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="Moda_y_Accesorios"> Male
+<input type="radio" name="Category" [(ngModel)]="Category" value="Informatica"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="imagen_y_sonido"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="Deporte_y_ocio"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="Hogar_y_jardin"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="automoviles"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="Libros"> Female
+<input type="radio" name="Category" [(ngModel)]="Category" value="otros"> Female
+<br>
+Selected gender is <input type="text" [(ngModel)]="Category" />
+<!--desplegable categoria-->
+
+<textarea type="text" placeholder="Describe el anuncio"></textarea>
+<input type="number" placeholder="Precio">
+<p>inserte imagen</p>
+<input type="file" placeholder="Añadir archivo">
+
+<button>Subir anuncio</button> <button>Cancelar</button>
+
+<app-customfooter></app-customfooter>
+

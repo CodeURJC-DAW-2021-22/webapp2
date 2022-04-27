@@ -7,13 +7,22 @@ import {RouterModule} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { CustomheaderComponent } from './components/customheader&footer/customheader.component';
 import {CustomfooterComponent} from "./components/customheader&footer/customfooter.component";
+import {HomeComponent} from "./components/home/home.component";
+import {LoginComponent} from "./components/login/login.component";
+import {SearchComponent} from "./components/Busqueda/search.component";
+import { UploadProductComponent } from './components/upload-product/upload-product.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CustomheaderComponent,
-    CustomfooterComponent
+    CustomfooterComponent,
+    HomeComponent,
+    LoginComponent,
+    SearchComponent,
+    UploadProductComponent
   ],
   imports: [
     BrowserModule,

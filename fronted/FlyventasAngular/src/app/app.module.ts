@@ -6,19 +6,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { CustomheaderComponent } from './components/customheader&footer/customheader.component';
-import {CustomfooterComponent} from "./components/customheader&footer/customfooter.component";
+import { CustomfooterComponent } from "./components/customheader&footer/customfooter.component";
+import { TransactionComponent } from "./components/Transaction&Counteroffer/transaction.component";
+import { routing } from "./app.routing";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CustomheaderComponent,
-    CustomfooterComponent
+    CustomfooterComponent,
+    TransactionComponent,
+
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

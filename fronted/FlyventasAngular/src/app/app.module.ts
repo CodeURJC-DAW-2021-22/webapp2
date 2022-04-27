@@ -11,6 +11,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {SearchComponent} from "./components/Busqueda/search.component";
 import { UploadProductComponent } from './components/upload-product/upload-product.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UploadProductComponent } from './components/upload-product/upload-produ
   imports: [
     BrowserModule,
     NgbModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

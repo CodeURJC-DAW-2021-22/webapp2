@@ -1,19 +1,20 @@
-<app-customheaderheader></app-customheaderheader>
+
 <h1>Subir anuncio</h1>
+<form action="/subirProducto" method="POST" enctype="multipart/form-data">
 <input type="text" placeholder="Titulo del anuncio">
 
 <!--desplegable categoria-->
-
-<input type="radio" name="Category" [(ngModel)]="Category" value="boxeo"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="Moda_y_Accesorios"> Male
-<input type="radio" name="Category" [(ngModel)]="Category" value="Informatica"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="imagen_y_sonido"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="Deporte_y_ocio"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="Hogar_y_jardin"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="automoviles"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="Libros"> Female
-<input type="radio" name="Category" [(ngModel)]="Category" value="otros"> Female
-<br>
+<p>Seleccione una categoria</p><ul>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="boxeo"> Boxeo</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="Moda_y_Accesorios"> Moda y accesorios</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="Informatica"> informática</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="imagen_y_sonido"> imagen y sonido</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="Deporte_y_ocio"> Deporte y ocio</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="Hogar_y_jardin"> Hogar y jardín</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="automoviles"> Automóviles</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="Libros"> Libros</li>
+<li><input type="radio" name="Category" [(ngModel)]="Category" value="otros"> Otros</li>
+</ul>
 Selected gender is <input type="text" [(ngModel)]="Category" />
 <!--desplegable categoria-->
 
@@ -22,7 +23,8 @@ Selected gender is <input type="text" [(ngModel)]="Category" />
 <p>inserte imagen</p>
 <input type="file" placeholder="Añadir archivo">
 
-<button>Subir anuncio</button> <button>Cancelar</button>
+<button (click)="save()">Subir anuncio</button>
+<button (click)="cancel()">Cancelar</button>
+</form>
 
-<app-customfooter></app-customfooter>
 

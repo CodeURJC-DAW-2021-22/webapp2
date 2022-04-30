@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {Product} from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {LoginService} from "../../services/login.service";
+import { ProductsServices } from "../../services/products.services";
+import { Transaction } from "../../models/transaction.model";
 
 @Component({
   selector: 'app-transaction',
@@ -8,9 +11,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class TransactionComponent {
 
-  product: Product;
+  product: Product | undefined;
   constructor(private router: Router, activatedRoute: ActivatedRoute,
-              public productsService: ProductsService, public loginService: Login) {
+              public productsService: ProductsServices, public loginService: LoginService) {
 
     const id = activatedRoute.snapshot.params['id'];
     productsService.getProduct(id).subscribe(
@@ -20,4 +23,13 @@ export class TransactionComponent {
     );
   }
 
+  newTransation() {
+
+
+  }
+
+  cancel() {
+
+    window.history.back();
+  }
 }

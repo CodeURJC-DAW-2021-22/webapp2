@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './upload-product.component.html'
 })
 export class UploadProductComponent implements OnInit {
-  Category: String;
+  Category: String | undefined;
 
   constructor() { }
 

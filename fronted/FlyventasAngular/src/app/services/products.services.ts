@@ -14,14 +14,12 @@ export class ProductsServices  {
   constructor(private httpClient: HttpClient) {}
 
   getProducts(): Observable<Product[]>{
-        return this.httpClient.get(BASE_URL).pipe(
-            catchError(error => this.handleError(error))
+        return this.httpClient.get<Product[]>(BASE_URL).pipe(catchError(error => this.handleError(error))
         ) as Observable<Product[]>;
   }
 
   getProduct(id: number | string): Observable<Product>{
-        return this.httpClient.get(BASE_URL + id).pipe(
-            catchError(error => this.handleError(error))
+        return this.httpClient.get<Product>(BASE_URL + id).pipe(catchError(error => this.handleError(error))
         ) as Observable<Product>;
   }
 

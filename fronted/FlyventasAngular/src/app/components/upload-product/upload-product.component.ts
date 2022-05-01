@@ -13,8 +13,8 @@ export class UploadProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newProduct: boolean;
-  product: Product;
+
+  product!: Product;
   removeImage:boolean = false;
 
   @ViewChild("file")
@@ -25,27 +25,16 @@ export class UploadProductComponent implements OnInit {
     activatedRoute: ActivatedRoute,
     private service: ProductsServices) {
 
-    const id = activatedRoute.snapshot.params['id'];
-    if (id) {
-      service.getProduct(id).subscribe(
-        product => this.product = product,
-        error => console.error(error)
-      );
-      this.newProduct = false;
-    } else {
-      this.product = { title: '', description: '', image: false };
-      this.newProduct = true;
-    }
   }
 
   save() {
     if(this.product.image && this.removeImage){
       this.product.image = false;
     }
-    this.service.addProduct(this.product).subscribe(
-      (product: Product) => this.uploadImage(product),
-      error => alert('Error creating new book: ' + error)
-    );
+    this.service.addProduct(this.product).subscribe({
+      next: product =>this.uploadImage(product as Product),
+      error: error => alert('Error creating new book: ' + error)
+  });
   }
 
   uploadImage(product: Product): void {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import {map, Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
 
@@ -11,16 +11,16 @@ export class TransactionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getTransactions(): Observable<Transaction[]> {
+  /*getTransactions(): Observable<Transaction[]> {
     return this.httpClient.get(BASE_URL).pipe(
       catchError(error => this.handleError(error))
     ) as Observable<Transaction[]>;
-  }
+  }*/
 
   getTransaction(id: number | string): Observable<Transaction> {
-    return this.httpClient.get(BASE_URL + id).pipe(
-      catchError(error => this.handleError(error))
-    ) as Observable<Transaction>;
+    return this.httpClient.get(BASE_URL + id).pipe(map(
+      response => response as Transaction
+    ))
   }
 
   addTransaction(transaction: Transaction) {

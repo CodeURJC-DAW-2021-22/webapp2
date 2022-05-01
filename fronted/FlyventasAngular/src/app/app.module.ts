@@ -14,6 +14,8 @@ import { UploadProductComponent } from './components/upload-product/upload-produ
 import { TransactionComponent } from "./components/Transaction&Counteroffer/transaction.component";
 import { CounterofferComponent } from "./components/Transaction&Counteroffer/counteroffer.component";
 import { routing } from "./app.routing";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { routing } from "./app.routing";
     BrowserModule,
     NgbModule,
     RouterModule,
-    routing
+    routing,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

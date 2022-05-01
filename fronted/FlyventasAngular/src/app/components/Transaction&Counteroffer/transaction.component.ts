@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Product} from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
-import { ProductsServices } from "../../services/products.services";
+import { ProductsService } from "../../services/products.service";
 import { Transaction } from "../../models/transaction.model";
 
 @Component({
@@ -13,7 +13,7 @@ export class TransactionComponent {
 
   product: Product | undefined;
   constructor(private router: Router, activatedRoute: ActivatedRoute,
-              public productsService: ProductsServices, public loginService: LoginService) {
+              public productsService: ProductsService, public loginService: LoginService) {
 
     const id = activatedRoute.snapshot.params['id'];
     productsService.getProduct(id).subscribe(

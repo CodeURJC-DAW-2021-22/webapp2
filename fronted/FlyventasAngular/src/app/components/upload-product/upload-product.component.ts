@@ -8,8 +8,8 @@ import { Product } from "../../models/product.model";
   templateUrl: './upload-product.component.html'
 })
 export class UploadProductComponent implements OnInit {
-  Category: string = "otros";
 
+  SelectedCategory! : string;
   ngOnInit(): void {
   }
 
@@ -19,6 +19,7 @@ export class UploadProductComponent implements OnInit {
 
   @ViewChild("file")
   file: any;
+
 
   constructor(
     private router: Router,
@@ -34,7 +35,8 @@ export class UploadProductComponent implements OnInit {
     this.service.addProduct(this.product).subscribe({
       next: product =>this.uploadImage(product as Product),
       error: error => alert('Error creating new book: ' + error)
-  });
+    });
+    this.router.navigate([""]);
   }
 
   uploadImage(product: Product): void {

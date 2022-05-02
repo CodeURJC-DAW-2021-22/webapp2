@@ -2,31 +2,27 @@ import { Component } from '@angular/core';
 import {Product} from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
-import { ProductsService } from "../../services/products.service";
+import { ProductService } from "../../services/product.service";
 import { Transaction } from "../../models/transaction.model";
 
 @Component({
-  selector: 'app-transaction',
-  templateUrl: './transaction.component.html'
+  selector: 'app-profile',
+  templateUrl: '../home/home.component.html'
 })
-export class TransactionComponent {
+export class ProfileComponent {
 
   product: Product | undefined;
   constructor(private router: Router, activatedRoute: ActivatedRoute,
-              public productsService: ProductsService, public loginService: LoginService) {
+              public productsService: ProductService, public loginService: LoginService) {
 
     const id = activatedRoute.snapshot.params['id'];
-    productsService.getProduct(id).subscribe(
+    productsService.getProduct(id).subscribe({
 
-      product => this.product = product,
-      error => console.error(error)
-    );
+      next: product => this.product = product,
+      error: error => console.error(error)
+    });
   }
 
-  newTransation() {
-
-
-  }
 
   cancel() {
 

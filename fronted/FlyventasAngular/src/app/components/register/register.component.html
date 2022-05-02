@@ -17,13 +17,13 @@
               <div class="form-group">
                 <input type="password" id="password" name="encodedPassword" class="form-control"
                        placeholder="Password" required>
-                <ion-icon name="eye" (click)="showPassword()"></ion-icon>
+                <!--<ion-icon name="eye" (click)="showPassword()"></ion-icon>-->
               </div>
             </div>
           </div>
           <div class="center">
             <!--CAMBIAR LO DEL ROUTERLINK, ES SOLO PARA PROBAR LA NAVEGACIÓN-->
-            <button type="submit" class="btnSubmit" [routerLink]="['/login']">Check in</button>
+            <a type="submit" class="btnSubmit" (click)="submit()">Check in</a>
             <input type="hidden" name="roles" value="USER" />
             <input type="hidden" name="_csrf" value="{{token}}" />
           </div>

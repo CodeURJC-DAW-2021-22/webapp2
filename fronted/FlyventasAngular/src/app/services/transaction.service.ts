@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {map, Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
+import {Product} from "../models/product.model";
 
 const BASE_URL = '/api/transaction/';
 
@@ -11,30 +12,22 @@ export class TransactionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /*getTransactions(): Observable<Transaction[]> {
-    return this.httpClient.get(BASE_URL).pipe(
-      catchError(error => this.handleError(error))
-    ) as Observable<Transaction[]>;
-  }*/
-
-  getTransaction(id: number | string): Observable<Transaction> {
+  getTransaction(id: number | string): Observable<Transaction>{
     return this.httpClient.get(BASE_URL + id).pipe(map(
       response => response as Transaction
     ))
   }
 
-  addTransaction(transaction: Transaction) {
+  getTransactions(): Observable<Transaction[]>{
+    return this.httpClient.get(BASE_URL).pipe(map(
+      response => response as Transaction[]
+    ))
+  }
 
-    if (!transaction.id) {
-      return this.httpClient.post(BASE_URL, transaction)
-        .pipe(
-          catchError(error => this.handleError(error))
-        );
-    } else {
-      return this.httpClient.put(BASE_URL + transaction.id, transaction).pipe(
-        catchError(error => this.handleError(error))
-      );
-    }
+  addTransaction(transaction: Transaction) {
+    return this.httpClient.post(BASE_URL, transaction).pipe(map(
+      response => response as Transaction
+    ))
   }
 
   private handleError(error: any) {

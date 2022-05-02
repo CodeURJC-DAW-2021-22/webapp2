@@ -27,7 +27,6 @@
 
       <hr color="#346cc0" />
 
-
       <div class="container"><!-- product selected Section begin -->
         <div class="row">
           <h2>Producto seleccionado</h2>
@@ -38,38 +37,39 @@
           </div>
 
           <div class="col-lg-8 col-md-8" id="descripcionCompra">
-            <p>Titulo</p>
-            <p>Descripcion</p>
+            <p>Título</p>
+            <p>Descripción</p>
           </div>
         </div>
       </div><!-- product selected Section End -->
 
       <hr color="#346cc0" />
+      <form action="/counteroffer" method="POST">
+        <div class="row"><!-- final price Section begin -->
+          <p>Nueva Oferta:</p> <br>
+          <div class="row">
+            <div class="col-md-4">
+              <input type="number" name="newOffer" placeholder=antiguoPrecio maxlength="8" required>
+            </div>
+            <div class="col-md-1">
+              <a>€</a>
+            </div>
+          </div>
+        </div><!--final price Section End -->
 
-      <div class="row"  id="precioCompra"><!-- final price Section begin -->
-        <p>Precio final: precio€</p>
-      </div><!--final price Section End -->
+        <hr color="#346cc0" />
 
-      <hr color="#346cc0" />
+        <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
+          <!--Reutilizamos los botones hechos para la pagina producto-->
+          <div class="col-lg-6 col-md-6 botonesComprar">
+            <button type="submit" class="BotonProducto botonComprarProducto"> Enviar </button>
+          </div>
 
-      <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
-        <!--Reutilizamos los botones hechos para la pagina producto-->
-
-        <div class="col-lg-6 col-md-6 botonesComprar">
-          <button *ngIf="loginService.isLogged()" (click)="newTransation()">Comprar</button>
-          <!--<form>
-            <input type="submit" class="BotonProducto botonComprarProducto" value="Comprar" />
-          </form>-->
-        </div>
-        <div class="col-lg-6 col-md-6 botonesComprar">
-          <button (click)="cancel()">Cancelar</button>
-          <!--<form action="/" methods="POST">
-            <input type="submit" class="BotonProducto botonContraOfertaProducto" value="Cancelar" />
-          </form>-->
-        </div>
-
-      </div><!-- button options Section End -->
-
+          <div class="col-lg-6 col-md-6 botonesComprar">
+            <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
+          </div>
+        </div><!-- button options Section End -->
+      </form>
       <br><br><br><br><br>
 
     </div>

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import {map, Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Counteroffer} from "../models/counteroffer.model";
+import {Product} from "../models/product.model";
 
 const BASE_URL = '/api/transaction/';
 
@@ -11,36 +12,28 @@ export class CounterofferService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCounteroffers(): Observable<Counteroffer[]> {
-    return this.httpClient.get(BASE_URL).pipe(
-      catchError(error => this.handleError(error))
-    ) as Observable<Counteroffer[]>;
+  getCounteroffer(id: number | string): Observable<Counteroffer>{
+    return this.httpClient.get(BASE_URL + id).pipe(map(
+      response => response as Counteroffer
+    ))
   }
 
-  getCounteroffer(id: number | string): Observable<Counteroffer> {
-    return this.httpClient.get(BASE_URL + id).pipe(
-      catchError(error => this.handleError(error))
-    ) as Observable<Counteroffer>;
+  getCounteroffers(): Observable<Counteroffer[]>{
+    return this.httpClient.get(BASE_URL).pipe(map(
+      response => response as Counteroffer[]
+    ))
   }
 
   addCounteroffer(counteroffer: Counteroffer) {
-
-    if (!counteroffer.id) {
-      return this.httpClient.post(BASE_URL, counteroffer)
-        .pipe(
-          catchError(error => this.handleError(error))
-        );
-    } else {
-      return this.httpClient.put(BASE_URL + counteroffer.id, counteroffer).pipe(
-        catchError(error => this.handleError(error))
-      );
-    }
+    return this.httpClient.post(BASE_URL, counteroffer).pipe(map(
+      response => response as Counteroffer
+    ))
   }
 
   deleteCounteroffer(counteroffer: Counteroffer) {
-    return this.httpClient.delete(BASE_URL + counteroffer.id).pipe(
-      catchError(error => this.handleError(error))
-    );
+    return this.httpClient.delete(BASE_URL + counteroffer.id).pipe(map(
+      response => response
+    ))
   }
 
   private handleError(error: any) {

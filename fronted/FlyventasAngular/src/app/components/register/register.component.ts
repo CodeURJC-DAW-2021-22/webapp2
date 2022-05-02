@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
 
 declare var showPassword: any;
 @Component({
@@ -6,14 +7,17 @@ declare var showPassword: any;
   // styleUrls: ['../../../assets/css/style.component.css','../../../assets/css/styleLogin.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   token: any;
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  constructor(private router: Router, activatedRoute: ActivatedRoute) {
 
+  }
   showPassword() {
     new showPassword();
+  }
+
+  submit() {
+    this.router.navigate([""]);
   }
 }

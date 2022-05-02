@@ -6,6 +6,6 @@ export interface Transaction {
     date: Date;
     price: number;
     product: Product;
-    buyer: User;
+    buyer?: User;
     seller: User;
 }

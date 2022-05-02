@@ -8,7 +8,7 @@ const BASE_URL = '/api/auth';
 export class LoginService {
 
   logged: boolean = false;
-  user: User | undefined;
+  user?: User;
 
   constructor(private http: HttpClient) {
     this.reqIsLogged();
@@ -16,27 +16,27 @@ export class LoginService {
 
   reqIsLogged() {
 
-    this.http.get('/api/users/me', { withCredentials: true }).subscribe(
-      response => {
+    this.http.get('/api/users/me', { withCredentials: true }).subscribe({
+      next: response => {
         this.user = response as User;
         this.logged = true;
       },
-      error => {
+      error: error => {
         if (error.status != 404) {
-          console.error('Error when asking if logged: ' + JSON.stringify(error));
-        }
+        console.error('Error when asking if logged: ' + JSON.stringify(error));
       }
-    );
+    }
+  });
 
   }
 
   logIn(user: string, pass: string) {
 
     this.http.post(BASE_URL + "/login", { username: user, password: pass }, { withCredentials: true })
-      .subscribe(
-        (response) => this.reqIsLogged(),
-        (error) => alert("Wrong credentials")
-      );
+      .subscribe({
+        next: (response) => this.reqIsLogged(),
+        error: (error) => alert("Wrong credentials")
+    });
 
   }
 

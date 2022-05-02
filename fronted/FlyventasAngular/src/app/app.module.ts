@@ -9,14 +9,16 @@ import { CustomheaderComponent } from './components/customheader&footer/customhe
 import { CustomfooterComponent} from "./components/customheader&footer/customfooter.component";
 import { HomeComponent} from "./components/home/home.component";
 import { LoginComponent} from "./components/login/login.component";
-import { SearchComponent} from "./components/Busqueda/search.component";
+import { SearchComponent} from "./components/search/search.component";
 import { UploadProductComponent } from './components/upload-product/upload-product.component';
-import { TransactionComponent } from "./components/Transaction&Counteroffer/transaction.component";
-import { CounterofferComponent } from "./components/Transaction&Counteroffer/counteroffer.component";
+import { TransactionComponent } from "./components/transaction&counteroffer/transaction.component";
+import { CounterofferComponent } from "./components/transaction&counteroffer/counteroffer.component";
 import { routing } from "./app.routing";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-import {FormsModule} from "@angular/forms";
+import {ProfileComponent} from "./components/profile/profile.component";
+import {ProductComponent} from "./components/product/product.component";
+import {RegisterComponent} from "./components/register/register.component";
 
 
 @NgModule({
@@ -29,14 +31,17 @@ import {FormsModule} from "@angular/forms";
     CounterofferComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
     SearchComponent,
-    UploadProductComponent
+    UploadProductComponent,
+    ProfileComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     RouterModule,
-    FormsModule
+    FormsModule,
     RouterModule,
     routing,
     HttpClientModule,

@@ -19,7 +19,7 @@
                         <li><a (click)="setTxt('Hogar y jardin' )" [routerLink]="['/search',txt,page]">Hogar y jardin</a></li>
                         <li><a (click)="setTxt('Automóviles')" [routerLink]="['/search',txt,page]">Automóviles</a></li>
                         <li><a (click)="setTxt('Libros')" [routerLink]="['/search',txt,page]">Libros</a></li>
-                        <li><a href="/category/otros" [routerLink]="['/search',txt,page]">Otros</a></li>
+                        <li><a (click)="setTxt('Otros')" [routerLink]="['/search',txt,page]">Otros</a></li>
 
                 </div>
             </div>
@@ -32,7 +32,7 @@
                                 <span class="arrow_carrot-down"></span>
                             </div>
                       <input id="search" [(ngModel)]="txt" placeholder="Busque aquí" type="string">
-                      <button type="submit" class="site-btn" [routerLink]="['/search',txt,page]">BUSCAR</button>
+                      <button type="submit" class="site-btn" (click)="reload()">BUSCAR</button>
 
                     </div>
                 </div>

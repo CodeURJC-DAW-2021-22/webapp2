@@ -16,7 +16,7 @@ const appRoutes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'search/:txt/:page', component: SearchComponent },
   { path: 'profile/:id', component: ProfileComponent },
-  { path: 'profile/:id/uploadProduct', component: UploadProductComponent },
+  { path: 'uploadProduct', component: UploadProductComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'product/:id', component: ProductComponent },

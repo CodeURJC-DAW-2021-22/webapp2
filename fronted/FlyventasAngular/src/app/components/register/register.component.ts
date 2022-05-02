@@ -4,7 +4,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 declare var showPassword: any;
 @Component({
   templateUrl: './register.component.html',
-  // styleUrls: ['../../../assets/css/style.component.css','../../../assets/css/styleLogin.component.css']
+  styleUrls: ['../../../assets/css/style.component.css',
+    '../../../assets/css/styleLogin.component.css',
+    "../../../assets/css/loginregister.css"]
 })
 
 export class RegisterComponent {

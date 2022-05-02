@@ -5,9 +5,9 @@ export interface Product {
     id?: number;
     title: string;
     description: string;
-    category: Category;
+    category: string;
     price: number;
     isSold: boolean;
     image: boolean;
-    user: User;
+    user?: User;
 }

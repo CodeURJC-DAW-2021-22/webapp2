@@ -42,18 +42,10 @@ export class ProductService {
       ))
   }
 
-  setProductImage(product: Product, formData: FormData) {
-    return this.httpClient.post(BASE_URL + product.id + '/image', formData)
-      .pipe(
-        catchError(error => this.handleError(error))
-      );
-  }
-
-  deleteProductImage(product: Product) {
-    return this.httpClient.delete(BASE_URL + product.id + '/image')
-      .pipe(
-        catchError(error => this.handleError(error))
-      );
+  setProductImage(id?: number, formData?: FormData) {
+    return this.httpClient.post(BASE_URL + id + '/image', formData).pipe(map(
+      response => response
+      ))
   }
 
   private handleError(error: any) {

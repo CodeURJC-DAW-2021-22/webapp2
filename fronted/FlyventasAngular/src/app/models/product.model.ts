@@ -1,4 +1,5 @@
 import { Category } from "./category.model";
+import { User } from "./user.model";
 
 export interface Product {
     id?: number;
@@ -8,4 +9,5 @@ export interface Product {
     price: number;
     isSold: boolean;
     image: boolean;
+    user: User;
 }

@@ -1,0 +1,37 @@
+
+<h1>Subir anuncio</h1>
+<form action="/subirProducto" method="POST" enctype="multipart/form-data">
+<input type="text" placeholder="Titulo del anuncio">
+
+<!--desplegable categoria-->
+
+<p>Seleccione una categoria</p>
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Boxeo"> Boxeo
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Moda y Accesorios"> Moda y accesorios
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Informática"> informática
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="imagen y sonido"> imagen y sonido
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Deporte y ocio"> Deporte y ocio
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Hogar y jardin"> Hogar y jardín
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="automoviles"> Automóviles
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Libros"> Libros
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Otros"> Otros
+<br>
+Selected category is <input type="text" name="SelectedCategory "[(ngModel)]="SelectedCategory" />
+<!--desplegable categoria-->
+<br>
+<br>
+<textarea type="text" placeholder="Describe el anuncio"></textarea>
+<br>
+<br>
+<input type="number" placeholder="Precio">
+<br>
+<br>
+<p>inserte imagen</p>
+<input type="file" placeholder="Añadir archivo">
+<br>
+<br>
+<button (click)="save()">Subir anuncio</button>
+<button (click)="cancel()">Cancelar</button>
+</form>
+
+

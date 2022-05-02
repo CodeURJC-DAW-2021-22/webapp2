@@ -1,0 +1,32 @@
+<div class="bodyBig">
+  <div class="screen-1">
+    <img class="logo" src="assets/Images/logo.png" alt="logo" width="300" height="300">
+    <form *ngIf="!loginService.isLogged()" action="/login" method="post">
+      <div class="username">
+        <!--<label for="username">Username</label>-->
+        <div class="sec-2">
+          <input #user type="text" name="username" placeholder="Username" required>
+        </div>
+      </div>
+      <br>
+      <div class="password">
+        <label for="password">Password</label>
+        <div class="sec-2">
+          <!--<ion-icon name="lock-closed-outline"></ion-icon>-->
+          <input #pass type="password" name="password" id="password" placeholder="············" required>
+          <!--<ion-icon name="eye" onclick="showPassword()"></ion-icon>-->
+        </div>
+      </div>
+      <div class="center">
+        <button type="submit" (click)="logIn($event, user.value, pass.value)" class="btnSubmit">Log in</button>
+      </div>
+      <!--<input type="hidden" name="_csrf" value="{{token}}"/>-->
+    </form>
+    <div class="footer"><span>You don't have an account yet? <a href="/register">Sign up</a></span></div>
+  </div>
+</div>
+
+<div *ngIf="loginService.isLogged()">
+  <a class="navbar-brand" href="/films"></a>
+  <button class="btn btn-default navbar-btn" (click)="logOut()" type="button">Log Out</button>
+</div>

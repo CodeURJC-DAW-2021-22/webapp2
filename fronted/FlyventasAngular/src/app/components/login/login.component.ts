@@ -3,7 +3,8 @@ import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['../../../assets/css/style.component.css', '../../../assets/css/styleLogin.component.css']
 })
 export class LoginComponent {
 

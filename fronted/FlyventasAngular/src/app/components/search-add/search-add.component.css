@@ -1,0 +1,172 @@
+.hero {
+	padding-bottom: 50px;
+}
+
+.hero.hero-normal {
+	padding-bottom: 30px;
+}
+
+.hero.hero-normal .hero__categories {
+	position: relative;
+}
+
+.hero.hero-normal .hero__categories ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 46px;
+	width: 100%;
+	z-index: 9;
+	background: #ffffff;
+}
+
+.hero.hero-normal .hero__search {
+	margin-bottom: 0;
+}
+
+.hero__categories__all {
+	background: #073f54;
+	position: relative;
+	padding: 10px 25px 10px 40px;
+	cursor: pointer;
+}
+
+.hero__categories__all i {
+	font-size: 16px;
+	color: #ffffff;
+	margin-right: 10px;
+}
+
+.hero__categories__all span {
+	font-size: 18px;
+	font-weight: 700;
+	color: #ffffff;
+}
+
+.hero__categories__all:after {
+	position: absolute;
+	right: 18px;
+	top: 9px;
+	content: "3";
+	font-family: "ElegantIcons";
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.hero__categories ul {
+	border: 1px solid #ebebeb;
+	padding-left: 40px;
+	padding-top: 10px;
+	padding-bottom: 12px;
+}
+
+.hero__categories ul li {
+	list-style: none;
+}
+
+.hero__categories ul li a {
+	font-size: 16px;
+	color: #1c1c1c;
+	line-height: 39px;
+	display: block;
+}
+
+.hero__search {
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.hero__search__form {
+	width: 610px;
+	height: 50px;
+	border: 1px solid #ebebeb;
+	position: relative;
+	float: left;
+}
+
+.hero__search__form form .hero__search__categories {
+	width: 30%;
+	float: left;
+	font-size: 16px;
+	color: #1c1c1c;
+	font-weight: 700;
+	padding-left: 18px;
+	padding-top: 11px;
+	position: relative;
+}
+
+.hero__search__form form .hero__search__categories:after {
+	position: absolute;
+	right: 0;
+	top: 14px;
+	height: 20px;
+	width: 1px;
+	background: #000000;
+	opacity: 0.1;
+	content: "";
+}
+
+.hero__search__form form .hero__search__categories span {
+	position: absolute;
+	right: 14px;
+	top: 14px;
+}
+
+.hero__search__form form input {
+	width: 70%;
+	border: none;
+	height: 48px;
+	font-size: 16px;
+	color: #000000;
+	padding-left: 20px;
+}
+
+.hero__search__form form input::placeholder {
+	color: #000000;
+}
+
+.hero__search__form form button {
+	position: absolute;
+	right: 0;
+	top: -1px;
+	height: 50px;
+	background: #073f54;
+}
+
+
+.hero__item {
+	height: 431px;
+	display: flex;
+	align-items: center;
+	padding-left: 75px;
+	background: #f5f5f5;
+}
+
+.hero__profile {
+	text-align: center;
+	height: 300px;
+	padding: 12px;
+}
+
+.hero__profile span {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: #ffffff;
+}
+
+.hero__profile h2 {
+	font-size: 46px;
+	color: #000000;
+}
+
+.hero__profile p {
+	margin-bottom: 35px;
+}
+
+.avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}

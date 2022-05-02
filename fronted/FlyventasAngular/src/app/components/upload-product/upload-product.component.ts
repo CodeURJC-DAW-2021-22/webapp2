@@ -6,7 +6,8 @@ import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-upload-product',
-  templateUrl: './upload-product.component.html'
+  templateUrl: './upload-product.component.html',
+  styleUrls:["../../../assets/css/profile.css"]
 })
 export class UploadProductComponent {
 

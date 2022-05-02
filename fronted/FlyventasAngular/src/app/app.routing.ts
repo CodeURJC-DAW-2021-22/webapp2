@@ -14,7 +14,7 @@ import {ProductComponent} from "./components/product/product.component";
 const appRoutes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'search/:txt', component: SearchComponent },
+  { path: 'search/:txt/:page', component: SearchComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'uploadProduct', component: UploadProductComponent },
   { path: 'login', component: LoginComponent },

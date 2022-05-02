@@ -4,7 +4,7 @@ import {map, Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Product } from '../models/product.model';
 
-const BASE_URL = '/api/product/';
+const BASE_URL = 'https://localhost:8080/api/products/';
 
 @Injectable({ providedIn: 'root' })
 
@@ -21,6 +21,13 @@ export class ProductService {
   getProducts(): Observable<Product[]>{
     return this.httpClient.get(BASE_URL).pipe(map(
       response => response as Product[]
+    ))
+  }
+
+  getProductsSearch(page: number, txt: string): Observable<Product[]>{
+    return this.httpClient.get(BASE_URL + "?title=" + txt + "&page=" + page).pipe(map(
+      response => response as Product[],
+
     ))
   }
 
@@ -53,6 +60,8 @@ export class ProductService {
     console.error(error);
     return throwError("Server error (" + error.status + "): " + error.text())
   }
+
+
 
 }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 const BASE_URL = '/api';
 
@@ -30,13 +31,16 @@ export class LoginService {
 
   }
 
-  logIn(user: string, pass: string) {
+  logIn(username: string, password: string) {
 
-    this.http.post(BASE_URL + "/login", { username: user, password: pass }, { withCredentials: true })
-      .subscribe({
-        next: (response) => this.reqIsLogged(),
-        error: (error) => alert("Wrong credentials")
-    });
+    this.http.post(BASE_URL + "/login", { username: username, password: password }, { withCredentials: true }).subscribe({
+    next: (response) =>
+    {
+      this.reqIsLogged();
+      //this.router.navigate(['']);
+    },
+    error: (error) => alert("Wrong credentials")
+  });
 
   }
 

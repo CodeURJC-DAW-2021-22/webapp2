@@ -7,7 +7,8 @@ import { Transaction } from "../../models/transaction.model";
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html'
+  templateUrl: './product.component.html',
+  styleUrls:["../../../assets/css/product.css"]
 })
 export class ProductComponent {
 

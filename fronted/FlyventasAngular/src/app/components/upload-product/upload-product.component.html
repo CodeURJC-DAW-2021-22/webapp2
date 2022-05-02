@@ -4,25 +4,32 @@
 <input type="text" placeholder="Titulo del anuncio">
 
 <!--desplegable categoria-->
-<p>Seleccione una categoria</p><ul>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="boxeo"> Boxeo</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="Moda_y_Accesorios"> Moda y accesorios</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="Informatica"> informática</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="imagen_y_sonido"> imagen y sonido</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="Deporte_y_ocio"> Deporte y ocio</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="Hogar_y_jardin"> Hogar y jardín</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="automoviles"> Automóviles</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="Libros"> Libros</li>
-<li><input type="radio" name="Category" [(ngModel)]="Category" value="otros"> Otros</li>
-</ul>
-Selected gender is <input type="text" [(ngModel)]="Category" />
-<!--desplegable categoria-->
 
+<p>Seleccione una categoria</p>
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Boxeo"> Boxeo
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Moda y Accesorios"> Moda y accesorios
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Informática"> informática
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="imagen y sonido"> imagen y sonido
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Deporte y ocio"> Deporte y ocio
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Hogar y jardin"> Hogar y jardín
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="automoviles"> Automóviles
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Libros"> Libros
+<input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Otros"> Otros
+<br>
+Selected category is <input type="text" name="SelectedCategory "[(ngModel)]="SelectedCategory" />
+<!--desplegable categoria-->
+<br>
+<br>
 <textarea type="text" placeholder="Describe el anuncio"></textarea>
+<br>
+<br>
 <input type="number" placeholder="Precio">
+<br>
+<br>
 <p>inserte imagen</p>
 <input type="file" placeholder="Añadir archivo">
-
+<br>
+<br>
 <button (click)="save()">Subir anuncio</button>
 <button (click)="cancel()">Cancelar</button>
 </form>

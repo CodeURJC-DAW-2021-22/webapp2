@@ -6,6 +6,6 @@ export interface Counteroffer {
     newPrice: number;
     date: Date;
     product: Product;
-    transmitter: User;
+    transmitter?: User;
     receiver: User;
 }

@@ -4,16 +4,19 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {LoginService} from "../../services/login.service";
 import { Counteroffer } from "../../models/counteroffer.model";
+import {CounterofferService} from "../../services/counteoffer.service";
 
 @Component({
   selector: 'app-counteroffer',
   templateUrl: './counteroffer.component.html'
+
 })
 export class CounterofferComponent {
 
-  product: Product | undefined;
+  product!: Product;
   constructor(private router: Router, activatedRoute: ActivatedRoute,
-              public productsService: ProductService, public loginService: LoginService) {
+              public productsService: ProductService, public loginService: LoginService,
+              public counterofferService: CounterofferService) {
 
     const id = activatedRoute.snapshot.params['id'];
     productsService.getProduct(id).subscribe({
@@ -23,9 +26,21 @@ export class CounterofferComponent {
     });
   }
 
-  newCounteroffer() {
-
-
+  newCounteroffer(newPrice: string) {
+    let todayDate: Date = new Date();
+    var price: number = + newPrice;
+    const counteroffer: Counteroffer ={
+      date: todayDate,
+      newPrice: price,
+      product: this.product,
+      transmitter: this.loginService.currentUser(),
+      receiver: this.product?.user
+    }
+    this.counterofferService.addCounteroffer(counteroffer).subscribe();
+    this.router.navigate([""]);
   }
 
+  cancel() {
+    window.history.back();
+  }
 }

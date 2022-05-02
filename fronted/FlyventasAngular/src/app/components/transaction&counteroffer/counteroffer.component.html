@@ -44,12 +44,13 @@
       </div><!-- product selected Section End -->
 
       <hr color="#346cc0" />
-      <form action="/counteroffer" method="POST">
+      <form>
         <div class="row"><!-- final price Section begin -->
           <p>Nueva Oferta:</p> <br>
           <div class="row">
+            <label for="newPrice" class="form-label"></label>
             <div class="col-md-4">
-              <input type="number" name="newOffer" placeholder=antiguoPrecio maxlength="8" required>
+              <input #newPrice type="number" name="newPrice" id="newPrice" placeholder=800 maxlength="8" required>
             </div>
             <div class="col-md-1">
               <a>€</a>
@@ -60,14 +61,14 @@
         <hr color="#346cc0" />
 
         <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
-          <!--Reutilizamos los botones hechos para la pagina producto-->
-          <div class="col-lg-6 col-md-6 botonesComprar">
-            <button type="submit" class="BotonProducto botonComprarProducto"> Enviar </button>
-          </div>
 
           <div class="col-lg-6 col-md-6 botonesComprar">
-            <button class="BotonProducto botonContraOfertaProducto"> Cancelar </button>
+            <button type="submit" class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" (click)="newCounteroffer(newPrice.value)">Comprar</button>
           </div>
+          <div class="col-lg-6 col-md-6 botonesComprar">
+            <button class="BotonProducto botonContraOfertaProducto" (click)="cancel()">Cancelar</button>
+          </div>
+
         </div><!-- button options Section End -->
       </form>
       <br><br><br><br><br>

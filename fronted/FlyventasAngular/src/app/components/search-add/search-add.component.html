@@ -1,6 +1,7 @@
 
+
 <section class="hero hero-normal">
-    <div class="container">
+  <div class="container">
         <div class="row">
             <div class="col-lg-3">
                 <!-- pequeña prueba -->
@@ -9,34 +10,35 @@
                         <i class="fa fa-bars"></i>
                         <span>Todos los departamentos</span>
                     </div>
-                    <ul>
-                        <li><a (click)="setTxt('Boxeo')", [routerLink]="['/busqueda',txt]">Boxeo</a></li>
-                        <li><a (click)="setTxt('Moda y acesorios')", [routerLink]="['/busqueda',txt]">Moda y acesorios</a></li>
-                        <li><a (click)="setTxt('Informática')", [routerLink]="['/busqueda',txt]">Informática</a></li>
-                        <li><a (click)="setTxt('Imagen y sonido')", [routerLink]="['/busqueda',txt]">Imagen y sonido</a></li>
-                        <li><a (click)="setTxt('Boxeo')">Deporte y ocio</a></li>
-                        <li><a (click)="setTxt('Boxeo')">Hogar y jardin</a></li>
-                        <li><a (click)="setTxt('Boxeo')">Automóviles</a></li>
-                        <li><a (click)="setTxt('Boxeo')">Libros</a></li>
-                        <li><a href="/category/otros">Otros</a></li>
-                    </ul>
+
+                        <li><a (click)="setTxt('Boxeo')" [routerLink]="['/search',txt,page]">Boxeo</a></li>
+                        <li><a (click)="setTxt('Moda y acesorios')" [routerLink]="['/search',txt,page]">Moda y acesorios</a></li>
+                        <li><a (click)="setTxt('Informática')" [routerLink]="['/search',txt,page]">Informática</a></li>
+                        <li><a (click)="setTxt('Imagen y sonido')" [routerLink]="['/search',txt,page]">Imagen y sonido</a></li>
+                        <li><a (click)="setTxt('Deporte y ocio')" [routerLink]="['/search',txt,page]">Deporte y ocio</a></li>
+                        <li><a (click)="setTxt('Hogar y jardin' )" [routerLink]="['/search',txt,page]">Hogar y jardin</a></li>
+                        <li><a (click)="setTxt('Automóviles')" [routerLink]="['/search',txt,page]">Automóviles</a></li>
+                        <li><a (click)="setTxt('Libros')" [routerLink]="['/search',txt,page]">Libros</a></li>
+                        <li><a href="/category/otros" [routerLink]="['/search',txt,page]">Otros</a></li>
+
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="/busqueda" method="get">
+
                             <div class="hero__search__categories">
                                 All
                                 <span class="arrow_carrot-down"></span>
                             </div>
-                            <input id="search"  [(ngModel)]="txt" placeholder="Busque aquí" name="title">
-                            <button type="submit" class="site-btn" , [routerLink]="['/busqueda',txt]">BUSCAR</button>
-                        </form>
+                      <input id="search" [(ngModel)]="txt" placeholder="Busque aquí" type="string">
+                      <button type="submit" class="site-btn" [routerLink]="['/search',txt,page]">BUSCAR</button>
+
                     </div>
                 </div>
-                <br/>
+
             </div>
         </div>
-    </div>
+  </div>
 </section>
+

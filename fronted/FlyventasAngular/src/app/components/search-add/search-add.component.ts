@@ -9,15 +9,16 @@ import { Router } from '@angular/router';
 export class SearchAddComponent{
 
   constructor(private router: Router) {
-    
+
   }
 
-  txt = '';
+  txt!:string;
+  page = 1;
 
-  setTxt(txt:string){
-    this.txt = txt;
+  setTxt(t:string){
+    this.txt = t;
   }
-    
-  
+
+
 
 }

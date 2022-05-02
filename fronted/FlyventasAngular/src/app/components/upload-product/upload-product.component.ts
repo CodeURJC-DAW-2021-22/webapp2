@@ -6,8 +6,7 @@ import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-upload-product',
-  templateUrl: './upload-product.component.html',
-  styleUrls:["../../../assets/css/profile.css"]
+  templateUrl: './upload-product.component.html'
 })
 export class UploadProductComponent {
 
@@ -30,7 +29,7 @@ export class UploadProductComponent {
       price: price,
       isSold: false,
       image: false,
-      user: this.loginService.currentUser(),
+      user: this.loginService.currentUser()
     }
     this.productService.addProduct(newProduct).subscribe(
       newProduct => {

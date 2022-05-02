@@ -3,7 +3,6 @@ import { Product } from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import { ProductService } from "../../services/product.service";
-import { Transaction } from "../../models/transaction.model";
 
 @Component({
   selector: 'app-product',
@@ -24,9 +23,7 @@ export class ProductComponent {
     });
   }
 
-
   cancel() {
-
     window.history.back();
   }
 }

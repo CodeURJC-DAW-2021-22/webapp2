@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit{
   }
 
   productImage(id:number){
-    return this.product.image? '/api/products/'+id+'/image' : '/assets/images/no_image.png'
+    return 'https://localhost:8080/api/products/'+id+'/image';
   }
 
 }

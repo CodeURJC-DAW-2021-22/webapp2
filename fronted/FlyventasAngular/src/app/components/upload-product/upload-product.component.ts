@@ -2,58 +2,56 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../models/product.model";
+import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-upload-product',
-  templateUrl: './upload-product.component.html'
+  templateUrl: './upload-product.component.html',
+  styleUrls:["../../../assets/css/profile.css"]
 })
-export class UploadProductComponent implements OnInit {
-  Category: string = "otros";
+export class UploadProductComponent {
 
-  ngOnInit(): void {
-  }
-
-
-  product!: Product;
-  removeImage:boolean = false;
+  SelectedCategory! : string;
 
   @ViewChild("file")
   file: any;
 
-  constructor(
-    private router: Router,
-    activatedRoute: ActivatedRoute,
-    private service: ProductService) {
+  constructor( private router: Router, activatedRoute: ActivatedRoute, public productService: ProductService,
+               public loginService: LoginService) {
 
   }
 
-  save() {
-    if(this.product.image && this.removeImage){
-      this.product.image = false;
+  newProduct(title: string, description: string, productPrice: string) {
+    var price: number = +productPrice
+    const newProduct: Product ={
+      title: title,
+      description: description,
+      category: "",
+      price: price,
+      isSold: false,
+      image: false,
+      user: this.loginService.currentUser(),
     }
-    this.service.addProduct(this.product).subscribe({
-      next: product =>this.uploadImage(product as Product),
-      error: error => alert('Error creating new book: ' + error)
-  });
+    this.productService.addProduct(newProduct).subscribe(
+      newProduct => {
+        this.uploadImage(newProduct.id)
+      }
+    )
+    this.router.navigate([""]);
   }
 
-  uploadImage(product: Product): void {
+  uploadImage(id?: number): void {
 
     const image = this.file.nativeElement.files[0];
     if (image) {
       let formData = new FormData();
       formData.append("imageFile", image);
-      this.service.setProductImage(product, formData).subscribe({
-        next: _ => this.afterUploadImage(product),
-        error: error => alert('Error uploading product image: ' + error)
-      });
-    } else if(this.removeImage){
-      this.service.deleteProductImage(product).subscribe({
-        next: _ => this.afterUploadImage(product),
-        error: error => alert('Error deleting product image: ' + error)
+      this.productService.setProductImage(id, formData).subscribe({
+        next: _ => this.router.navigate([""]),
+        error: _error => this.router.navigate([""])
       });
     } else {
-      this.afterUploadImage(product);
+      this.router.navigate([""])
     }
   }
 

@@ -7,7 +7,8 @@ import { Transaction } from "../../models/transaction.model";
 
 @Component({
   selector: 'app-profile',
-  templateUrl: '../home/home.component.html'
+  templateUrl: '../home/home.component.html',
+  styleUrls:["../../../assets/css/profile.css", "../../../assets/css/table.css"]
 })
 export class ProfileComponent {
 

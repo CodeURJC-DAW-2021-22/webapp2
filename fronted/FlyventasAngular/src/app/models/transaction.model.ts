@@ -7,5 +7,5 @@ export interface Transaction {
     price: number;
     product: Product;
     buyer?: User;
-    seller: User;
+    seller?: User;
 }

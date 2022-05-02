@@ -11,7 +11,7 @@ export class LoginService {
   logged: boolean = false;
   user?: User;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.reqIsLogged();
   }
 
@@ -32,12 +32,12 @@ export class LoginService {
   }
 
   logIn(username: string, password: string) {
-
-    this.http.post(BASE_URL + "/login", { username: username, password: password }, { withCredentials: true }).subscribe({
+    this.http.post(BASE_URL + "/login", { username: username, password: password }).subscribe({
     next: (response) =>
     {
       this.reqIsLogged();
-      //this.router.navigate(['']);
+      this.router.navigate(['']);
+      console.log(response)
     },
     error: (error) => alert("Wrong credentials")
   });

@@ -13,12 +13,19 @@ export class SearchAddComponent{
   }
 
   txt!:string;
-  page = 1;
+  page = 0;
+  category = []
 
+  reload(){
+    this.router.navigate(['search/'+this.txt+'/'+this.page])
+      .then(() => {
+        window.location.reload();
+      });
+  }
   setTxt(t:string){
     this.txt = t;
+    this.reload()
   }
-
 
 
 }

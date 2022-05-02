@@ -13,9 +13,10 @@ export class SearchComponent implements OnInit{
   product!: Product;
   txt!: string;
   pageN!: string;
-  pag!:number;
+
 
   products!: Product[];
+  pag!: number;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: ProductService) {
 
     //console.log(activatedRoute.snapshot.paramMap.get('txt','page'))
@@ -30,22 +31,41 @@ export class SearchComponent implements OnInit{
       next: show => this.products = show,
       error: error => console.log(error)
     });
+    this.pag = +this.pageN;
   }
 
+
+
+  reload(){
+    this.router.navigate(['search/' + this.txt + '/' + this.pag]);
+  }
+
+  showProduct(){
+
+    this.service.getProductsSearch(this.pag,this.txt).subscribe({
+      next: show => this.products = show,
+      error: error => console.log(error)
+    });
+
+  }
   nextPage(){
-    this.pag = +this.pageN;
-    this.pag += this.pag;
+
+    this.pag = this.pag + 1;
+    this.showProduct()
+    this.reload()
   }
   previusPage(){
-    this.pag = +this.pageN;
-    if (this.pag!=1)
+
+    if (this.pag!=0)
     {
-      this.pag -= this.pag;
+      this.pag = this.pag -1;
+      this.showProduct()
+      this.reload()
     }
   }
 
   productImage(id:number){
-    return this.product.image? '/api/books/'+id+'/image' : '/assets/images/no_image.png'
+    return this.product.image? '/api/products/'+id+'/image' : '/assets/images/no_image.png'
   }
 
 }

@@ -4,12 +4,13 @@ import { Product } from "./product.model";
 export interface User {
     id?: number;
     name: string;
-    username: string;
+    surname: string;
     email: string;
     address: string;
     roles: string[];
-    categoria1: Category;
-    categoria2: Category;
-    categoria3: Category;
+    encodedPassword:string;
+    categoria1: string;
+    categoria2: string;
+    categoria3: string;
     products: Product[];
 }

@@ -13,6 +13,8 @@ import { Transaction } from "../../models/transaction.model";
 export class ProfileComponent {
 
   product: Product | undefined;
+  transactions: Transaction[] = [];
+
   constructor(private router: Router, activatedRoute: ActivatedRoute,
               public productsService: ProductService, public loginService: LoginService) {
 

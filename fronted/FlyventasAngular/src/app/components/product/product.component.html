@@ -2,7 +2,7 @@
 <div class="col-lg-12" class="hero">
   <h2 style="text-align:center">{{product.title}}</h2>
   <div class="hero__item set-bg" data-setbg="img/hero/bannerFlyventas.jpg">
-    <!--<img src="/Producto/{{product.id}}/image" class="center">-->
+    <img [src]="productImage(product.id)" class="center"/>
   </div>
 
   <section class="featured spad">
@@ -38,7 +38,7 @@
 
           <div class="contenedor-preguntas" data-categoria="vendedor">
             <div class="contenedor-pregunta">
-              <img class="avatar" src="/img/profile/user-solid.svg"></img>
+              <img class="avatar" src="/img/profile/user-solid.svg">
               <p class="pregunta">Nombre: {{product.user.name}}</p>
               <p class="pregunta">Dirección: {{product.user.address}}</p>
             </div>
@@ -47,10 +47,10 @@
           <div class="contenedor-preguntas" data-categoria="Compra o Contraoferta">
             <div class="contenedor-pregunta">
               <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" [routerLink]=["/product/{{product.id}}/transaction"] >Comprar</button>
+                <button class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" [routerLink]="['/product/', product.id, '/transaction']">Comprar</button>
               </div>
               <div class="col-lg-6 col-md-6 botonesComprar">
-                <button class="BotonProducto botonContraOfertaProducto" *ngIf="loginService.isLogged()" [routerLink]=["/product/{{product.id}}/counteroffer"]>Contraoferta</button>
+                <button class="BotonProducto botonContraOfertaProducto" *ngIf="loginService.isLogged()" [routerLink]="['/product/', product.id, '/counteroffer']">Contraoferta</button>
               </div>
             </div>
           </div>

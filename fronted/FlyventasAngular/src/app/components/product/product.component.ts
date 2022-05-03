@@ -26,4 +26,8 @@ export class ProductComponent {
   cancel() {
     window.history.back();
   }
+
+  productImage(id:number){
+    return 'https://localhost:8080/api/products/'+id+'/image';
+  }
 }

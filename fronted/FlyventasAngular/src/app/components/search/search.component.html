@@ -44,7 +44,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let p of products">
             <div class="product__item">
               <div class="product__item__pic set-bg">
-                <img [src]="productImage(p.id)" />
+                <img [src]="productImage(p.id)"/>
               </div>
               <div class="product__item__text">
                 <h6><a [routerLink]="['/product',p.id]" >{{p.title}}</a></h6>

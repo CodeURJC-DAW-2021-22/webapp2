@@ -21,6 +21,7 @@ export class UserService {
     ))
   }
 
+
   registerUser(User: User) {
     return this.http.post(BASE_URL, User, {withCredentials: true}).subscribe(
       _ => this.router.navigate(['login'])

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {map, Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Product } from '../models/product.model';
+import {User} from "../models/user.model";
 
 const BASE_URL = 'https://localhost:8080/api/products/';
 
@@ -28,6 +29,12 @@ export class ProductService {
     return this.httpClient.get(BASE_URL + "?title=" + txt + "&page=" + page).pipe(map(
       response => response as Product[],
 
+    ))
+  }
+
+  getProductUser(id: number | string): Observable<Product[]>{
+    return this.httpClient.get(BASE_URL +"user"+ id).pipe(map(
+      response => response as Product[]
     ))
   }
 

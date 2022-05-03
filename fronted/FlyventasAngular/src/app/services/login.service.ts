@@ -41,7 +41,6 @@ export class LoginService {
     },
     error: (error) => alert("Wrong credentials")
   });
-
   }
 
   logOut() {
@@ -52,7 +51,6 @@ export class LoginService {
         this.logged = false;
         this.user = undefined;
       });
-
   }
 
   isLogged() {

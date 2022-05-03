@@ -1,34 +1,129 @@
-<div class="bodyBig">
+<section class="featured spad">
   <div class="container">
-    <div class="form">
-      <div class="note">
-        <p>Register now to enjoy our services!</p>
-      </div>
-      <div class="form-content">
-        <form action="/registerProcess" method="post">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="User name" required>
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
-              </div>
-              <div class="form-group">
-                <input type="password" id="password" name="encodedPassword" class="form-control"
-                       placeholder="Password" required>
-                <!--<ion-icon name="eye" (click)="showPassword()"></ion-icon>-->
-              </div>
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="form">
+            <ul class="tab-group" align="center">
+              <li class="tab"><a href="#signup">Registrarse</a></li>
+            </ul>
+
+          <div>
+            <div>
+
+              <form action="/perfil" method="POST">
+                <div class="top-row">
+                  <div class="field-wrap">
+                    <label>
+                      Nombre<span class="req">*</span>
+                    </label>
+                    <input #name type="text" required autocomplete="off" name='name' id='name'/>
+                  </div>
+                  <div class="field-wrap">
+                    <label>
+                      Apellido<span class="req">*</span>
+                    </label>
+                    <input #surname type="text" required autocomplete="off" name='surname' id='surname' />
+                  </div>
+                </div>
+                <div class="field-wrap">
+                  <label>
+                    Dirección de Email<span class="req">*</span>
+                  </label>
+                  <input #email type="email" required autocomplete="off" name='email' id='email'/>
+                </div>
+                <div class="field-wrap">
+                  <label>
+                    Contraseña<span class="req">*</span>
+                  </label>
+                  <input #password type="password" required autocomplete="off" name='encodedPassword' id='password'/>
+                </div>
+                <div class="top-row">
+                  <div class="field-wrap">
+                    <label>
+                      Fecha de Nacimiento<span class="req">*</span>
+                    </label>
+                    <input type="date" required autocomplete="off" />
+                  </div>
+                  <div class="field-wrap">
+                    <label>
+                      Provincia<span class="req">*</span>
+                    </label>
+                    <input type="text" required autocomplete="off" id="provincia"/>
+                  </div>
+                </div>
+                <div class="field-wrap">
+                  <label>
+                    Direccion<span class="req">*</span>
+                  </label>
+                  <input #address type="text" required autocomplete="off" name='address'/>
+                </div>
+                <div class="field-wrap">
+                  <label>
+                    Código Postal<span class="req">*</span>
+                  </label>
+                  <input type="text" required autocomplete="off" />
+                </div>
+                <h4>Selecciona tres categorias de tu interés</h4>
+                <div class="field-wrap">
+                  <div class="input-group">
+                    <select #category1 name='category1' type="text">
+
+                      <option selected> Moda y acesorios</option>
+                      <option> Informática</option>
+                      <option> Imagen y sonido</option>
+                      <option> Deporte y ocio</option>
+                      <option> Hogar y jardin</option>
+                      <option> Electrodomesticos</option>
+                      <option> Libros</option>
+                      <option> Cine y música</option>
+                      <option> Colecionismo</option>
+                      <option> Patinetes y bicicletas</option>
+                      <option>Tren</option>
+
+                    </select>
+
+                    <select #category2 name='category2' type="text">
+
+                      <option> Moda y acesorios</option>
+                      <option selected> Informática</option>
+                      <option> Imagen y sonido</option>
+                      <option> Deporte y ocio</option>
+                      <option> Hogar y jardin</option>
+                      <option> Electrodomesticos</option>
+                      <option> Libros</option>
+                      <option> Cine y música</option>
+                      <option> Colecionismo</option>
+                      <option> Patinetes y bicicletas</option>
+                      <option> Tren</option>
+
+                    </select>
+                    <select #category3 name='category3' type="text">
+
+                      <option> Moda y acesorios</option>
+                      <option> Informática</option>
+                      <option selected> Imagen y sonido</option>
+                      <option> Deporte y ocio</option>
+                      <option> Hogar y jardin</option>
+                      <option> Electrodomesticos</option>
+                      <option> Libros</option>
+                      <option> Cine y música</option>
+                      <option> Colecionismo</option>
+                      <option> Patinetes y bicicletas</option>
+                      <option> Tren</option>
+
+                    </select>
+
+                  </div>
+                </div>
+                <p class="forgot"><a href="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
+                <button type="submit" class="button button-block" (click)="register(name.value,surname.value,email.value,password.value, address.value, category1.value, category2.value, category3.value)">Registrarse</button>
+              </form>
             </div>
-          </div>
-          <div class="center">
-            <!--CAMBIAR LO DEL ROUTERLINK, ES SOLO PARA PROBAR LA NAVEGACIÓN-->
-            <a type="submit" class="btnSubmit" (click)="submit()">Check in</a>
-            <input type="hidden" name="roles" value="USER" />
-            <input type="hidden" name="_csrf" value="{{token}}" />
-          </div>
-        </form>
+          </div><!-- tab-content -->
+        </div> <!-- /form -->
       </div>
     </div>
   </div>
-</div>
+</section>
+<!-- Featured Section End -->

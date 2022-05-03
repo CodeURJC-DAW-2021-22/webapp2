@@ -28,7 +28,7 @@
                 <i class="fa fa-user"></i> <!-- <a href="/perfil"> Hola, {{loginService.currentUser().username}} </a> -->
               </div>
               <div class="header__top__right__auth">
-                <a href="/logout"><i class="fa fa-user"></i> Cerrar sesión</a>
+                <a href="/home" (click)="loginService.logOut()" ><i class="fa fa-user"></i> Cerrar sesión</a>
               </div>
             </div>
           </div>

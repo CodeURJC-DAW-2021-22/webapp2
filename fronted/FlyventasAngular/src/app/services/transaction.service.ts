@@ -24,6 +24,18 @@ export class TransactionService {
     ))
   }
 
+  getTransactionsUserBuyer(id: number | string): Observable<Transaction[]>{
+    return this.httpClient.get(BASE_URL +"userBuyer"+ id).pipe(map(
+      response => response as Transaction[]
+    ))
+  }
+
+  getTransactionsUserSeller(id: number | string): Observable<Transaction[]>{
+    return this.httpClient.get(BASE_URL +"userSeller"+ id).pipe(map(
+      response => response as Transaction[]
+    ))
+  }
+
   addTransaction(transaction: Transaction) {
     return this.httpClient.post(BASE_URL, transaction).pipe(map(
       response => response as Transaction

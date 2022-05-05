@@ -18,6 +18,12 @@ export class CounterofferService {
     ))
   }
 
+  getCounterofferUserAll(id: number | string): Observable<Counteroffer[]>{
+    return this.httpClient.get(BASE_URL +"user"+ id).pipe(map(
+      response => response as Counteroffer[]
+    ))
+  }
+
   getCounteroffers(): Observable<Counteroffer[]>{
     return this.httpClient.get(BASE_URL).pipe(map(
       response => response as Counteroffer[]

@@ -6,6 +6,9 @@ import { ProductService } from "../../services/product.service";
 import { Transaction } from "../../models/transaction.model";
 import {User} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import {TransactionService} from "../../services/transaction.service";
+import {CounterofferService} from "../../services/counteoffer.service";
+import {Counteroffer} from "../../models/counteroffer.model";
 
 
 @Component({
@@ -17,14 +20,17 @@ export class ProfileComponent {
 
   product: Product | undefined;
   products!: Product[];
-  transactions: Transaction[] = [];
+  transactionsBuyer!: Transaction[];
+  transactionsSeller!: Transaction[];
+  counteoffer!: Counteroffer[];
   userprofile : User;
   idUrl!:number;
   check_id!: boolean;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
-              public productsService: ProductService, public loginService: LoginService, public userService: UserService) {
+              public productsService: ProductService, public loginService: LoginService, public userService: UserService,
+              public tranServices: TransactionService, public counServices: CounterofferService) {
 
     this.idUrl = activatedRoute.snapshot.params['id'];
 
@@ -49,6 +55,24 @@ export class ProfileComponent {
         next: show => this.products= show,
         error: error => console.log(error)
       });
+
+      this.tranServices.getTransactionsUserBuyer(this.idUrl).subscribe({
+        next: show => this.transactionsBuyer= show,
+        error: error => console.log(error)
+      });
+
+      this.tranServices.getTransactionsUserSeller(this.idUrl).subscribe({
+        next: show => this.transactionsSeller= show,
+        error: error => console.log(error)
+      });
+
+      this.counServices.getCounterofferUserAll(this.idUrl).subscribe({
+        next: show => this.counteoffer= show,
+        error: error => console.log(error)
+      });
+
+
+
 
 
 

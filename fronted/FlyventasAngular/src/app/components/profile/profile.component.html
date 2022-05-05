@@ -35,7 +35,7 @@
           <!-- Mis datos -->
           <div class="contenedor-preguntas activo" data-categoria="mis-datos">
             <div class="contenedor-pregunta">
-              <img class="avatar" src="/./img/profile/user-solid.svg"></img>
+<!--              <img class="avatar" src="/./img/profile/user-solid.svg"></img>-->
               <p class="pregunta">Nombre de Usuario: {{userprofile.name}}</p>
               <p class="pregunta">Correo electrónico: {{userprofile.email}}</p>
               <p class="pregunta">Contraseña: ********</p>
@@ -94,23 +94,25 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th> <th>Oferta</th>
                 <th>Comprador</th>
               </tr>
-              {{#Counteroffers}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                <td>{{price}}</td>
-                {{/product}}
-                <td>{{newPrice}}</td>
-                {{#transmitter}}
-                <td>{{name}}</td>
-                {{/transmitter}}
+
+              <tr *ngFor="let c of counteoffer">
+
+                <td>{{c.date}}</td>
+
+                <td>{{c.product.title}}</td>
+                <td>{{c.product.price}}</td>
+
+                <td>{{c.newPrice}}</td>
+
+                <td>{{c.transmitter.name}}</td>
+
                 <td>
-                  <form action="/aceptarContraoferta/{{id}}" method="post">
+                 <form  method="post"> <!-- action="/aceptarContraoferta/{{id}}"-->
                     <input type="submit" value="Aceptar"/>
                   </form>
                 </td>
               </tr>
-              {{/Counteroffers}}
+
             </table>
           </div>
         </div>
@@ -124,18 +126,19 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
-              {{#TransactionsAsBuyer}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                {{/product}}
-                <td>{{price}}</td>
+
+              <tr *ngFor="let tBuyer of transactionsBuyer">
+                <td>{{tBuyer.date}}</td>
+
+                <td>{{tBuyer.product.title}}</td>
+
+                <td>{{tBuyer.price}}</td>
                 <td>Tú</td>
-                {{#seller}}
-                <td>{{name}}</td>
-                {{/seller}}
+
+                <td>{{tBuyer.seller.name}}</td>
+
               </tr>
-              {{/TransactionsAsBuyer}}
+
             </table>
 
           </div>
@@ -150,18 +153,19 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
-              {{#TransactionsAsSeller}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                {{/product}}
-                <td>{{price}}</td>
-                {{#buyer}}
-                <td>{{name}}</td>
-                {{/buyer}}
+
+              <tr *ngFor="let tSeller of transactionsSeller">
+                <td>{{tSeller.date}}</td>
+
+                <td>{{tSeller.product.title}}</td>
+
+                <td>{{tSeller.price}}</td>
+
+                <td>{{tSeller.buyer.name}}</td>
+
                 <td>Tú</td>
               </tr>
-              {{/TransactionsAsSeller}}
+
             </table>
 
           </div>

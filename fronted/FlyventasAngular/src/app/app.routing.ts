@@ -22,6 +22,7 @@ const appRoutes = [
   { path: 'product/:id', component: ProductComponent },
   { path: 'product/:id/transaction', component: TransactionComponent },
   { path: 'product/:id/counteroffer', component: CounterofferComponent }
+ 
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);

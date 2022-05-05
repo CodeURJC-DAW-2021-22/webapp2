@@ -23,7 +23,7 @@ export class UserService {
 
   getUserLogged() {
     return this.http.get(BASE_URL + "me").pipe(map(
-      response => response as User,  console.log(this.http.get(BASE_URL + "me")),
+      response => response as User
 
     ))
   }

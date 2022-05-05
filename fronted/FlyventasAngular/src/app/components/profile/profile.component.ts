@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject, Renderer2} from '@angular/core';
 import {Product} from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
@@ -9,6 +9,7 @@ import {UserService} from "../../services/user.service";
 import {TransactionService} from "../../services/transaction.service";
 import {CounterofferService} from "../../services/counteoffer.service";
 import {Counteroffer} from "../../models/counteroffer.model";
+
 
 
 @Component({
@@ -31,8 +32,9 @@ export class ProfileComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               public productsService: ProductService, public loginService: LoginService, public userService: UserService,
               public tranServices: TransactionService, public counServices: CounterofferService) {
+
     this.userprofile = {
-      id: 0,
+
       products: [],
       roles: [],
       name: "hola",
@@ -44,51 +46,38 @@ export class ProfileComponent {
       categoria2: "",
       categoria3: "",
     }
-    this.product ={
-      category: "",
-      description: "",
-      image: false,
-      isSold: false,
-      price: 0,
-      title: ""
-    }
+
     this.userService.getUserLogged().subscribe({
-      next: show => this.userprofile = show,
+      next: response => {
+        this.userprofile = response, this.idUser = response.id,
+
+          this.productsService.getProductUser(this.idUser).subscribe({
+          next: show => this.products= show,
+          error: error => console.log(error)
+
+        }),
+          this.tranServices.getTransactionsUserBuyer(this.idUser).subscribe({
+          next: show => this.transactionsBuyer= show,
+          error: error => console.log(error)
+        });
+
+          this.tranServices.getTransactionsUserSeller(this.idUser).subscribe({
+            next: show => this.transactionsSeller= show,
+            error: error => console.log(error)
+        });
+
+          this.counServices.getCounterofferUserAll(this.idUser).subscribe({
+            next: show => this.counteoffer= show,
+            error: error => console.log(error)
+        });
+
+      },
       error: error => this.router.navigate(['/login'])
     })
 
-    // this.idUser = this.userprofile.id;
-  }
-
-  ngOnInit() {
-
-      this.productsService.getProductUser(this.userprofile.id).subscribe({
-        next: show => this.products= show,
-        error: error => console.log(error)
-      });
-
-      this.tranServices.getTransactionsUserBuyer(this.idUser).subscribe({
-        next: show => this.transactionsBuyer= show,
-        error: error => console.log(error)
-      });
-
-      this.tranServices.getTransactionsUserSeller(this.idUser).subscribe({
-        next: show => this.transactionsSeller= show,
-        error: error => console.log(error)
-      });
-
-      this.counServices.getCounterofferUserAll(this.idUser).subscribe({
-        next: show => this.counteoffer= show,
-        error: error => console.log(error)
-      });
-
-
-
-
-
-
 
   }
+
 
 
 

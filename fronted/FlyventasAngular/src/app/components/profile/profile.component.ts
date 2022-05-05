@@ -32,13 +32,13 @@ export class ProfileComponent {
               public productsService: ProductService, public loginService: LoginService, public userService: UserService,
               public tranServices: TransactionService, public counServices: CounterofferService) {
 
-    this.idUrl = activatedRoute.snapshot.params['id'];
+
 
 
   }
 
   ngOnInit(){
-
+      this.idUrl = this.activatedRoute.snapshot.params['id'];
       this.userprofile = this.loginService.currentUser()
       if(this.userprofile.id==this.idUrl){
         this.check_id = true

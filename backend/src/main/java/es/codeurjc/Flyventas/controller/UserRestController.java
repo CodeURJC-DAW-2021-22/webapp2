@@ -17,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 @RequestMapping("/api/users")
@@ -68,6 +70,18 @@ public class UserRestController {
         userService.save(user);
 
         return user;
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<User> me(HttpServletRequest request) {
+
+        Principal principal = request.getUserPrincipal();
+
+        if(principal != null) {
+            return ResponseEntity.ok(userRepository.findUserByEmail(principal.getName()).orElseThrow());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")

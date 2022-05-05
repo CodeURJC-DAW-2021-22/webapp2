@@ -14,7 +14,7 @@ import {Counteroffer} from "../../models/counteroffer.model";
 @Component({
   selector: 'app-profile',
   templateUrl: '../profile/profile.component.html',
-  styleUrls:["../../../assets/css/profile.css", "../../../assets/css/table.css"]
+  styleUrls:["../../../assets/css/profile.css", "../../../assets/css/table.css", "../../../assets/css/style.css", "../../../assets/css/profile.css"]
 })
 export class ProfileComponent {
 
@@ -24,49 +24,60 @@ export class ProfileComponent {
   transactionsSeller!: Transaction[];
   counteoffer!: Counteroffer[];
   userprofile : User;
-  idUrl!:number;
+  idUser!:number;
   check_id!: boolean;
 
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               public productsService: ProductService, public loginService: LoginService, public userService: UserService,
               public tranServices: TransactionService, public counServices: CounterofferService) {
+    this.userprofile = {
+      id: 0,
+      products: [],
+      roles: [],
+      name: "hola",
+      surname: "string",
+      email: "string",
+      address: "string",
+      encodedPassword:"",
+      categoria1: "",
+      categoria2: "",
+      categoria3: "",
+    }
+    this.product ={
+      category: "",
+      description: "",
+      image: false,
+      isSold: false,
+      price: 0,
+      title: ""
+    }
+    this.userService.getUserLogged().subscribe({
+      next: show => this.userprofile = show,
+      error: error => this.router.navigate(['/login'])
+    })
 
-
-
-
+    // this.idUser = this.userprofile.id;
   }
 
-  ngOnInit(){
-      this.idUrl = this.activatedRoute.snapshot.params['id'];
-      this.userprofile = this.loginService.currentUser()
-      if(this.userprofile.id==this.idUrl){
-        this.check_id = true
-      }else{
-        this.check_id = false
-      }
+  ngOnInit() {
 
-      this.userService.getUser(this.idUrl).subscribe({
-        next: show => this.userprofile = show,
-        error: error => console.log(error)
-      });
-
-      this.productsService.getProductUser(this.idUrl).subscribe({
+      this.productsService.getProductUser(this.userprofile.id).subscribe({
         next: show => this.products= show,
         error: error => console.log(error)
       });
 
-      this.tranServices.getTransactionsUserBuyer(this.idUrl).subscribe({
+      this.tranServices.getTransactionsUserBuyer(this.idUser).subscribe({
         next: show => this.transactionsBuyer= show,
         error: error => console.log(error)
       });
 
-      this.tranServices.getTransactionsUserSeller(this.idUrl).subscribe({
+      this.tranServices.getTransactionsUserSeller(this.idUser).subscribe({
         next: show => this.transactionsSeller= show,
         error: error => console.log(error)
       });
 
-      this.counServices.getCounterofferUserAll(this.idUrl).subscribe({
+      this.counServices.getCounterofferUserAll(this.idUser).subscribe({
         next: show => this.counteoffer= show,
         error: error => console.log(error)
       });

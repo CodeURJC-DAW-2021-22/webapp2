@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   getProductUser(id: number | string): Observable<Product[]>{
-    return this.httpClient.get(BASE_URL +"user"+ id).pipe(map(
+    return this.httpClient.get(BASE_URL +"user/"+ id).pipe(map(
       response => response as Product[]
     ))
   }

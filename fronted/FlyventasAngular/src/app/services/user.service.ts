@@ -21,6 +21,13 @@ export class UserService {
     ))
   }
 
+  getUserLogged() {
+    return this.http.get(BASE_URL + "me").pipe(map(
+      response => response as User,  console.log(this.http.get(BASE_URL + "me")),
+
+    ))
+  }
+
 
   registerUser(User: User) {
     return this.http.post(BASE_URL, User, {withCredentials: true}).subscribe(

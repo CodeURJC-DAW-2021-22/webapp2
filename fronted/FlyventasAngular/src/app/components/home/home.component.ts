@@ -10,6 +10,11 @@ export class HomeComponent {
 
   category ='Anybody'
 
+  getUrl()
+  {
+    return "url('../../assets/img/hero/bannerFlyventas.jpg')";
+  }
+
 
 
 }

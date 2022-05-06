@@ -86,6 +86,31 @@ public class TransactionRestController {
             return ResponseEntity.notFound().build();
         }
     }
+	
+    @GetMapping("/userBuyer/{id}")
+    public ResponseEntity<Object> getTransactionUserBuyer(@PathVariable long id){
+        Optional<User> Users = userServices.findUserById(id);
+        List<Transaction> transactionsBuyer = transactionServices.findByBuyer(Users.get(),PageRequest.of(0, 5));
+        if(transactionsBuyer != null){
+            return ResponseEntity.ok(transactionsBuyer);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @GetMapping("/userSeller/{id}")
+    public ResponseEntity<List<Transaction>> getTransactionUserSeller(@PathVariable long id){
+        Optional<User> Users = userServices.findUserById(id);
+        List<Transaction> transactionsSeller = transactionServices.findBySeller(Users.get(),PageRequest.of(0, 5));
+        if(transactionsSeller != null){
+            return ResponseEntity.ok(transactionsSeller);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+	
 
 
     }

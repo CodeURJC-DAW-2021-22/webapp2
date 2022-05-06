@@ -27,14 +27,18 @@ export class ProfileComponent {
   userprofile : User;
   idUser!:number;
   check_id!: boolean;
+  idP: number;
+  category: string;
+  description: string;
+  price: number;
+  title: string;
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+    constructor(private router: Router, private activatedRoute: ActivatedRoute,
               public productsService: ProductService, public loginService: LoginService, public userService: UserService,
               public tranServices: TransactionService, public counServices: CounterofferService) {
 
     this.userprofile = {
-
       products: [],
       roles: [],
       name: "hola",
@@ -47,6 +51,13 @@ export class ProfileComponent {
       categoria3: "",
     }
 
+    this.product = {
+      category: "", description: "", image: false, isSold: false, price: 0, title: ""
+
+    }
+
+
+
     this.userService.getUserLogged().subscribe({
       next: response => {
         this.userprofile = response, this.idUser = response.id,
@@ -57,7 +68,7 @@ export class ProfileComponent {
 
         }),
           this.tranServices.getTransactionsUserBuyer(this.idUser).subscribe({
-          next: show => this.transactionsBuyer= show,
+          next: show => {this.transactionsBuyer= show, console.log(show)},
           error: error => console.log(error)
         });
 
@@ -78,9 +89,20 @@ export class ProfileComponent {
 
   }
 
+  updateProducts(id:number){
+    let prod = {
+      id: id, category: this.category, description: this.description, price: this.price, title:this.title
+    };
 
+    this.productsService.updateProduct(prod).subscribe({
+      next: product => {},
+      error: error => console.error(error,prod),
+    })
+  }
 
+  acceptOffer(){
 
+  }
 
 
 

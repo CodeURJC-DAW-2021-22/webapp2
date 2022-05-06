@@ -15,9 +15,9 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  getUser(id: number | string) {
-    return this.http.get(BASE_URL + id).pipe(map(
-      response => response as User
+  getUsers() {
+    return this.http.get(BASE_URL).pipe(map(
+      response => response as User[]
     ))
   }
 
@@ -35,11 +35,10 @@ export class UserService {
     );
   }
 
-  deleteUser(id: number | string) {
-    return this.http.put(BASE_URL + id, {withCredentials: true}).pipe(map(
-      response => response,
-      error => errorIgnore(error, 400, "deleteUser")
-    ))
+  deleteUser(id: number) {
+    return this.http.delete(BASE_URL + id).pipe(
+      map(response => response as User)
+  )
   }
 
   updateUser(user: User) {

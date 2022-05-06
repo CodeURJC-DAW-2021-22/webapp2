@@ -20,6 +20,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {ProductComponent} from "./components/product/product.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {SearchAddComponent} from "./components/search-add/search-add.component";
+import {AdminComponent} from "./components/admin/admin.component";
 
 
 @NgModule({
@@ -37,8 +38,8 @@ import {SearchAddComponent} from "./components/search-add/search-add.component";
     UploadProductComponent,
     ProfileComponent,
     ProductComponent,
-    SearchAddComponent
-
+    SearchAddComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

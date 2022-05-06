@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Product } from '../models/product.model';
 import {User} from "../models/user.model";
 
-const BASE_URL = 'api/products/';
+const BASE_URL = 'https://localhost:8443/api/products/';
 
 @Injectable({ providedIn: 'root' })
 
@@ -44,14 +44,14 @@ export class ProductService {
     ))
   }
 
-  deleteProduct(product: Product) {
-    return this.httpClient.delete(BASE_URL + product.id).pipe(map(
+  deleteProduct(id:number) {
+    return this.httpClient.delete(BASE_URL + id).pipe(map(
       response => response
     ))
   }
 
-  updateProduct(product: Product) {
-    return this.httpClient.put(BASE_URL + product.id, product).pipe(map(
+  updateProduct(prod:{id:number, category?: string, description?: string, price?: number, title?: string}) {
+    return this.httpClient.put(BASE_URL + prod.id, prod).pipe(map(
       response => response
       ))
   }

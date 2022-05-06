@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <div class="contenedor-preguntas" data-categoria="vendedor">
+          <div class="contenedor-preguntas activo" data-categoria="vendedor">
             <div class="contenedor-pregunta">
               <img class="avatar" src="/img/profile/user-solid.svg">
               <p class="pregunta">Nombre: {{product.user.name}}</p>
@@ -44,7 +44,7 @@
             </div>
           </div>
 
-          <div class="contenedor-preguntas" data-categoria="Compra o Contraoferta">
+          <div class="contenedor-preguntas activo" data-categoria="Compra o Contraoferta">
             <div class="contenedor-pregunta">
               <div class="col-lg-6 col-md-6 botonesComprar">
                 <button class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" [routerLink]="['/product/', product.id, '/transaction']">Comprar</button>

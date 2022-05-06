@@ -62,20 +62,20 @@
                   <th>Opciones</th>
                 </tr>
 
-                <form *ngFor="let p of products" action="/editado/{{p.id}}" method="post">
-                  <tr>
-                    <td><input type="text" name="title" value="{{p.title}}" size="10"></td>
-                    <td><input type="text" name="category" value="{{p.category}}" size="5"></td>
-                    <td><input type="number" name="price" value="{{p.price}}" size="5"></td>
-                    <td><input type="text" name="description" value="{{p.description}}" size="5"></td>
+
+                  <tr *ngFor="let p of this.products">
+                    <td><input type="text" name="title" [(ngModel)]="this.title" size="10">{{p.title}}</td>
+                    <td><input type="text" name="category" [(ngModel)]="this.category" size="5">{{p.category}}</td>
+                    <td><input type="number" name="price" [(ngModel)]="this.price" size="5">{{p.price}}</td>
+                    <td><input type="text" name="description" [(ngModel)]="this.description" size="5">{{p.description}}</td>
                     <td>imagen</td>
                     <td>{{p.isSold}}</td>
                     <td>{{p.id}}</td>
                     <td>
-                      <input type="submit" value="Editar"/>
+                      <input type="submit" value="Editar" (click)="updateProducts(p.id)"/>
                     </td>
                   </tr>
-                </form>
+
 
 
               </table>
@@ -175,7 +175,7 @@
 
   </section>
   <div class="containerBoton"> <!-- button options Section begin -->
-    <a href="/subirProducto" class="btn btn-primary btn-lg">Publica tu anuncio</a>
+    <a href="/uploadProduct" class="btn btn-primary btn-lg">Publica tu anuncio</a>
   </div>
 </section>
 <!-- Hero Section End -->

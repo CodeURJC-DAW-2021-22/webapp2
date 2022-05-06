@@ -11,6 +11,7 @@ import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.TransactionServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -90,7 +91,7 @@ public class TransactionRestController {
     @GetMapping("/userBuyer/{id}")
     public ResponseEntity<Object> getTransactionUserBuyer(@PathVariable long id){
         Optional<User> Users = userServices.findUserById(id);
-        List<Transaction> transactionsBuyer = transactionServices.findByBuyer(Users.get(),PageRequest.of(0, 5));
+        List<Transaction> transactionsBuyer = transactionServices.findByBuyer(Users.get(), PageRequest.of(0, 5));
         if(transactionsBuyer != null){
             return ResponseEntity.ok(transactionsBuyer);
         }else{

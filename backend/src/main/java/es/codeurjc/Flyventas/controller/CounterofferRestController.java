@@ -10,6 +10,7 @@ import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

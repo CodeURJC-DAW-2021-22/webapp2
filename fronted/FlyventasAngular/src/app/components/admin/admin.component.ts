@@ -53,9 +53,10 @@ export class AdminComponent implements OnInit{
     )
   }
   deleteproduct(id:number){
-    this.productsService.deleteProduct(id).subscribe(
-      error=> console.log(error)
-    )
+    this.productsService.deleteProduct(id).subscribe({
+      next: next => this.router.navigate(['/admin']),
+      error: error => console.log(error)
+    })
   }
 
 

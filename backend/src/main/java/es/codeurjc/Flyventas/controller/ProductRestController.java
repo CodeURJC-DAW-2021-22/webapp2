@@ -166,6 +166,18 @@ public class ProductRestController {
 
 
     }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Object> getProductUserById(@PathVariable long id) {
+
+        Optional<User> Profile = userServices.findUserById(id);
+        List<Product> product = productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 15));
+
+        if(product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 

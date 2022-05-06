@@ -101,4 +101,15 @@ public class CounterofferRestController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Object> getCounterofferById(@PathVariable long id) {
+
+        Optional<User> Profile = userServices.findUserById(id);
+        List<Counteroffer> counterOffer = counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5));
+        if (!counterOffer.isEmpty()) {
+            return ResponseEntity.ok(counterOffer);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }	
 }

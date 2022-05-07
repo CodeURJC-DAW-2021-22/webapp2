@@ -10,6 +10,7 @@ import es.codeurjc.Flyventas.services.CounterofferServices;
 import es.codeurjc.Flyventas.services.ProductServices;
 import es.codeurjc.Flyventas.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -101,4 +102,15 @@ public class CounterofferRestController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Object> getCounterofferById(@PathVariable long id) {
+
+        Optional<User> Profile = userServices.findUserById(id);
+        List<Counteroffer> counterOffer = counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5));
+        if (!counterOffer.isEmpty()) {
+            return ResponseEntity.ok(counterOffer);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }	
 }

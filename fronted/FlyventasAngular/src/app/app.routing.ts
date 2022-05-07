@@ -9,19 +9,21 @@ import { UploadProductComponent } from "./components/upload-product/upload-produ
 import {CounterofferComponent} from "./components/transaction&counteroffer/counteroffer.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {ProductComponent} from "./components/product/product.component";
-
+import {AdminComponent} from "./components/admin/admin.component";
 
 const appRoutes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'search/:txt', component: SearchComponent },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'profile/:id/uploadProduct', component: UploadProductComponent },
+  { path: 'search/:txt/:page', component: SearchComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'uploadProduct', component: UploadProductComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'product/:id/transaction', component: TransactionComponent },
   { path: 'product/:id/counteroffer', component: CounterofferComponent }
+
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);

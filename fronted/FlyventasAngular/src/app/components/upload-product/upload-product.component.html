@@ -1,10 +1,11 @@
 
 <h1>Subir anuncio</h1>
-<form action="/subirProducto" method="POST" enctype="multipart/form-data">
-<input type="text" placeholder="Titulo del anuncio">
+<form enctype="multipart/form-data">
+  <label for="productTitle" class="form-label"></label>
+  <input #productTitle name="productTitle" class="form-control" id="productTitle" type="text" placeholder="Titulo del anuncio" required>
 
 <!--desplegable categoria-->
-
+<!--
 <p>Seleccione una categoria</p>
 <input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Boxeo"> Boxeo
 <input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Moda y Accesorios"> Moda y accesorios
@@ -17,20 +18,23 @@
 <input type="radio" name="SelectedCategory" [(ngModel)]="SelectedCategory" value="Otros"> Otros
 <br>
 Selected category is <input type="text" name="SelectedCategory "[(ngModel)]="SelectedCategory" />
+-->
 <!--desplegable categoria-->
 <br>
 <br>
-<textarea type="text" placeholder="Describe el anuncio"></textarea>
+  <label for="productDescription" class="form-label"></label>
+  <textarea #productDescription type="text" name="productDescription" id="productDescription" placeholder="Describe el anuncio" required></textarea>
 <br>
 <br>
-<input type="number" placeholder="Precio">
+  <label for="productPrice" class="form-label"></label>
+  <input #productPrice type="number" name="productPrice" id="productPrice" placeholder="Precio" required>
 <br>
 <br>
 <p>inserte imagen</p>
-<input type="file" placeholder="Añadir archivo">
+<input #file type="file" name="imageField" accept=".jpg, .jpeg, .png" placeholder="Añadir archivo">
 <br>
 <br>
-<button (click)="save()">Subir anuncio</button>
+<button (click)="newProduct(productTitle.value, productDescription.value, productPrice.value)">Subir anuncio</button>
 <button (click)="cancel()">Cancelar</button>
 </form>
 

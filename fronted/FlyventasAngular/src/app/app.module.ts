@@ -19,6 +19,8 @@ import {FormsModule} from "@angular/forms";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {ProductComponent} from "./components/product/product.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {SearchAddComponent} from "./components/search-add/search-add.component";
+import {AdminComponent} from "./components/admin/admin.component";
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import {RegisterComponent} from "./components/register/register.component";
     SearchComponent,
     UploadProductComponent,
     ProfileComponent,
-    ProductComponent
+    ProductComponent,
+    SearchAddComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

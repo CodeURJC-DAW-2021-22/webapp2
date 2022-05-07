@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
 import {Product} from "../models/product.model";
 
-const BASE_URL = '/api/transaction/';
+const BASE_URL = 'https://localhost:8443/api/transactions/';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
@@ -20,6 +20,18 @@ export class TransactionService {
 
   getTransactions(): Observable<Transaction[]>{
     return this.httpClient.get(BASE_URL).pipe(map(
+      response => response as Transaction[]
+    ))
+  }
+
+  getTransactionsUserBuyer(id: number | string): Observable<Transaction[]>{
+    return this.httpClient.get(BASE_URL +"userBuyer/"+ id).pipe(map(
+      response => response as Transaction[]
+    ))
+  }
+
+  getTransactionsUserSeller(id: number | string): Observable<Transaction[]>{
+    return this.httpClient.get(BASE_URL +"userSeller/"+ id).pipe(map(
       response => response as Transaction[]
     ))
   }

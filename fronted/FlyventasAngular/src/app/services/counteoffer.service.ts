@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import {Counteroffer} from "../models/counteroffer.model";
 import {Product} from "../models/product.model";
 
-const BASE_URL = '/api/transaction/';
+const BASE_URL = 'https://localhost:8443/api/counteroffers/';
 
 @Injectable({ providedIn: 'root' })
 export class CounterofferService {
@@ -15,6 +15,12 @@ export class CounterofferService {
   getCounteroffer(id: number | string): Observable<Counteroffer>{
     return this.httpClient.get(BASE_URL + id).pipe(map(
       response => response as Counteroffer
+    ))
+  }
+
+  getCounterofferUserAll(id: number | string): Observable<Counteroffer[]>{
+    return this.httpClient.get(BASE_URL +"user/"+ id).pipe(map(
+      response => response as Counteroffer[]
     ))
   }
 

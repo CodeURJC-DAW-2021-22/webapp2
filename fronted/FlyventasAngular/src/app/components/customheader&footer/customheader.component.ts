@@ -3,11 +3,13 @@ import { LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-customheader',
-  templateUrl: './customheader.component.html'
+  templateUrl: './customheader.component.html',
+  styleUrls: ['../../../assets/css/style.css']
 })
 export class CustomheaderComponent {
 
-  /*constructor(public loginService: LoginService) {
-
-  }*/
+  constructor(public loginService: LoginService) {
+    console.log(loginService.isLogged())
+    console.log(loginService.currentUser())
+  }
 }

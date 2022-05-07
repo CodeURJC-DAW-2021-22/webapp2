@@ -2,23 +2,16 @@ import { Component } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../../../assets/css/style.component.css', '../../../assets/css/styleLogin.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
 
   constructor(public loginService: LoginService) { }
 
-  logIn(event: any, user: string, pass: string) {
+  logIn(event: any, username: string, password: string) {
 
     event.preventDefault();
 
-    this.loginService.logIn(user, pass);
+    this.loginService.logIn(username, password);
   }
-
-  logOut() {
-    this.loginService.logOut();
-  }
-
 }

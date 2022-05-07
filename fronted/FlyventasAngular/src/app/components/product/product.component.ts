@@ -3,11 +3,11 @@ import { Product } from "../../models/product.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import { ProductService } from "../../services/product.service";
-import { Transaction } from "../../models/transaction.model";
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html'
+  templateUrl: './product.component.html',
+  styleUrls:["../../../assets/css/product.css"]
 })
 export class ProductComponent {
 
@@ -23,9 +23,12 @@ export class ProductComponent {
     });
   }
 
-
   cancel() {
-
     window.history.back();
   }
+
+  productImage(id:number){
+    return 'https://localhost:8443/api/products/'+id+'/image';
+  }
+
 }

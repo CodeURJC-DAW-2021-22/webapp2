@@ -10,30 +10,27 @@
             </ul>
           </div>
         </div>
-        <!--<div *ngIf="loginService.isLogged()">-->
+        <div *ngIf="loginService.isLogged()">
           <div class="col-lg-6 col-md-6">
             <div class="header__top__right">
-              <!--<div *ngIf="loginService.isAdmin()">-->
+              <div *ngIf="loginService.isAdmin()">
                 <div class="header__top__right__social">
                   <a href="/perfilAdmin"><i class="fa fa-user"></i>MODO DIOS</a>
                 </div>
-              <!--</div>-->
+              </div>
               <!--<div *ngIf="!loginService.isAdmin()">-->
-                <div class="header__top__right__social">
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                </div>
-              <!--<div>-->
-              <div class="header__top__right__language">
-                <i class="fa fa-user"></i> <!-- <a href="/perfil"> Hola, {{loginService.currentUser().username}} </a> -->
+              <div>
+              <div class="header__top__right__language"  >
+                <i class="fa fa-user"></i> <a href="/profile"> Hola, {{loginService.currentUser().name}} </a>
               </div>
               <div class="header__top__right__auth">
-                <a href="/logout"><i class="fa fa-user"></i> Cerrar sesión</a>
+                <a href="/home" (click)="loginService.logOut()" ><i class="fa fa-user"></i> Cerrar sesión</a>
               </div>
             </div>
           </div>
+          </div>
         <!--</div> -->
-        <!--<div *ngIf="!loginService.isLogged()">-->
+        <div *ngElse="loginService.isLogged()">
           <div class="col-lg-6 col-md-6">
             <div class="header__top__right">
               <div class="header__top__right__social">
@@ -48,7 +45,9 @@
               </div>
             </div>
           </div>
-        <!--</div> -->
+        </div>
+
+        </div>
       </div>
     </div>
   </div>

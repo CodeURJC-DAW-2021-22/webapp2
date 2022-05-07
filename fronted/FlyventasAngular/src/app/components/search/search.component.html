@@ -5,6 +5,7 @@
   <title>FlyVentas</title>
 </head>
 <body>
+<app-search-add></app-search-add>
 <section class="product spad">
   <div class="container">
     <div class="row">
@@ -27,11 +28,11 @@
                    </select>
                </div> -->
             </div>
-            <div class="col-lg-4 col-md-4">
+            <!--<div class="col-lg-4 col-md-4">
               <div class="filter__found">
                 <h6><span></span> Encontrados</h6>
               </div>
-            </div>
+            </div>-->
             <div class="col-lg-4 col-md-3">
               <div class="filter__option">
               </div>
@@ -40,24 +41,22 @@
         </div>
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let p of products">
             <div class="product__item">
               <div class="product__item__pic set-bg">
-                <!--<img src="/Producto/{{id}}/image" />-->
+                <img [src]="productImage(p.id)"/>
               </div>
               <div class="product__item__text">
-                <h6><a>título</a></h6>
-                <h5>precio €</h5>
+                <h6><a [routerLink]="['/product',p.id]" >{{p.title}}</a></h6>
+                <h5>{{p.price}} €</h5>
               </div>
             </div>
           </div>
 
-          <!--    <div class="product__pagination">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-              </div>-->
+          <div class="product__pagination">
+                  <button (click)="nextPage()" [routerLink]="['/search',txt,pag]">next page</button>
+                  <button (click)="previusPage()" [routerLink]="['/search',txt,pag]">previous page</button>
+          </div>
         </div>
       </div>
     </div>

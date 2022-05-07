@@ -1,7 +1,8 @@
 <!-- Hero Section Begin -->
+<app-search-add></app-search-add>
 <section class="hero">
-  <section class="featured spad">
-    <div class="container">
+  <section class="featured spad" >
+   <div class="container" > <!-- *ngIf="this.check_id==true"-->
       <div class="col-lg-12">
         <div class="section-title">
           <h2>Nombre Usuario</h2>
@@ -34,17 +35,17 @@
           <!-- Mis datos -->
           <div class="contenedor-preguntas activo" data-categoria="mis-datos">
             <div class="contenedor-pregunta">
-              <img class="avatar" src="/./img/profile/user-solid.svg"></img>
-              <p class="pregunta">Nombre de Usuario: {{name}}</p>
-              <p class="pregunta">Correo electrónico: {{email}}</p>
+<!--              <img class="avatar" src="/./img/profile/user-solid.svg"></img>-->
+              <p class="pregunta">Nombre de Usuario: {{userprofile.name}}</p>
+              <p class="pregunta">Correo electrónico: {{userprofile.email}}</p>
               <p class="pregunta">Contraseña: ********</p>
-              <p class="pregunta">Dirección: {{address}}</p>
+              <p class="pregunta">Dirección: {{userprofile.address}}</p>
               <!--<p class="respuesta">Podrás pagar con tu tarjeta de credito, también podras pagar con Paypal. Dentro de poco incorporaremos pagos con criptomonedas.</p> -->
             </div>
           </div>
 
           <!-- Mis anuncios -->
-          <div class="contenedor-preguntas" data-categoria="mis-anuncios">
+          <div class="contenedor-preguntas activo" data-categoria="mis-anuncios">
             <div class="contenedor-pregunta">
 
               <table style="margin: 0 auto;">
@@ -60,22 +61,22 @@
                   <th>Id Publica</th>
                   <th>Opciones</th>
                 </tr>
-                {{#Product}}
-                <form action="/editado/{{id}}" method="post">
-                  <tr>
-                    <td><input type="text" name="title" value="{{title}}" size="10"></td>
-                    <td><input type="text" name="category" value="{{category}}" size="5"></td>
-                    <td><input type="number" name="price" value="{{price}}" size="5"></td>
-                    <td><input type="text" name="description" value="{{description}}" size="5"></td>
+
+
+                  <tr *ngFor="let p of this.products">
+                    <td><input type="text" name="title" [(ngModel)]="this.title" size="10">{{p.title}}</td>
+                    <td><input type="text" name="category" [(ngModel)]="this.category" size="5">{{p.category}}</td>
+                    <td><input type="number" name="price" [(ngModel)]="this.price" size="5">{{p.price}}</td>
+                    <td><input type="text" name="description" [(ngModel)]="this.description" size="5">{{p.description}}</td>
                     <td>imagen</td>
-                    <td>{{isSold}}</td>
-                    <td>{{id}}</td>
+                    <td>{{p.isSold}}</td>
+                    <td>{{p.id}}</td>
                     <td>
-                      <input type="submit" value="Editar"/>
+                      <input type="submit" value="Editar" (click)="updateProducts(p.id)"/>
                     </td>
                   </tr>
-                </form>
-                {{/Product}}
+
+
 
               </table>
 
@@ -85,7 +86,7 @@
         </div>
 
         <!-- Contraofertas -->
-        <div class="contenedor-preguntas" data-categoria="contraofertas">
+        <div class="contenedor-preguntas activo" data-categoria="contraofertas">
           <div class="contenedor-pregunta" >
 
             <title>Tus Contraofertas</title>
@@ -93,29 +94,31 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th> <th>Oferta</th>
                 <th>Comprador</th>
               </tr>
-              {{#Counteroffers}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                <td>{{price}}</td>
-                {{/product}}
-                <td>{{newPrice}}</td>
-                {{#transmitter}}
-                <td>{{name}}</td>
-                {{/transmitter}}
+
+              <tr *ngFor="let c of counteoffer">
+
+                <td>{{c.date}}</td>
+
+                <td>{{c.product.title}}</td>
+                <td>{{c.product.price}}</td>
+
+                <td>{{c.newPrice}}</td>
+
+                <td>{{c.transmitter.name}}</td>
+
                 <td>
-                  <form action="/aceptarContraoferta/{{id}}" method="post">
+                 <form  method="post"> <!-- action="/aceptarContraoferta/{{i}"-->
                     <input type="submit" value="Aceptar"/>
                   </form>
                 </td>
               </tr>
-              {{/Counteroffers}}
+
             </table>
           </div>
         </div>
 
         <!-- Preguntas Cuenta -->
-        <div class="contenedor-preguntas" data-categoria="compras">
+        <div class="contenedor-preguntas activo" data-categoria="compras">
           <div class="contenedor-pregunta">
 
             <title>Tus Compras</title>
@@ -123,25 +126,26 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
-              {{#TransactionsAsBuyer}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                {{/product}}
-                <td>{{price}}</td>
+
+              <tr *ngFor="let tBuyer of transactionsBuyer">
+                <td>{{tBuyer.date}}</td>
+
+                <td>{{tBuyer.product.title}}</td>
+
+                <td>{{tBuyer.price}}</td>
                 <td>Tú</td>
-                {{#seller}}
-                <td>{{name}}</td>
-                {{/seller}}
+
+                <td>{{tBuyer.seller.name}}</td>
+
               </tr>
-              {{/TransactionsAsBuyer}}
+
             </table>
 
           </div>
         </div>
 
         <!-- Preguntas Cuenta -->
-        <div class="contenedor-preguntas" data-categoria="ventas">
+        <div class="contenedor-preguntas activo" data-categoria="ventas">
           <div class="contenedor-pregunta">
 
             <title>Tus Ventas</title>
@@ -149,28 +153,29 @@
               <tr> <th>Fecha</th> <th>Producto</th> <th>Precio</th>
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
-              {{#TransactionsAsSeller}}
-              <tr> <td>{{date}}</td>
-                {{#product}}
-                <td>{{title}}</td>
-                {{/product}}
-                <td>{{price}}</td>
-                {{#buyer}}
-                <td>{{name}}</td>
-                {{/buyer}}
+
+              <tr *ngFor="let tSeller of transactionsSeller">
+                <td>{{tSeller.date}}</td>
+
+                <td>{{tSeller.product.title}}</td>
+
+                <td>{{tSeller.price}}</td>
+
+                <td>{{tSeller.buyer.name}}</td>
+
                 <td>Tú</td>
               </tr>
-              {{/TransactionsAsSeller}}
+
             </table>
 
           </div>
         </div>
       </div>
     </div>
-    </div>
+
   </section>
   <div class="containerBoton"> <!-- button options Section begin -->
-    <a href="/subirProducto" class="btn btn-primary btn-lg">Publica tu anuncio</a>
+    <a href="/uploadProduct" class="btn btn-primary btn-lg">Publica tu anuncio</a>
   </div>
 </section>
 <!-- Hero Section End -->

@@ -1,7 +1,9 @@
 package es.codeurjc.Flyventas.controller;
 
 import es.codeurjc.Flyventas.model.Product;
+import es.codeurjc.Flyventas.model.User;
 import es.codeurjc.Flyventas.services.ProductServices;
+import es.codeurjc.Flyventas.services.UserServices;
 import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -29,6 +31,9 @@ public class ProductRestController {
 
     @Autowired
     private ProductServices productServices;
+
+    @Autowired
+    private UserServices userServices;
 
     // Productos por id
 
@@ -165,6 +170,18 @@ public class ProductRestController {
         }
 
 
+    }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<Object> getProductUserById(@PathVariable long id) {
+
+        Optional<User> Profile = userServices.findUserById(id);
+        List<Product> product = productServices.findAllProductsByPublisher(Profile.get(), PageRequest.of(0, 15));
+
+        if(product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 

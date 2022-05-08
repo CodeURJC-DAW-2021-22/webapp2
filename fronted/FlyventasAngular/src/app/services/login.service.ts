@@ -21,7 +21,6 @@ export class LoginService {
       next: response => {
         this.user = response as User;
         this.logged = true;
-        console.log(response)
       },
       error: error => {
         if (error.status != 404) {
@@ -38,7 +37,6 @@ export class LoginService {
     {
       this.reqIsLogged();
       this.router.navigate(['']);
-      console.log(response)
     },
     error: (error) => alert("Wrong credentials")
   });

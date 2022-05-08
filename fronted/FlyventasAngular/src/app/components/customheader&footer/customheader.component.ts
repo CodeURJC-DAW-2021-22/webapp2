@@ -9,7 +9,5 @@ import { LoginService} from "../../services/login.service";
 export class CustomheaderComponent {
 
   constructor(public loginService: LoginService) {
-    console.log(loginService.isLogged())
-    console.log(loginService.currentUser())
   }
 }

@@ -54,9 +54,9 @@
 
       <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
 
-        <form action="/transaction" method="POST">
+        <form action="/transactions" method="POST">
           <div class="col-lg-6 col-md-6 botonesComprar">
-            <button class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" (click)="newTransation()">Comprar</button>
+            <button type="submit" class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" (click)="newTransation()">Comprar</button>
           </div>
         </form>
         <div class="col-lg-6 col-md-6 botonesComprar">

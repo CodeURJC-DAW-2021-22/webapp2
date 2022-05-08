@@ -38,7 +38,7 @@ export class TransactionService {
 
   addTransaction(transaction: Transaction) {
     return this.httpClient.post(BASE_URL, transaction).pipe(map(
-      response => response as Transaction
+      response => response as Transaction,
     ))
   }
 

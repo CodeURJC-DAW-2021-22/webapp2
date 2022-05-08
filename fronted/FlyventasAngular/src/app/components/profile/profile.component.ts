@@ -95,7 +95,7 @@ export class ProfileComponent {
     };
 
     this.productsService.updateProduct(prod).subscribe({
-      next: product => {},
+      next: product => this.products,
       error: error => console.error(error,prod),
     })
   }

@@ -85,7 +85,7 @@ public class User{
         return this.address;
     }
 
-	@JsonIgnore
+	//@JsonIgnore
     public String getEncodedPassword() {
 		return this.encodedPassword;
 	}

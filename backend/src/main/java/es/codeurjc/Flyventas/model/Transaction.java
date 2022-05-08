@@ -1,4 +1,6 @@
 package es.codeurjc.Flyventas.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,12 +17,18 @@ public class Transaction {
     private float price;
 
     @OneToOne
+    @JsonProperty("product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
+    @JsonProperty("buyer_id")
     @ManyToOne
+    @JoinColumn(name = "buyer_id")
     private User buyer;
 
+    @JsonProperty("seller_id")
     @ManyToOne
+    @JoinColumn(name = "seller_id")
     private User seller;
 
 

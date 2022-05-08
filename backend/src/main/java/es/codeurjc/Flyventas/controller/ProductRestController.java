@@ -71,21 +71,16 @@ public class ProductRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody Product updatedProduct) throws SQLException {
+    public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody Product newProduct) throws SQLException {
 
-        if (productServices.exist(id)) {
+        Optional<Product> product = productServices.findById(id);
 
-            if (updatedProduct.getImage()) {
-                Product product = productServices.findById(id).orElseThrow();
-                if (product.getImage()) {
-                    updatedProduct.setImageFile(BlobProxy.generateProxy(product.getImageFile().getBinaryStream(),
-                            product.getImageFile().length()));
-                }
-            }
+        if (product.isPresent()) {
 
+            Product updatedProduct = productServices.updateProduct(product.get(), newProduct);
             productServices.save(updatedProduct);
 
-            return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+            return ResponseEntity.ok(updatedProduct);
         } else	{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -109,9 +104,6 @@ public class ProductRestController {
         }else{
             return ResponseEntity.notFound().build();
         }
-
-
-
 
     }
 

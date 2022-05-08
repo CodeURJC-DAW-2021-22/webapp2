@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,8 @@ public class UserRestController {
     @Autowired
     private UserLoginService userLoginService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getProfile(@PathVariable long id) {
@@ -67,6 +70,7 @@ public class UserRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public User createProfile(@RequestBody User user) {
 
+        user.setEncodedPassword(passwordEncoder.encode(user.getEncodedPassword()));
         userService.save(user);
 
         return user;

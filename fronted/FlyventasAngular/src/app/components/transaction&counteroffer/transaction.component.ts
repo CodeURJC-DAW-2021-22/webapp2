@@ -28,16 +28,25 @@ export class TransactionComponent {
   }
 
   newTransation() {
-    let todayDate: Date = new Date();
     const transaction: Transaction ={
-      date: todayDate,
+      date: this.getTodayDate(),
       price: this.product?.price,
       product: this.product,
       buyer: this.loginService.currentUser(),
       seller: this.product?.user
     }
-    this.transactionService.addTransaction(transaction).subscribe();
+    this.transactionService.addTransaction(transaction).subscribe({
+      next: transaction => {},
+      error: error => console.error(error,transaction),
+    });
     this.router.navigate([""]);
+  }
+
+  getTodayDate() {
+    let todayDate: Date = new Date();
+    var date = new String;
+    date.concat(todayDate.getDay() + "/" + todayDate.getMonth() + "/" + todayDate.getFullYear())
+    return date;
   }
 
   cancel() {

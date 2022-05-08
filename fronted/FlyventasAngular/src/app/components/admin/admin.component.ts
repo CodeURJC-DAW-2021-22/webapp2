@@ -47,16 +47,21 @@ export class AdminComponent implements OnInit{
 
   }
 
+
+
   deleteUser(id:number){
-    this.userService.deleteUser(id).subscribe(
-      error=> console.log(error)
-    )
+    this.userService.deleteUser(id).subscribe({
+      next: next => this.router.navigate(['/admin']),
+      error: error => console.log(error)
+    })
+    window.location.reload()
   }
   deleteproduct(id:number){
     this.productsService.deleteProduct(id).subscribe({
       next: next => this.router.navigate(['/admin']),
       error: error => console.log(error)
     })
+    window.location.reload()
   }
 
 

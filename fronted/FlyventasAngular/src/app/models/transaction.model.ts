@@ -3,7 +3,7 @@ import { User } from "./user.model";
 
 export interface Transaction {
     id?: number;
-    date: Date;
+    date: String;
     price: number;
     product: Product;
     buyer?: User;

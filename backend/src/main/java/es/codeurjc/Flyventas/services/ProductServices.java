@@ -8,9 +8,7 @@ import java.util.Optional;
 
 import es.codeurjc.Flyventas.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import es.codeurjc.Flyventas.repository.ProductRepository;
@@ -52,5 +50,16 @@ public class ProductServices {
 	public void delete(long id) { repository.deleteById(id); }
 
 	public boolean exist(long id) {	return repository.existsById(id); }
+
+	public Product updateProduct(Product product, Product newProduct) {
+
+		product.setTitle(newProduct.getTitle());
+		product.setDescription(newProduct.getDescription());
+		product.setPrice(newProduct.getPrice());
+		product.setCategory(newProduct.getCategory());
+
+		return product;
+	}
+
 
 }

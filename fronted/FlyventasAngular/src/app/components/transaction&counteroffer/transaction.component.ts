@@ -35,7 +35,10 @@ export class TransactionComponent {
       buyer: this.loginService.currentUser(),
       seller: this.product?.user
     }
-    this.transactionService.addTransaction(transaction).subscribe();
+    this.transactionService.addTransaction(transaction).subscribe({
+      next: transaction => {},
+      error: error => console.error(error,transaction),
+    });
     this.router.navigate([""]);
   }
 

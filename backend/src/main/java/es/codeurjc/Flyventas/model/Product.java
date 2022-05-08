@@ -3,6 +3,8 @@ package es.codeurjc.Flyventas.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.sql.Blob;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -24,6 +26,18 @@ public class Product {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "receiver", cascade = CascadeType.REMOVE)
+    private List<Counteroffer> counterofferList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "transmitter", cascade = CascadeType.REMOVE)
+    private List<Counteroffer> counterofferList1 = new ArrayList<>();
+
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.REMOVE)
+    private List<Transaction> transactionList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.REMOVE)
+    private List<Transaction> transactionList1 = new ArrayList<>();
 
 
 

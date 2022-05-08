@@ -21,6 +21,7 @@ export class LoginService {
       next: response => {
         this.user = response as User;
         this.logged = true;
+        console.log(response)
       },
       error: error => {
         if (error.status != 404) {

@@ -1,8 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../models/product.model";
 import {LoginService} from "../../services/login.service";
+import {User} from "../../models/user.model";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-upload-product',
@@ -14,9 +16,17 @@ export class UploadProductComponent {
 
   @ViewChild("file")
   file: any;
+  user: User;
 
   constructor( private router: Router, activatedRoute: ActivatedRoute, public productService: ProductService,
-               public loginService: LoginService) {
+               public loginService: LoginService, public userService: UserService) {
+
+    this.userService.getUserLogged().subscribe({
+
+        next: response => this.user = response,
+        error: error => this.router.navigate(['/login'])
+      }
+    )
 
   }
 
@@ -29,7 +39,7 @@ export class UploadProductComponent {
       price: price,
       isSold: false,
       image: false,
-      user: this.loginService.currentUser()
+      user: this.user
     }
     this.productService.addProduct(newProduct).subscribe(
       newProduct => {
@@ -52,10 +62,6 @@ export class UploadProductComponent {
     } else {
       this.router.navigate([""])
     }
-  }
-
-  private afterUploadImage(product: Product){
-    this.router.navigate(['/books/', product.id]);
   }
 
   cancel() {

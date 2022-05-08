@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Product } from '../models/product.model';
 import {User} from "../models/user.model";
 
-const BASE_URL = 'https://localhost:8443/api/products/';
+const BASE_URL = '/api/products/';
 
 @Injectable({ providedIn: 'root' })
 

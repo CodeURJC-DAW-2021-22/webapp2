@@ -3,11 +3,12 @@ FROM maven:3.6.3-openjdk-11 as builder
 #Directorio de trabajo
 WORKDIR /project
 #Copiamos el código
-COPY backend/pom.xml /project/
-RUN mvn clean verify
-COPY backend/src /project/src
+COPY pom.xml /project/
+RUN mvn clean verify --fail-never
+COPY src/main/resources /project/src/main/resources
+COPY src/main/java /project/src/main/java
 #Mandamos compilar el proyecto
-RUN mvn package -DskipTests=true
+RUN mvn package -o -DskipTests=true
 
 #-----------------------------------------------------------------
 

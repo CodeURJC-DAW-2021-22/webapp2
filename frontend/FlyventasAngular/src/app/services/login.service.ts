@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 
-const BASE_URL = 'api';
+const BASE_URL = '/api';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {

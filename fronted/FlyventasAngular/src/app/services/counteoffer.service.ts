@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import {Counteroffer} from "../models/counteroffer.model";
 import {Product} from "../models/product.model";
 
-const BASE_URL = 'https://localhost:8443/api/counteroffers/';
+const BASE_URL = 'api/counteroffers/';
 
 @Injectable({ providedIn: 'root' })
 export class CounterofferService {

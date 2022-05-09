@@ -36,8 +36,9 @@ export class TransactionService {
     ))
   }
 
-  addTransaction(transaction: Transaction) {
-    return this.httpClient.post(BASE_URL, transaction).pipe(map(
+  addTransaction(product) {
+    console.log(product)
+    return this.httpClient.post(BASE_URL, product).pipe(map(
       response => response as Transaction,
     ))
   }

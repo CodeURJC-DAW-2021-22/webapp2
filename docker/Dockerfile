@@ -7,9 +7,14 @@ FROM maven:3.6.3-openjdk-11 as builder
 WORKDIR /project
 #Copiamos el código
 COPY pom.xml /project/
-COPY /src /project/src
+
 #Mandamos compilar el proyecto
-RUN mvn package -DskipTests=true
+RUN mvn clean verify --fail-never
+
+COPY src/main/resources /project/src/main/resources
+COPY src/main/java /project/src/main/java
+
+RUN mvn package -o -DskipTests=true
 
 #-----------------------------------------------------------------
 

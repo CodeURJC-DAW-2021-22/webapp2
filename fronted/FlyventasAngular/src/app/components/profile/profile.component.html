@@ -2,7 +2,7 @@
 <app-search-add></app-search-add>
 <section class="hero">
   <section class="featured spad" >
-   <div class="container" > <!-- *ngIf="this.check_id==true"-->
+   <div class="container" *ngIf="product"> <!-- *ngIf="this.check_id==true"-->
       <div class="col-lg-12">
         <div class="section-title">
           <h2>Nombre Usuario</h2>
@@ -95,7 +95,7 @@
                 <th>Comprador</th>
               </tr>
 
-              <tr *ngFor="let c of counteoffer">
+              <tr *ngFor="let c of this.counteoffer">
 
                 <td>{{c.date}}</td>
 
@@ -108,7 +108,7 @@
 
                 <td>
                  <form  method="post"> <!-- action="/aceptarContraoferta/{{i}"-->
-                    <input type="submit" value="Aceptar"/>
+                    <input type="submit" value="Aceptar" (click)="acceptOffer(c.id)"/>
                   </form>
                 </td>
               </tr>
@@ -117,8 +117,8 @@
           </div>
         </div>
 
-        <!-- Preguntas Cuenta -->
-        <div class="contenedor-preguntas activo" data-categoria="compras">
+        <!-- transacciones de las que es comprador -->
+        <div class="contenedor-preguntas activo" data-categoria="compras" *ngIf="transactionsBuyer">
           <div class="contenedor-pregunta">
 
             <title>Tus Compras</title>
@@ -127,12 +127,12 @@
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
 
-              <tr *ngFor="let tBuyer of transactionsBuyer">
+              <tr *ngFor="let tBuyer of this.transactionsBuyer">
                 <td>{{tBuyer.date}}</td>
 
                 <td>{{tBuyer.product.title}}</td>
 
-                <td>{{tBuyer.price}}</td>
+                <td>{{tBuyer.product.price}}</td>
                 <td>Tú</td>
 
                 <td>{{tBuyer.seller.name}}</td>
@@ -144,8 +144,8 @@
           </div>
         </div>
 
-        <!-- Preguntas Cuenta -->
-        <div class="contenedor-preguntas activo" data-categoria="ventas">
+        <!-- transacciones de las que es vendedor -->
+        <div class="contenedor-preguntas activo" data-categoria="ventas" *ngIf="transactionsSeller">
           <div class="contenedor-pregunta">
 
             <title>Tus Ventas</title>
@@ -154,7 +154,7 @@
                 <th>Comprador</th> <th>Vendedor</th>
               </tr>
 
-              <tr *ngFor="let tSeller of transactionsSeller">
+              <tr *ngFor="let tSeller of this.transactionsSeller">
                 <td>{{tSeller.date}}</td>
 
                 <td>{{tSeller.product.title}}</td>

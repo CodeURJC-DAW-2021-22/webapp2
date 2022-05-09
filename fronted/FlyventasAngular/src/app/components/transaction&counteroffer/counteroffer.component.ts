@@ -29,7 +29,8 @@ export class CounterofferComponent {
   newCounteroffer(newPrice: string) {
     let todayDate: Date = new Date();
     var price: number = + newPrice;
-    const counteroffer: Counteroffer ={
+
+    let counteroffer ={
       date: todayDate,
       newPrice: price,
       product: this.product,

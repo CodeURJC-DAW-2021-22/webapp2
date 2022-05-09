@@ -35,7 +35,8 @@ export class TransactionComponent {
       category: this.product.category,
       price: this.product.price,
       isSold: this.product.isSold,
-      image: this.product.image
+      image: this.product.image,
+      user: this.product.user
     };
     //console.log(transaction)
     console.log(data)

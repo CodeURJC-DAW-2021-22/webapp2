@@ -26,8 +26,6 @@ export class ProfileComponent {
   counteoffer!: Counteroffer[];
   userprofile : User;
   idUser!:number;
-  check_id!: boolean;
-  idP: number;
   category: string;
   description: string;
   price: number;
@@ -73,7 +71,7 @@ export class ProfileComponent {
         });
 
           this.tranServices.getTransactionsUserSeller(this.idUser).subscribe({
-            next: show => this.transactionsSeller= show,
+            next: show => {this.transactionsSeller= show, console.log(show)},
             error: error => console.log(error)
         });
 
@@ -100,7 +98,11 @@ export class ProfileComponent {
     })
   }
 
-  acceptOffer(){
+  acceptOffer(id:number){
+      this.counServices.acceptCounteroffer(id).subscribe({
+        next: value => this.counteoffer,
+        error: error => console.error(error)
+      })
 
   }
 

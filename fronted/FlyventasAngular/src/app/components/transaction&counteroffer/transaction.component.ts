@@ -28,16 +28,21 @@ export class TransactionComponent {
   }
 
   newTransation() {
-    const transaction: Transaction ={
-      date: this.getTodayDate(),
-      price: this.product?.price,
-      product: this.product,
-      buyer: this.loginService.currentUser(),
-      seller: this.product?.user
-    }
-    this.transactionService.addTransaction(transaction).subscribe({
+    let data = {
+      id: this.product.id,
+      title: this.product.title,
+      description: this.product.description,
+      category: this.product.category,
+      price: this.product.price,
+      isSold: this.product.isSold,
+      image: this.product.image,
+      user: this.product.user
+    };
+    //console.log(transaction)
+    console.log(data)
+    this.transactionService.addTransaction(data).subscribe({
       next: transaction => {},
-      error: error => console.error(error,transaction),
+      error: error => console.error(error,this.product),
     });
     this.router.navigate([""]);
   }

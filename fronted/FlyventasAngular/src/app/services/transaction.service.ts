@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
 import {Product} from "../models/product.model";
 
-const BASE_URL = 'https://localhost:8443/api/transactions/';
+const BASE_URL = 'api/transactions/';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
@@ -36,9 +36,10 @@ export class TransactionService {
     ))
   }
 
-  addTransaction(transaction: Transaction) {
-    return this.httpClient.post(BASE_URL, transaction).pipe(map(
-      response => response as Transaction
+  addTransaction(product) {
+    console.log(product)
+    return this.httpClient.post(BASE_URL, product).pipe(map(
+      response => response as Transaction,
     ))
   }
 

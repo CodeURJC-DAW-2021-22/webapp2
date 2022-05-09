@@ -79,9 +79,9 @@ public class CounterofferRestController {
         }
     }
 
-	@PostMapping("/acceptCounteroffer/{id}")
+	@PostMapping("/acceptCounteroffer")
     @ResponseStatus(HttpStatus.CREATED)
-	public Transaction createTransaction(@PathVariable long id) {
+	public Transaction createTransaction(@RequestBody long id) {
 
 	 	Optional<Counteroffer> counterOffer = counterofferServices.findById(id);
          Transaction transaction = new Transaction(counterOffer.get().getProduct(), counterOffer.get().getTransmitter(), counterOffer.get().getNewPrice());
@@ -102,11 +102,21 @@ public class CounterofferRestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/")
+    public Counteroffer createCounteroffer(@RequestBody Counteroffer counteroffer) {
+
+        counterofferServices.save(counteroffer);
+
+        return counteroffer;
+    }
+
     @GetMapping("/user/{id}")
     public ResponseEntity<Object> getCounterofferById(@PathVariable long id) {
 
-        Optional<User> Profile = userServices.findUserById(id);
-        List<Counteroffer> counterOffer = counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5));
+        /*Optional<User> Profile = userServices.findUserById(id);
+        List<Counteroffer> counterOffer = counterofferServices.findByReceiver(Profile.get(), PageRequest.of(0, 5));*/
+        List<Counteroffer> counterOffer = counterofferServices.findCounteroffersByReceiverId(id);
         if (!counterOffer.isEmpty()) {
             return ResponseEntity.ok(counterOffer);
         } else {

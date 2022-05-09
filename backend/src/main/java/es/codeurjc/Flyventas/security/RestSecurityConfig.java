@@ -61,12 +61,12 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("USER");
 
         // TransactionRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/transactions/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/transactions/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/transactions/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/transactions/**").permitAll();
 
         // CounterofferRestController
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/counteroffers/**").hasRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/counteroffers/**").hasRole("USER");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/counteroffers/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/counteroffers/**").permitAll();
 
 
         // Other URLs can be accessed without authentication

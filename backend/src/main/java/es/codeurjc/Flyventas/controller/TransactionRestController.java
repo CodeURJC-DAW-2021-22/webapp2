@@ -60,12 +60,13 @@ public class TransactionRestController {
 	public ResponseEntity newTransaction(HttpServletRequest request, @RequestBody Product product) {
 
         Principal principal = request.getUserPrincipal();
+        Optional<User> User = userServices.findUserByEmail(principal.getName());
 
-        //Before making the transaction, it would be necessary to check if the token that you have sent us through the link is the same as the one that the payment gateway sends us.
-        SimpleMailMessage email = null;
+        product.setIsSold(true);
+        productServices.save(product);
 
-            Optional<User> User = userServices.findUserByEmail(principal.getName());
-            transactions.save(new Transaction(product, User.get(), product.getPrice()));
+        transactions.save(new Transaction(product, User.get(), product.getPrice()));
+        /*SimpleMailMessage email = null;
 
             email = new SimpleMailMessage();
             email.setTo(principal.getName());
@@ -73,8 +74,8 @@ public class TransactionRestController {
             String str = Long.toString(product.getId());
             String message = ("https://localhost:8443/confirmacionCompra/" + str + "/?format=pdf");
             email.setText(message);
-            mailSender.send(email);
-            return new ResponseEntity<>(email, HttpStatus.OK);
+            mailSender.send(email);*/
+            return new ResponseEntity<>(HttpStatus.OK);
         }
 
     @GetMapping("/")

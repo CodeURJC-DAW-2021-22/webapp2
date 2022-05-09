@@ -57,6 +57,7 @@ public class ProductServices {
 		product.setDescription(newProduct.getDescription());
 		product.setPrice(newProduct.getPrice());
 		product.setCategory(newProduct.getCategory());
+		product.setIsSold(newProduct.getIsSold());
 
 		return product;
 	}

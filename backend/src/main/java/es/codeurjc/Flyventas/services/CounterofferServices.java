@@ -28,6 +28,13 @@ public class CounterofferServices {
 
         return repository.findCounteroffersByReceiver(receiver, pageable);
     }
+    public List<Counteroffer> findCounteroffersByReceiverId(long id) {
+        return repository.findCounteroffersByReceiverId(id);
+    }
+
+    public void save(Counteroffer counteroffer){
+        repository.save(counteroffer);
+    }
 
     public List<Product> findHottestProducts(Pageable page) {
         return repository.findHottestProducts(page);

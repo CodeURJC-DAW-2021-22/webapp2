@@ -1,0 +1,79 @@
+<div class="container"><!-- content Section begin -->
+
+  <div class="row"><!-- pay method Section begin -->
+    <div class="col-lg-12">
+
+      <div class="section-title">
+        <h2>Seleccione método de pago</h2>
+      </div>
+      <div class="categorias metodosPagoCompra" id="categorias">
+        <div class="categoria activa">
+          <a><img src="/img/logo_paypal.jpg"> </a>
+          <p>Paypal</p>
+        </div>
+        <div class="categoria metodosPagoCompra">
+          <a><img src="/img/visaLogo.png"> </a>
+          <p>VISA</p>
+        </div>
+        <div class="categoria metodosPagoCompra">
+          <a><img src="/img/appleLogo.png"> </a>
+          <p>APPLE PAY</p>
+        </div>
+        <div class="categoria metodosPagoCompra">
+          <a><img src="/img/Gpay.jpg"> </a>
+          <p>Google pay</p>
+        </div>
+      </div><!-- pay method Section End -->
+
+      <hr color="#346cc0" />
+
+      <div class="container"><!-- product selected Section begin -->
+        <div class="row">
+          <h2>Producto seleccionado</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-4" id="FotoProductoCompra">
+            <a><img src="/img/blankprofile.png" alt=""></a>
+          </div>
+
+          <div class="col-lg-8 col-md-8" id="descripcionCompra">
+            <p>Título</p>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div><!-- product selected Section End -->
+
+      <hr color="#346cc0" />
+      <form>
+        <div class="row"><!-- final price Section begin -->
+          <p>Nueva Oferta:</p> <br>
+          <div class="row">
+            <label for="newPrice" class="form-label"></label>
+            <div class="col-md-4">
+              <input #newPrice type="number" name="newPrice" id="newPrice" placeholder=800 maxlength="8" required>
+            </div>
+            <div class="col-md-1">
+              <a>€</a>
+            </div>
+          </div>
+        </div><!--final price Section End -->
+
+        <hr color="#346cc0" />
+
+        <div class="row" id="CajaBotonesCompra"><!-- button options Section begin -->
+
+          <div class="col-lg-6 col-md-6 botonesComprar">
+            <button type="submit" class="BotonProducto botonComprarProducto" *ngIf="loginService.isLogged()" (click)="newCounteroffer(newPrice.value)">Comprar</button>
+          </div>
+          <div class="col-lg-6 col-md-6 botonesComprar">
+            <button class="BotonProducto botonContraOfertaProducto" (click)="cancel()">Cancelar</button>
+          </div>
+
+        </div><!-- button options Section End -->
+      </form>
+      <br><br><br><br><br>
+
+    </div>
+  </div><!-- content Section End -->
+
+</div>

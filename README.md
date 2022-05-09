@@ -270,9 +270,8 @@ Cabe destacar que deberemos estar en el terminal la ruta donde se aloje nuestra 
 ### Diagrama de clases y templates:
 
 <div>
-    <img src="FlyVentas/img/screenshot_fase1/DiagramaFase4.png">
+    <img src="Resources/DiagramaFase4.png" title="Diagrama Fase 4">
 </div>
-
 
 ***
 

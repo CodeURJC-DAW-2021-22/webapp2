@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
 
-const BASE_URL = 'api/users/';
+const BASE_URL = '/api/users/';
 
 @Injectable({
   providedIn: 'root'

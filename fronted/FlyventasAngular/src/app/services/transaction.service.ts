@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
 import {Product} from "../models/product.model";
 
-const BASE_URL = 'api/transactions/';
+const BASE_URL = '/api/transactions/';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {

@@ -116,7 +116,7 @@
 
                   </div>
                 </div>
-                <p class="forgot"><a href="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
+                <p class="forgot"><a [routerLink]="['/login']">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
                 <button type="submit" class="button button-block" (click)="register(name.value,surname.value,email.value,password.value, address.value, category1.value, category2.value, category3.value)">Registrarse</button>
               </form>
             </div>

@@ -21,10 +21,10 @@
               <!--<div *ngIf="!loginService.isAdmin()">-->
               <div>
                 <div class="header__top__right__language"  >
-                  <i class="fa fa-user"></i> <a href="/profile"> Hola, {{loginService.currentUser().name}} </a>
+                  <i class="fa fa-user"></i> <a [routerLink]="['/profile']"> Hola, {{loginService.currentUser().name}} </a>
                 </div>
                 <div class="header__top__right__auth">
-                  <a href="/home" (click)="loginService.logOut()"><i class="fa fa-user"></i> Cerrar sesión</a>
+                  <a [routerLink]="['/home']"(click)="loginService.logOut()"><i class="fa fa-user"></i> Cerrar sesión</a>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
       <div class="col-lg-6">
         <nav class="header__menu">
           <ul>
-            <li class="active"><a href="/">Home</a></li>
+            <li class="active"><a [routerLink]="['/home']">Home</a></li>
           </ul>
         </nav>
       </div>

@@ -1237,8 +1237,8 @@ ol {
 -----------------------*/
 
 .product {
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-top: 0px;
+	padding-bottom: 20px;
 }
 
 .product__discount {
@@ -3450,8 +3450,8 @@ ol {
 	}
 
 
-	
-	
+
+
 }
 
 /*Producto*/
@@ -3474,8 +3474,8 @@ ol {
 	border-radius: 10px;
     border-style: solid;
 	border-color: #073f54;
-	
-	
+
+
 
 }
 
@@ -3532,8 +3532,8 @@ ol {
 
 
 .botonComprarProducto {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 2px solid #4CAF50;
 	height: 120%;
     width: 60%;
@@ -3546,8 +3546,8 @@ ol {
 }
 
 .botonContraOfertaProducto {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 2px solid #d80808;
 	height: 120%;
     width: 60%;
@@ -3570,7 +3570,7 @@ ol {
 }
 
 .precioCompra{
-	
+
 	text-align: center;
 }
 

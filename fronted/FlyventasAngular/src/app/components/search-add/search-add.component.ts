@@ -17,10 +17,8 @@ export class SearchAddComponent{
   category = []
 
   reload(){
-    this.router.navigate(['search/'+this.txt+'/'+this.page])
-      .then(() => {
-        window.location.reload();
-      });
+    this.router.navigate(['/search/'+this.txt+'/'+this.page])
+
   }
   setTxt(t:string){
     this.txt = t;

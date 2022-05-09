@@ -365,3 +365,8 @@ https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngul
 https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/register/register.component.ts  
 https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/login/login.component.ts  
 https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/login/login.component.html  
+
+***
+
+### Vìdeo:
+https://www.youtube.com/watch?v=u9x7gRgpiaE

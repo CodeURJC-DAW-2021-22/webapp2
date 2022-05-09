@@ -1,11 +1,13 @@
+
+
+
 #Imagen base 
 FROM maven:3.6.3-openjdk-11 as builder
 #Directorio de trabajo
 WORKDIR /project
 #Copiamos el código
-COPY backend/pom.xml /project/
-RUN mvn clean verify
-COPY backend/src /project/src
+COPY pom.xml /project/
+COPY /src /project/src
 #Mandamos compilar el proyecto
 RUN mvn package -DskipTests=true
 
@@ -18,6 +20,7 @@ WORKDIR /usr/src/app/
 #Copiamos el .jar 
 COPY --from=builder /project/target/*.jar /usr/src/app/
 #Indicamos el puerto expuesto
-EXPOSE 8443
+EXPOSE 8080
 #Comando que se debe ejecutar
 CMD [ "java", "-jar", "flyventas-spring-0.0.1-SNAPSHOT.jar" ]
+

@@ -2,7 +2,7 @@
 
 <div>
 <img src="Resources\Logos\LogoReadme.jpeg" width="300px">
-</p>
+
 </div>
 
 ***
@@ -253,5 +253,116 @@ ya creada en el perfil), y la subida de la imagen a heroku para su posterior eje
 5. API Rest v3 : https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/7642ac7b9b3702c1e66e3774cf303fd66a57f05b
 
 
+***
+# Fase 4
+
+### Instrucciones de ejecución de la aplicación dockerizada:
+Angular es un framework para desarrollo SPA  
+Para instalarlo deberemos usar el comando npm install -g @angular/cli  
+posteriormente para crear un proyecto podemos usar ng new ejem0  
+En nuestro caso hemos usado el IDE desarrollado por JetBrains, WebStorm, orientado a este tipo de aplicaciones y no necesita configuración.  
+Una vez tenemos nuestro proyecto debemos comprobar que tenemos la carpeta node_modules, si no es así, desde el mismo terminal del IDE, deberemos
+ejecutar el comando npm install.  
+Para hacer funcionar la aplicación que hemos desarrollado debemos ejecutar el comando ng serve.  
+Cabe destacar que deberemos estar en el terminal la ruta donde se aloje nuestra aplicación para ejecutar los comandos.  
+***
+
+### Diagrama de clases y templates:
+
+<div>
+    <img src="FlyVentas/img/screenshot_fase1/DiagramaFase4.png">
+</div>
 
 
+***
+
+### Participación de miembros:
+
+**Francis Cardi Pérez:**
+He realizado una extensión en cada pagina donde aparece el buscador y categorías a la izquierda, al pulsar el botón de buscar, redirecciona a la de búsqueda con la palabra que deseamos buscar. He realizado la pagina de búsqueda con su respectiva paginación. He creado la pagina admin y profile con todas las respectivas funciones. He solucionado bugs de redireccionamientos y encabezados. He subido la aplicación a heroku. He creado funciones de servicios para las paginas que he creado. Modificación de rest.
+pagina admin, solucion bugs, correcions ervicios, pagina perfil(bug e… …n transaciones) : https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/b0840dbfe96770d8dc2b9b5bf3b82428bbe0362e
+Proceso de perfil (productos del ususario realizado, contaofertas, tr…  
+…ansaciones):https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/87eed1b70a1775ee0269c971ab2a32e86e41ca5b  
+
+Buscador y pagina de busqueda Terminado, con paginacion: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/122a38cbe89738585a94ab34b16a144c6712a83a  
+
+pagina admin, solucion bugs: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/821061868a4be8659331ed7b7723b0c68af9d277  
+
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/4a20b2d0713f03e633f61479627687a7a0d14acd: https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/4a20b2d0713f03e633f61479627687a7a0d14acd  
+
+Ficheros  
+product.services.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/services/product.service.ts  
+component/search-add:  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/tree/main/fronted/FlyventasAngular/src/app/components/search-add  
+components/search/:   
+https://github.com/CodeURJC-DAW-2021-22/webapp2/tree/main/fronted/FlyventasAngular/src/app/components/search  
+components/admin/:  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/tree/main/fronted/FlyventasAngular/src/app/components/admin  
+components/profile/:  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/tree/main/fronted/FlyventasAngular/src/app/components/profile  
+
+
+**Jaime Molinero Mellado:**  
+Mi principal acticidad ha sido Subir Producto, home, header, arreglo de bugs y documentación  
+commits  
+home y subir producto  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/3374b1da281bc93796e3bf4ebfd46bf3433674e0  
+Actualización upload product  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/166c0dc1dc5e1430adccbbb91aeaa8a511977371  
+Arreglo en conflicto de ruta  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/349493b941477d7c532607ccd5414cf832d1e4b0  
+introducción de css  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/b6c66e3cee6c921fa9b71e8fddf4f45f863d4657  
+configuración de ide  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/74f22bf4cc637c31528b1850c09b9cbae9719f79  
+
+
+ficheros  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/customheader%26footer/customfooter.component.html  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/home/home.component.html  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/upload-product/upload-product.component.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/upload-product/upload-product.component.html  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/home/home.component.html  
+
+
+**Miguel Ruíz Morán:**  
+Poner a punto el router y enlaces, header y footer, crear gran parte de los componentes, así como los modelos product, user y category.  
+Arreglos en product, admin y customheader.  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/5b01a6adba473faae35c94b37610db24f33c4a34  
+bug customheader y prohibir subirproducto sin login  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/237c726830b28757c4fe770b8f2659b4fe39a504  
+product component arreglado  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/9ade750f16224d1cd58d755360cf3f5ba83eb0f2  
+arreglos en proxy, search-add, crear user model ,login service.  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/382d19585a619e94cfbe00685a75f0d85db70c15  
+Crear product component  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/1f6e606bb48db5240645dafe7457e9c8c5275969  
+Ficheros  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/tree/main/fronted/FlyventasAngular/src/app/components/customheader%26footer  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/models/category.model.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/models/product.model.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/models/user.model.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/product/product.component.ts  
+
+
+**Samuel Rusu:** Creación y puesta en funcionamiento de login, registro y transacción. También algunos estilos y algunos links.  
+
+Transaction  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/e7547f4c048ae3a4501dce68627eea80503b90d8  
+login/register api  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/41515937efdaae36e4bb8d84f44da5ad43886478  
+login and some links  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/2c23389303730bf587db0c604d36194f4b77f6bf  
+some styles  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/0f54d89a4f56856f4f07396017dfb9eda4becbdb  
+login&register working + some styles  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/commit/02e82889c82f2c6626b8b496a8e490931437cf49
+
+
+Ficheros  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/transaction%26counteroffer/counteroffer.component.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/transaction%26counteroffer/transaction.component.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/register/register.component.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/login/login.component.ts  
+https://github.com/CodeURJC-DAW-2021-22/webapp2/blob/main/fronted/FlyventasAngular/src/app/components/login/login.component.html  

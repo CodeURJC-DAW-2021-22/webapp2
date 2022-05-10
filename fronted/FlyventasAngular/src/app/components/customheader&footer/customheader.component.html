@@ -15,7 +15,7 @@
             <div class="header__top__right">
               <div *ngIf="loginService.isAdmin()">
                 <div class="header__top__right__social">
-                  <a href="/admin"><i class="fa fa-user"></i>MODO DIOS</a>
+                  <a [routerLink]="['/admin']"><i class="fa fa-user"></i>MODO DIOS</a>
                 </div>
               </div>
               <!--<div *ngIf="!loginService.isAdmin()">-->

@@ -56,7 +56,6 @@
                   <th>Categoria</th>
                   <th>Precio</th>
                   <th>Descripcion</th>
-                  <th>Imagen</th>
                   <th>Vendido</th>
                   <th>Id Publica</th>
                   <th>Opciones</th>
@@ -68,7 +67,6 @@
                     <td><input type="text" name="category" [(ngModel)]="this.category" size="5">{{p.category}}</td>
                     <td><input type="number" name="price" [(ngModel)]="this.price" size="5">{{p.price}}</td>
                     <td><input type="text" name="description" [(ngModel)]="this.description" size="5">{{p.description}}</td>
-                    <td>imagen</td>
                     <td>{{p.isSold}}</td>
                     <td>{{p.id}}</td>
                     <td>
@@ -130,12 +128,12 @@
               <tr *ngFor="let tBuyer of this.transactionsBuyer">
                 <td>{{tBuyer.date}}</td>
 
-                <td>{{tBuyer.product.title}}</td>
+                <td>{{tBuyer.price}}</td>
 
-                <td>{{tBuyer.product.price}}</td>
+                <td>{{tBuyer.product_id.price}}</td>
                 <td>Tú</td>
 
-                <td>{{tBuyer.seller.name}}</td>
+                <td>{{tBuyer.seller_id.name}}</td>
 
               </tr>
 
@@ -157,11 +155,11 @@
               <tr *ngFor="let tSeller of this.transactionsSeller">
                 <td>{{tSeller.date}}</td>
 
-                <td>{{tSeller.product.title}}</td>
+                <td>{{tSeller.product_id.title}}</td>
 
                 <td>{{tSeller.price}}</td>
 
-                <td>{{tSeller.buyer.name}}</td>
+                <td>{{tSeller.buyer_id.name}}</td>
 
                 <td>Tú</td>
               </tr>

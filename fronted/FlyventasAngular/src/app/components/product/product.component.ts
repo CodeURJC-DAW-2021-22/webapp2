@@ -28,7 +28,7 @@ export class ProductComponent {
   }
 
   productImage(id:number){
-    return 'https://localhost:8443/api/products/'+id+'/image';
+    return '/api/products/'+id+'/image';
   }
 
 }
